@@ -1,0 +1,20 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <add_to_chat_mode>8</add_to_chat_mode>
+        <auto_fight>off</auto_fight>
+        <sets>
+
+        </sets>
+        <targets>ding bats,huge hornet,tunnel worm</targets>
+    </global>
+    <mishrahh>
+        <targets>eschan ghrah</targets>
+    </mishrahh>
+    <ninnyhammer>
+        <targets>numbing blossom</targets>
+    </ninnyhammer>
+    <tishrahh>
+        <targets>ding bats,huge hornet,numbing blossom,tunnel worm</targets>
+    </tishrahh>
+</settings>

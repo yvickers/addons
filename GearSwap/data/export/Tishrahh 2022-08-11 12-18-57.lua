@@ -1,0 +1,17 @@
+sets.exported={
+    main="Mafic Cudgel",
+    sub="Culminus",
+    range={ name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}},
+    head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    body={ name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+    legs="Inyanga Shalwar +2",
+    feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    neck="Reti Pendant",
+    waist="Gishdubar Sash",
+    left_ear="Mendi. Earring",
+    right_ear="Meili Earring",
+    left_ring="Ayanmo Ring",
+    right_ring="Inyanga Ring",
+    back="Oretan. Cape +1",
+}

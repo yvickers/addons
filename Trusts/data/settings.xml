@@ -1,0 +1,509 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <auto>true</auto>
+        <language>English</language>
+        <sets>
+            <aamr>
+                <1>AAEV</1>
+                <2>Iroha II</2>
+                <3>Selh&apos;teus</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </aamr>
+            <abyssea>
+                <1>Ulmia</1>
+                <2>Koru-Moru</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Brygid</4>
+                <5>Star Sibyl</5>
+            </abyssea>
+            <allavatar>
+                <1>Yoran-Oran (UC)</1>
+                <2>Monberaux</2>
+                <3>Koru-Moru</3>
+            </allavatar>
+            <allmacro>
+                <1>Monberaux</1>
+                <2>Koru-Moru</2>
+                <3>Yoran-Oran (UC)</3>
+            </allmacro>
+            <allquetz>
+                <1>Lilisette II</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Koru-Moru</3>
+            </allquetz>
+            <allwoe>
+                <1>Monberaux</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Koru-Moru</3>
+            </allwoe>
+            <ambu>
+                <1>Monberaux</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Koru-Moru</3>
+            </ambu>
+            <ambu2>
+                <1>Iroha II</1>
+                <2>Qultada</2>
+                <3>Monberaux</3>
+                <4>Ferreous Coffin</4>
+                <5>King of Hearts</5>
+            </ambu2>
+            <ambuboth>
+                <1>Monberaux</1>
+                <2>Selh&apos;teus</2>
+                <3>King of Hearts</3>
+                <4>Kupipi</4>
+            </ambuboth>
+            <ambuscade>
+                <1>Amchuchu</1>
+                <2>Iroha II</2>
+                <3>Selh&apos;teus</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </ambuscade>
+            <ambuscade2>
+                <1>Iroha II</1>
+                <2>Selh&apos;teus</2>
+                <3>Koru-Moru</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Cherukiki</5>
+            </ambuscade2>
+            <avatar>
+                <1>Selh&apos;teus</1>
+                <2>AAEV</2>
+                <3>Amchuchu</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </avatar>
+            <bakunawa>
+                <1>August</1>
+                <2>Selh&apos;teus</2>
+                <3>Koru-Moru</3>
+                <4>Cherukiki</4>
+                <5>Yoran-Oran (UC)</5>
+            </bakunawa>
+            <blucleave>
+                <1>Brygid</1>
+                <2>Moogle</2>
+                <3>Star Sibyl</3>
+                <4>Monberaux</4>
+                <5>Yoran-Oran (UC)</5>
+            </blucleave>
+            <blulearn>
+                <1>Brygid</1>
+                <2>Ulmia</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+                <5>Sakura</5>
+            </blulearn>
+            <bothwoe>
+                <1>Monberaux</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Koru-Moru</3>
+                <4>Valaineral</4>
+            </bothwoe>
+            <br>
+                <1>Yoran-Oran (UC)</1>
+                <2>Joachim</2>
+                <3>Cherukiki</3>
+                <4>Ulmia</4>
+                <5>Koru-Moru</5>
+            </br>
+            <buff>
+                <1>Qultada</1>
+                <2>Ulmia</2>
+                <3>Joachim</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </buff>
+            <buffcor>
+                <1>Ulmia</1>
+                <2>Joachim</2>
+                <3>King of Hearts</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Kupofried</5>
+            </buffcor>
+            <buffcortank>
+                <1>August</1>
+                <2>Ulmia</2>
+                <3>Joachim</3>
+                <4>King of Hearts</4>
+                <5>Yoran-Oran (UC)</5>
+            </buffcortank>
+            <carous>
+                <1>Amchuchu</1>
+                <2>Cherukiki</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Zeid II</4>
+                <5>Koru-Moru</5>
+            </carous>
+            <centurio>
+                <1>Amchuchu</1>
+                <2>Monberaux</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>King of Hearts</4>
+                <5>Koru-Moru</5>
+            </centurio>
+            <coriadnc>
+                <1>Amchuchu</1>
+                <2>Zeid II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Apururu (UC)</5>
+            </coriadnc>
+            <coriamnk>
+                <1>Amchuchu</1>
+                <2>Qultada</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Apururu (UC)</5>
+            </coriamnk>
+            <coriathf>
+                <1>Valaineral</1>
+                <2>Tenzen</2>
+                <3>Joachim</3>
+                <4>Apururu (UC)</4>
+            </coriathf>
+            <coriawar>
+                <1>Rahal</1>
+                <2>Shantotto II</2>
+                <3>Koru-Moru</3>
+                <4>Apururu (UC)</4>
+            </coriawar>
+            <dawn>
+                <1>AAEV</1>
+                <2>Amchuchu</2>
+                <3>Selh&apos;teus</3>
+                <4>Arciela</4>
+                <5>Yoran-Oran (UC)</5>
+            </dawn>
+            <default>
+                <1>Valaineral</1>
+                <2>Mihli Aliapoh</2>
+                <3>Tenzen</3>
+                <4>Adelheid</4>
+                <5>Joachim</5>
+            </default>
+            <grenade>
+                <1>Amchuchu</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Ulmia</3>
+                <4>Koru-Moru</4>
+                <5>Monberaux</5>
+            </grenade>
+            <lilith>
+                <1>Selh&apos;teus</1>
+                <2>Joachim</2>
+                <3>Monberaux</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </lilith>
+            <lilith2>
+                <1>Iroha II</1>
+                <2>Joachim</2>
+                <3>Cherukiki</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </lilith2>
+            <macro>
+                <1>AATT</1>
+                <2>Koru-Moru</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Monberaux</4>
+            </macro>
+            <macrocosmic>
+                <1>August</1>
+                <2>AATT</2>
+                <3>King of Hearts</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Monberaux</5>
+            </macrocosmic>
+            <meph>
+                <1>Monberaux</1>
+                <2>King of Hearts</2>
+                <3>Selh&apos;teus</3>
+                <4>Joachim</4>
+                <5>Yoran-Oran (UC)</5>
+            </meph>
+            <mishmission>
+                <1>Valaineral</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Monberaux</3>
+                <4>King of Hearts</4>
+                <5>Zeid II</5>
+            </mishmission>
+            <mishrahhmnk>
+                <1>Qultada</1>
+                <2>Ulmia</2>
+                <3>Koru-Moru</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Monberaux</5>
+            </mishrahhmnk>
+            <mishrahhpt>
+                <1>August</1>
+                <2>Zeid II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </mishrahhpt>
+            <mishrahhptmag>
+                <1>Amchuchu</1>
+                <2>Iroha II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </mishrahhptmag>
+            <mishrahhwar>
+                <1>Qultada</1>
+                <2>Joachim</2>
+                <3>Ulmia</3>
+                <4>Monberaux</4>
+                <5>Koru-Moru</5>
+            </mishrahhwar>
+            <mishsc>
+                <1>Ayame</1>
+                <2>Joachim</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+                <5>Monberaux</5>
+            </mishsc>
+            <mishsr>
+                <1>Selh&apos;teus</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Monberaux</3>
+                <4>AAEV</4>
+                <5>King of Hearts</5>
+            </mishsr>
+            <mtisaoe>
+                <1>Star Sibyl</1>
+                <2>Brygid</2>
+                <3>Monberaux</3>
+                <4>Yoran-Oran (UC)</4>
+            </mtisaoe>
+            <mtishabyssea>
+                <1>Star Sibyl</1>
+                <2>Shantotto II</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+            </mtishabyssea>
+            <mtishavatar>
+                <1>Amchuchu</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Monberaux</3>
+                <4>Koru-Moru</4>
+            </mtishavatar>
+            <mtishmacro>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+            </mtishmacro>
+            <mtishomen>
+                <1>Valaineral</1>
+                <2>Shantotto II</2>
+                <3>King of Hearts</3>
+                <4>Yoran-Oran (UC)</4>
+            </mtishomen>
+            <mtishquetz>
+                <1>Mayakov</1>
+                <2>Lilisette II</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+            </mtishquetz>
+            <mtishunm>
+                <1>AAEV</1>
+                <2>Qultada</2>
+                <3>Monberaux</3>
+                <4>Koru-Moru</4>
+            </mtishunm>
+            <mtishwar>
+                <1>Qultada</1>
+                <2>Joachim</2>
+                <3>Monberaux</3>
+                <4>Koru-Moru</4>
+            </mtishwar>
+            <ninnyexp>
+                <1>Valaineral</1>
+                <2>Zeid II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </ninnyexp>
+            <ninnywar>
+                <1>Qultada</1>
+                <2>Cornelia</2>
+                <3>Koru-Moru</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Joachim</5>
+            </ninnywar>
+            <nomelee>
+                <1>Yoran-Oran (UC)</1>
+                <2>Koru-Moru</2>
+                <3>Brygid</3>
+                <4>Moogle</4>
+                <5>Monberaux</5>
+            </nomelee>
+            <odin>
+                <1>Monberaux</1>
+                <2>King of Hearts</2>
+                <3>Brygid</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </odin>
+            <odyssey>
+                <1>August</1>
+                <2>Qultada</2>
+                <3>Joachim</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </odyssey>
+            <odytank>
+                <1>August</1>
+                <2>Koru-Moru</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>AAEV</4>
+                <5>Amchuchu</5>
+            </odytank>
+            <omen>
+                <1>August</1>
+                <2>Iroha II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </omen>
+            <omenblu>
+                <1>Valaineral</1>
+                <2>Joachim</2>
+                <3>Shantotto II</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>King of Hearts</5>
+            </omenblu>
+            <quetz>
+                <1>Lilisette II</1>
+                <2>Mayakov</2>
+                <3>Selh&apos;teus</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </quetz>
+            <raptors>
+                <1>August</1>
+                <2>Shantotto II</2>
+                <3>Ulmia</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </raptors>
+            <reive>
+                <1>Iroha II</1>
+                <2>Qultada</2>
+                <3>Monberaux</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </reive>
+            <reive2>
+                <1>Iroha II</1>
+                <2>Qultada</2>
+                <3>Monberaux</3>
+                <4>King of Hearts</4>
+                <5>Ferreous Coffin</5>
+            </reive2>
+            <shinryu>
+                <1>Selh&apos;teus</1>
+                <2>Joachim</2>
+                <3>Monberaux</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </shinryu>
+            <temp>
+                <1>Joachim</1>
+                <2>Ulmia</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Monberaux</4>
+                <5>King of Hearts</5>
+            </temp>
+            <tenzen>
+                <1>August</1>
+                <2>Gessho</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </tenzen>
+            <tishabyssea>
+                <1>Valaineral</1>
+                <2>Shantotto II</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+                <5>Star Sibyl</5>
+            </tishabyssea>
+            <tishexp>
+                <1>Valaineral</1>
+                <2>Zeid II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </tishexp>
+            <tishmission>
+                <1>Valaineral</1>
+                <2>Qultada</2>
+                <3>Joachim</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </tishmission>
+            <tishwar>
+                <1>Qultada</1>
+                <2>Joachim</2>
+                <3>Ulmia</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </tishwar>
+            <vidma>
+                <1>August</1>
+                <2>Yoran-Oran (UC)</2>
+                <3>Monberaux</3>
+                <4>Cherukiki</4>
+                <5>King of Hearts</5>
+            </vidma>
+            <voidwatch>
+                <1>Amchuchu</1>
+                <2>Zeid II</2>
+                <3>Shantotto II</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </voidwatch>
+            <vw>
+                <1>AAEV</1>
+                <2>Monberaux</2>
+                <3>Selh&apos;teus</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </vw>
+            <wkr>
+                <1>Selh&apos;teus</1>
+                <2>Arciela</2>
+                <3>Yoran-Oran (UC)</3>
+                <4>Koru-Moru</4>
+                <5>Cherukiki</5>
+            </wkr>
+            <woe13>
+                <1>Valaineral</1>
+                <2>Selh&apos;teus</2>
+                <3>Monberaux</3>
+                <4>Yoran-Oran (UC)</4>
+                <5>Koru-Moru</5>
+            </woe13>
+            <ws>
+                <1>Ayame</1>
+                <2>Ulmia</2>
+                <3>Joachim</3>
+                <4>Koru-Moru</4>
+                <5>Yoran-Oran (UC)</5>
+            </ws>
+        </sets>
+        <wait>
+            <aftercast>3</aftercast>
+            <retr>1.25</retr>
+            <retrall>3</retrall>
+        </wait>
+    </global>
+</settings>
