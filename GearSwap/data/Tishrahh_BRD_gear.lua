@@ -29,6 +29,9 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Fili Cothurnes +1"
 
 	gear.capes = {}
+	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
+	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10',}}
+	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 end
 
@@ -39,6 +42,7 @@ function init_gear_sets()
 	    legs=gear.Ayanmo.Legs,
 	    neck="Voltsurge Torque",
 	    waist="Embla Sash",
+	    back=gear.capes.IMBARD,
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
 	}
@@ -77,7 +81,7 @@ function init_gear_sets()
 		--right_ear="Moonshade Earring",
 		--left_ring="Epona's Ring",
 		--right_ring="Rajas Ring",
-		--back=gear.capes.StrDA,
+		back=gear.capes.SavageWS,
 	}
 
 	sets.midcast.FastRecast = {}
@@ -93,6 +97,7 @@ function init_gear_sets()
 		legs=gear.Inyanga.Legs,
 		feet=gear.Artifact.Feet,
 		neck="Mnbw. Whistle +1",
+		back=gear.capes.IMBARD,
 	}
 
 	sets.midcast.SongDebuff = {
@@ -106,6 +111,7 @@ function init_gear_sets()
 		feet=gear.Artifact.Feet,
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
+		back=gear.capes.IMBARD,
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		left_ear="Hermetic Earring",
@@ -210,7 +216,7 @@ function init_gear_sets()
 		--right_ear="Genmei Earring",
 		left_ring="Ayanmo Ring",
 		right_ring="Inyanga Ring",
-		--back=gear.capes.DexTP,
+		back=gear.capes.IMBARD,
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})
@@ -232,7 +238,7 @@ function init_gear_sets()
 		right_ear="Crep. Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Rajas Ring",
-		back=gear.capes.DexTP,
+		back=gear.capes.TP,
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

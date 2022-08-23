@@ -3,16 +3,16 @@ function define_global_sets()
 
     gear.Meghanada = {}
     gear.Meghanada.Head = "Meghanada Visor +1"
-    gear.Meghanada.Body = "Meg. Cuirie +1"
+    gear.Meghanada.Body = "Meg. Cuirie +2"
     gear.Meghanada.Hands = "Meg. Gloves +2"
-    gear.Meghanada.Legs = "Meg. Chausses +1"
+    gear.Meghanada.Legs = "Meg. Chausses +2"
     gear.Meghanada.Feet = "Meg. Jam. +1"
 
     gear.Mummu = {}
-    gear.Mummu.Head = "Mummu Bonnet"
-    gear.Mummu.Body = "Mummu Jacket"
+    gear.Mummu.Head = "Mummu Bonnet +1"
+    gear.Mummu.Body = "Mummu Jacket +2"
     gear.Mummu.Hands = "Mummu Wrists +2"
-    gear.Mummu.Legs = "Mummu Kecks"
+    gear.Mummu.Legs = "Mummu Kecks +2"
     gear.Mummu.Feet = "Mummu Gamash. +1"
 
     gear.Hiza = {}

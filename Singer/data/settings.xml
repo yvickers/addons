@@ -74,4 +74,14 @@
         <troubadour>true</troubadour>
         <use_ws>true</use_ws>
     </global>
+    <tishrahh>
+        <actions>true</actions>
+        <box>
+            <text>
+                <fonts>
+
+                </fonts>
+            </text>
+        </box>
+    </tishrahh>
 </settings>

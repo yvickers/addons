@@ -9,25 +9,25 @@ function define_global_sets()
     gear.Meghanada.Feet = "Meg. Jam. +2"
 
     gear.Mummu = {}
-    gear.Mummu.Head = "Mummu Bonnet"
-    gear.Mummu.Body = "Mummu Jacket"
-    gear.Mummu.Hands = "Mummu Wrists"
-    gear.Mummu.Legs = "Mummu Kecks"
-    gear.Mummu.Feet = "Mummu Gamash."
+    gear.Mummu.Head = "Mummu Bonnet +1"
+    gear.Mummu.Body = "Mummu Jacket +2"
+    gear.Mummu.Hands = "Mummu Wrists +2"
+    gear.Mummu.Legs = "Mummu Kecks +1"
+    gear.Mummu.Feet = "Mummu Gamash. +1"
 
     gear.Hiza = {}
-    gear.Hiza.Head = "Hiza. Somen"
+    gear.Hiza.Head = "Hiza. Somen +1"
     gear.Hiza.Body = "Hiza. Haramaki"
-    gear.Hiza.Hands = "Hizamaru Kote"
+    gear.Hiza.Hands = "Hizamaru Kote +1"
     gear.Hiza.Legs = "Hiza. Hizayoroi"
-    gear.Hiza.Feet = "Hiza. Sune-Ate"
+    gear.Hiza.Feet = "Hiza. Sune-Ate +1"
 
     gear.Sulevia = {}
     gear.Sulevia.Head = "Sulevia's Mask"
     gear.Sulevia.Body = "Sulevia's Plate."
     gear.Sulevia.Hands = "Sulev. Gauntlets"
     gear.Sulevia.Legs = "Sulevi. Cuisses"
-    gear.Sulevia.Feet = "Sulev. Leggings"
+    gear.Sulevia.Feet = "Sulev. Leggings +2"
 
     gear.Inyanga = {}
     gear.Inyanga.Head = "Inyanga Tiara"
@@ -52,10 +52,10 @@ function define_global_sets()
 
     gear.Flamma = {}
     gear.Flamma.Head = "Flam. Zucchetto"
-    gear.Flamma.Body = "Flamma Korazin"
+    gear.Flamma.Body = "Flamma Korazin +1"
     gear.Flamma.Hands = "Flam. Manopolas"
-    gear.Flamma.Legs = "Flamma Dirs"
-    gear.Flamma.Feet = "Flam. Gambieras"
+    gear.Flamma.Legs = "Flamma Dirs +1"
+    gear.Flamma.Feet = "Flam. Gambieras +1"
 
     gear.Taliah = {}
     gear.Taliah.Head = "Tali'ah Turban"
