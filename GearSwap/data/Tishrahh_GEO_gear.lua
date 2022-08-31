@@ -23,11 +23,11 @@ function user_job_setup()
 	gear.Relic.Feet = "Bagua Sandals +2"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Azimuth Hood +1"
+	gear.Empyrean.Head = "Azimuth Hood +2"
 	gear.Empyrean.Body = "Azimuth Coat"
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Azimuth Feet +1"
+	gear.Empyrean.Feet = "Azimuth Gaiters +1"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -3%',}}
@@ -61,7 +61,7 @@ function init_gear_sets()
 		neck="Voltsurge Torque",
     	waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
-		right_ear="Loquac Earring",
+		right_ear="Loquac. Earring",
 		left_ring="Weather. Ring",
     	right_ring="Lebeche Ring",
 		back=gear.capes.GeoSkill,
@@ -132,9 +132,9 @@ function init_gear_sets()
 		right_ring="Vertigo Ring",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
-		head=gear.Telchine.Head.GEO,
 		legs=gear.Telchine.Legs.GEO,
 		feet=gear.Relic.Feet,
+		neck="Bagua Charm +2",
 		waist="Isa Belt",
 		--left_ear="Enchntr. Earring +1",
 		--right_ear="Loquac Earring",
@@ -149,11 +149,11 @@ function init_gear_sets()
 	}
 
 	sets.engaged = {
-		main="Trial Wand",
 	    sub="Sors Shield",
+		head=gear.Empyrean.Head,
 	    hands=gear.Jhakri.Hands,
 	    feet=gear.Jhakri.Feet,
-	    neck="Sanctity Necklace",
+	    --neck="Sanctity Necklace",
 	    waist="Eschan Stone",
 	    left_ear="Crep. Earring",
 	    left_ring="Crepuscular Ring",

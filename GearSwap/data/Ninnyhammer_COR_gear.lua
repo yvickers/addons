@@ -21,9 +21,9 @@ function user_job_setup()
     gear.Relic.Feet = "Lanun Bottes +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = "Chass. Tricorne +1"
+    gear.Empyrean.Head = "Chass. Tricorne +2"
     gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = "Chasseur's Gants +1"
+    gear.Empyrean.Hands = "Chasseur's Gants +2"
     gear.Empyrean.Legs = ""
     gear.Empyrean.Feet = ""
 
@@ -98,7 +98,7 @@ function init_gear_sets()
     sets.precast.WS = {
         head=gear.Meghanada.Head,
         body=gear.Artifact.Body,
-        hands=gear.Meghanada.Hands,
+        hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,
         feet=gear.Relic.Feet,
         neck="Comm. Charm +1",
@@ -171,7 +171,7 @@ function init_gear_sets()
     sets.precast.WS['Last Stand'] = {
         head=gear.Meghanada.Body,
         body=gear.Artifact.Body,
-        hands=gear.Meghanada.Hands,
+        hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,
         feet=gear.Relic.Feet,
         --neck="Fotia Gorget",
@@ -245,7 +245,7 @@ function init_gear_sets()
         --head="Malignance Chapeau",
         --body="Malignance Tabard",
         --hands="Malignance Gloves",
-        head=gear.Meghanada.Head,
+        head=gear.Empyrean.Head,
         body=gear.Meghanada.Body,
         hands=gear.Meghanada.Hands,
         legs="Carmine Cuisses +1",
@@ -261,7 +261,7 @@ function init_gear_sets()
     }
 
     sets.engaged.Melee = {
-        head=gear.Meghanada.Head,
+        head=gear.Empyrean.Head,
         body=gear.Meghanada.Body,
         hands=gear.Meghanada.Hands,
         legs=gear.Meghanada.Legs,

@@ -4,6 +4,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include(player.name..'_'..player.main_job..'_gear.lua') -- Required Gear file.
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -33,11 +34,11 @@ function job_setup()
     gear.Artifact.Feet = ""
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = "Ebers Cap +1"
-    gear.Empyrean.Body = "Ebers Bliaut +1"
-    gear.Empyrean.Hands = "Ebers Mitts +1"
-    gear.Empyrean.Legs = "Ebers Pant. +1"
-    gear.Empyrean.Feet = "Ebers Duckbills +1"
+    gear.Empyrean.Head = ""
+    gear.Empyrean.Body = ""
+    gear.Empyrean.Hands = ""
+    gear.Empyrean.Legs = ""
+    gear.Empyrean.Feet = ""
 
     gear.Relic = {}
     gear.Relic.Head = ""
@@ -47,8 +48,7 @@ function job_setup()
     gear.Relic.Feet = ""
 
     gear.capes = {}
-    --gear.capes.TP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Magic dmg. taken-6%',}}
-    gear.capes.CurePotency = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+3','"Cure" potency +10%',}}
+    gear.capes.CurePotency = { name="Alaunus's Cape", augments={}}
 
     -- Additional local binds
 --[[
@@ -61,9 +61,15 @@ function job_setup()
 --]]
 
 
-    select_default_macro_book()
+    if select_default_macro_book then
+        select_default_macro_book()
+    end
 
     send_command('wait 10; input /lockstyle on')
+
+    if user_job_setup then
+        user_job_setup()
+    end
 
     function handle_smartcure(cmdParams)
 		if cmdParams[2] then
@@ -179,7 +185,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {
-   		body="Piety Bliaut +1"
+   		--body="Piety Bliaut +1"
 	}
 
     -- Waltz set (chr and vit)
@@ -274,21 +280,21 @@ function init_gear_sets()
 
     sets.midcast['Full Cure'] = sets.midcast.FastRecast
     sets.midcast.Cure = {
-		main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-		sub="Sors Shield",
-		ammo="Hydrocera",
-		head={ name="Vanya Hood", augments={'MP+49','"Cure" potency +7%','Enmity-5',}},
-		body=gear.Empyrean.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Empyrean.Legs,
-		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
-		neck="Cleric's Torque",
-		waist="Hachirin-no-Obi",
-		left_ear="Glorious Earring",
-		right_ear="Nourish. Earring +1",
-		--left_ring="",
-		--right_ring="",
-		back=gear.capes.CurePotency
+		--main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+		--sub="Sors Shield",
+		--ammo="Hydrocera",
+		--head={ name="Vanya Hood", augments={'MP+49','"Cure" potency +7%','Enmity-5',}},
+		--body=gear.Empyrean.Body,
+		--hands=gear.Inyanga.Hands,
+		--legs=gear.Empyrean.Legs,
+		--feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
+		--neck="Cleric's Torque",
+		--waist="Hachirin-no-Obi",
+		--left_ear="Glorious Earring",
+		--right_ear="Nourish. Earring +1",
+		----left_ring="",
+		----right_ring="",
+		--back=gear.capes.CurePotency
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
 	})
@@ -304,7 +310,7 @@ function init_gear_sets()
 		--legs="",
 		--feet="",
 		--neck="",
-		waist="Embla Sash",
+		--waist="Embla Sash",
 		--left_ear="",
 		--right_ear="",
 		--left_ring="",
@@ -342,57 +348,28 @@ function init_gear_sets()
     
 	-- Idle sets
 	sets.idle = {
-		ammo="Staunch Tathlum",
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
-		feet=gear.Ayanmo.Feet,
-		neck="Warder's Charm +1",
-		waist="Hachirin-no-Obi",
-		left_ear="Genmei Earring",
-		right_ear="Ethereal Earring",
-		left_ring="Ayanmo Ring",
-		right_ring="Defending Ring",
-		back="Solemnity Cape",
+		--ammo="Staunch Tathlum",
+		--head=gear.Ayanmo.Head,
+		--body=gear.Ayanmo.Body,
+		--hands=gear.Ayanmo.Hands,
+		--legs=gear.Ayanmo.Legs,
+		--feet=gear.Ayanmo.Feet,
+		--neck="Warder's Charm +1",
+		--waist="Hachirin-no-Obi",
+		--left_ear="Genmei Earring",
+		--right_ear="Ethereal Earring",
+		--left_ring="Ayanmo Ring",
+		--right_ring="Defending Ring",
+		--back="Solemnity Cape",
 	}
 
     sets.idle.Town = set_combine( sets.idle, {} )
     sets.idle.PDT = set_combine( sets.idle, {} )
     
     -- Defense sets
-    sets.defense.PDT = {
-    	sub="Genmei Shield",
-        ammo="Staunch Tathlum",
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
-		feet=gear.Ayanmo.Feet,
-		neck="Warder's Charm +1",
-		waist="Hachirin-no-Obi",
-		left_ear="Genmei Earring",
-		right_ear="Ethereal Earring",
-		left_ring="Ayanmo Ring",
-		right_ring="Defending Ring",
-		back="Solemnity Cape",
-    }
+    sets.defense.PDT = {}
 
-    sets.defense.MDT = {
-        ammo="Staunch Tathlum",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
-		neck="Warder's Charm +1",
-		waist="Hachirin-no-Obi",
-		left_ear="Genmei Earring",
-		right_ear="Ethereal Earring",
-		left_ring="Ayanmo Ring",
-		right_ring="Defending Ring",
-		back="Solemnity Cape",
-    }
+    sets.defense.MDT = {}
     
     sets.Kiting = set_combine( sets.PDT, {
     })
@@ -485,9 +462,4 @@ function automatic_job_buffs()
     end
 
     return false
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	set_macro_page(1, 8)
 end

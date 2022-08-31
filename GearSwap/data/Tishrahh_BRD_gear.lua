@@ -19,13 +19,13 @@ function user_job_setup()
 	gear.Relic.Body = "Bihu Jstcorps. +3"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Feet = "Bihu Slippers +2"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Fili Calot +1"
 	gear.Empyrean.Body = "Fili Hongreline +1"
 	gear.Empyrean.Hands = "Fili Manchettes +1"
-	gear.Empyrean.Legs = ""
+	gear.Empyrean.Legs = "Fili Rhingrave +2"
 	gear.Empyrean.Feet = "Fili Cothurnes +1"
 
 	gear.capes = {}
@@ -59,10 +59,10 @@ function init_gear_sets()
 	} )
 
 	sets.precast.JA.Nightingale = {
-		--feet=gear.Relic.Feet,
+		feet=gear.Relic.Feet,
 	}
 	sets.precast.JA.Troubadour = {
-		--body=gear.Relic.Body,
+		body=gear.Relic.Body,
 	}
 	sets.precast.JA['Soul Voice'] = {
 		--legs=gear.Relic.Legs,
@@ -150,12 +150,13 @@ function init_gear_sets()
 		legs=gear.Inyanga.Legs,
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
-	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby,{})
-	sets.midcast['Horde Lullaby'].Resistant = set_combine(sets.midcast.Lullaby.Resistant,{})
-	sets.midcast['Horde Lullaby'].AoE = set_combine(sets.midcast.Lullaby,{})
-	sets.midcast['Horde Lullaby II'] = set_combine(sets.midcast.Lullaby,{})
-	sets.midcast['Horde Lullaby II'].Resistant = set_combine(sets.midcast.Lullaby.Resistant,{})
-	sets.midcast['Horde Lullaby II'].AoE = set_combine(sets.midcast.Lullaby,{})
+	sets.midcast.Lullaby.AOE = set_combine(sets.midcast.Lullaby,{
+		feet=gear.Relic.Feet,
+	})
+	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby.AOE,{})
+	sets.midcast['Horde Lullaby'].Resistant = set_combine(sets.midcast.Lullaby.AOE,{})
+	sets.midcast['Horde Lullaby II'] = set_combine(sets.midcast.Lullaby.AOE,{})
+	sets.midcast['Horde Lullaby II'].Resistant = set_combine(sets.midcast.Lullaby.AOE,{})
 	sets.midcast.Madrigal = {
 		feet=gear.Empyrean.Feet,
 	}
@@ -214,7 +215,7 @@ function init_gear_sets()
 		--waist="Moonbow Belt",
 		--left_ear="Odnowa Earring +1",
 		--right_ear="Genmei Earring",
-		left_ring="Ayanmo Ring",
+		left_ring="Defending Ring",
 		right_ring="Inyanga Ring",
 		back=gear.capes.IMBARD,
 	}
@@ -230,7 +231,7 @@ function init_gear_sets()
 		head=gear.Ayanmo.Head,
 		body=gear.Ayanmo.Body,
 		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
+		legs=gear.Empyrean.Legs,
 		feet=gear.Ayanmo.Feet,
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",

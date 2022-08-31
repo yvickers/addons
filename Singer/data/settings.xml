@@ -28,8 +28,8 @@
             </flags>
             <padding>0</padding>
             <pos>
-                <x>570</x>
-                <y>5</y>
+                <x>380</x>
+                <y>50</y>
             </pos>
             <text>
                 <alpha>255</alpha>
@@ -74,14 +74,4 @@
         <troubadour>true</troubadour>
         <use_ws>true</use_ws>
     </global>
-    <tishrahh>
-        <actions>true</actions>
-        <box>
-            <text>
-                <fonts>
-
-                </fonts>
-            </text>
-        </box>
-    </tishrahh>
 </settings>

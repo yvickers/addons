@@ -74,6 +74,7 @@ function init_gear_sets()
 		hands=gear.Artifact.Hands,
 		legs=gear.Relic.Legs,
 		feet="Medium's Sabots",
+		neck="Bagua Charm +2",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back=gear.capes.GeoSkill,

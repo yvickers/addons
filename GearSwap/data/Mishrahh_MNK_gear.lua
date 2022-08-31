@@ -18,7 +18,7 @@ function user_job_setup()
 	gear.Artifact.Body = "Anch. Cyclas +1"
 	gear.Artifact.Hands = "Anchor. Gloves +3"
 	gear.Artifact.Legs = "Temple Hose"
-	gear.Artifact.Feet = "Temple Gaiters"
+	gear.Artifact.Feet = "Anch. Gaiters +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
@@ -29,9 +29,9 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
-	gear.Empyrean.Body = "Bhikku Cyclas +1"
+	gear.Empyrean.Body = "Bhikku Cyclas +2"
 	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = ""
+	gear.Empyrean.Legs = "Bhikku Hose +2"
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
@@ -39,7 +39,7 @@ function user_job_setup()
 	gear.capes.StrDA = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.capes.VitWS = { name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
 
-	sets.buff.Impetus = {body="Bhikku Cyclas +1"}
+	sets.buff.Impetus = {body=gear.Empyrean.Body}
 
 --[[
 ^   Ctrl
@@ -73,7 +73,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.JA['Dodge'] = {
-		--body=gear.Artifact.Feet,
+		body=gear.Artifact.Feet,
 	}
 
 	sets.precast.JA['Chakra'] = {
@@ -146,7 +146,7 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs=gear.Empyrean.Legs,
 		feet="Hermes' Sandals",
 		neck="Loricate Torque +1",
 		waist="Moonbow Belt",
@@ -159,18 +159,18 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Coiste Bodhar",
-		head="Ken. Jinpachi +1",
+		head=gear.Adhemar.Head.B,
 		body="Mpaca's Doublet",
-		hands="Mpaca's Gloves",
-		legs="Mpaca's Hose",
-		feet="Malignance Boots",
+		hands=gear.Adhemar.Hands.A,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Artifact.Feet,
 		neck="Mnk. Nodowa +1",
 		waist="Moonbow Belt",
 		left_ear="Sherida Earring",
 		--right_ear="Schere Earring",
-		right_ear="Telos Earring",
+		right_ear="Mache Earring +1",
 		left_ring="Niqmaddu Ring",
-		right_ring="Chirich Ring +1",
+		right_ring="Gere Ring",
 		back=gear.capes.DexTP,
 	}
 
@@ -179,7 +179,6 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
 		feet="Malignance Boots",
 		--left_ring="Defending Ring",
 	})
@@ -188,7 +187,6 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
 		feet="Malignance Boots",
 	})
 end

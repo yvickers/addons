@@ -34,23 +34,23 @@
         </icon>
         <left_justify>false</left_justify>
         <pos>
-            <x>1225</x>
-            <y>900</y>
+            <x>930</x>
+            <y>620</y>
         </pos>
         <show_ammo_count>true</show_ammo_count>
         <show_encumbrance>true</show_encumbrance>
         <size>32</size>
     </global>
-    <tishrahh>
-        <pos>
-            <x>580</x>
-            <y>350</y>
-        </pos>
-    </tishrahh>
     <ninnyhammer>
         <pos>
-            <x>580</x>
-            <y>380</y>
+            <x>380</x>
+            <y>225</y>
         </pos>
     </ninnyhammer>
+    <tishrahh>
+        <pos>
+            <x>380</x>
+            <y>225</y>
+        </pos>
+    </tishrahh>
 </settings>

@@ -283,6 +283,9 @@ function check_buff()
 		if not buffactive.Impetus and abil_recasts[31] < latency then
 			windower.chat.input('/ja "Impetus" <me>')
 			return true
+		elseif not buffactive.Footwork and abil_recasts[21] < latency then
+			windower.chat.input('/ja "Footwork" <me>')
+			return true
 		elseif not (buffactive.Aggressor or buffactive.Focus) and abil_recasts[13] < latency then
 			windower.chat.input('/ja "Focus" <me>')
 			return true

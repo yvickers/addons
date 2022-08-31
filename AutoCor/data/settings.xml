@@ -11,7 +11,7 @@
         </aoe>
         <autora>true</autora>
         <crooked_cards>1</crooked_cards>
-        <roll>Ninja Roll,Corsair&apos;s Roll</roll>
+        <roll>Samurai Roll,Chaos Roll</roll>
         <text>
             <bg>
                 <alpha>255</alpha>
@@ -30,7 +30,7 @@
             <padding>0</padding>
             <pos>
                 <x>0</x>
-                <y>0</y>
+                <y>50</y>
             </pos>
             <text>
                 <alpha>255</alpha>
@@ -60,17 +60,17 @@
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
-        <roll>Samurai Roll,Tactician&apos;s Roll</roll>
+        <roll>Samurai Roll,Chaos Roll</roll>
         <text>
             <pos>
-                <x>1135</x>
-                <y>24</y>
+                <x>930</x>
+                <y>50</y>
             </pos>
         </text>
     </mishrahh>
     <ninnyhammer>
         <aoe>
-            <p1>false</p1>
+            <p1>true</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
@@ -79,8 +79,8 @@
         <roll>Samurai Roll,Chaos Roll</roll>
         <text>
             <pos>
-                <x>580</x>
-                <y>5</y>
+                <x>380</x>
+                <y>50</y>
             </pos>
         </text>
     </ninnyhammer>

@@ -194,9 +194,9 @@ function init_gear_sets()
 		feet=gear.Artifact.Feet,
 		neck="War. Beads +1",
 		waist="Ioskeha Belt +1",
-		left_ear="Cessance Earring",
+		left_ear="Schere Earring",
 		right_ear="Telos Earring",
-		left_ring="Petrov Ring",
+		left_ring="Chirich Ring +1",
 		right_ring="Niqmaddu Ring",
 		back=gear.capes.DexTP,
 	}
@@ -235,7 +235,6 @@ function init_gear_sets()
 		hands=gear.Sulevia.Hands,
 		legs="Sakpata's Cuisses",
 		feet="Sakpata's Leggings",
-		left_ear="Schere Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
 	})
