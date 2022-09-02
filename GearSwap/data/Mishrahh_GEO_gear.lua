@@ -1,5 +1,4 @@
 function user_job_setup()
-	state.TicksActive 			= M( true, 'TicksActive' )
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Bolelabunga",
@@ -32,6 +31,9 @@ function user_job_setup()
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +15','Pet: Damage taken -1%',}}
+	gear.capes.DexTP = { name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Pet: "Regen"+10',}}
+	gear.capes.MNDWS = { name="Nantosuelta's Cape", augments={'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+	gear.capes.MAB = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 
 end
 
@@ -52,6 +54,21 @@ function init_gear_sets()
 	sets.precast.JA['Full Circle'] = {
 		head=gear.Empyrean.Head,
 		--hands=gear.Relic.Hands
+	}
+
+	sets.precast.WS = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Sanctity Necklace",
+		waist="Prosilio Belt +1",
+		left_ear="Malignance Earring",
+		right_ear="Ishvara Earring",
+		left_ring="Rufescent Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back=gear.capes.MNDWS,
 	}
 
 	sets.precast.FC = {
@@ -114,7 +131,7 @@ function init_gear_sets()
 	    right_ear="Barkaro. Earring",
 	    left_ring="Freke Ring",
 	    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	    --back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	    back=gear.capes.MAB,
 	}
 	sets.midcast['Dark Magic'] = {}
 	sets.midcast.Stun = {}
@@ -182,7 +199,7 @@ function init_gear_sets()
 		right_ear="Crep. Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		--back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+		back=gear.capes.DexTP,
 	}
 end
 

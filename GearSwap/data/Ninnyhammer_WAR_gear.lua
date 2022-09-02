@@ -3,17 +3,31 @@ function user_job_setup()
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Naegling",
-		--sub="Blurred Shield +1",
+		sub="Blurred Shield +1",
 	}
 	gear.weapons['Mace'] = {
 		main="Loxotic Mace +1",
-		--sub="Blurred Shield +1",
+		sub="Blurred Shield +1",
 	}
 
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', }
 
+	gear.Artifact = {}
+	gear.Artifact.Head = ""
+	gear.Artifact.Body = ""
+	gear.Artifact.Hands = ""
+	gear.Artifact.Legs = ""
+	gear.Artifact.Feet = ""
+
+	gear.Relic = {}
+	gear.Relic.Head = "Agoge Mask +3"
+	gear.Relic.Body = ""
+	gear.Relic.Hands = ""
+	gear.Relic.Legs = ""
+	gear.Relic.Feet = ""
+
 	gear.capes = {}
-	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
+	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
 	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	--gear.capes.VitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 
@@ -29,7 +43,7 @@ function init_gear_sets()
 		--body=gear.Artifact.Body,
 	}
 	sets.precast.JA['Warcry'] = {
-		--head=gear.Relic.Head,
+		head=gear.Relic.Head,
 	}
 	sets.precast.JA['Jump'] = {
 		feet="Ostro Greaves"
@@ -40,7 +54,7 @@ function init_gear_sets()
 
 	sets.precast.WS = {
 		--ammo="Knobkierrie",
-		head="Sakpata's Helm",
+		head=gear.Relic.Head,
 		body="Sakpata's Plate",
 		hands="Sakpata's Gauntlets",
 		legs="Sakpata's Cuisses",

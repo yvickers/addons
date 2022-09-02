@@ -53,10 +53,10 @@ function job_setup()
 	gear.Relic.Feet = "Luhlaza Charuqs +2"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = ""
+	gear.Empyrean.Head = "Hashishin Kavuk +2"
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = "Hashishin Tayt +1"
+	gear.Empyrean.Legs = "Hashishin Tayt +2"
 	gear.Empyrean.Feet = "Hashi. Basmak +1"
 
 	gear.capes = {}
@@ -362,13 +362,13 @@ function init_gear_sets()
 		hands="Amalric Gages +1",
 		legs=gear.Relic.Legs,
 		feet="Amalric Nails +1",
-		neck="Stoicheion Medal",
+		neck="Sanctity Necklace",
 		ear1="Hecate's Earring",
 		ear2="Friomisi Earring",
 		ring1="Metamor. Ring +1",
 		ring2="Jhakri Ring",		
 		back=gear.capes.MAB,
-		waist="Eschan Stone",
+		waist="Orpheus's Sash",
 	}
 					 
 	sets.midcast['Blue Magic'].Magical.Proc = set_combine( sets.midcast.FastRecast, {} )

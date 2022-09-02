@@ -335,11 +335,11 @@ function user_self_command(cmdParams, eventArgs)
     end
     if 'followme' == cmdParams[1] then
         --send_command('@send @others /follow '..player.name )
-        send_command('input //ffo me')
+        windower.send_command('input //ffo me')
     end
     if 'followstop' == cmdParams[1] then
         --windower.ffxi.follow()
-        send_command('//ffo stopall')
+        windower.send_command('input //ffo stopall')
     end
 
 end

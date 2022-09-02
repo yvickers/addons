@@ -106,28 +106,6 @@ local function target_lock_on()
     if player and not player.target_locked then
         windower.send_command('input /lockon')
     end
-
-    --get_in_range()
-end
-
-function get_in_range()
-    in_range = windower.register_event('prerender', function()
-        local player = windower.ffxi.get_player()
-        local target = windower.ffxi.get_mob_by_target('t')
-        if not player.in_combat or not target then
-            clear_in_range()
-            return
-        end
-        if target.distance > (3.2 + target.model_size ) then
-            windower.ffxi.follow(player.target_index)
-        else
-            windower.ffxi.run(false)
-        end
-    end)
-end
-
-function clear_in_range()
-    windower.unregister_event(in_range)
 end
 
 local function set_bool_color(bool)
@@ -209,9 +187,13 @@ windower.register_event('outgoing chunk', function(id, original, modified, injec
         local p = packets.parse('outgoing', original)
         if p['Category'] == 0x02 then
             send_ipc_message_delay:schedule(1, 'attack on '..tostring(p['Target']))
+            --stops fast follow to prevent pushing
+            windower.chat.input('//ffo stopall')
             log('Master: Attack On')
         elseif p['Category'] == 0x04 then
             windower.send_ipc_message('attack off')
+            --reinstates fast follow quicker than status change loop
+            windower.chat.input('//ffo me')
             log('Master: Attack Off')
         end
     end
@@ -274,3 +256,62 @@ windower.register_event('addon command', function(...)
         log(help_text)
     end
 end)
+
+--This loop makes slave track mob and will close distance if within max range (10 yalms currently)
+windower.register_event('prerender', function()
+    local player = windower.ffxi.get_player()
+
+    if not is_slave then
+        return
+    end
+
+    if player.target_index ~= nil then
+        local target = windower.ffxi.get_mob_by_target('t')
+
+        if player.in_combat then
+            if not player.target_locked then
+                windower.send_command('input /lockon')
+            end
+            if not is_facing_target( player, target ) then
+                face_target( player, target )
+            end
+            --equates to 3.2 to 10 yalms, 3.2 should be max melee distance, but it is not exact
+            if target.distance > (10.24 + target.model_size ) and target.distance < 100 then
+                windower.ffxi.follow(player.target_index)
+            elseif target.distance < (10.24 + target.model_size ) then
+                windower.ffxi.run(false)
+            end       
+        end
+        return
+    end
+
+end)
+
+--this loop tracks master and will reinstate ffo after mob death
+windower.register_event('status change', function(new_status, old_status)
+    if not is_master then
+        return
+    end
+    local player = windower.ffxi.get_player()
+    if new_status == player_status['Idle'] then
+        windower.chat.input('//ffo me')
+    end
+end)
+
+function is_facing_target(player, mob)
+    local player_body = windower.ffxi.get_mob_by_id(player.id)
+    local angle = (math.atan2((mob.y - player_body.y), (mob.x - player_body.x))*180/math.pi)
+    local heading = player_body.heading*180/math.pi*-1
+
+    if (math.abs(math.abs(heading) - math.abs(angle)) < 5) then
+        return true
+    end
+    return false
+end
+
+function face_target(player, mob)
+    local player_body = windower.ffxi.get_mob_by_id(player.id)
+    local angle = (math.atan2((mob.y - player_body.y), (mob.x - player_body.x))*180/math.pi)*-1
+    local rads = angle:radian()
+    windower.ffxi.turn(rads)
+end

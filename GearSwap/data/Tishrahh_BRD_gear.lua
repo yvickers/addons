@@ -23,8 +23,8 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Fili Calot +1"
-	gear.Empyrean.Body = "Fili Hongreline +1"
-	gear.Empyrean.Hands = "Fili Manchettes +1"
+	gear.Empyrean.Body = "Fili Hongreline +2"
+	gear.Empyrean.Hands = "Fili Manchettes +2"
 	gear.Empyrean.Legs = "Fili Rhingrave +2"
 	gear.Empyrean.Feet = "Fili Cothurnes +1"
 
@@ -181,7 +181,7 @@ function init_gear_sets()
 		head=gear.Vanya.Head.B,
 		body=gear.Vanya.Body.B,
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-		legs="Inyanga Shalwar +2",
+		legs=gear.Inyanga.Legs,
 		feet=gear.Vanya.Feet.B,
 		neck="Reti Pendant",
 		waist="Gishdubar Sash",
@@ -195,7 +195,7 @@ function init_gear_sets()
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Cursna = {
-		hands="Inyan. Dastanas +2",
+		hands=gear.Inyanga.Hands,
 		feet="Gende. Galosh. +1",
 		neck="Debilis Medallion",
 		waist="Gishdubar Sash",
@@ -208,7 +208,7 @@ function init_gear_sets()
 		range="Linos",
 		head=gear.Inyanga.Head,
 		body=gear.Inyanga.Body,
-		hands=gear.Ayanmo.Hands,
+		hands=gear.Empyrean.Hands,
 		legs=gear.Inyanga.Legs,
 		feet=gear.Empyrean.Feet,
 		neck="Loricate Torque +1",
