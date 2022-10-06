@@ -1,4 +1,5 @@
 function user_job_setup()
+	state.AutoWSTP = M{['description'] = 'AutoWSTP', 1300, }
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Bolelabunga",
@@ -11,7 +12,7 @@ function user_job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = "Geo. Galero +1"
 	gear.Artifact.Body = "Geo. Tunic +1"
-	gear.Artifact.Hands = "Geo. Mitaines +2"
+	gear.Artifact.Hands = "Geo. Mitaines +3"
 	gear.Artifact.Legs = "Geo. Pants +1"
 	gear.Artifact.Feet = "Geo. Sandals +1"
 

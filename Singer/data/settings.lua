@@ -5,12 +5,12 @@ return {
         ["clear"] = L{},
     },
     ["buffs"] = T{
-        ["refresh"] = L{},
         ["haste"] = L{},
+        ["refresh"] = L{},
         ["aurorastorm"] = L{},
         ["firestorm"] = L{},
     },
     ["song"] = {
     },
-    ["songs"] = L{"Advancing March","Victory March","Valor Minuet IV","Valor Minuet V",},
+    ["songs"] = L{"Victory March","Honor March","Valor Minuet IV","Valor Minuet V",},
 }

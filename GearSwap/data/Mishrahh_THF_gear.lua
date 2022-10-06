@@ -206,13 +206,13 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head=gear.Artifact.Head,
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands=gear.Meghanada.Hands,
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet=gear.Herc.Feet.MABWSD,
+        feet="Nyame Sollerets",
         neck="Sanctity Necklace",
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},

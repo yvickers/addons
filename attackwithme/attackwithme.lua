@@ -268,7 +268,7 @@ windower.register_event('prerender', function()
     if player.target_index ~= nil then
         local target = windower.ffxi.get_mob_by_target('t')
 
-        if player.in_combat then
+        if player.status == player_status['Engaged'] then
             if not player.target_locked then
                 windower.send_command('input /lockon')
             end

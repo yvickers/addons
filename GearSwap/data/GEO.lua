@@ -13,6 +13,7 @@ function job_setup()
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	ecliptic_used = false
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
@@ -161,6 +162,20 @@ function job_precast(spell, action, spellMap, eventArgs)
 		add_to_chat(123,'Abort: Bolster maxes the strength of bubbles.')
 	end
 
+	--is there a return mp/hp ability we can use
+	if spell.english == 'Full Circle' then
+		local pet = windower.ffxi.get_mob_by_target('pet')
+		if pet.distance:sqrt() < 10 then
+			if abil_recasts[252] and abil_recasts[252] < 1 and player.mpp < 75 then
+				eventArgs.cancel = true
+				windower.chat.input('/ja "Radial Arcana" <me>')
+			elseif abil_recasts[251] and abil_recasts[251] < 1 and player.hpp < 75 then
+				eventArgs.cancel = true
+				windower.chat.input('/ja "Mending Halation" <me>')
+			end
+		end
+	end
+
 	if spell.english:startswith('Geo-') and pet.isvalid then
 		eventArgs.cancel = true
 		windower.chat.input('/ja "Full Circle" <me>')
@@ -179,6 +194,19 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+	if spell.english == 'Ecliptic Attrition' or spell.english == 'Lasting Emanation' then
+		ecliptic_used = true
+	end
+
+	if spell.english == 'Full Circle' or spell.english == 'Radial Arcana' or spell.english == 'Mending Halation' or spell.english == 'Concentric Pulse' then
+		ecliptic_used = false
+	end
+
+	if not spell.interrupted then
+		if spell.english:startswith('Geo-') then
+			ecliptic_used = false
+		end
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -261,7 +289,7 @@ function check_buff()
 			if pet.distance:sqrt() > 30 then --note: 50 is greater than detectable.
 				windower.chat.input('/ja "Full Circle" <me>')
 				return true
-			elseif not buffactive.Bolster and abil_recasts[244] < latency then
+			elseif not ecliptic_used and not buffactive.Bolster and abil_recasts[244] < latency then
 				windower.chat.input('/ja "Ecliptic Attrition" <me>')
 				return true
 			end

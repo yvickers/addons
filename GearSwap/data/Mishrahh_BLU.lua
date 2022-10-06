@@ -54,13 +54,13 @@ function job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Hashishin Kavuk +2"
-	gear.Empyrean.Body = ""
-	gear.Empyrean.Hands = ""
+	gear.Empyrean.Body = "Hashishin Mintan +2"
+	gear.Empyrean.Hands = "Hashishin Bazubands +2"
 	gear.Empyrean.Legs = "Hashishin Tayt +2"
-	gear.Empyrean.Feet = "Hashi. Basmak +1"
+	gear.Empyrean.Feet = "Hashi. Basmak +2"
 
 	gear.capes = {}
-	gear.capes.TP = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}}
+	gear.capes.TP = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.CritWS = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
 	gear.capes.MAB = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
@@ -205,15 +205,15 @@ function init_gear_sets()
 
 	sets.precast.WS['Savage Blade'] = set_combine( sets.precast.WS, {
 		ammo="Crepuscular Pebble",
-		head=gear.Ayanmo.Head,
+		head=gear.Empyrean.Head,
 		body=gear.Artifact.Body,
 		hands=gear.Jhakri.Hands,
 		legs=gear.Relic.Legs,
-		feet=gear.Ayanmo.Feet,
+		feet="Nyame Sollerets",
 		left_ear="Moonshade Earring",
 		right_ear="Brutal Earring",
-		left_ring="Rajas Ring",
-		right_ring="Rufescent Ring",
+		left_ring="Regal Ring",
+		right_ring="Metamor. Ring +1",
 		waist="Sailfi Belt +1"
 	} )
 	sets.precast.WS['Black Halo'] = set_combine( sets.precast.WS['Savage Blade'], {} )
@@ -241,7 +241,7 @@ function init_gear_sets()
 	})
 
 	sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {
-		--body=gear.Empyrean.Body
+		body=gear.Empyrean.Body
 	})
 
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {
@@ -357,11 +357,11 @@ function init_gear_sets()
 		main="Maxentius",
 		sub="Bunzi's Rod",
 		ammo="Ghastly Tathlum +1",
-		--head=gear.Jhakri.Head,
-		body="Cohort Cloak +1",
-		hands="Amalric Gages +1",
-		legs=gear.Relic.Legs,
-		feet="Amalric Nails +1",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
 		neck="Sanctity Necklace",
 		ear1="Hecate's Earring",
 		ear2="Friomisi Earring",
@@ -686,7 +686,7 @@ function init_gear_sets()
 	sets.idle = {
 		ammo="Crepuscular Pebble",
         head="Malignance Chapeau",
-        body="Malignance Tabard",
+        body=gear.Empyrean.Body,
         hands="Malignance Gloves",
         legs="Carmine Cuisses +1",
         feet="Malignance Boots",
@@ -757,7 +757,9 @@ function init_gear_sets()
 
 	sets.latent_refresh = {
 		head="Rawhide Mask",
-		body=gear.Artifact.Body,
+		body=gear.Empyrean.Body,
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 	}
 end
 

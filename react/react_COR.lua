@@ -4,5 +4,11 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="//lightshot"
         }
+    }, 
+    ["Locus Armet Beetle"]={
+        ["Rhino Guard"]={
+            ["complete_reaction"]="//darkshot", 
+            ["ready_reaction"]=""
+        }
     }
 }

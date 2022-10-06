@@ -2,7 +2,7 @@
 <settings>
     <global>
         <actions>false</actions>
-        <active>true</active>
+        <active>false</active>
         <aoe>
             <p1>true</p1>
             <p2>false</p2>
@@ -54,7 +54,7 @@
         <debuffing>true</debuffing>
         <delay>4</delay>
         <interval>0.1</interval>
-        <marcato>Victory March</marcato>
+        <marcato>Honor March</marcato>
         <max_ws>99</max_ws>
         <min_ws>5</min_ws>
         <nightingale>true</nightingale>
@@ -72,7 +72,7 @@
         <soul_voice>false</soul_voice>
         <timers>false</timers>
         <troubadour>true</troubadour>
-        <use_ws>true</use_ws>
+        <use_ws>false</use_ws>
     </global>
     <tishrahh>
         <actions>true</actions>

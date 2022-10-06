@@ -23,7 +23,7 @@ function user_job_setup()
 		sub="Zantetsuken",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Judgment", "Impulse Drive", "Sonic Thrust", "Ukko's Fury", "Upheaval", "Fell Cleave" }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Judgment", "Impulse Drive", "Sonic Thrust", "Upheaval", "King's Justice", "Fell Cleave" }
 
 
 	gear.Artifact = {}

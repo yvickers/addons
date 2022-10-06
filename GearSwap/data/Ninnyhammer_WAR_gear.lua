@@ -26,6 +26,13 @@ function user_job_setup()
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
 
+	gear.Empyrean = {}
+	gear.Empyrean.Head = ""
+	gear.Empyrean.Body = ""
+	gear.Empyrean.Hands = "Boii Mufflers +2"
+	gear.Empyrean.Legs = ""
+	gear.Empyrean.Feet = ""
+
 	gear.capes = {}
 	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
 	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}

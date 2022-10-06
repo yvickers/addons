@@ -7,7 +7,6 @@ function get_sets()
 end
 
 function job_setup()
-
 	state.OffenseMode:options( 'Melee', 'PDT', 'MDT' )
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
@@ -28,10 +27,10 @@ function job_setup()
 		--ammo="Staunch Tathlum",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Shun' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Shun' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
-	state.NINStance = M{['description'] = 'Ninja Stance', 'Yonin', 'None', 'Innin', }
+	state.NINStance = M{['description'] = 'Ninja Stance',  'Yonin', 'None', 'Innin', }
 	state.AutoUtsu = M( true, "Automatic Utsusemi" )
 	state.AutoUtsuBuffer = M{['description'] = 'Images for recast', 0, 1, 2, }
 
@@ -54,7 +53,7 @@ function job_setup()
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Feet = "Hattori Kyahan +1"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}}
@@ -112,7 +111,7 @@ function init_gear_sets()
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     	--neck="Magoraga Beads",
     	--body="Passion Jacket",
-    	feet="Hattori Kyahan +1"
+    	feet=gear.Empyrean.Feet,
     } )
 
 
@@ -130,6 +129,22 @@ function init_gear_sets()
 		left_ring="Rajas Ring",
 		right_ring="Ilabrat Ring",
 		--back=gear.capes.StrDA,
+	}
+
+	sets.precast.WS['Savage Blade'] = {
+		ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Ishvara Earring",
+		right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+		left_ring="Regal Ring",
+		right_ring="Gere Ring",
+		--back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}},
 	}
 
 	sets.idle = {
@@ -163,7 +178,7 @@ function init_gear_sets()
 		feet=gear.Hiza.Feet,
 		neck="Sanctity Necklace",
 		waist="Patentia Sash",
-		left_ear="Cessance Earring",
+		left_ear="Suppanomimi",
 		right_ear="Eabani Earring",
 		left_ring="Mummu Ring",
 		right_ring="Ilabrat Ring",

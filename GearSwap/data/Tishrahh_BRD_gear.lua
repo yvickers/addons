@@ -11,7 +11,7 @@ function user_job_setup()
 	gear.Artifact.Head = "Brioso Roundlet +3"
 	gear.Artifact.Body = "Brioso Justau. +2"
 	gear.Artifact.Hands = "Brioso Cuffs +2"
-	gear.Artifact.Legs = "Brioso Cannions +2"
+	gear.Artifact.Legs = "Brioso Cannions +3"
 	gear.Artifact.Feet = "Brioso Slippers +3"
 
 	gear.Relic = {}
@@ -19,14 +19,14 @@ function user_job_setup()
 	gear.Relic.Body = "Bihu Jstcorps. +3"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Bihu Slippers +2"
+	gear.Relic.Feet = "Bihu Slippers +3"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Fili Calot +1"
+	gear.Empyrean.Head = "Fili Calot +2"
 	gear.Empyrean.Body = "Fili Hongreline +2"
 	gear.Empyrean.Hands = "Fili Manchettes +2"
 	gear.Empyrean.Legs = "Fili Rhingrave +2"
-	gear.Empyrean.Feet = "Fili Cothurnes +1"
+	gear.Empyrean.Feet = "Fili Cothurnes +2"
 
 	gear.capes = {}
 	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
@@ -57,6 +57,9 @@ function init_gear_sets()
 	    legs={ name="Gende. Spats +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song spellcasting time -4%',}},
 	    feet={ name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}},
 	} )
+	sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong,{
+		range="Marsyas"
+	})
 
 	sets.precast.JA.Nightingale = {
 		feet=gear.Relic.Feet,
@@ -145,13 +148,29 @@ function init_gear_sets()
 	-- Song specific sets --
 	sets.midcast.Ballad = {}
 	sets.midcast.Lullaby = {
-		range="Daurdabla",
-		hands=gear.Inyanga.Hands,
+		main="Kali",
+		sub="Ammurapi Shield",
+		range="Marsyas",
+		head=gear.Artifact.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Artifact.Hands,
 		legs=gear.Inyanga.Legs,
+		feet=gear.Artifact.Feet,
+		neck="Mnbw. Whistle +1",
+		waist="Acuity Belt +1",
+		back=gear.capes.IMBARD,
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		left_ear="Gersemi Earring",
+		right_ear="Crep. Earring",
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
 	sets.midcast.Lullaby.AOE = set_combine(sets.midcast.Lullaby,{
+		range="Daurdabla",
+		body=gear.Artifact.Body,
+		hands=gear.Inyanga.Hands,
 		feet=gear.Relic.Feet,
+		neck="Reti Pendant",
 	})
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby.AOE,{})
 	sets.midcast['Horde Lullaby'].Resistant = set_combine(sets.midcast.Lullaby.AOE,{})
@@ -165,7 +184,9 @@ function init_gear_sets()
 	}
 	sets.midcast.Paeon = {}
 	sets.midcast.March = {}
-	sets.midcast['Honor March'] = set_combine(sets.midcast.March,{})
+	sets.midcast["Honor March"] = set_combine(sets.midcast.March,{
+		range="Marsyas"
+	})
 	sets.midcast.Minuet = {}
 	sets.midcast.Minne = {}
 	sets.midcast.Carol = {}

@@ -1,9 +1,9 @@
 function user_job_setup()
 
-	state.Bullet = M{['description']='Bullet', 'Voluspa Bullet', 'Bronze Bullet'}
+	state.Bullet = M{['description']='Bullet', 'Chrono Bullet', 'Bronze Bullet'}
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Doomsday', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Fomalhaut', }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
 
 	gear.Artifact = {}
@@ -22,10 +22,10 @@ function user_job_setup()
 
     gear.Empyrean = {}
     gear.Empyrean.Head = "Chass. Tricorne +2"
-    gear.Empyrean.Body = ""
+    gear.Empyrean.Body = "Chasseur's Frac +2"
     gear.Empyrean.Hands = "Chasseur's Gants +2"
-    gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = ""
+    gear.Empyrean.Legs = "Chas. Culottes +2"
+    gear.Empyrean.Feet = "Chasseur's Bottes +2"
 
     gear.capes = {}
     gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10',}}
@@ -43,10 +43,10 @@ function user_job_setup()
         ranged="Anarchy +2",
         ammo=state.Bullet.current,
     }
-    gear.weapons['Doomsday'] = {
+    gear.weapons['Fomalhaut'] = {
         main="Naegling",
         sub="Demers. Degen +1",
-        ranged="Doomsday",
+        ranged="Fomalhaut",
         ammo=state.Bullet.current,
     }
 
@@ -65,6 +65,8 @@ function init_gear_sets()
     --sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
     sets.precast.JA['Wild Card'] = {feet=gear.Relic.Feet}
     sets.precast.JA['Random Deal'] = {body=gear.Relic.Body}
+    sets.precast.JA["Blitzer's Roll"] = {head=gear.Empyrean.Head}
+    sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
     sets.precast.Compensator = { ranged = "Compensator" }
 
@@ -138,7 +140,7 @@ function init_gear_sets()
         ear1="Friomisi Earring",
         --ear2="Hecate's Earring",
         body=gear.Relic.Body,
-        --hands="Carmine Fin. Ga. +1",
+        hands="Carmine Fin. Ga. +1",
         --ring1="Dingir Ring",
         --ring2="Metamor. Ring +1",
         --back=gear.capes.RngLeadenCape,
@@ -155,6 +157,7 @@ function init_gear_sets()
         body=gear.Relic.Body,
         hands="Carmine Fin. Ga. +1",
         --left_ring="Dingir Ring",
+        left_ring="Archon Ring",
         right_ring="Ilabrat Ring",
         back=gear.capes.RngMagicalWS,
         waist="Eschan Stone",
@@ -184,11 +187,11 @@ function init_gear_sets()
     }
 
     sets.midcast.CorsairShot = {
-        --head="Nyame Helm",
+        head=gear.Empyrean.Head,
         body=gear.Relic.Body,
         hands="Carmine Fin. Ga. +1",
-        legs="Shned. Tights +1",
-        feet=gear.Relic.Feet,
+        legs=gear.Empyrean.Legs,
+        feet=gear.Empyrean.Feet,
         neck="Comm. Charm +1",
         ear1="Friomisi Earring",
         --ear2="Hecate's Earring",
@@ -246,14 +249,14 @@ function init_gear_sets()
         --body="Malignance Tabard",
         --hands="Malignance Gloves",
         head=gear.Empyrean.Head,
-        body=gear.Meghanada.Body,
+        body=gear.Empyrean.Body,
         hands=gear.Meghanada.Hands,
         legs="Carmine Cuisses +1",
         feet=gear.Meghanada.Feet,
         --feet="Malignance Boots",
         --left_ring="Defending Ring",
         --right_ring="Warp Ring",
-        --neck="Loricate Torque +1",
+        neck="Elite Royal Collar",
         --waist="Flume Belt +1",
         --left_ear="Odnowa Earring +1",
         --right_ear="Genmei Earring",
@@ -262,9 +265,9 @@ function init_gear_sets()
 
     sets.engaged.Melee = {
         head=gear.Empyrean.Head,
-        body=gear.Meghanada.Body,
+        body=gear.Empyrean.Body,
         hands=gear.Meghanada.Hands,
-        legs=gear.Meghanada.Legs,
+        legs=gear.Empyrean.Legs,
         feet=gear.Meghanada.Feet,
         neck="Sanctity Necklace",
         waist="Sailfi Belt +1",

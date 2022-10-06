@@ -222,7 +222,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
-function job_midcast(spell, spellMap, eventArgs)
+function job_post_midcast(spell, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
         if spell.type == 'BardSong' then
             -- layer general gear on first, then let default handler add song-specific gear.
@@ -234,7 +234,7 @@ function job_midcast(spell, spellMap, eventArgs)
 					equip(sets.midcast[generalClass])
 				end
             end
-
+			
             if sets.midcast[spell.english] then
 				if sets.midcast[spell.english][state.CastingMode.value] then
 					equip(sets.midcast[spell.english][state.CastingMode.value])

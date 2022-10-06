@@ -69,7 +69,7 @@ function user_job_setup()
     gear.Empyrean = {}
     gear.Empyrean.Head = ""
     gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = "Chasseur's Gants +1"
+    gear.Empyrean.Hands = "Chasseur's Gants +2"
     gear.Empyrean.Legs = ""
     gear.Empyrean.Feet = ""
 

@@ -82,9 +82,10 @@ function define_global_sets()
 
     gear.Telchine = {}
     gear.Telchine.Head = {}
-    gear.Telchine.Head.GEO = { name="Telchine Cap", augments={'Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+    gear.Telchine.Head.Enhancing = { name="Telchine Cap", augments={'Mag. Evasion+24','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Legs = {}
     gear.Telchine.Legs.GEO = { name="Telchine Braconi", augments={'Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+    gear.Telchine.Legs.Enhancing = { name="Telchine Braconi", augments={'Mag. Evasion+25','"Conserve MP"+4','Enh. Mag. eff. dur. +9',}}
     gear.Telchine.Feet = {}
     gear.Telchine.Feet.BRD = { name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}}
 

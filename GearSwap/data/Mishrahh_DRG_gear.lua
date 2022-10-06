@@ -46,8 +46,8 @@ function user_job_setup()
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
-	gear.capes.DexTP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	gear.capes.StrWS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+8','Weapon skill damage +10%',}}
+	gear.capes.DexTP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+3','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.capes.StrWS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 --[[
 ^   Ctrl
@@ -73,9 +73,20 @@ function init_gear_sets()
 		--feet=gear.Empyrean.Feet
 	}
 
+	sets.precast.JA['Jump'] = {
+		feet="Ostro Greaves",
+		left_ear="Sherida Earring",
+		right_ear="Telos Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
+	}
+	sets.precast.JA['High Jump'] = set_combine( sets.precast.JA['Jump'], {} )
+	sets.precast.JA['Spirit Jump'] = set_combine( sets.precast.JA['Jump'], {} )
+	sets.precast.JA['Soul Jump'] = set_combine( sets.precast.JA['Jump'], {} )
+
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		head="Gleti's Mask",
+		head="Nyame Helm",
 		body="Gleti's Cuirass",
 		hands="Gleti's Gauntlets",
 		legs="Nyame Flanchard",
@@ -88,6 +99,52 @@ function init_gear_sets()
 		right_ring="Regal Ring",
 		back=gear.capes.StrWS,
 	}
+ 
+	sets.precast.WS['Stardiver'] = {
+		ammo="Crep. Pebble",
+		head=gear.Flamma.Head,
+		body="Gleti's Cuirass",
+		hands="Gleti's Gauntlets",
+		legs="Gleti's Breeches",
+		feet=gear.Flamma.Feet,
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Sherida Earring",
+		right_ear="Moonshade Earring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Regal Ring",
+		back=gear.capes.StrWS,
+	}
+
+	sets.precast.WS['Sonic Thrust'] = set_combine( sets.precast.WS, {
+		left_ear="Moonshade Earring",
+		neck="Rep. Plat. Medal",
+		waist="Sailfi Belt +1",
+	} )
+
+	sets.precast.WS['Impulse Drive'] = set_combine( sets.precast.WS, {
+		left_ear="Moonshade Earring",
+		neck="Rep. Plat. Medal",
+		waist="Sailfi Belt +1",
+	} )
+
+	sets.precast.WS['Drakesbane'] = set_combine( sets.precast.WS, {
+		left_ear="Moonshade Earring",
+		neck="Rep. Plat. Medal",
+		waist="Sailfi Belt +1",
+	} )
+
+	sets.precast.WS['Savage Blade'] = set_combine( sets.precast.WS, {
+		left_ear="Moonshade Earring",
+		neck="Rep. Plat. Medal",
+		waist="Sailfi Belt +1",
+	} )
+
+	sets.precast.WS['Cataclysm'] = set_combine( sets.precast.WS, {
+		left_ear="Moonshade Earring",
+		neck="Rep. Plat. Medal",
+		waist="Sailfi Belt +1",
+	} )
 
 	sets.idle = {
 		ammo="Crepuscular Pebble",
@@ -115,7 +172,7 @@ function init_gear_sets()
 		ammo="Coiste Bodhar",
 		head=gear.Flamma.Head,
 		body="Dagon Breast.",
-		hands=gear.Sulevia.Hands,
+		hands="Gleti's Gauntlets",
 		legs=gear.Sulevia.Legs,
 		feet=gear.Flamma.Feet,
 		neck="Anu Torque",
