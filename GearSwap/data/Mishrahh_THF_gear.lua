@@ -211,7 +211,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
+        neck="Sybil Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -219,6 +219,8 @@ function init_gear_sets()
         right_ring="Dingir Ring",
         back=gear.capes.WSDMG,    
     }
+
+    sets.precast.WS['Cyclone'] = set_combine( sets.precast.WS['Aeolian Edge'], sets.TreasureHunter )
 
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
         head=gear.Artifact.Head,

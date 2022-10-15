@@ -76,6 +76,7 @@
     </global>
     <tishrahh>
         <actions>true</actions>
+        <active>true</active>
         <box>
             <text>
                 <fonts>
@@ -83,5 +84,6 @@
                 </fonts>
             </text>
         </box>
+        <min_ws>100</min_ws>
     </tishrahh>
 </settings>

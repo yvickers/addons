@@ -33,8 +33,8 @@ function define_global_sets()
     gear.Inyanga.Head = "Inyanga Tiara +2"
     gear.Inyanga.Body = "Inyanga Jubbah +2"
     gear.Inyanga.Hands = "Inyan. Dastanas +2"
-    gear.Inyanga.Legs = "Inyanga Shalwar +1"
-    gear.Inyanga.Feet = "Inyan. Crackows +1"
+    gear.Inyanga.Legs = "Inyanga Shalwar +2"
+    gear.Inyanga.Feet = "Inyan. Crackows +2"
 
     gear.Ayanmo = {}
     gear.Ayanmo.Head = "Aya. Zucchetto +2"
@@ -52,9 +52,9 @@ function define_global_sets()
 
     gear.Flamma = {}
     gear.Flamma.Head = "Flam. Zucchetto +2"
-    gear.Flamma.Body = "Flamma Korazin +1"
-    gear.Flamma.Hands = "Flam. Manopolas +1"
-    gear.Flamma.Legs = "Flamma Dirs +1"
+    gear.Flamma.Body = "Flamma Korazin +2"
+    gear.Flamma.Hands = "Flam. Manopolas +2"
+    gear.Flamma.Legs = "Flamma Dirs +2"
     gear.Flamma.Feet = "Flam. Gambieras +2"
 
     gear.Taliah = {}

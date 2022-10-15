@@ -2,11 +2,11 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Bolelabunga",
-		sub="Sors Shield",
+		sub="Culminus",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
 	}
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexa Strike', 'Black Halo', 'Exudation', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexa Strike', 'Black Halo', 'Exudation', 'Moonlight' }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Geo. Galero +1"
@@ -27,7 +27,7 @@ function user_job_setup()
 	gear.Empyrean.Body = "Azimuth Coat"
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Azimuth Gaiters +1"
+	gear.Empyrean.Feet = "Azimuth Gaiters +2"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -3%',}}
@@ -121,8 +121,8 @@ function init_gear_sets()
 		legs=gear.Artifact.Legs,
 		feet=gear.Artifact.Feet,
 		neck="Loricate Torque +1",
-		--left_ear="Enchntr. Earring +1",
-		--right_ear="Loquac Earring",
+		left_ear="Etiolation Earring",
+		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.PetRegen,
@@ -136,10 +136,9 @@ function init_gear_sets()
 		feet=gear.Relic.Feet,
 		neck="Bagua Charm +2",
 		waist="Isa Belt",
-		--left_ear="Enchntr. Earring +1",
-		--right_ear="Loquac Earring",
-		--left_ring="Vertigo Ring",
-		--right_ring="Warp Ring",
+		left_ear="Etiolation Earring",
+		right_ear="Eabani Earring",
+		right_ring="Purity Ring",
 	})
 	sets.idle.PDT.Pet = set_combine( sets.idle.Pet, {
 		main="Mafic Cudgel",

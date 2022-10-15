@@ -7,12 +7,12 @@
         <whitelist />
     </global>
     <mishrahh>
-        <whitelist>Zemekis,Talsafir,Tamarwind,Noobermcnoober,Keshnak,Senzay,Zaffren,Garct,Vhy,Ryumii,Ilumii,Canelo,Misterjones,Quagmito,Saltarino,Brettysketty,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
+        <whitelist>Zemekis,Talsafir,Tamarwind,Ryumii,Keshnak,Senzay,Zaffren,Saltarino,Vhy,Canelo,Ilumii,Kagerielle,Misterjones,Quagmito,Garct,Brettysketty,Ninnyhammer,Tishrahh,Senzey,Noobermcnoober,Tiado</whitelist>
     </mishrahh>
     <ninnyhammer>
-        <whitelist>Saltarino,Mishrahh,Noobermcnoober,Senzay,Keshnak,Tamarwind,Tishrahh,Senzey,Brettysketty,Garct</whitelist>
+        <whitelist>Zemekis,Garct,Tamarwind,Noobermcnoober,Mishrahh,Keshnak,Tishrahh,Senzay,Senzey,Brettysketty,Saltarino</whitelist>
     </ninnyhammer>
     <tishrahh>
-        <whitelist>Talsafir,Mishrahh,Kagerielle,Noobermcnoober,Brettysketty,Keshnak,Ninnyhammer,Senzay,Senzey,Tamarwind,Garct</whitelist>
+        <whitelist>Talsafir,Mishrahh,Kagerielle,Noobermcnoober,Garct,Brettysketty,Ninnyhammer,Senzay,Senzey,Tamarwind,Keshnak</whitelist>
     </tishrahh>
 </settings>

@@ -27,6 +27,7 @@ profiles['junk'] = S{
     'bat wing',
     --'beastman blood', //fatso fargann
     'beetle jaw',
+    'beetle shell',
     'bhefhel marlin',
     'bird egg',
     'bird feather',

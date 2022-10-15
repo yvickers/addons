@@ -43,7 +43,7 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
 	gear.Empyrean.Body = ""
-	gear.Empyrean.Hands = ""
+	gear.Empyrean.Hands = "Boii Mufflers +3"
 	gear.Empyrean.Legs = ""
 	gear.Empyrean.Feet = ""
 
@@ -109,7 +109,7 @@ function init_gear_sets()
 		ammo="Knobkierrie",
 		head=gear.Relic.Head,
 		body=gear.Artifact.Body,
-		hands="Nyame Gauntlets",
+		hands=gear.Empyrean.Hands,
 		legs="Sakpata's Cuisses",
 		feet=gear.Sulevia.Feet,
 		neck="War. Beads +1",
@@ -142,6 +142,8 @@ function init_gear_sets()
 	sets.precast.WS["Metatron Torment"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["King's Justice"] = set_combine(sets.precast.GAXEWS, {
+	})
+	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.GAXEWS, {
 	})
 
 	sets.precast.WS["Armor Break"] = set_combine(sets.precast.GAXEWS, {

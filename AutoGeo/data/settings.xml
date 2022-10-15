@@ -88,13 +88,11 @@
     </mishrahh>
     <tishrahh>
         <buffs>
-            <refresh>mishrahh</refresh>
+            <refresh />
         </buffs>
         <entrust>
             <ma>Indi-STR</ma>
         </entrust>
-        <geo>Geo-Precision</geo>
-        <indi>Indi-Precision</indi>
         <text>
             <pos>
                 <x>380</x>

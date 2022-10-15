@@ -432,10 +432,12 @@ end
 
 
 function customize_idle_set(idleSet)
+    idleSet = set_combine( idleSet, gear.weapons[state.Weapons.current] )
 	return idleSet
 end
 
 function customize_melee_set(meleeSet)
+    meleeSet = set_combine( meleeSet, gear.weapons[state.Weapons.current] )
 	return meleeSet
 end
 

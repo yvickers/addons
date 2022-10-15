@@ -777,7 +777,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 		if (state.AutoBuffMode.current == 'on') and (abil_recasts[81] < latency) then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Unbridled Learning" <me>')
-			windower.chat.input:schedule(1.3,'/ma "'..spell.english..'" '..spell.target.raw..'')
+			windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
 			return
 		else
 			eventArgs.cancel = true

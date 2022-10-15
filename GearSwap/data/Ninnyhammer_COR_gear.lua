@@ -23,7 +23,7 @@ function user_job_setup()
     gear.Empyrean = {}
     gear.Empyrean.Head = "Chass. Tricorne +2"
     gear.Empyrean.Body = "Chasseur's Frac +2"
-    gear.Empyrean.Hands = "Chasseur's Gants +2"
+    gear.Empyrean.Hands = "Chasseur's Gants +3"
     gear.Empyrean.Legs = "Chas. Culottes +2"
     gear.Empyrean.Feet = "Chasseur's Bottes +2"
 
@@ -38,7 +38,7 @@ function user_job_setup()
     gear.weapons = {}
     --match key to state.weapons options
     gear.weapons['Savage'] = {
-        main="Tokko Sword",
+        main="Naegling",
         sub="Demers. Degen +1",
         ranged="Anarchy +2",
         ammo=state.Bullet.current,
@@ -54,14 +54,16 @@ end
 
 function init_gear_sets()
 	sets.precast.CorsairRoll = {
+        main="Lanun Knife",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
         --legs="Desultor Tassets",
         --neck="Regal Necklace",
         left_ring="Luzaf's Ring",
-        right_ring="Barataria Ring",
+        right_ring="Warden's Ring",
         back=gear.capes.PhantomRoll,
     }
+    sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
     --sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
     sets.precast.JA['Wild Card'] = {feet=gear.Relic.Feet}
     sets.precast.JA['Random Deal'] = {body=gear.Relic.Body}
@@ -86,7 +88,7 @@ function init_gear_sets()
         head=gear.Empyrean.Head,
         body=gear.Artifact.Body,
         hands="Carmine Fin. Ga. +1",
-        --legs=gear.Adhemar.Legs.D,
+        legs=gear.Empyrean.Legs,
         feet=gear.Meghanada.Feet,
         neck="Comm. Charm +1",
         --back="Navarch's Mantle",
@@ -103,7 +105,7 @@ function init_gear_sets()
         hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,
         feet=gear.Relic.Feet,
-        neck="Comm. Charm +1",
+        neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         back=gear.capes.MeleeWS,
         left_ear="Ishvara Earring",
@@ -135,17 +137,17 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        --head="Nyame Helm",
+        head="Nyame Helm",
         neck="Sanctity Necklace",
         ear1="Friomisi Earring",
-        --ear2="Hecate's Earring",
+        ear2="Hermetic Earring",
         body=gear.Relic.Body,
         hands="Carmine Fin. Ga. +1",
-        --ring1="Dingir Ring",
-        --ring2="Metamor. Ring +1",
-        --back=gear.capes.RngLeadenCape,
+        left_ring="Dingir Ring",
+        right_ring="Ilabarat Ring",
+        back=gear.capes.RngMagicalWS,
         waist="Eschan Stone",
-        --legs=gear.Herc.Legs.WSD,
+        legs="Nyame Flanchard",
     	feet=gear.Relic.Feet
     })
 
@@ -153,21 +155,19 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         neck="Comm. Charm +1",
         ear1="Friomisi Earring",
-        --ear2="Moonshade Earring",
+        ear2="Hermetic Earring",
         body=gear.Relic.Body,
         hands="Carmine Fin. Ga. +1",
-        --left_ring="Dingir Ring",
-        left_ring="Archon Ring",
-        right_ring="Ilabrat Ring",
+        left_ring="Dingir Ring",
+        right_ring="Archon Ring",
         back=gear.capes.RngMagicalWS,
         waist="Eschan Stone",
-        legs="Shned. Tights +1",
+        legs="Nyame Flanchard",
         feet=gear.Relic.Feet
     }
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {
-        --head=gear.Mummu.Head,
-        --ear2="Hecate's Earring",
+        head="Nyame Helm",
         right_ring="Ilabrat Ring",
     })
 
@@ -177,13 +177,13 @@ function init_gear_sets()
         hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,
         feet=gear.Relic.Feet,
-        --neck="Fotia Gorget",
-        --ear1="Beyla Earring",
-        --ear2="Telos Earring",
-        --left_ring="Regal Ring",
+        neck="Comm. Charm +1",
+        ear1="Beyla Earring",
+        ear2="Enervating Earring",
+        left_ring="Dingir Ring",
         right_ring="Ilabrat Ring",
         back=gear.capes.RngPhysicalWS,
-        --waist="Fotia Belt",
+        waist="Elanid Belt",
     }
 
     sets.midcast.CorsairShot = {
@@ -194,8 +194,8 @@ function init_gear_sets()
         feet=gear.Empyrean.Feet,
         neck="Comm. Charm +1",
         ear1="Friomisi Earring",
-        --ear2="Hecate's Earring",
-        --ring1="Dingir Ring",
+        ear2="Hermetic Earring",
+        ring1="Dingir Ring",
         right_ring="Ilabrat Ring",
         back=gear.capes.RngMagicalWS,
         waist="Eschan Stone"
@@ -234,12 +234,12 @@ function init_gear_sets()
         head=gear.Meghanada.Head,
 		body="Nisroch Jerkin",
 		hands=gear.Meghanada.Hands,
-		legs=gear.Meghanada.Legs,
-		feet=gear.Meghanada.Feet,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
 		neck="Sanctity Necklace",
-		waist="Ponente Sash",
-		left_ear="Clearview Earring",
-		right_ear="Ennervating Earring",
+		waist="Elanid Belt",
+		left_ear="Beyla Earring",
+		right_ear="Enervating Earring",
 		left_ring="Meghanada Ring",
 		right_ring="Ilabrat Ring",
     }
@@ -250,12 +250,12 @@ function init_gear_sets()
         --hands="Malignance Gloves",
         head=gear.Empyrean.Head,
         body=gear.Empyrean.Body,
-        hands=gear.Meghanada.Hands,
+        hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
-        feet=gear.Meghanada.Feet,
+        feet="Nyame Sollerets",
         --feet="Malignance Boots",
-        --left_ring="Defending Ring",
-        --right_ring="Warp Ring",
+        left_ring="Warden's Ring",
+        right_ring="Warp Ring",
         neck="Elite Royal Collar",
         --waist="Flume Belt +1",
         --left_ear="Odnowa Earring +1",
@@ -273,8 +273,8 @@ function init_gear_sets()
         waist="Sailfi Belt +1",
         left_ear="Mache Earring +1",
 		right_ear="Odr Earring",
-        left_ring="Rajas Ring",
-        right_ring="Meghanada Ring",
+        left_ring="Meghanada Ring",
+		right_ring="Ilabrat Ring",
         back=gear.capes.MeleeTP,
     }
     sets.engaged.Acc = set_combine( sets.engaged.Melee, {

@@ -21,6 +21,8 @@ function job_setup()
 	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
+	state.AutoBuffMode = M( true, "Automatic Buffs" )
+
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
@@ -30,8 +32,6 @@ function job_setup()
 	}
 	
 	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
-
-	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""

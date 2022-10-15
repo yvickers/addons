@@ -150,6 +150,7 @@ function check_ws()
 		then
 
 	local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
+	local self_targ = S{"Moonlight"}
 		
 		if player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(47) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Sanguine Blade" <t>')
@@ -166,7 +167,11 @@ function check_ws()
 		elseif player.target.distance > (3.2 + player.target.model_size) and not data.weaponskills.ranged:contains(state.MainWS.current) then
 			return false
 		elseif player.tp >= state.AutoWSTP.current and player.target.hpp >= state.SaveTPPCT.current then
-			windower.chat.input('/ws "'..state.MainWS.current..'" <t>')
+			if self_targ:contains(state.MainWS.current) then
+				windower.chat.input('/ws "'..state.MainWS.current..'" <me>')
+			else
+				windower.chat.input('/ws "'..state.MainWS.current..'" <t>')
+			end
 			return true
 		--elseif data.equipment.relic_weapons:contains(player.equipment.main) and state.MaintainAftermath.value and (not buffactive['Aftermath']) then
 			--windower.chat.input('/ws "'..data.weaponskills.relic[player.equipment.main]..'" <t>')

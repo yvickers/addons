@@ -81,6 +81,10 @@ function define_global_sets()
     gear.TH.Herc = {}
 
     gear.Telchine = {}
+
+    gear.Ryou = {}
+    gear.Ryou.Feet = {}
+    gear.Ryou.Feet.C = { name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}}
 end
 
 --windower.register_event('ipc message', function(message)

@@ -9,7 +9,7 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Brioso Roundlet +3"
-	gear.Artifact.Body = "Brioso Justau. +2"
+	gear.Artifact.Body = "Brioso Justau. +3"
 	gear.Artifact.Hands = "Brioso Cuffs +2"
 	gear.Artifact.Legs = "Brioso Cannions +3"
 	gear.Artifact.Feet = "Brioso Slippers +3"
@@ -23,7 +23,7 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Fili Calot +2"
-	gear.Empyrean.Body = "Fili Hongreline +2"
+	gear.Empyrean.Body = "Fili Hongreline +3"
 	gear.Empyrean.Hands = "Fili Manchettes +2"
 	gear.Empyrean.Legs = "Fili Rhingrave +2"
 	gear.Empyrean.Feet = "Fili Cothurnes +2"
@@ -40,6 +40,7 @@ function init_gear_sets()
 		body=gear.Inyanga.Body,
 	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
 	    legs=gear.Ayanmo.Legs,
+		feed=gear.Empyrean.Feet,
 	    neck="Voltsurge Torque",
 	    waist="Embla Sash",
 	    back=gear.capes.IMBARD,
@@ -234,10 +235,10 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Loricate Torque +1",
 		--waist="Moonbow Belt",
-		--left_ear="Odnowa Earring +1",
-		--right_ear="Genmei Earring",
+		left_ear="Etiolation Earring",
+		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
-		right_ring="Inyanga Ring",
+		right_ring="Warp Ring",
 		back=gear.capes.IMBARD,
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
