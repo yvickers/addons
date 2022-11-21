@@ -3,3 +3,8 @@ equipviewer/
 findAll/
 Gearswap/data/export/*.*
 Pouches/
+AutoGeo/data/settings.xml
+Singer/data/settings.xml
+pointwatch/data/settings.xml
+scoreboard/data/settings.xml
+targeter/data/settings.xml

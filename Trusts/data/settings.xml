@@ -18,11 +18,21 @@
                 <4>Brygid</4>
                 <5>Star Sibyl</5>
             </abyssea>
+            <allambu>
+                <1>Monberaux</1>
+                <2>Ygnas</2>
+                <3>Koru-Moru</3>
+            </allambu>
             <allavatar>
                 <1>Yoran-Oran (UC)</1>
                 <2>Monberaux</2>
                 <3>Koru-Moru</3>
             </allavatar>
+            <alllilith>
+                <1>Monberaux</1>
+                <2>Ygnas</2>
+                <3>Koru-Moru</3>
+            </alllilith>
             <allmacro>
                 <1>Monberaux</1>
                 <2>Koru-Moru</2>
@@ -413,6 +423,11 @@
                 <4>King of Hearts</4>
                 <5>Ferreous Coffin</5>
             </reive2>
+            <roe4>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Ygnas</3>
+            </roe4>
             <shinryu>
                 <1>Selh&apos;teus</1>
                 <2>Joachim</2>
