@@ -9,7 +9,7 @@ end
 
 function job_setup()
 
-	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'ACC', 'SB' )
+	state.OffenseMode:options( 'PDT', 'Melee', 'MDT', 'ACC', 'SB' )
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )

@@ -7,28 +7,28 @@ function user_job_setup()
 		--ammo="Staunch Tathlum",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Gekko' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Fudo', 'Tachi: Jinpu', 'Tachi: Kagero', 'Tachi: Gekko', 'Tachi: Shoha', 'Tachi: Rana', 'Tachi: Kasha', }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Wakido Kabuto"
-	gear.Artifact.Body = "Wakido Domaru"
-	gear.Artifact.Hands = "Wakido Kote"
+	gear.Artifact.Head = "Wakido Kabuto +1"
+	gear.Artifact.Body = "Wakido Domaru +1"
+	gear.Artifact.Hands = "Wakido Kote +1"
 	gear.Artifact.Legs = "Wakido Haidate +2"
-	gear.Artifact.Feet = "Wakido Sune-Ate"
+	gear.Artifact.Feet = "Wakido Sune-Ate +1"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = ""
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
+	gear.Relic.Body = "Sakonji Domaru +1"
+	gear.Relic.Hands = "Sakonji Kote +1"
+	gear.Relic.Legs = "Sakonji Haidate +1"
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Kasuga Kabuto +2"
-	gear.Empyrean.Body = "Kasuga Domaru +2"
+	gear.Empyrean.Body = "Kasuga Domaru +3"
 	gear.Empyrean.Hands = "Kasuga Kote +2"
 	gear.Empyrean.Legs = "Kasuga Haidate +2"
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Feet = "Kasuga Sune-Ate +2"
 
 	gear.capes = {}
 	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -40,10 +40,28 @@ function init_gear_sets()
 		--ammo="Per. Lucky Egg",
 		--head='Volte Cap',
 		--hands=gear.Relic.Hands,
-		-- body=gear.Herc.Body.TH,
+		--body=gear.Herc.Body.TH,
 		--waist="Chaac Belt",
 		--legs=gear.Herc.Legs.TH,
 		--feet=gear.Empyrean.Feet
+	}
+
+	sets.precast.JA['Meditate'] = {
+		head=gear.Artifact.Head,
+		hands=gear.Relic.Hands,
+	}
+	sets.precast.JA['Blade Bash'] = {
+		hands=gear.Relic.Hands,
+	}
+	sets.precast.JA['Shikikoyo'] = {}
+	sets.precast.JA['Sekkanoki'] = {
+		hands=gear.Empyrean.Hands,
+	}
+	sets.precast.JA['Sengikori'] = {}
+	sets.precast.JA['Hamanoha'] = {}
+	sets.precast.JA['Konzen-ittai'] = {}
+	sets.precast.JA['Third Eye'] = {
+		legs=gear.Relic.Legs,
 	}
 
 	sets.precast.WS = {

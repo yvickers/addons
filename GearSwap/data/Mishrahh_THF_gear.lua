@@ -1,9 +1,13 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
 
-    state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge' }
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Cento', 'TTwash', 'Tauret', 'AOE', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Rudra's Storm", 'Evisceration', 'Aeolian Edge' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Default', 'Cento', 'TTwash', 'Tauret', 'AOE', }
     gear.weapons = {}
+    gear.weapons['Savage'] = {
+        main="Naegling",
+        sub="Crepuscular Knife",
+    }
     gear.weapons['Default'] = {
         main="Twashtar",
         sub="Ternion Dagger +1",
@@ -224,9 +228,11 @@ function init_gear_sets()
 
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
         head=gear.Artifact.Head,
+        body="Nyame Mail",
         hands=gear.Meghanada.Hands,
         legs="Nyame Flanchard",
         feet=gear.Herc.Feet.MABWSD,
+        neck="Rep. Plat. Medal",
         back=gear.capes.WSDMG,
         ammo="Seeth. Bomblet +1",
         ring2="Gere Ring",

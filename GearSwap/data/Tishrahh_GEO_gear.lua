@@ -35,6 +35,9 @@ function user_job_setup()
 end
 
 function init_gear_sets()
+	sets.buff.sleep = {
+		main="Lorg Mor",
+	}
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Bolster = {
 		body=gear.Relic.Body,

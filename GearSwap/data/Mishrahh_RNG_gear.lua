@@ -4,13 +4,13 @@ function user_job_setup()
     gear.weapons = {}
     gear.weapons['AE'] = {
         main='Malevolence',
-        sub='Malevolence',
+        sub='Crepuscular Knife',
         range="Anarchy +2",
         ammo="Hauksbok Bullet",
     }
     gear.weapons['Ranged'] = {
-        main='Perun +1',
-        sub='Nusku Shield',
+        main='Malevolence',
+        sub='Malevolence',
         range="Doomsday",
         ammo="Devastating Bullet",
     }
@@ -22,7 +22,7 @@ function user_job_setup()
     }
     gear.weapons['Savage'] = {
         main='Naegling',
-        sub='Vampirism',
+        sub='Crepuscular Knife',
         range="Sparrowhawk +2",
         ammo="Hauksbok Arrow",
     }
@@ -209,6 +209,7 @@ function init_gear_sets()
     } )
 
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WSPhysical, {
+        neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         left_ear="Ishvara Earring",
         left_ring="Regal Ring",

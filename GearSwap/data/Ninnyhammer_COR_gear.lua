@@ -53,6 +53,9 @@ function user_job_setup()
 end
 
 function init_gear_sets()
+    sets.buff.sleep = {
+		ranged="Prime Gun",
+	}
 	sets.precast.CorsairRoll = {
         main="Lanun Knife",
         head=gear.Relic.Head,
@@ -75,7 +78,7 @@ function init_gear_sets()
     sets.precast.FC = {
         --head=gear.Herc.Head.TH,
         --ear2="Loquacious Earring",
-        --ear1="Etiolation Earring",
+        ear1="Etiolation Earring",
         hands="Leyline Gloves",
         --legs="Rawhide Trousers",
         --feet="Crimson Greaves",
@@ -94,7 +97,7 @@ function init_gear_sets()
         --back="Navarch's Mantle",
         --waist="Yemaya Belt",
         --left_ring="Crepuscular Ring",
-        --right_ring="Dingir Ring",
+        right_ring="Dingir Ring",
     }
     sets.precast.RA.Flurry1 = set_combine( sets.precast.RA, {})
     sets.precast.RA.Flurry2 = set_combine( sets.precast.RA.Flurry1, {})
@@ -109,7 +112,7 @@ function init_gear_sets()
         waist="Sailfi Belt +1",
         back=gear.capes.MeleeWS,
         left_ear="Ishvara Earring",
-        --right_ear="Moonshade Earring",
+        right_ear="Moonshade Earring",
         left_ring="Rajas Ring",
         right_ring="Karieyh Ring",
     }
@@ -138,7 +141,7 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
-        neck="Sanctity Necklace",
+        neck="Sibyl Scarf",
         ear1="Friomisi Earring",
         ear2="Hermetic Earring",
         body=gear.Relic.Body,
@@ -202,11 +205,8 @@ function init_gear_sets()
     }
 
     sets.midcast.CorsairShot['Light Shot'] = set_combine( sets.midcast.CorsairShot,{
-        --head="Malignance Chapeau",
-        --body="Malignance Tabard",
-        --hands="Malignance Gloves",
-        --legs="Malignance Tights",
-        --feet="Malignance Boots",
+        body=gear.Empyrean.Body,
+        hands=gear.Empyrean.Hands,
         --neck="Sanctity Necklace",
         --back=gear.capes.QDTPCape,
         --ring1="Regal Ring",
@@ -245,15 +245,11 @@ function init_gear_sets()
     }
 
     sets.idle = {
-        --head="Malignance Chapeau",
-        --body="Malignance Tabard",
-        --hands="Malignance Gloves",
         head=gear.Empyrean.Head,
         body=gear.Empyrean.Body,
         hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
         feet="Nyame Sollerets",
-        --feet="Malignance Boots",
         left_ring="Warden's Ring",
         right_ring="Warp Ring",
         neck="Elite Royal Collar",
@@ -264,7 +260,7 @@ function init_gear_sets()
     }
 
     sets.engaged.Melee = {
-        head=gear.Empyrean.Head,
+        head="Malignance Chapeau",
         body=gear.Empyrean.Body,
         hands=gear.Meghanada.Hands,
         legs=gear.Empyrean.Legs,

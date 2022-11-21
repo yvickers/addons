@@ -512,6 +512,7 @@ function init_gear_sets()
 		--ring2="Shiva Ring +1",
 		--waist="Yamabuki-no-Obi",
 	} )
+	sets.midcast.diaga = sets.TreasureHunter
 
 	sets.midcast.Helix = sets.midcast['Elemental Magic']
 	sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant

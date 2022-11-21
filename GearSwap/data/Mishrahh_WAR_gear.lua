@@ -44,7 +44,7 @@ function user_job_setup()
 	gear.Empyrean.Head = ""
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = "Boii Mufflers +3"
-	gear.Empyrean.Legs = ""
+	gear.Empyrean.Legs = "Boii Cuisses +3"
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
@@ -68,6 +68,9 @@ function user_job_setup()
 end
 
 function init_gear_sets()
+	sets.buff.sleep = {
+		neck="Vim Torque +1",
+	}
 	sets.TreasureHunter = {
 		--ammo="Per. Lucky Egg",
 		head='Volte Cap',
@@ -110,7 +113,7 @@ function init_gear_sets()
 		head=gear.Relic.Head,
 		body=gear.Artifact.Body,
 		hands=gear.Empyrean.Hands,
-		legs="Sakpata's Cuisses",
+		legs=gear.Empyrean.Legs,
 		feet=gear.Sulevia.Feet,
 		neck="War. Beads +1",
 		waist="Sailfi Belt +1",

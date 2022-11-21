@@ -49,7 +49,7 @@ function user_job_setup()
     state.Bullet = M{['description']='Bullet', 'Devastating Bullet'}
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Doomsday', 'Arma', 'Aeolian' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Arma', 'Aeolian' }
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Aeolian Edge' }
 
     gear.Artifact = {}
@@ -89,7 +89,7 @@ function user_job_setup()
     --match key to state.weapons options
     gear.weapons['Savage'] = {
         main="Naegling",
-        sub="Glet's Knife",
+        sub="Crepuscular Knife",
         ranged="Anarchy +2",
         ammo="Devastating Bullet",
     }
@@ -101,13 +101,13 @@ function user_job_setup()
     }
     gear.weapons['Arma'] = {
         main="Naegling",
-        sub="Gleti's Knife",
+        sub="Kustawi +1",
         ranged="Armageddon",
         ammo="Devastating Bullet",
     }
     gear.weapons['Aeolian'] = {
         main="Tauret",
-        sub="Gleti's Knife",
+        sub="Crepuscular Knife",
         ranged="Anarchy +2",
         ammo="Hauksbok Bullet"
     }
@@ -210,8 +210,8 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Lilitu Headpiece",
-        --neck="Fotia Gorget",
+        head="Nyame Helm",
+        neck="Rep. Plat. Medal",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
         body=gear.Artifact.Body,
@@ -251,7 +251,7 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
-        neck="Sanctity Necklace",
+        neck="Sibyl Scarf",
         ear1="Friomisi Earring",
         ear2="Hecate's Earring",
         body=gear.Relic.Body,
@@ -265,7 +265,7 @@ function init_gear_sets()
 
     sets.precast.WS['Leaden Salute'] = {
         head="Pixie Hairpin +1",
-        neck="Sanctity Necklace",
+        neck="Sibyl Scarf",
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
         body=gear.Relic.Body,
@@ -286,6 +286,13 @@ function init_gear_sets()
         back=gear.capes.RngWFCape,
     })
 
+    sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {
+        head=gear.Mummu.Head,
+        ear2="Hecate's Earring",
+        ring2="Ilabrat Ring",
+        back=gear.capes.RngWFCape,
+    })
+
     sets.precast.WS['Last Stand'] = {
         head="Malignance Chapeau",
         body=gear.Artifact.Body,
@@ -300,6 +307,7 @@ function init_gear_sets()
         back=gear.capes.RngWFCape,
         waist="Fotia Belt",
     }
+    sets.precast.WS['Sniper Shot'] = set_combine( sets.precast.WS['Last Stand'], {})
 
     sets.precast.WS['Last Stand'].Acc = set_combine( sets.precast.WS['Last Stand'], {
     })

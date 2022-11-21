@@ -1,0 +1,25 @@
+
+defaultSettings = {}
+defaultSettings.pos = {}
+defaultSettings.pos.x = 600
+defaultSettings.pos.y = 500
+defaultSettings.text = {}
+defaultSettings.text.font = 'Verdana'
+defaultSettings.text.size = 12
+defaultSettings.text.alpha = 255
+defaultSettings.text.red = 249
+defaultSettings.text.green = 236
+defaultSettings.text.blue = 236
+defaultSettings.text.stroke = {}
+defaultSettings.text.stroke.alpha = 175
+defaultSettings.text.stroke.red = 0
+defaultSettings.text.stroke.green = 0
+defaultSettings.text.stroke.blue = 0
+defaultSettings.text.stroke.width = 0.2
+defaultSettings.text.flags = {}
+defaultSettings.text.flags.bold = true
+defaultSettings.bg = {}
+defaultSettings.bg.alpha = 160
+defaultSettings.bg.red = 55
+defaultSettings.bg.green = 50
+defaultSettings.bg.blue = 50

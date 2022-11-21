@@ -1,5 +1,4 @@
 function user_job_setup()
-	state.AutoWSTP = M{['description'] = 'AutoWSTP', 1300, }
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Bolelabunga",

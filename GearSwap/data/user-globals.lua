@@ -186,7 +186,7 @@ function user_state_change_Attack_With_Me( newValue, oldValue )
         send_command('@input //send @others //atkwm slave on')
     else
         send_command('@input //send @others //atkwm slave off')
-        send_command('@input //lua reload attackwithme')
+        send_command('@input //send @all //lua reload attackwithme')
     end
 end
 
@@ -219,6 +219,24 @@ function user_state_change_TicksActive( newValue, oldValue )
 	else
 		windower.unregister_event(tickEventListener)
 	end
+end
+
+function user_buff_change( buff, gain, eventArgs )
+    if sets.buff[buff] then
+        local slots = T{}
+        for slot,item in pairs(sets.buff[buff]) do
+            slots:append(slot)
+        end
+
+        if gain then
+            equip(sets.buff[buff])
+            disable(slots)
+        else
+            enable(slots)
+            send_command('gs c update auto')
+        end
+        
+    end
 end
 
 --[[
