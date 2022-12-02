@@ -228,6 +228,10 @@ function user_buff_change( buff, gain, eventArgs )
             slots:append(slot)
         end
 
+        if 'sleep' == buff then
+            send_command('cancel stoneskin')
+        end
+
         if gain then
             equip(sets.buff[buff])
             disable(slots)

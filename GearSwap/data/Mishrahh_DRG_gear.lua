@@ -90,7 +90,7 @@ function init_gear_sets()
 		body="Gleti's Cuirass",
 		hands="Gleti's Gauntlets",
 		legs="Nyame Flanchard",
-		feet=gear.Sulevia.Feet,
+		feet="Nyame Sollerets",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Sherida Earring",

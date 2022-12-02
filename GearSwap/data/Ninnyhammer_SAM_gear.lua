@@ -10,16 +10,16 @@ function user_job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Fudo', 'Tachi: Jinpu', 'Tachi: Kagero', 'Tachi: Gekko', 'Tachi: Shoha', 'Tachi: Rana', 'Tachi: Kasha', }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Wakido Kabuto +1"
+	gear.Artifact.Head = "Wakido Kabuto +2"
 	gear.Artifact.Body = "Wakido Domaru +1"
 	gear.Artifact.Hands = "Wakido Kote +1"
-	gear.Artifact.Legs = "Wakido Haidate +2"
+	gear.Artifact.Legs = "Wakido Haidate +3"
 	gear.Artifact.Feet = "Wakido Sune-Ate +1"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = "Sakonji Domaru +1"
-	gear.Relic.Hands = "Sakonji Kote +1"
+	gear.Relic.Body = "Sakonji Domaru +3"
+	gear.Relic.Hands = "Sakonji Kote +3"
 	gear.Relic.Legs = "Sakonji Haidate +1"
 	gear.Relic.Feet = ""
 
@@ -27,7 +27,7 @@ function user_job_setup()
 	gear.Empyrean.Head = "Kasuga Kabuto +2"
 	gear.Empyrean.Body = "Kasuga Domaru +3"
 	gear.Empyrean.Hands = "Kasuga Kote +2"
-	gear.Empyrean.Legs = "Kasuga Haidate +2"
+	gear.Empyrean.Legs = "Kasuga Haidate +3"
 	gear.Empyrean.Feet = "Kasuga Sune-Ate +2"
 
 	gear.capes = {}
@@ -66,11 +66,11 @@ function init_gear_sets()
 
 	sets.precast.WS = {
 		ammo="Knobkierrie",
-		--head="Ken. Jinpachi +1",
-		--body="Ken. Samue +1",
+		head="Nyame Helm",
+		body=gear.Relic.Body,
 		hands=gear.Empyrean.Hands,
 		legs=gear.Artifact.Legs,
-		--feet="Ken. Sune-Ate +1",
+		feet=gear.Empyrean.Feet,
 		neck="Rep. Plat. Medal",
 		waist="Sailfi Belt +1",
 		left_ear="Ishvara Earring",
@@ -91,7 +91,7 @@ function init_gear_sets()
 		waist="Moonbow Belt",
 		neck="Elite Royal Collar",
 		waist="Sailfi Belt +1",
-		left_ear="Mache Earring +1",
+		left_ear="Etiolation Earring",
 		right_ear="Assuage Earring",
 		left_ring="Warden's Ring",
 		right_ring="Warp Ring",

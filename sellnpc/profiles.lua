@@ -114,7 +114,7 @@ profiles['junk'] = S{
     'gold carp',
     'grain seeds',
     'grt. boyahda moss',
-    'guatambu log',
+    --'guatambu log', item for coalitions
     'gugru tuna',
     'hare meat',
     'herb seeds',

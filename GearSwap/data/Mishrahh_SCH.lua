@@ -103,9 +103,9 @@ function job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Arbatel Bonnet +1"
+	gear.Empyrean.Head = "Arbatel Bonnet +2"
 	gear.Empyrean.Body = ""
-	gear.Empyrean.Hands = "Arbatel Bracers +1"
+	gear.Empyrean.Hands = "Arbatel Bracers +2"
 	gear.Empyrean.Legs = ""
 	gear.Empyrean.Feet = ""
 
@@ -231,7 +231,7 @@ function init_gear_sets()
 		head="Vanya Hood",
 		--neck="Incanter's Torque",
 		--ear1="Meili Earring",
-		--ear2="Malignance Earring",
+		ear2="Malignance Earring",
 		--body="Kaykaus Bliaut",
 		hands="Telchine Gloves",
 		--ring1="Janniston Ring",
@@ -300,7 +300,7 @@ function init_gear_sets()
 	})
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
-    	--neck="Nodens Gorget",
+    	neck="Nodens Gorget",
 		--ear2="Earthcry Earring",
 		waist="Siegel Sash",
 		--legs="Shedir Seraweels"
@@ -346,7 +346,7 @@ function init_gear_sets()
 		ammo="Ghastly Tathlum +1",
 		head=gear.Artifact.Head,
         neck="Erra Pendant",
-        --ear1="Regal Earring",
+        ear1="Arbatel Earring +1",
         ear2="Malignance Earring",
 		body=gear.Artifact.Body,
         hands=gear.Artifact.Hands,
@@ -399,7 +399,7 @@ function init_gear_sets()
     	ammo="Ghastly Tathlum +1",
     	head="Pixie Hairpin +1",
         neck="Erra Pendant",
-        --ear1="Regal Earring",
+        ear1="Arbatel Earring +1",
         ear2="Malignance Earring",
         body=gear.Artifact.Body,
         hands=gear.Artifact.Hands,
@@ -638,7 +638,7 @@ function init_gear_sets()
 		main="Daybreak",
 		sub="Genmei Shield",
 		ammo="Crepuscular Pebble",
-		head="Nyame Helm",
+		head=gear.Empyrean.Head,
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",

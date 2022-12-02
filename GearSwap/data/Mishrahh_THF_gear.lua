@@ -231,7 +231,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands=gear.Meghanada.Hands,
         legs="Nyame Flanchard",
-        feet=gear.Herc.Feet.MABWSD,
+        feet="Nyame Sollerets",
         neck="Rep. Plat. Medal",
         back=gear.capes.WSDMG,
         ammo="Seeth. Bomblet +1",

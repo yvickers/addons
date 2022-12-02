@@ -423,6 +423,11 @@
                 <4>King of Hearts</4>
                 <5>Ferreous Coffin</5>
             </reive2>
+            <roe>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Ygnas</3>
+            </roe>
             <roe4>
                 <1>Valaineral</1>
                 <2>Monberaux</2>
@@ -477,6 +482,11 @@
                 <4>Koru-Moru</4>
                 <5>Yoran-Oran (UC)</5>
             </tishwar>
+            <unity>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Koru-Moru</3>
+            </unity>
             <vidma>
                 <1>August</1>
                 <2>Yoran-Oran (UC)</2>

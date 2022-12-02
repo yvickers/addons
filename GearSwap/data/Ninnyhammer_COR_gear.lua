@@ -103,7 +103,7 @@ function init_gear_sets()
     sets.precast.RA.Flurry2 = set_combine( sets.precast.RA.Flurry1, {})
 
     sets.precast.WS = {
-        head=gear.Meghanada.Head,
+        head="Nyame Helm",
         body=gear.Artifact.Body,
         hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,
@@ -175,7 +175,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Last Stand'] = {
-        head=gear.Meghanada.Body,
+        head="Nyame Helm",
         body=gear.Artifact.Body,
         hands=gear.Empyrean.Hands,
         legs=gear.Meghanada.Legs,

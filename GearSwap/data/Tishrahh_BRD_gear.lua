@@ -10,7 +10,7 @@ function user_job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = "Brioso Roundlet +3"
 	gear.Artifact.Body = "Brioso Justau. +3"
-	gear.Artifact.Hands = "Brioso Cuffs +2"
+	gear.Artifact.Hands = "Brioso Cuffs +3"
 	gear.Artifact.Legs = "Brioso Cannions +3"
 	gear.Artifact.Feet = "Brioso Slippers +3"
 
@@ -50,6 +50,7 @@ function init_gear_sets()
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
 	})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+		main="Daybreak",
 	})
 	
 	sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
@@ -198,7 +199,7 @@ function init_gear_sets()
 	sets.midcast.Mazurka = {}
 
 	sets.midcast.Cure = {
-		main="Mafic Cudgel",
+		main="Daybreak",
 		sub="Culminus",
 		head=gear.Vanya.Head.B,
 		body=gear.Vanya.Body.B,
@@ -227,6 +228,7 @@ function init_gear_sets()
 	}
 
 	sets.idle = {
+		main="Daybreak",
 		range="Linos",
 		head=gear.Inyanga.Head,
 		body=gear.Inyanga.Body,

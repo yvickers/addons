@@ -31,7 +31,7 @@ function user_job_setup()
 	gear.Empyrean.Head = ""
 	gear.Empyrean.Body = "Bhikku Cyclas +2"
 	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = "Bhikku Hose +2"
+	gear.Empyrean.Legs = "Bhikku Hose +3"
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}

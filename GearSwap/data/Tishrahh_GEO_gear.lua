@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
-		main="Bolelabunga",
+		main="Daybreak",
 		sub="Culminus",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
@@ -69,6 +69,9 @@ function init_gear_sets()
     	right_ring="Lebeche Ring",
 		back=gear.capes.GeoSkill,
 	}
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+		main="Daybreak",
+	})
 
 	sets.midcast.Geomancy = {
 		head=gear.Empyrean.Head,
@@ -82,7 +85,7 @@ function init_gear_sets()
 	}
 
 	sets.midcast.Cure = {
-		main="Bolelabunga",
+		main="Daybreak",
 		sub="Sors Shield",
 		head=gear.Vanya.Head.B,
 		body=gear.Vanya.Body.B,
@@ -117,7 +120,7 @@ function init_gear_sets()
 	sets.midcast.BarElement = {}
 
 	sets.idle = {
-		main="Bolelabunga",
+		main="Daybreak",
 		head=gear.Empyrean.Head,
 		body="Shamash Robe",
 		hands=gear.Artifact.Hands,

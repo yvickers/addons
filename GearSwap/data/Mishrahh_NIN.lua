@@ -35,7 +35,7 @@ function job_setup()
 	state.AutoUtsuBuffer = M{['description'] = 'Images for recast', 0, 1, 2, }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
+	gear.Artifact.Head = "Hachiya Hatsu. +3"
 	gear.Artifact.Body = ""
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
@@ -53,7 +53,7 @@ function job_setup()
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Hattori Kyahan +1"
+	gear.Empyrean.Feet = "Hattori Kyahan +2"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}}
@@ -132,18 +132,18 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS['Savage Blade'] = {
-		ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-		head="Nyame Helm",
+		ammo="Crepuscular Pebble",
+		head=gear.Artifact.Head,
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		feet=gear.Empyrean.Feet,
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Ishvara Earring",
-		right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-		left_ring="Regal Ring",
-		right_ring="Gere Ring",
+		left_ear="Moonshade Earring",
+		right_ear="Hattori Earring +2",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
 		--back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}},
 	}
 
@@ -170,18 +170,18 @@ function init_gear_sets()
 	})
 
 	sets.engaged = {
-		ammo="Ginsen",
-		head="Mpaca's Cap",
-		body="Mpaca's Doublet",
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
 		hands=gear.Adhemar.Hands.A,
 		legs="Samnuha Tights",
-		feet=gear.Hiza.Feet,
+		feet="Malignance Boots",
 		neck="Sanctity Necklace",
-		waist="Patentia Sash",
-		left_ear="Suppanomimi",
-		right_ear="Eabani Earring",
-		left_ring="Mummu Ring",
-		right_ring="Ilabrat Ring",
+		waist="Sailfi Belt +1",
+		left_ear="Dedition Earring",
+		right_ear="Telos Earring",
+		left_ring="Gere Ring",
+		right_ring="Epona's Ring",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

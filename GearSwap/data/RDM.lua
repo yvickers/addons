@@ -200,6 +200,7 @@ function init_gear_sets()
 		--body="Lethargy Sayon +1",hands="Regal Cuffs",ring1="Kishar Ring",ring2="Stikini Ring +1",
 		--back=gear.nuke_jse_back,waist="Luminary Sash",legs="Chironic Hose",feet="Vitiation Boots +3"
 	}
+	sets.midcast.INTEnfeeble = {}
 		
 	sets.midcast['Enfeebling Magic'].Resistant = {
 		--main="Daybreak",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
@@ -389,8 +390,7 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
-function job_post_midcast(spell,action,spellMap,eventArgs)
-	windower.chat:input( '/p ' .. spell.skill )
+function job_midcast(spell,action,spellMap,eventArgs)
 	if spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' and spell.english ~= 'Impact' then
 		if state.MagicBurstMode.value ~= 'Off' then
 			if state.CastingMode.value:contains('Resistant') and sets.ResistantMagicBurst then

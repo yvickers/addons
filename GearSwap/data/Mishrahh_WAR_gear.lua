@@ -114,18 +114,19 @@ function init_gear_sets()
 		body=gear.Artifact.Body,
 		hands=gear.Empyrean.Hands,
 		legs=gear.Empyrean.Legs,
-		feet=gear.Sulevia.Feet,
+		feet="Nyame Sollerets",
 		neck="War. Beads +1",
 		waist="Sailfi Belt +1",
 		left_ear="Thrud Earring",
 		right_ear="Moonshade Earring",
-		left_ring="Regal Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
 		back=gear.capes.StrWS,
 	}
 
 	sets.precast.GAXEWS = set_combine(sets.precast.WS, {
 		left_ring="Gelatinous Ring +1",
+		right_ring="Niqmaddu Ring",
 		back=gear.capes.VitWS,
 	})
 	sets.precast.WS["Shield Break"] = set_combine(sets.precast.GAXEWS, {
@@ -167,6 +168,20 @@ function init_gear_sets()
 	})
 	sets.precast.WS["Full Break"] = set_combine(sets.precast.WS["Armor Break"], {
 	})
+
+	sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS, {
+        head=gear.Relic.Head,
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Sybil Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Metamor. Ring +1",		
+    } )
 
 	sets.idle = {
 		ammo="Crepuscular Pebble",

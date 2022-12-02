@@ -27,7 +27,7 @@ function user_job_setup()
         ammo="Hauksbok Arrow",
     }
     
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Evisceration', 'Aeolian Edge', 'Decimation' }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Evisceration', 'Aeolian Edge',' }
 
     gear.Artifact = {}
     gear.Artifact.Head = "Orion Beret +3"
@@ -166,18 +166,14 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
     } )
     sets.precast.WSPhysical = set_combine(sets.precast.WS, {
-        head=gear.Artifact.Head,
-        body="Nyame Mail",
         hands=gear.Meghanada.Hands,
         legs=gear.Relic.Legs,
-        neck="Scout's Gorget +2",
         waist="K. Kachina Belt +1",
         back=gear.capes.PhysicalRangedWS,
         left_ear="Telos Earring",
         right_ear="Moonshade Earring",
-        left_ring="Dingir Ring",
-        right_ring="Regal Ring",
-        waist="Fotia Belt",
+        left_ring="Epaminondas's Ring",
+        right_ring="Sroda Ring",
     } )
 
     sets.precast.WS["Apex Arrow"] = set_combine(sets.precast.WSPhysical, {  
@@ -188,9 +184,10 @@ function init_gear_sets()
     } )
     sets.precast.WS["Last Stand"] = set_combine(sets.precast.WSPhysical, {
         left_ear="Ishvara Earring",
+        right_ring="Dingir Ring",
         waist="Fotia Belt",
     } )
-    sets.precast.WS["Trueflight"] = set_combine(sets.precast.WSPhysical, {
+    sets.precast.WS["Trueflight"] = set_combine(sets.precast.WS, {
         right_ring="Weather. Ring +1",
     } )
 
@@ -212,8 +209,6 @@ function init_gear_sets()
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         left_ear="Ishvara Earring",
-        left_ring="Regal Ring",
-        right_ring="Metamor. Ring +1",
         back=gear.capes.PhysicalMeleeWS,
     } )
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS, {
