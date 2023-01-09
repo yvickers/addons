@@ -48,11 +48,61 @@ return {
             ["complete_reaction"]="//aero", 
             ["ready_reaction"]=""
         }
-    }, 
-    ["Locus Armet Beetle"]={
-        ["Rhino Guard"]={
-            ["complete_reaction"]="//dispel bt", 
-            ["ready_reaction"]=""
+    },
+    ["Bozzetto Housemaker"]={
+        ["Earthshaker?"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="runaway 20"
         }
-    }
+    },
+    ["Bozzetto Breadwinner"]={
+        ["Lateral Slash"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barstonra' <me>"
+        },
+        ["Sigh"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barblizzara' <me>"
+        },
+        ["Words of Bane"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'barfira' <me>"
+        },
+        ["Pierce Vitals"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Baraera' <me>"
+        },
+        ["Vertical Slash"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barwatera' <me>"
+        },
+        ["Light of Penance"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barthundra' <me>"
+        },
+        ["Fire Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barfira' <me>"
+        },
+        ["Blizzard Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barblizzara' <me>"
+        },
+        ["Aero Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Baraera' <me>"
+        },
+        ["Stone Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barstonra' <me>"
+        },
+        ["Thunder Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barthundra' <me>"
+        },
+        ["Water Meeble Warble"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="input /ma 'Barwatera' <me>"
+        }
+    ,}
 }

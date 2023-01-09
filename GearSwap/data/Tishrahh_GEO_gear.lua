@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
-		main="Daybreak",
+		main="Idris",
 		sub="Culminus",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
@@ -23,7 +23,7 @@ function user_job_setup()
 	gear.Relic.Feet = "Bagua Sandals +2"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Azimuth Hood +2"
+	gear.Empyrean.Head = "Azimuth Hood +3"
 	gear.Empyrean.Body = "Azimuth Coat"
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
@@ -74,6 +74,7 @@ function init_gear_sets()
 	})
 
 	sets.midcast.Geomancy = {
+		main="Idris",
 		head=gear.Empyrean.Head,
 		body=gear.Relic.Body,
 		hands=gear.Artifact.Hands,
@@ -120,7 +121,7 @@ function init_gear_sets()
 	sets.midcast.BarElement = {}
 
 	sets.idle = {
-		main="Daybreak",
+		main="Idris",
 		head=gear.Empyrean.Head,
 		body="Shamash Robe",
 		hands=gear.Artifact.Hands,
@@ -134,10 +135,10 @@ function init_gear_sets()
 		back=gear.capes.PetRegen,
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
-		main="Mafic Cudgel",
 		right_ring="Vertigo Ring",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
+		main="Idris",
 		legs=gear.Telchine.Legs.GEO,
 		feet=gear.Relic.Feet,
 		neck="Bagua Charm +2",
@@ -145,9 +146,6 @@ function init_gear_sets()
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
 		right_ring="Purity Ring",
-	})
-	sets.idle.PDT.Pet = set_combine( sets.idle.Pet, {
-		main="Mafic Cudgel",
 	})
 
 	sets.latent_refresh = {

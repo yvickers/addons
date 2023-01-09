@@ -208,6 +208,20 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+
+	if spell.english == 'Horde Lullaby' and spell_recasts[376] > 0 then
+		send_command('@input /ma "Horde Lullaby II" '..tostring(spell.target.raw))
+		eventArgs.cancel = true
+		return
+	end
+	if spell.english == 'Horde Lullaby II' and spell_recasts[377] > 0 then
+		send_command('@input /ma "Horde Lullaby" '..tostring(spell.target.raw))
+		eventArgs.cancel = true
+		return
+	end
+
+
 	if spell.action_type == 'Magic' then
 		if not sets.precast.FC[spell.english] and (spell.type == 'BardSong' and spell.targets.Enemy) then
 			classes.CustomClass = 'SongDebuff'

@@ -215,7 +215,7 @@ function init_gear_sets()
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
         body=gear.Artifact.Body,
-        hands=gear.Meghanada.Hands,
+        hands=gear.Empyrean.Hands,
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
         ring1="Regal Ring",
@@ -280,14 +280,14 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {
-        head=gear.Mummu.Head,
+        head="Nyame Helm",
         ear2="Hecate's Earring",
         ring2="Ilabrat Ring",
         back=gear.capes.RngWFCape,
     })
 
     sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {
-        head=gear.Mummu.Head,
+        head="Nyame Helm",
         ear2="Hecate's Earring",
         ring2="Ilabrat Ring",
         back=gear.capes.RngWFCape,
@@ -296,7 +296,7 @@ function init_gear_sets()
     sets.precast.WS['Last Stand'] = {
         head="Malignance Chapeau",
         body=gear.Artifact.Body,
-        hands=gear.Meghanada.Hands,
+        hands=gear.Empyrean.Hands,
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
         neck="Fotia Gorget",

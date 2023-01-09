@@ -14,10 +14,10 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Leth. Chappel +2"
+	gear.Empyrean.Head = "Leth. Chappel +3"
 	gear.Empyrean.Body = "Lethargy Sayon +3"
-	gear.Empyrean.Hands = "Leth. Ganth. +2"
-	gear.Empyrean.Legs = "Leth. Fuseau +2"
+	gear.Empyrean.Hands = "Leth. Ganth. +3"
+	gear.Empyrean.Legs = "Leth. Fuseau +3"
 	gear.Empyrean.Feet = "Leth. Houseaux +3"
 
 	gear.capes = {}

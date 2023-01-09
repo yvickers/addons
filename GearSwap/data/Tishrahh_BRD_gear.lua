@@ -36,11 +36,15 @@ function user_job_setup()
 end
 
 function init_gear_sets()
+	sets.buff.sleep = {
+		main="Prime Dagger",
+	}
+
 	sets.precast.FC = {
 		body=gear.Inyanga.Body,
 	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    legs=gear.Ayanmo.Legs,
-		feed=gear.Empyrean.Feet,
+	    legs="Kaykaus Tights +1",
+		feet=gear.Empyrean.Feet,
 	    neck="Voltsurge Torque",
 	    waist="Embla Sash",
 	    back=gear.capes.IMBARD,
@@ -75,15 +79,15 @@ function init_gear_sets()
 
 	sets.precast.WS = {
 		--ammo="Knobkierrie",
-		--head="Ken. Jinpachi +1",
+		head="Nyame Helm",
 		body=gear.Relic.Body,
 		hands=gear.Jhakri.Hands,
-		--legs="Ken. Hakama +1",
-		--feet="Ken. Sune-Ate +1",
-		--neck="Mnk. Nodowa +1",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Rep. Plat. Medal",
 		waist="Sailfi Belt +1",
 		--left_ear="Sherida Earring",
-		--right_ear="Moonshade Earring",
+		right_ear="Moonshade Earring",
 		--left_ring="Epona's Ring",
 		--right_ring="Rajas Ring",
 		back=gear.capes.SavageWS,
@@ -189,6 +193,9 @@ function init_gear_sets()
 	sets.midcast["Honor March"] = set_combine(sets.midcast.March,{
 		range="Marsyas"
 	})
+	sets.midcast.Mambo = {
+		feet="Mou. Crackows +1",
+	}
 	sets.midcast.Minuet = {}
 	sets.midcast.Minne = {}
 	sets.midcast.Carol = {}
@@ -204,7 +211,7 @@ function init_gear_sets()
 		head=gear.Vanya.Head.B,
 		body=gear.Vanya.Body.B,
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-		legs=gear.Inyanga.Legs,
+		legs="Kaykaus Tights +1",
 		feet=gear.Vanya.Feet.B,
 		neck="Reti Pendant",
 		waist="Gishdubar Sash",

@@ -8,7 +8,7 @@ function user_job_setup()
 	
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Naegling', 'Blunt', }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Impulse Drive', 'Stardiver', 'Sonic Thrust', "Camlann's Torment", 'Drakesbane' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Impulse Drive', 'Stardiver', 'Sonic Thrust', "Camlann's Torment", 'Drakesbane', 'Savage Blade' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Shining One",
@@ -135,6 +135,11 @@ function init_gear_sets()
 	} )
 
 	sets.precast.WS['Savage Blade'] = set_combine( sets.precast.WS, {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
 		left_ear="Moonshade Earring",
 		neck="Rep. Plat. Medal",
 		waist="Sailfi Belt +1",

@@ -24,11 +24,11 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Kasuga Kabuto +2"
+	gear.Empyrean.Head = "Kasuga Kabuto +3"
 	gear.Empyrean.Body = "Kasuga Domaru +3"
-	gear.Empyrean.Hands = "Kasuga Kote +2"
+	gear.Empyrean.Hands = "Kasuga Kote +3"
 	gear.Empyrean.Legs = "Kasuga Haidate +3"
-	gear.Empyrean.Feet = "Kasuga Sune-Ate +2"
+	gear.Empyrean.Feet = "Kasuga Sune-Ate +3"
 
 	gear.capes = {}
 	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}

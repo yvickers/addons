@@ -4,6 +4,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include(player.name..'_'..player.main_job..'_gear.lua') -- Required Gear file.
 end
 
 function job_setup()
@@ -27,15 +28,15 @@ function job_setup()
 		--ammo="Staunch Tathlum",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Shun' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Ku' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 	state.NINStance = M{['description'] = 'Ninja Stance',  'Yonin', 'None', 'Innin', }
-	state.AutoUtsu = M( true, "Automatic Utsusemi" )
+	state.AutoUtsu = M( false, "Automatic Utsusemi" )
 	state.AutoUtsuBuffer = M{['description'] = 'Images for recast', 0, 1, 2, }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Hachiya Hatsu. +3"
+	gear.Artifact.Head = ""
 	gear.Artifact.Body = ""
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
@@ -53,11 +54,14 @@ function job_setup()
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Hattori Kyahan +2"
+	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
-	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}}
-	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	gear.capes.DexTP = ""--{ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
+	gear.capes.StrWSD = ""--{ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+4','Weapon skill damage +10%',}},
+    gear.capes.MagicWSD = ""
+    gear.capes.FC = ""
+    gear.capes.Ninjutsu = ""
 
 --[[
 ^   Ctrl
@@ -74,6 +78,9 @@ function job_setup()
 
 	send_command('wait 10; input /lockstyle on')
 
+    if user_job_setup then
+        user_job_setup()
+    end
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -84,84 +91,40 @@ function unload_job_keybinds()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		head='Volte Cap',
-		hands=gear.Herc.Hands.TH,
-		body=gear.Herc.Body.TH,
-		--waist="Chaac Belt",
-		legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = {}
 
-	 sets.precast.FC = {
-	 	ammo="Impatiens",
-		--head=gear.herculean_fc_head,
-		neck="Voltsurge Torque",
-		ear1="Enchntr. Earring +1",
-		ear2="Loquac. Earring",
-		--body="Dread Jupon",
-		hands="Leyline Gloves",
-		ring1="Lebeche Ring",
-		ring2="Prolix Ring",
-		--legs="Rawhide Trousers",
-		--feet="Mochi. Kyahan +1"
-	}
+	 sets.precast.FC = {}
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     	--neck="Magoraga Beads",
     	--body="Passion Jacket",
-    	feet=gear.Empyrean.Feet,
+    	--feet=gear.Empyrean.Feet,
     } )
 
 
-	sets.precast.WS = {
-		ammo="Voluspa Tathlum",
-		head="Ken. Jinpachi +1",
-		body="Ken. Samue +1",
-		hands=gear.Adhemar.Hands.B,
-		legs="Ken. Hakama +1",
-		feet="Ken. Sune-Ate +1",
-		neck="Fotia Gorget",
-		waist="Fotia Belt",
-		left_ear="Odr Earring",
-		right_ear="Lugra Earring +1",
-		left_ring="Rajas Ring",
-		right_ring="Ilabrat Ring",
-		--back=gear.capes.StrDA,
-	}
+	sets.precast.WS = {}
 
-	sets.precast.WS['Savage Blade'] = {
-		ammo="Crepuscular Pebble",
-		head=gear.Artifact.Head,
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet=gear.Empyrean.Feet,
-		neck="Rep. Plat. Medal",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Moonshade Earring",
-		right_ear="Hattori Earring +2",
-		left_ring="Sroda Ring",
-		right_ring="Epaminondas's Ring",
-		--back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Evasion+9',}},
-	}
+    sets.midcast.SpellInterrupt = {
+        --ammo="Staunch Tathlum +1", --11
+        --body=gear.Taeon_Phalanx_body, --10
+        --hands="Rawhide Gloves", --15
+        --legs=gear.Taeon_Phalanx_legs, --10
+        --feet=gear.Taeon_Phalanx_feet, --10
+        --neck="Moonlight Necklace", --15
+        --ear1="Halasz Earring", --5
+        --ear2="Magnetic Earring", --8
+        --ring1="Evanescence Ring", --5
+        --back=gear.NIN_FC_Cape, --10
+        --waist="Audumbla Sash", --10
+    }
+    sets.midcast.Utsusemi = set_combine(sets.midcast.SpellInterrupt, {
+        --feet=gear.Empyrean.Feet,
+    })
+    sets.midcast.EnhancingNinjutsu = {}
+    sets.midcast.EnfeeblingNinjutsu = {}
+    sets.midcast.ElementalNinjutsu = {}
 
-	sets.idle = {
-		ammo="Crepuscular Pebble",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",
-        waist="Flume Belt +1",
-        back=gear.capes.TP,
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
-        left_ring="Defending Ring",
-        right_ring="Warp Ring",
-	}
+	sets.idle = {}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})
 	sets.idle.MDT = set_combine(sets.idle, {
@@ -169,38 +132,11 @@ function init_gear_sets()
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
 
-	sets.engaged = {
-		ammo="Coiste Bodhar",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands=gear.Adhemar.Hands.A,
-		legs="Samnuha Tights",
-		feet="Malignance Boots",
-		neck="Sanctity Necklace",
-		waist="Sailfi Belt +1",
-		left_ear="Dedition Earring",
-		right_ear="Telos Earring",
-		left_ring="Gere Ring",
-		right_ring="Epona's Ring",
-	}
+	sets.engaged = {}
 
-	sets.engaged.PDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        left_ring="Defending Ring",
-	})
+	sets.engaged.PDT = set_combine(sets.engaged, {})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        left_ring="Defending Ring",
-	})
+	sets.engaged.MDT = set_combine(sets.engaged, {})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
 	})
@@ -228,7 +164,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 	if spell.type == "WeaponSkill" then
 	end
 end
-
 
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
@@ -290,21 +225,13 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     check_range_lock()
 end
 
--- Function to lock the ranged slot if we have a ranged weapon equipped.
-function check_range_lock()
-	if player.equipment.range ~= 'empty' then
-		disable('range', 'ammo')
-	else
-		enable('range', 'ammo')
-	end
-end
-
 -------------------------------------------------------------------------------------------------------------------
 -- User self-commands.
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
+    user_self_command( cmdParams, eventArgs )
 end
 
 function job_tick()

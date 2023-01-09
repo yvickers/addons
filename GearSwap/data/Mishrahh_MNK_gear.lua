@@ -11,7 +11,7 @@ function user_job_setup()
 		ranged="Trollbane",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Victory Smite', 'Howling Fist', 'Shijin Spiral', "Ascetic's Fury", 'Dragon Kick' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Victory Smite', 'Raging Fists', 'Tornado Kick', 'Howling Fist', }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Temple Crown"
@@ -29,7 +29,7 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
-	gear.Empyrean.Body = "Bhikku Cyclas +2"
+	gear.Empyrean.Body = "Bhikku Cyclas +3"
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = "Bhikku Hose +3"
 	gear.Empyrean.Feet = ""
@@ -89,7 +89,7 @@ function init_gear_sets()
 		hands="Mpaca's Gloves",
 		legs="Mpaca's Hose",
 		feet="Mpaca's Boots",
-		neck="Mnk. Nodowa +1",
+		neck="Mnk. Nodowa +2",
 		waist="Moonbow Belt +1",
 		left_ear="Sherida Earring",
 		right_ear="Moonshade Earring",
@@ -99,17 +99,22 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS['Raging Fists']    = set_combine(sets.precast.WS, {
+		head="Ken. Jinpachi +1",
+		body="Ken. Samue +1",
 		hands=gear.Adhemar.Hands.B,
+		neck="Fotia Gorget",
 	})
 	sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
+		body="Nyame Mail",
 		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		right_ring="Gelatinous Ring +1",
-		back=gear.capes.VitWS,
+		feet="Nyame Sollerets",
+		neck="Fotia Gorget",
+		left_ear="Schere Earring",
 	})
 	sets.precast.WS['Tornado Kick']    = set_combine(sets.precast.WS, {
+		body="Ken. Samue +1",
 		hands=gear.Adhemar.Hands.B,
-		back=gear.capes.VitWS,
+		feet=gear.Artifact.Feet,
 	})
 	sets.precast.WS["Ascetic's Fury"]    = set_combine(sets.precast.WS, {
 		head=gear.Adhemar.Head.B,
@@ -117,11 +122,17 @@ function init_gear_sets()
 	})
 	sets.precast.WS["Victory Smite"]   = set_combine(sets.precast.WS, {
 		head=gear.Adhemar.Head.B,
+		body="Ken. Samue +1",
 		hands=gear.Adhemar.Hands.B,
+		neck="Fotia Gorget",
 		right_ear="Odr Earring",
 	})
 	sets.precast.WS['Shijin Spiral']   = set_combine(sets.precast.WS, {
-		hands=gear.Adhemar.Hands.TP,
+		ammo="Aurgelmir Orb",
+		head="Ken. Jinpachi +1",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		neck="Fotia Gorget",
 		back=gear.capes.DexTP,
 		right_ear="Mache Earring +1",
 	})
@@ -133,7 +144,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Sanctity Necklace",
+		neck="Sibyl Scarg",
 		waist="Orpheus's Sash",
 		left_ear="Friomisi Earring",
 		right_ear="Moonshade Earring",
@@ -143,9 +154,9 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Crepuscular Pebble",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
 		legs=gear.Empyrean.Legs,
 		feet="Hermes' Sandals",
 		neck="Loricate Torque +1",
@@ -164,7 +175,7 @@ function init_gear_sets()
 		hands=gear.Adhemar.Hands.A,
 		legs=gear.Empyrean.Legs,
 		feet=gear.Artifact.Feet,
-		neck="Mnk. Nodowa +1",
+		neck="Mnk. Nodowa +2",
 		waist="Moonbow Belt +1",
 		left_ear="Sherida Earring",
 		--right_ear="Schere Earring",
@@ -175,9 +186,9 @@ function init_gear_sets()
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
-		ammo="Crepuscular Pebble",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		--ammo="Crepuscular Pebble",
+		--head="Malignance Chapeau",
+		--body="Malignance Tabard",
 		hands="Malignance Gloves",
 		feet="Malignance Boots",
 		--left_ring="Defending Ring",

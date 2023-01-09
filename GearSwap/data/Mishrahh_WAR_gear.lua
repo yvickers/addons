@@ -1,6 +1,6 @@
 function user_job_setup()
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Mace', 'Shining', 'GAXE', 'AXE' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'GAXE', 'Mace' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Naegling",
@@ -23,7 +23,7 @@ function user_job_setup()
 		sub="Zantetsuken",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Judgment", "Impulse Drive", "Sonic Thrust", "Upheaval", "King's Justice", "Fell Cleave" }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Upheaval", "Fell Cleave", "Judgment" }
 
 
 	gear.Artifact = {}
@@ -38,7 +38,7 @@ function user_job_setup()
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Feet = "Agoge Calligae +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
@@ -50,7 +50,7 @@ function user_job_setup()
 	gear.capes = {}
 	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-	gear.capes.VitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+	gear.capes.VitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
 
 --[[
 ^   Ctrl
@@ -97,6 +97,7 @@ function init_gear_sets()
 	}
 	sets.precast.JA['Berserk'] = {
 		body=gear.Artifact.Body,
+		feet=gear.Relic.Feet,
 	}
 	sets.precast.JA['Warcry'] = {
 		head=gear.Relic.Head,
@@ -111,7 +112,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head=gear.Relic.Head,
-		body=gear.Artifact.Body,
+		body="Nyame Mail",
 		hands=gear.Empyrean.Hands,
 		legs=gear.Empyrean.Legs,
 		feet="Nyame Sollerets",
@@ -124,11 +125,7 @@ function init_gear_sets()
 		back=gear.capes.StrWS,
 	}
 
-	sets.precast.GAXEWS = set_combine(sets.precast.WS, {
-		left_ring="Gelatinous Ring +1",
-		right_ring="Niqmaddu Ring",
-		back=gear.capes.VitWS,
-	})
+	sets.precast.GAXEWS = set_combine(sets.precast.WS, {})
 	sets.precast.WS["Shield Break"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["Iron Tempest"] = set_combine(sets.precast.GAXEWS, {
@@ -142,12 +139,20 @@ function init_gear_sets()
 	sets.precast.WS["Steel Cyclone"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["Upheaval"] = set_combine(sets.precast.GAXEWS, {
+		left_ring="Gelatinous Ring +1",
+		right_ring="Niqmaddu Ring",
+		back=gear.capes.VitWS,
 	})
 	sets.precast.WS["Metatron Torment"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["King's Justice"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.GAXEWS, {
+		ammo="Yetshila +1",
+		left_ear="Schere Earring",
+		right_ear="Moonshade Earring",
+		left_ring="Regal Ring",
+		right_ring="Niqmaddu Ring",
 	})
 
 	sets.precast.WS["Armor Break"] = set_combine(sets.precast.GAXEWS, {
@@ -181,6 +186,19 @@ function init_gear_sets()
         right_ear="Moonshade Earring",
         left_ring="Epaminondas's Ring",
         right_ring="Metamor. Ring +1",		
+    } )
+	sets.precast.WS["Cataclysm"] = set_combine(sets.precast.WS, {
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Sybil Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",		
     } )
 
 	sets.idle = {

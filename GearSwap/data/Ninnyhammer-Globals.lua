@@ -51,7 +51,7 @@ function define_global_sets()
     gear.Jhakri.Feet = "Jhakri Pigaches"
 
     gear.Flamma = {}
-    gear.Flamma.Head = "Flam. Zucchetto"
+    gear.Flamma.Head = "Flam. Zucchetto +2"
     gear.Flamma.Body = "Flamma Korazin +1"
     gear.Flamma.Hands = "Flam. Manopolas"
     gear.Flamma.Legs = "Flamma Dirs +1"

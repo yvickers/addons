@@ -8,10 +8,11 @@ end
 
 function job_setup()
 
-	state.OffenseMode:options( 'PDT', 'Melee', 'MDT', 'Acc' )
+	state.OffenseMode:options( 'PDT', 'Evasion', 'Melee', 'MDT', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
-	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	state.IdleMode:options( 'Normal', 'Evasion', 'PDT', 'MDT', 'Regen' )
+	state.CastingMode         = M{['description'] = 'Casting Mode', 'Normal', 'Evasion' }
 
 	include('Mote-TreasureHunter')
 	-- For th_action_check():
@@ -20,7 +21,7 @@ function job_setup()
 	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Casting', 'Accuracy', 'Melee', }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Casting', 'Accuracy', 'Melee', 'Evasion', }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Chant du Cygne', 'Savage Blade', 'Black Halo', 'Realmrazer', }
 	gear.weapons = {}
 	gear.weapons['Casting'] = {
@@ -34,6 +35,10 @@ function job_setup()
 	gear.weapons['Melee'] = {
 		main="Naegling",
 		sub="Thibron",
+	}
+	gear.weapons['Evasion'] = {
+		main="Naegling",
+		sub="Sakpata's Sword",
 	}	
 	
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
@@ -53,10 +58,10 @@ function job_setup()
 	gear.Relic.Feet = "Luhlaza Charuqs +2"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Hashishin Kavuk +2"
-	gear.Empyrean.Body = "Hashishin Mintan +2"
+	gear.Empyrean.Head = "Hashishin Kavuk +3"
+	gear.Empyrean.Body = "Hashishin Mintan +3"
 	gear.Empyrean.Hands = "Hashishin Bazubands +2"
-	gear.Empyrean.Legs = "Hashishin Tayt +2"
+	gear.Empyrean.Legs = "Hashishin Tayt +3"
 	gear.Empyrean.Feet = "Hashi. Basmak +2"
 
 	gear.capes = {}
@@ -206,14 +211,14 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'] = set_combine( sets.precast.WS, {
 		ammo="Crepuscular Pebble",
 		head=gear.Empyrean.Head,
-		body=gear.Artifact.Body,
-		hands=gear.Jhakri.Hands,
-		legs=gear.Relic.Legs,
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		left_ear="Moonshade Earring",
 		right_ear="Brutal Earring",
-		left_ring="Regal Ring",
-		right_ring="Metamor. Ring +1",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
 		waist="Sailfi Belt +1"
 	} )
 	sets.precast.WS['Black Halo'] = set_combine( sets.precast.WS['Savage Blade'], {} )
@@ -699,6 +704,23 @@ function init_gear_sets()
         left_ring="Defending Ring",
         right_ring="Warp Ring",
 	}
+	
+	sets.idle.Evasion = {
+		ammo="Staunch Tathlum",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Bathy Choker +1",
+		waist="Svelt. Gouriz +1",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Vengeful Ring",
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+	}
+	
 	sets.idle.PDT = set_combine(sets.idle, {
 		head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -735,6 +757,22 @@ function init_gear_sets()
 		back=gear.capes.TP,
 	}
 
+	sets.engaged.Evasion = {
+		ammo="Staunch Tathlum",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Bathy Choker +1",
+		waist="Svelt. Gouriz +1",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Defending Ring",
+		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+	}
+	
 	sets.engaged.PDT = set_combine(sets.engaged, {
 		head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -774,6 +812,12 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 
+	if spell.skill == 'Blue Magic' and 'Evasion' == state.CastingMode.current then
+		eventArgs.handled = true
+		equip(sets.idle.Evasion)
+		return
+	end
+
 	if spell.skill == 'Blue Magic' and unbridled_spells:contains(spell.english) and not (buffactive['Unbridled Learning'] or buffactive['Unbridled Wisdom']) then
 		if (state.AutoBuffMode.current == 'on') and (abil_recasts[81] < latency) then
 			eventArgs.cancel = true
@@ -793,6 +837,13 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 	end
 end
 
+function job_midcast(spell,action,spellMap,eventArgs)
+	if spell.skill == 'Blue Magic' and 'Evasion' == state.CastingMode.current then
+		eventArgs.handled = true
+		equip(sets.idle.Evasion)
+		return
+	end
+end
 function job_post_midcast( spell, action, spellMap, eventArgs)
 	-- Add enhancement gear for Chain Affinity, etc.
     if spell.skill == 'Blue Magic' then

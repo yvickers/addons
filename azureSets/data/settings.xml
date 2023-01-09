@@ -114,6 +114,27 @@
             <default>
 
             </default>
+            <evasion>
+                <slot01>Molting Plumage</slot01>
+                <slot02>Erratic Flutter</slot02>
+                <slot03>Occultation</slot03>
+                <slot04>Screwdriver</slot04>
+                <slot05>Tempestuous Upheaval</slot05>
+                <slot06>Silent Storm</slot06>
+                <slot07>Reactor Cool</slot07>
+                <slot08>Dream Flower</slot08>
+                <slot09>Entomb</slot09>
+                <slot10>Nature's Meditation</slot10>
+                <slot11>Fantod</slot11>
+                <slot12>Sudden Lunge</slot12>
+                <slot13>Barrier Tusk</slot13>
+                <slot14>Glutinous Dart</slot14>
+                <slot15>Zephyr Mantle</slot15>
+                <slot16>Chaotic Eye</slot16>
+                <slot17>Temporal Shift</slot17>
+                <slot18>Actinic Burst</slot18>
+                <slot19>Magic Fruit</slot19>
+            </evasion>
             <nuking>
                 <slot01>memento mori</slot01>
                 <slot02>entomb</slot02>

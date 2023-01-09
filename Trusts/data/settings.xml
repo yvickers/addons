@@ -54,8 +54,8 @@
                 <3>Koru-Moru</3>
             </allwoe>
             <ambu>
-                <1>Monberaux</1>
-                <2>Yoran-Oran (UC)</2>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
                 <3>Koru-Moru</3>
             </ambu>
             <ambu2>
@@ -235,6 +235,11 @@
                 <4>Yoran-Oran (UC)</4>
                 <5>Monberaux</5>
             </macrocosmic>
+            <macrosmic>
+                <1>Monberaux</1>
+                <2>Koru-Moru</2>
+                <3>Ygnas</3>
+            </macrosmic>
             <meph>
                 <1>Monberaux</1>
                 <2>King of Hearts</2>
@@ -440,6 +445,11 @@
                 <4>Yoran-Oran (UC)</4>
                 <5>Koru-Moru</5>
             </shinryu>
+            <sortie>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Koru-Moru</3>
+            </sortie>
             <temp>
                 <1>Joachim</1>
                 <2>Ulmia</2>
@@ -482,6 +492,13 @@
                 <4>Koru-Moru</4>
                 <5>Yoran-Oran (UC)</5>
             </tishwar>
+            <trials>
+                <1>Valaineral</1>
+                <2>Monberaux</2>
+                <3>Sylvie (UC)</3>
+                <4>Ulmia</4>
+                <5>Joachim</5>
+            </trials>
             <unity>
                 <1>Valaineral</1>
                 <2>Monberaux</2>

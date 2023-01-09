@@ -5,6 +5,7 @@ function user_job_setup()
 
     state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Fomalhaut', }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
+    state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
 	gear.Artifact = {}
     gear.Artifact.Head = {}
@@ -25,15 +26,15 @@ function user_job_setup()
     gear.Empyrean.Body = "Chasseur's Frac +2"
     gear.Empyrean.Hands = "Chasseur's Gants +3"
     gear.Empyrean.Legs = "Chas. Culottes +2"
-    gear.Empyrean.Feet = "Chasseur's Bottes +2"
+    gear.Empyrean.Feet = "Chasseur's Bottes +3"
 
     gear.capes = {}
     gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10',}}
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = gear.capes.MeleeTP
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
-    gear.capes.RngTPCape = gear.capes.RngMagicalWS
-    gear.capes.RngPhysicalWS = gear.capes.RngMagicalWS
+    gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+3','"Store TP"+10',}}
+    gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
 
     gear.weapons = {}
     --match key to state.weapons options
@@ -57,7 +58,8 @@ function init_gear_sets()
 		ranged="Prime Gun",
 	}
 	sets.precast.CorsairRoll = {
-        main="Lanun Knife",
+        --main="Lanun Knife",
+        --ranged = "Compensator",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
         --legs="Desultor Tassets",
@@ -73,7 +75,10 @@ function init_gear_sets()
     sets.precast.JA["Blitzer's Roll"] = {head=gear.Empyrean.Head}
     sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
-    sets.precast.Compensator = { ranged = "Compensator" }
+    sets.precast.Compensator = {
+        main="Lanun Knife",
+        ranged = "Compensator",
+    }
 
     sets.precast.FC = {
         --head=gear.Herc.Head.TH,
@@ -106,7 +111,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body=gear.Artifact.Body,
         hands=gear.Empyrean.Hands,
-        legs=gear.Meghanada.Legs,
+        legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
@@ -178,7 +183,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body=gear.Artifact.Body,
         hands=gear.Empyrean.Hands,
-        legs=gear.Meghanada.Legs,
+        legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
         neck="Comm. Charm +1",
         ear1="Beyla Earring",
@@ -242,6 +247,7 @@ function init_gear_sets()
 		right_ear="Enervating Earring",
 		left_ring="Meghanada Ring",
 		right_ring="Ilabrat Ring",
+        back=gear.capes.RngTPCape,
     }
 
     sets.idle = {

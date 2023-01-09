@@ -1,6 +1,5 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-state.AutoWSTP = M{['description'] = 'AutoWSTP', 1500, }
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Shark Bite', 'Evisceration', 'Aeolian Edge' }
     state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'AOE', }
     gear.weapons = {}
