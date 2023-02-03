@@ -60,27 +60,23 @@
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
-        <roll>Samurai Roll,Chaos Roll</roll>
         <text>
             <pos>
                 <x>930</x>
-                <y>50</y>
             </pos>
         </text>
     </mishrahh>
     <ninnyhammer>
         <aoe>
-            <p1>true</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
-        <roll>Samurai Roll,Chaos Roll</roll>
+        <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
                 <x>380</x>
-                <y>50</y>
             </pos>
         </text>
     </ninnyhammer>

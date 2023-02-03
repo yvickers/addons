@@ -54,8 +54,8 @@
                 <3>Koru-Moru</3>
             </allwoe>
             <ambu>
-                <1>Valaineral</1>
-                <2>Monberaux</2>
+                <1>Monberaux</1>
+                <2>Sylvie (UC)</2>
                 <3>Koru-Moru</3>
             </ambu>
             <ambu2>
@@ -85,6 +85,11 @@
                 <4>Yoran-Oran (UC)</4>
                 <5>Cherukiki</5>
             </ambuscade2>
+            <aoe>
+                <1>Star Sibyl</1>
+                <2>Moogle</2>
+                <3>Kupofried</3>
+            </aoe>
             <avatar>
                 <1>Selh&apos;teus</1>
                 <2>AAEV</2>
@@ -372,6 +377,11 @@
                 <4>Yoran-Oran (UC)</4>
                 <5>Koru-Moru</5>
             </odin>
+            <ody>
+                <1>AAEV</1>
+                <2>Monberaux</2>
+                <3>Koru-Moru</3>
+            </ody>
             <odyssey>
                 <1>August</1>
                 <2>Qultada</2>
