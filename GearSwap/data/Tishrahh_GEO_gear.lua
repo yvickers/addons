@@ -19,15 +19,15 @@ function user_job_setup()
 	gear.Relic.Head = ""
 	gear.Relic.Body = "Bagua Tunic +1"
 	gear.Relic.Hands = ""
-	gear.Relic.Legs = "Bagua Pants +1"
-	gear.Relic.Feet = "Bagua Sandals +2"
+	gear.Relic.Legs = "Bagua Pants +3"
+	gear.Relic.Feet = "Bagua Sandals +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Azimuth Hood +3"
-	gear.Empyrean.Body = "Azimuth Coat"
-	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Azimuth Gaiters +2"
+	gear.Empyrean.Body = "Azimuth Coat +1"
+	gear.Empyrean.Hands = "Azimuth Gloves +1"
+	gear.Empyrean.Legs = "Azimuth Tights +1"
+	gear.Empyrean.Feet = "Azimuth Gaiters +3"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -3%',}}
@@ -80,8 +80,8 @@ function init_gear_sets()
 		hands=gear.Artifact.Hands,
 		legs=gear.Relic.Legs,
 		feet=gear.Empyrean.Feet,
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		back=gear.capes.GeoSkill,
 	}
 
@@ -106,7 +106,21 @@ function init_gear_sets()
 		left_ring="Haoma's Ring",
 		right_ring="Haoma's Ring",
 	})
-	sets.midcast['Elemental Magic'] = {}
+	sets.midcast['Elemental Magic'] = {
+		sub="Ammurapi Shield",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+		neck="Sibyl Scarf",
+		waist="Eschan Stone",
+		--back="",
+		left_ear="Malignance Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+	}
 	sets.midcast['Dark Magic'] = {}
 	sets.midcast.Stun = {}
 

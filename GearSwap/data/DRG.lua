@@ -65,7 +65,7 @@ function job_setup()
 #   Apps
 ~	Shift
 --]]
-	send_command('bind !1 gs c jump')
+	send_command('bind !` gs c jump')
 	--send_command('bind @2 gs c cycle altstep')
 	--send_command('bind @3 gs c cycle Samba')
 
@@ -83,7 +83,7 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function unload_job_keybinds()
-	send_command('unbind !1')
+	send_command('unbind !`')
 	--send_command('unbind @2')
 	--send_command('unbind @3')
 end

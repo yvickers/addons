@@ -1,17 +1,28 @@
 function user_job_setup()
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'TPBonus', 'Aeolian' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		---main="Godhands",
-		--sub="",
-		--ammo="Staunch Tathlum",
+		main="Gokotai",
+		sub="Kunimitsu",
+	}
+	gear.weapons['Savage'] = {
+		main="Naegling",
+		sub="Uzura +2",
+	}
+	gear.weapons['TPBonus'] = {
+		main="Gokotai",
+		sub="Uzura +2",
+	}
+	gear.weapons['Aeolian'] = {
+		main="Tauret",
+		sub="Uzura +2",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Ku' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ten', 'Blade: Ei', 'Aeolin Edge', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
-	state.NINStance = M{['description'] = 'Ninja Stance',  'Yonin', 'None', 'Innin', }
+	state.NINStance = M{['description'] = 'Ninja Stance',  'None', 'Yonin', 'Innin', }
 	state.AutoUtsu = M( false, "Automatic Utsusemi" )
 	state.AutoUtsuBuffer = M{['description'] = 'Images for recast', 0, 1, 2, }
 
@@ -20,7 +31,7 @@ function user_job_setup()
 	gear.Artifact.Body = ""
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
-	gear.Artifact.Feet = "Hachiya Kyahan +2"
+	gear.Artifact.Feet = "Hachiya Kyahan +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = "Mochi. Hatsuburi +3"
@@ -34,14 +45,14 @@ function user_job_setup()
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = "Hattori Kyahan +2"
+	gear.Empyrean.Feet = "Hattori Kyahan +3"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
-	gear.capes.StrWSD = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+4','Weapon skill damage +10%',}}
-	gear.capes.MagicWSD = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20',}}
+	gear.capes.StrWSD = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.MagicWSD = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
     gear.capes.FC = { name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}}
-    gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20',}}
+    gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+4','"Mag.Atk.Bns."+10',}}
 
 --[[
 ^   Ctrl
@@ -75,7 +86,7 @@ function init_gear_sets()
 
 	 sets.precast.FC = {
 	 	ammo="Impatiens",
-		head=gear.Herc.Head.TH,
+		head="Herculean Head",
 		neck="Voltsurge Torque",
 		ear1="Enchntr. Earring +1",
 		ear2="Loquac. Earring",
@@ -101,7 +112,7 @@ function init_gear_sets()
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		feet=gear.Empyrean.Feet,
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Moonshade Earring",
@@ -139,6 +150,38 @@ function init_gear_sets()
 	})
 	sets.precast.WS['Sanguine Blade'] = sets.precast.WS['Blade: Ei']
 
+	sets.precast.WS['Blade: Hi'] = {
+		ammo="Yetshila +1",
+		head="Mpaca's Cap",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet=gear.Empyrean.Feet,
+		neck="Ninja Nodowa +2",
+		waist="Sailfi Belt +1",
+		left_ear="Odr Earring",
+		right_ear="Hattori Earring +2",
+		left_ring="Gere Ring",
+		right_ring="Regal Ring",
+		back=gear.capes.StrWSD,
+	}
+
+	sets.precast.WS['Blade: Kamu'] = {
+		ammo="Crepuscular Pebble",
+		head=gear.Artifact.Head,
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Mpaca's Hose",
+		feet=gear.Empyrean.Feet,
+		neck="Ninja Nodowa +2",
+		waist="Sailfi Belt +1",
+		left_ear="Lugra Earring +1",
+		right_ear="Hattori Earring +2",
+		left_ring="Gere Ring",
+		right_ring="Sroda Ring",
+		back=gear.capes.StrWSD,
+	}
+
 	sets.precast.WS['Blade: Ku'] = {
 		ammo="Coiste Bodhar",
 		head="Mpaca's Cap",
@@ -149,6 +192,22 @@ function init_gear_sets()
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Lugra Earring +1",
+		right_ear="Hattori Earring +2",
+		left_ring="Gere Ring",
+		right_ring="Regal Ring",
+		back=gear.capes.StrWSD,
+	}
+
+	sets.precast.WS['Blade: Shun'] = {
+		ammo="Coiste Bodhar",
+		head="Mpaca's Cap",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet=gear.Empyrean.Feet,
+		neck="Ninja Nodowa +2",
+		waist="Fotia Belt",
+		left_ear="Moonshade Earring",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
 		right_ring="Regal Ring",
@@ -178,23 +237,32 @@ function init_gear_sets()
         --legs=gear.Taeon_Phalanx_legs, --10
         --feet=gear.Taeon_Phalanx_feet, --10
         neck="Moonlight Necklace", --15
-        --ear1="Halasz Earring", --5
+        ear1="Halasz Earring", --5
         --ear2="Magnetic Earring", --8
-        --ring1="Evanescence Ring", --5
+        ring1="Evanescence Ring", --5
         back=gear.capes.FC, --10
         waist="Audumbla Sash", --10
     }
     sets.midcast.Utsusemi = set_combine(sets.midcast.SpellInterrupt, {
         feet=gear.Empyrean.Feet,
     })
-    sets.midcast.EnhancingNinjutsu = {}
+    sets.midcast.EnhancingNinjutsu = {
+		head=gear.Artifact.Head,
+		feet=gear.Relic.Feet,
+		--neck="Incanter's Torque",
+		left_ear="Hnoss Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back=gear.capes.Ninjutsu,
+		--waist="Cimmerian Sash",
+	}
     sets.midcast.EnfeeblingNinjutsu = {
 		ammo="Yamarang",
 		head=gear.Artifact.Head,
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
-		feet="Malignance Boots",--gear.Artifact.Feet
+		feet=gear.Artifact.Feet,
 		neck="Sanctity Necklace",
 		back=gear.capes.Ninjutsu,
 		waist="Eschan Stone",

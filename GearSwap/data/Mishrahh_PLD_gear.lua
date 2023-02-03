@@ -269,15 +269,8 @@ function init_gear_sets()
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
 	})
-
-	sets.buff.Doom = {
-		--neck="Nicander's Necklace", --20
-		--left_ring={name="Saida Ring", bag="wardrobe3"}, --20
-		right_ring="Purity Ring",
-		waist="Gishdubar Sash", --10
-    }
 	
-	sets.buff.Sleep = {}
+	sets.AutoBuff.Sleep = {}
 
 end
 

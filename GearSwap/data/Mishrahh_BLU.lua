@@ -60,9 +60,9 @@ function job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Hashishin Kavuk +3"
 	gear.Empyrean.Body = "Hashishin Mintan +3"
-	gear.Empyrean.Hands = "Hashishin Bazubands +2"
+	gear.Empyrean.Hands = "Hashishin Bazubands +3"
 	gear.Empyrean.Legs = "Hashishin Tayt +3"
-	gear.Empyrean.Feet = "Hashi. Basmak +2"
+	gear.Empyrean.Feet = "Hashi. Basmak +3"
 
 	gear.capes = {}
 	gear.capes.TP = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -158,7 +158,7 @@ function init_gear_sets()
 		--back=gear.da_jse_back,
 		legs=gear.Empyrean.Legs
 	}
-	sets.buff.Doom = set_combine(sets.buff.Doom, {})
+	sets.buff.Doom = set_combine(sets.AutoBuff.Doom, {})
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Azure Lore'] = {

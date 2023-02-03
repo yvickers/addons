@@ -24,19 +24,20 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Fili Calot +2"
 	gear.Empyrean.Body = "Fili Hongreline +3"
-	gear.Empyrean.Hands = "Fili Manchettes +2"
+	gear.Empyrean.Hands = "Fili Manchettes +3"
 	gear.Empyrean.Legs = "Fili Rhingrave +2"
-	gear.Empyrean.Feet = "Fili Cothurnes +2"
+	gear.Empyrean.Feet = "Fili Cothurnes +3"
 
 	gear.capes = {}
+	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
 	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
-	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10',}}
+	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
 	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 end
 
 function init_gear_sets()
-	sets.buff.sleep = {
+	sets.AutoBuff.sleep = {
 		main="Prime Dagger",
 	}
 
@@ -121,8 +122,8 @@ function init_gear_sets()
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
 		back=gear.capes.IMBARD,
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		left_ear="Hermetic Earring",
 		right_ear="Crep. Earring",
 	}
@@ -165,8 +166,8 @@ function init_gear_sets()
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
 		back=gear.capes.IMBARD,
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		left_ear="Gersemi Earring",
 		right_ear="Crep. Earring",
 	}
@@ -176,7 +177,6 @@ function init_gear_sets()
 		body=gear.Artifact.Body,
 		hands=gear.Inyanga.Hands,
 		feet=gear.Relic.Feet,
-		neck="Reti Pendant",
 	})
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby.AOE,{})
 	sets.midcast['Horde Lullaby'].Resistant = set_combine(sets.midcast.Lullaby.AOE,{})
@@ -246,9 +246,9 @@ function init_gear_sets()
 		--waist="Moonbow Belt",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
-		left_ring="Defending Ring",
+		left_ring="Stikini Ring +1",
 		right_ring="Warp Ring",
-		back=gear.capes.IMBARD,
+		back=gear.capes.Idle,
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})

@@ -572,7 +572,7 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 	}
 
-	sets.buff.Doom = set_combine(sets.buff.Doom, {})
+	sets.buff.Doom = set_combine(sets.AutoBuff.Doom, {})
 	sets.buff['Light Arts'] = {
 		legs=gear.Artifact.Legs,
 	}

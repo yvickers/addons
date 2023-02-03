@@ -57,7 +57,6 @@ function job_setup()
 	gear.capes.DexTP = {}--{ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.StrWS = {}--{ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.capes.VitWS = {}--{ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-
 --[[
 ^   Ctrl
 !   Alt
@@ -86,6 +85,9 @@ end
 
 function init_gear_sets()
 	sets.TreasureHunter = {}
+
+	sets.buff['Mighty Strikes'] = {}
+	sets.buff['Retaliation'] = {}
 
 	sets.precast.JA['Aggressor'] = {
 		head=gear.Artifact.Head,
@@ -231,6 +233,13 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
 	--update_melee_groups()
+	if sets.buff[buff] then
+        if gain then
+            equip(sets.buff[buff])
+        else
+            send_command('gs c update auto')
+        end     
+    end
 end
 
 
@@ -266,6 +275,12 @@ function customize_idle_set(idleSet)
 end
 
 function customize_melee_set(meleeSet)
+	if buffactive['Mighty Strikes'] then
+		meleeSet = set_combine( meleeSet, sets.buff['Mighty Strikes'] )
+	end
+	if buffactive['Retaliation'] then
+		meleeSet = set_combine( meleeSet, sets.buff['Retaliation'] )
+	end
 	return meleeSet
 end
 

@@ -187,8 +187,8 @@ function init_gear_sets()
         waist="Embla Sash",
         left_ear="Meili Earring",
         right_ear="Etiolation Earring",
-        left_ring="Stikini Ring",
-        right_ring="Stikini Ring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
 	}
 	--sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget",ear2="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"})
 	--sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'], {feet="Ebers Duckbills +1"})

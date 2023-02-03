@@ -124,7 +124,8 @@ function define_global_sets()
         waist="Chaac Belt",
     }
 
-    sets.buff.doom = {
+    sets.AutoBuff = {}
+    sets.AutoBuff.doom = {
         waist="Gishdubar Sash",
         left_ring="Purity Ring",
     }

@@ -1,5 +1,6 @@
 function define_global_sets()
     gear.Reive = {}
+    sets.AutoBuff = {}
 
     gear.Meghanada = {}
     gear.Meghanada.Head = "Meghanada Visor +1"

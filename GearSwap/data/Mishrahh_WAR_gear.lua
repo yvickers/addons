@@ -45,7 +45,7 @@ function user_job_setup()
 	gear.Empyrean.Body = ""
 	gear.Empyrean.Hands = "Boii Mufflers +3"
 	gear.Empyrean.Legs = "Boii Cuisses +3"
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Feet = "Boii Calligae +2"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -68,7 +68,7 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-	sets.buff.sleep = {
+	sets.AutoBuff.sleep = {
 		neck="Vim Torque +1",
 	}
 	sets.TreasureHunter = {
@@ -107,6 +107,14 @@ function init_gear_sets()
 	}
 	sets.precast.JA['High Jump'] = {
 		feet="Ostro Greaves"
+	}
+
+	sets.buff['Mighty Strikes'] = {
+		ammo = "Yetshila +1",
+		feet = gear.Empyrean.Feet
+	}
+	sets.buff['Retaliation'] = {
+		feet = gear.Empyrean.Feet
 	}
 
 	sets.precast.WS = {
@@ -199,6 +207,33 @@ function init_gear_sets()
         right_ear="Moonshade Earring",
         left_ring="Epaminondas's Ring",
         right_ring="Archon Ring",		
+    } )
+
+	sets.precast.WS["Sanguine Blade"] = set_combine(sets.precast.WS, {
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Sybil Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",		
+    } )
+	sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Sybil Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Weather. Ring +1",		
     } )
 
 	sets.idle = {

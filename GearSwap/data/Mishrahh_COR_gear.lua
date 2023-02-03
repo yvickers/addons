@@ -71,7 +71,7 @@ function user_job_setup()
     gear.Empyrean.Body = ""
     gear.Empyrean.Hands = "Chasseur's Gants +2"
     gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = ""
+    gear.Empyrean.Feet = "Chass. Bottes +2"
 
     gear.capes = {}
     gear.capes.MeleeTPCapeDW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Damage taken-5%',}}

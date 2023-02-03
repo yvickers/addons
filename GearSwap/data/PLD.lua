@@ -283,14 +283,14 @@ function init_gear_sets()
 	sets.engaged.Melee = set_combine(sets.engaged, {
 	})
 
-	sets.buff.Doom = {
+	sets.AutoBuff.Doom = {
 		--neck="Nicander's Necklace", --20
 		--left_ring={name="Saida Ring", bag="wardrobe3"}, --20
 		--right_ring={name="Purity Ring", bag="wardrobe1"}, --20
 		--waist="Gishdubar Sash", --10
     }
 	
-	sets.buff.Sleep = {}
+	sets.AutoBuff.Sleep = {}
 
 end
 

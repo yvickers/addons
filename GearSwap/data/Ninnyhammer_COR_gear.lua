@@ -17,15 +17,15 @@ function user_job_setup()
     gear.Relic = {}
     gear.Relic.Head = "Lanun Tricorne +1"
     gear.Relic.Body = "Lanun Frac +3"
-    gear.Relic.Hands = ""
-    gear.Relic.Legs = ""
+    gear.Relic.Hands = "Lanun Gants +3"
+    gear.Relic.Legs = "Lanun Trews +1"
     gear.Relic.Feet = "Lanun Bottes +3"
 
     gear.Empyrean = {}
     gear.Empyrean.Head = "Chass. Tricorne +2"
-    gear.Empyrean.Body = "Chasseur's Frac +2"
+    gear.Empyrean.Body = "Chasseur's Frac +3"
     gear.Empyrean.Hands = "Chasseur's Gants +3"
-    gear.Empyrean.Legs = "Chas. Culottes +2"
+    gear.Empyrean.Legs = "Chas. Culottes +3"
     gear.Empyrean.Feet = "Chasseur's Bottes +3"
 
     gear.capes = {}
@@ -33,8 +33,8 @@ function user_job_setup()
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = gear.capes.MeleeTP
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
-    gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+3','"Store TP"+10',}}
-    gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
+    gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
+    gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
 
     gear.weapons = {}
     --match key to state.weapons options
@@ -54,8 +54,8 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-    sets.buff.sleep = {
-		ranged="Prime Gun",
+    sets.AutoBuff.sleep = {
+		--ranged="Prime Gun",
 	}
 	sets.precast.CorsairRoll = {
         --main="Lanun Knife",
@@ -69,7 +69,7 @@ function init_gear_sets()
         back=gear.capes.PhantomRoll,
     }
     sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
-    --sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
+    sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
     sets.precast.JA['Wild Card'] = {feet=gear.Relic.Feet}
     sets.precast.JA['Random Deal'] = {body=gear.Relic.Body}
     sets.precast.JA["Blitzer's Roll"] = {head=gear.Empyrean.Head}
@@ -248,6 +248,10 @@ function init_gear_sets()
 		left_ring="Meghanada Ring",
 		right_ring="Ilabrat Ring",
         back=gear.capes.RngTPCape,
+    }
+    sets.TripleShot ={
+        body=gear.Empyrean.Body,
+        hands=gear.Relic.Hands,
     }
 
     sets.idle = {

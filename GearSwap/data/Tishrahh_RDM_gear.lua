@@ -170,8 +170,8 @@ function init_gear_sets()
 		neck="Dls. Torque +1",
 		left_ear="Andoaa Earring",
 		right_ear="Lethargy Earring +2",
-		ring1="Stikini Ring",
-		ring2="Stikini Ring",
+		ring1="Stikini Ring +1",
+		ring2="Stikini Ring +1",
 		back=gear.capes.Enhancing,
 		waist="Embla Sash",
 	}
@@ -232,7 +232,7 @@ function init_gear_sets()
 		left_ear="Snotra Earring",
 		right_ear="Lethargy Earring +2",
 		left_ring="Metamor. Ring +1",
-		right_ring="Stikini Ring",
+		right_ring="Stikini Ring +1",
 		back=gear.capes.MNDEnfeeble,
 		waist="Luminary Sash",	
 	}
@@ -262,7 +262,7 @@ function init_gear_sets()
 	sets.midcast.SkillBasedEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {
 		ear1="Vor Earring",
 		hands=gear.Empyrean.Hands,
-		left_ring="Stikini Ring",
+		left_ring="Stikini Ring +1",
 		legs="Psycloth Lappas",
 	})
 	
@@ -311,7 +311,7 @@ function init_gear_sets()
 		left_ear="Mani Earring",
 		right_ear="Hermetic Earring",
 		left_ring="Metamor. Ring +1",
-		right_ring="Stikini Ring",
+		right_ring="Stikini Ring +1",
 		back=gear.capes.DRKMagic,
 		waist="Luminary Sash",
 	}
@@ -327,7 +327,7 @@ function init_gear_sets()
 	sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
 		--main="Daybreak",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
 		--head="Atrophy Chapeau +3",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Malignance Earring",
-		--body="Zendik Robe",hands="Volte Gloves",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
+		--body="Zendik Robe",hands="Volte Gloves",ring1="Metamor. Ring +1",ring2="Stikini Ring +1 +1",
 		--back=gear.nuke_jse_back,waist="Sailfi Belt +1",legs="Chironic Hose",feet=gear.merlinic_aspir_feet
 	})
 

@@ -195,6 +195,13 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
 	--update_melee_groups()
+	if sets.buff[buff] then
+        if gain then
+            equip(sets.buff[buff])
+        else
+            send_command('gs c update auto')
+        end     
+    end
 end
 
 

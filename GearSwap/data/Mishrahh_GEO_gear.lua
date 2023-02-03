@@ -23,11 +23,11 @@ function user_job_setup()
 	gear.Relic.Feet = "Bagua Sandals +1"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Azimuth Hood +1"
-	gear.Empyrean.Body = "Azimuth Coat +1"
-	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Head = "Azimuth Hood +2"
+	gear.Empyrean.Body = "Azimuth Coat +2"
+	gear.Empyrean.Hands = "Azimuth Gloves +1"
+	gear.Empyrean.Legs = "Azimuth Tights +1"
+	gear.Empyrean.Feet = "Azimuth Gaiters +1"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +15','Pet: Damage taken -1%',}}

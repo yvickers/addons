@@ -170,7 +170,13 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-	--update_melee_groups()
+	if sets.buff[buff] then
+        if gain then
+            equip(sets.buff[buff])
+        else
+            send_command('gs c update auto')
+        end     
+    end
 end
 
 
@@ -255,6 +261,10 @@ function check_chakra()
 	if state.AutoChakra.current == 'on' and not silent_check_amnesia() and silent_check_fighting() then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
+		if player.hpp < 11 and abil_recasts[254] < latency then
+			windower.chat.input('/ja "Inner Strength" <me>')
+			return true
+		end
 		if player.hpp < 51 and abil_recasts[15] < latency then
 			windower.chat.input('/ja "Chakra" <me>')
 			return true
