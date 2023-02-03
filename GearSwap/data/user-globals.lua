@@ -26,8 +26,14 @@ function user_setup()
     send_command('bind ^f1 gs c toggle TicksActive')
     send_command('bind ^f2 gs c toggle AutoBuffMode')
  	send_command('bind ^f3 gs c cycle AutoMagicBuffs')
+    send_command('bind !f3 gs c cycleback AutoMagicBuffs')
     send_command('bind ^f4 gs c toggle AutoWSMode')
 
+    send_command('bind ^f5 gs c cycle ElementalMode')
+    send_command('bind !f5 gs c cycleback ElementalMode')
+
+    send_command('bind ^numpad1 @input //send @all //raptor')
+    send_command('bind !numpad1 @input //send @all /dismount')
     send_command('bind ^numpad7 @input /ma "Utsusemi: Ni" <me>')
     send_command('bind !numpad7 @input //ffo me')
     send_command('bind #numpad7 @input //ffo stopall')
@@ -51,8 +57,13 @@ function user_unload()
     send_command('unbind ^f1')
     send_command('unbind ^f2')
     send_command('unbind ^f3')
+    send_command('unbind !f3')
     send_command('unbind ^f4')
+    send_command('unbind ^f5')
+    send_command('unbind !f5')
 
+    send_command('unbind ^numpad1')
+    send_command('unbind !numpad1')
     send_command('unbind ^numpad7')
     send_command('unbind !numpad7')
     send_command('unbind #numpad7')
@@ -222,9 +233,9 @@ function user_state_change_TicksActive( newValue, oldValue )
 end
 
 function user_buff_change( buff, gain, eventArgs )
-    if sets.buff[buff] then
+    if sets.AutoBuff[buff] then
         local slots = T{}
-        for slot,item in pairs(sets.buff[buff]) do
+        for slot,item in pairs(sets.AutoBuff[buff]) do
             slots:append(slot)
         end
 
@@ -233,7 +244,7 @@ function user_buff_change( buff, gain, eventArgs )
         end
 
         if gain then
-            equip(sets.buff[buff])
+            equip(sets.AutoBuff[buff])
             disable(slots)
         else
             enable(slots)
@@ -349,7 +360,7 @@ function user_self_command(cmdParams, eventArgs)
 		smart_ws()
 	end
     if 'aoesleep' == cmdParams[1] then
-        send_command('@send tishrahh //hordelullaby <tid>')
+        send_command('@send @brd //hordelullaby <tid>')
     end
     if 'checksoul' == cmdParams[1] then
         send_command('input /heal')
