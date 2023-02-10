@@ -232,15 +232,15 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
-	if type(commandArgs) == 'string' then
-		commandArgs = T(commandArgs:split(' '))
-		if #commandArgs == 0 then
+	if type(cmdParams) == 'string' then
+		cmdParams = T(cmdParams:split(' '))
+		if #cmdParams == 0 then
 			return
 		end
 	end
 
-	if commandArgs[1]:lower() == 'nuke' then
-		windower.chat.input:('/ma ' .. data.elements.ninjutsu_nuke_of[state.ElementalMode.value] .. ':San <t>')
+	if cmdParams[1]:lower() == 'nuke' then
+		windower.chat.input('/ma ' .. data.elements.ninjutsu_nuke_of[state.ElementalMode.value] .. ':San <t>')
 		eventArgs.handled = true
 	end
 end

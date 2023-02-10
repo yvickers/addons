@@ -22,7 +22,7 @@ function user_job_setup()
 	gear.Relic.Feet = "Bihu Slippers +3"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Fili Calot +2"
+	gear.Empyrean.Head = "Fili Calot +3"
 	gear.Empyrean.Body = "Fili Hongreline +3"
 	gear.Empyrean.Hands = "Fili Manchettes +3"
 	gear.Empyrean.Legs = "Fili Rhingrave +2"

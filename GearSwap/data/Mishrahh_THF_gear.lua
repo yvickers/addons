@@ -10,7 +10,7 @@ function user_job_setup()
     }
     gear.weapons['Default'] = {
         main="Twashtar",
-        sub="Ternion Dagger +1",
+        sub="Crepuscular Knife",
     }
     gear.weapons['Cento'] = {
         main="Twashtar",
@@ -22,7 +22,7 @@ function user_job_setup()
     }
     gear.weapons['Tauret'] = {
         main="Tauret",
-        sub="Gleti's Knife",
+        sub="Crepuscular Knife",
     }
     gear.weapons['AOE'] = {
         main="Tauret",

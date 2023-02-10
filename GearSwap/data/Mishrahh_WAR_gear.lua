@@ -133,7 +133,9 @@ function init_gear_sets()
 		back=gear.capes.StrWS,
 	}
 
-	sets.precast.GAXEWS = set_combine(sets.precast.WS, {})
+	sets.precast.GAXEWS = set_combine(sets.precast.WS, {
+		legs="Nyame Flanchard",
+	})
 	sets.precast.WS["Shield Break"] = set_combine(sets.precast.GAXEWS, {
 	})
 	sets.precast.WS["Iron Tempest"] = set_combine(sets.precast.GAXEWS, {

@@ -22,7 +22,7 @@ function user_job_setup()
     gear.Relic.Feet = "Lanun Bottes +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = "Chass. Tricorne +2"
+    gear.Empyrean.Head = "Chass. Tricorne +3"
     gear.Empyrean.Body = "Chasseur's Frac +3"
     gear.Empyrean.Hands = "Chasseur's Gants +3"
     gear.Empyrean.Legs = "Chas. Culottes +3"

@@ -35,7 +35,7 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-	sets.buff.sleep = {
+	sets.AutoBuff.sleep = {
 		main="Lorg Mor",
 	}
 	-- Precast sets to enhance JAs

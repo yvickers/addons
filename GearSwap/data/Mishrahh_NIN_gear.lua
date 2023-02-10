@@ -43,7 +43,7 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
 	gear.Empyrean.Body = ""
-	gear.Empyrean.Hands = ""
+	gear.Empyrean.Hands = "Hattori Tekko +3"
 	gear.Empyrean.Legs = ""
 	gear.Empyrean.Feet = "Hattori Kyahan +3"
 
@@ -275,7 +275,7 @@ function init_gear_sets()
 		ammo="Ghastly Tathlum +1",
 		head=gear.Relic.Head,
 		body="Nyame Mail",
-		hands="Nyame Gauntlets",
+		hands=gear.Empyrean.Hands,
 		legs="Nyame Flanchard",
 		feet=gear.Relic.Feet,
 		neck="Sibyl Scarf",
