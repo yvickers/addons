@@ -11,6 +11,11 @@
                 <4>Koru-Moru</4>
                 <5>Yoran-Oran (UC)</5>
             </aamr>
+            <aby>
+                <1>Monberaux</1>
+                <2>Koru-Moru</2>
+                <3>Star Sibyl</3>
+            </aby>
             <abyssea>
                 <1>Ulmia</1>
                 <2>Koru-Moru</2>
@@ -213,6 +218,11 @@
                 <4>Koru-Moru</4>
                 <5>Monberaux</5>
             </grenade>
+            <jp>
+                <1>Sylvie (UC)</1>
+                <2>Monberaux</2>
+                <3>Koru-Moru</3>
+            </jp>
             <lilith>
                 <1>Selh&apos;teus</1>
                 <2>Joachim</2>
@@ -228,10 +238,9 @@
                 <5>Koru-Moru</5>
             </lilith2>
             <macro>
-                <1>AATT</1>
+                <1>Monberaux</1>
                 <2>Koru-Moru</2>
-                <3>Yoran-Oran (UC)</3>
-                <4>Monberaux</4>
+                <3>Sylvie (UC)</3>
             </macro>
             <macrocosmic>
                 <1>August</1>
@@ -382,6 +391,13 @@
                 <2>Monberaux</2>
                 <3>Koru-Moru</3>
             </ody>
+            <odypick>
+                <1>AAEV</1>
+                <2>Valaineral</2>
+                <3>Sylvie (UC)</3>
+                <4>Monberaux</4>
+                <5>Koru-Moru</5>
+            </odypick>
             <odyssey>
                 <1>August</1>
                 <2>Qultada</2>
@@ -417,6 +433,13 @@
                 <4>Yoran-Oran (UC)</4>
                 <5>Koru-Moru</5>
             </quetz>
+            <quetzninny>
+                <1>Lilisette II</1>
+                <2>Koru-Moru</2>
+                <3>Cherukiki</3>
+                <4>Ulmia</4>
+                <5>Joachim</5>
+            </quetzninny>
             <raptors>
                 <1>August</1>
                 <2>Shantotto II</2>

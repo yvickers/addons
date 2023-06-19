@@ -2,16 +2,23 @@
 <settings>
     <global>
         <active>true</active>
-        <aoe>
-            <p1>true</p1>
-            <p2>true</p2>
-            <p3>true</p3>
-            <p4>true</p4>
-            <p5>true</p5>
-        </aoe>
-        <autora>true</autora>
-        <crooked_cards>1</crooked_cards>
-        <roll>Samurai Roll,Chaos Roll</roll>
+        <buffs>
+            <haste />
+            <phalanx />
+            <refresh />
+        </buffs>
+        <composure>true</composure>
+        <delay>4.2</delay>
+        <max_ws_hp>99</max_ws_hp>
+        <min_ws_hp>20</min_ws_hp>
+        <recast>
+            <buff>
+                <max>10</max>
+                <min>5</min>
+            </buff>
+        </recast>
+        <self>Refresh III</self>
+        <start_on_load>false</start_on_load>
         <text>
             <bg>
                 <alpha>255</alpha>
@@ -30,7 +37,7 @@
             <padding>0</padding>
             <pos>
                 <x>0</x>
-                <y>50</y>
+                <y>0</y>
             </pos>
             <text>
                 <alpha>255</alpha>
@@ -52,42 +59,4 @@
             </text>
         </text>
     </global>
-    <mishrahh>
-        <aoe>
-            <p1>false</p1>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <roll>Chaos Roll,Samurai Roll</roll>
-        <text>
-            <pos>
-                <x>930</x>
-            </pos>
-        </text>
-    </mishrahh>
-    <ninnyhammer>
-        <aoe>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
-        <text>
-            <pos>
-                <x>380</x>
-            </pos>
-        </text>
-    </ninnyhammer>
-    <tishrahh>
-        <crooked_cards>2</crooked_cards>
-        <text>
-            <pos>
-                <x>383</x>
-                <y>49</y>
-            </pos>
-        </text>
-    </tishrahh>
 </settings>

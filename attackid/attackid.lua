@@ -50,7 +50,7 @@ function get_in_range()
             clear_in_range()
             return
         end
-        if target.distance > (3.2 + target.model_size ) then
+        if target.distance > (3.2 + target.model_size ) and target.distance < 100 then
             windower.ffxi.follow(player.target_index)
         else
             windower.ffxi.run(false)

@@ -114,6 +114,26 @@
             <default>
 
             </default>
+            <dynamis>
+                <slot01>delta thrust</slot01>
+                <slot02>barbed crescent</slot02>
+                <slot03>thrashing assault</slot03>
+                <slot04>heavy strike</slot04>
+                <slot05>empty thrash</slot05>
+                <slot06>paralyzing triad</slot06>
+                <slot07>erratic flutter</slot07>
+                <slot08>sudden lunge</slot08>
+                <slot09>fantod</slot09>
+                <slot10>sinker drill</slot10>
+                <slot11>nat. meditation</slot11>
+                <slot12>searing tempest</slot12>
+                <slot13>frenetic rip</slot13>
+                <slot14>vanity dive</slot14>
+                <slot15>disseverment</slot15>
+                <slot16>dimensional death</slot16>
+                <slot17>magic hammer</slot17>
+                <slot18>tenebral crush</slot18>
+            </dynamis>
             <evasion>
                 <slot01>Molting Plumage</slot01>
                 <slot02>Erratic Flutter</slot02>
@@ -124,7 +144,7 @@
                 <slot07>Reactor Cool</slot07>
                 <slot08>Dream Flower</slot08>
                 <slot09>Entomb</slot09>
-                <slot10>Nature's Meditation</slot10>
+                <slot10>Nature&apos;s Meditation</slot10>
                 <slot11>Fantod</slot11>
                 <slot12>Sudden Lunge</slot12>
                 <slot13>Barrier Tusk</slot13>

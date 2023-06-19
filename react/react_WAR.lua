@@ -32,5 +32,11 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="turnaround"
         }
-    }
+    },
+    ["Kalunga"]={
+        ["Incinerating Lahar"]={
+            ["complete_reaction"]="", 
+            ["ready_reaction"]="turnaround"
+        }
+    },
 }
