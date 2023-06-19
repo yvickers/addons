@@ -1,0 +1,16 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <active>true</active>
+        <buffs>
+            <doom>Holy Water</doom>
+            <silence>Remedy</silence>
+        </buffs>
+        <max_retry>4</max_retry>
+        <text>
+            <text>
+                <size>10</size>
+            </text>
+        </text>
+    </global>
+</settings>
