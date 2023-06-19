@@ -2,24 +2,24 @@ function user_job_setup()
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexastrike' }
 
     gear.Artifact = {}
-    gear.Artifact.Head = ""
-    gear.Artifact.Body = ""
-    gear.Artifact.Hands = ""
-    gear.Artifact.Legs = ""
-    gear.Artifact.Feet = ""
+    gear.Artifact.Head = "Theophany Cap +2"
+    gear.Artifact.Body = "Theo. Bliaut +2"
+    gear.Artifact.Hands = "Theophany Mitts +3"
+    gear.Artifact.Legs = "Th. Pant. +3"
+    gear.Artifact.Feet = "Theo. Duckbills +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
-    gear.Empyrean.Body = "Ebers Bliaut +2"
-    gear.Empyrean.Hands = ""
-    gear.Empyrean.Legs = "Ebers Pant. +2"
-    gear.Empyrean.Feet = "Orsn. Duckbills +1"
+    gear.Empyrean.Head = "Ebers Cap +3"
+    gear.Empyrean.Body = "Ebers Bliaut +3"
+    gear.Empyrean.Hands = "Ebers Mitts +3"
+    gear.Empyrean.Legs = "Ebers Pant. +3"
+    gear.Empyrean.Feet = "Ebers Duckbills +3"
 
     gear.Relic = {}
-    gear.Relic.Head = ""
-    gear.Relic.Body = ""
+    gear.Relic.Head = "Piety Cap +1"
+    gear.Relic.Body = "Piety Bliaut +3"
     gear.Relic.Hands = ""
-    gear.Relic.Legs = ""
+    gear.Relic.Legs = "Piety Pantaln. +3"
     gear.Relic.Feet = ""
 
     gear.capes = {}
@@ -41,13 +41,20 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    
+    sets.AutoBuff.sleep = {
+		main="Lorg Mor",
+	}
+
     -- Precast Sets
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {
-   		--body="Piety Bliaut +1"
+   	    body=gear.Relic.Body
 	}
+
+    sets.precast.JA.Devotion = {
+        head=gear.Relic.Head
+ }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -72,20 +79,20 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {
-        --main="Bolelabunga",
-        --sub="Sors Shield",
-        --ammo="Quartz Tathlum +1",
-        head="Nahtirah Hat",
-        body="Inyanga Jubbah +2",
-        hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-        legs="Aya. Cosciales +2",
-        --feet="Inyan. Crackows +2",
-        neck="Voltsurge Torque",
-        waist="Embla Sash",
-        left_ear="Enchntr. Earring +1",
-        right_ear="Loquac. Earring",
+        main="Gada",
+        sub="Chanter's Shield",
+        ammo="Impatiens",
+        head=gear.Empyrean.Head,
+        body=gear.Inyanga.Body,
+        hands="Fanatic Gloves",
+        legs="Kaykaus Tights +1",
+        feet="Regal Pumps +1",
+        neck="Cleric's Torque",
+        waist="Witful Belt",
+        left_ear="Loquac. Earring",
+        right_ear="Malignance Earring",
         left_ring="Weather. Ring",
-        right_ring="Lebeche Ring",
+        right_ring="Medada's Ring",
 	}
 
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
@@ -142,35 +149,37 @@ function init_gear_sets()
 
     sets.midcast['Full Cure'] = sets.midcast.FastRecast
     sets.midcast.Cure = {
-		main="Bolelabunga",
-        sub="Sors Shield",
-		ammo="Quartz Tathlum +1",
-        head=gear.Vanya.Head.B,
+        main="Queller Rod",
+        sub="Chanter's Shield",
+        ammo="Homiliary",
+        head="Kaykaus Mitra +1",
         body=gear.Empyrean.Body,
-        hands="Kaykaus Cuffs +1",
+        hands=gear.Artifact.Hands,
         legs=gear.Empyrean.Legs,
-        feet=gear.Vanya.Feet.B,
+        feet="Kaykaus Boots +1",
         neck="Cleric's Torque",
-        waist="Gishdubar Sash",
-        left_ear="Mendi. Earring",
-        right_ear="Etiolation Earring",
+        waist="Luminary Sash",
+        left_ear="Nourish. Earring +1",
+        right_ear="Mendi. Earring",
         left_ring="Weather. Ring",
         right_ring="Lebeche Ring",
         back=gear.capes.CurePotency,
      }
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
+        body=gear.Artifact.Body,
 	})
 
 	sets.midcast.Cursna = {
         head=gear.Vanya.Head.B,
         body=gear.Empyrean.Body,
         hands="Fanatic Gloves",
-        feet="Gende. Galosh. +1",
+        legs=gear.Artifact.Legs,
+        feet=gear.Vanya.Feet.B,
         neck="Debilis Medallion",
-        waist="Gishdubar Sash",
+        waist="Bishop's Sash",
         left_ear="Meili Earring",
-        right_ear="Etiolation Earring",
-        left_ring="Haoma's Ring",
+        right_ear="Eber's Earring +1",
+        left_ring="Menelaus's Ring",
         right_ring="Haoma's Ring",
         back=gear.capes.CurePotency,
     }
@@ -178,27 +187,83 @@ function init_gear_sets()
 	sets.midcast.Erase = {}
 	sets.midcast['Enhancing Magic'] = {
 		sub="Ammurapi Shield",
-        head="Umuthi Hat",
-        body=gear.Empyrean.Head,
-        hands=gear.Inyanga.Hands,
+        head=gear.Empyrean.Head,
+        body=gear.Empyrean.Body,
+        hands=gear.Empyrean.Hands,
         legs=gear.Empyrean.Legs,
         feet=gear.Empyrean.Feet,
-        --neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck="Cleric's Torque",
         waist="Embla Sash",
-        left_ear="Meili Earring",
-        right_ear="Etiolation Earring",
+        left_ear="Andoaa Earring",
+        right_ear="Mimir Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
+        back=gear.capes.CurePotency,
 	}
-	--sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget",ear2="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"})
-	--sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'], {feet="Ebers Duckbills +1"})
-	--sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {main="Vadose Rod",sub="Ammurapi Shield",hands="Regal Cuffs",waist="Emphatikos Rope",legs="Shedir Seraweels"})
-	--sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {hands="Ebers Mitts +1",legs="Th. Pant. +3",})
-	--sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills +1",ear1="Gifted Earring",waist="Sekhmet Corset"})
-	--sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",feet="Piety Duckbills +1",ear1="Gifted Earring",waist="Sekhmet Corset"})
-	--sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",legs="Piety Pantaln. +1",ear1="Gifted Earring",waist="Sekhmet Corset"})
-	--sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",legs="Piety Pantaln. +1",ear1="Gifted Earring",waist="Sekhmet Corset"})
-	sets.midcast.BarElement = {}
+    sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {})
+    sets.midcast['Boost-Str'] = set_combine(sets.midcast['Enhancing Magic'], {
+        main="Gada",
+        head=gear.Telchine.Head.Enhancing,
+        body=gear.Telchine.Body.Enhancing,
+        hands=gear.Telchine.Hands.Enhancing,
+        legs=gear.Telchine.Legs.Enhancing,
+        feet=gear.Artifact.Feet,
+        back="Solemnity Cape",
+    })
+	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        neck="Nodens Gorget",
+        --ear2="Earthcry Earring",
+        waist="Siegel Sash",
+        --legs="Shedir Seraweels"
+        back="Solemnity Cape",
+    })
+	sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'], {
+
+    })
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
+        main="Vadose Rod",
+        sub="Ammurapi Shield",
+        head="Chironic Hat",
+        body=gear.Telchine.Body.Enhancing,
+        --hands="Regal Cuffs",
+        feet=gear.Artifact.Feet,
+        waist="Emphatikos Rope",
+        --legs="Shedir Seraweels"
+        back="Solemnity Cape",
+    })
+	sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
+        main="Bolelabunga",
+        head=gear.Inyanga.Head,
+        body=gear.Relic.Body,
+        hands=gear.Empyrean.Hands,
+        legs=gear.Artifact.Legs,
+        feet=gear.Artifact.Feet,
+        back="Solemnity Cape",
+    })
+	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {
+        --ring2="Sheltered Ring",
+        --feet="Piety Duckbills +1",
+        --ear1="Gifted Earring",
+        --waist="Sekhmet Corset"
+    })
+	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {
+        --ring2="Sheltered Ring",
+        --feet="Piety Duckbills +1",
+        --ear1="Gifted Earring",
+        --waist="Sekhmet Corset"
+    })
+	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {
+        --ring2="Sheltered Ring",
+        legs=gear.Relic.Legs,
+        --ear1="Gifted Earring",
+        --waist="Sekhmet Corset",
+    })
+	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {
+        --ring2="Sheltered Ring",
+        legs=gear.Relic.Legs,
+        --ear1="Gifted Earring",
+        --waist="Sekhmet Corset",
+    })
 
     -- Sets to return to when not performing an action.
     
@@ -221,19 +286,21 @@ function init_gear_sets()
     
 	-- Idle sets
 	sets.idle = {
-		--ammo="Staunch Tathlum",
-		head=gear.Inyanga.Head,
-		body="Shamash Robe",
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
-		neck="Loricate Torque +1",
-		--waist="Hachirin-no-Obi",
-		--left_ear="Genmei Earring",
-		--right_ear="Ethereal Earring",
-		left_ring="Inyanga Ring",
-		right_ring="Defending Ring",
-		--back="Solemnity Cape",
+        main="Daybreak",
+        sub="Sors Shield",
+        ammo="Homiliary",
+        head="Nyame Helm",
+        body=gear.Empyrean.Body,
+        hands=gear.Empyrean.Hands,
+        legs=gear.Empyrean.Legs,
+        feet="Nyame Sollerets",
+        neck="Loricate Torque +1",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back=gear.capes.CurePotency,
 	}
 
     sets.idle.Town = set_combine( sets.idle, {} )

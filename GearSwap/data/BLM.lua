@@ -9,37 +9,21 @@ end
 
 function job_setup()
 
-	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'Acc' )
+	state.OffenseMode:options( 'Melee', 'PDT' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
-	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	state.WeaponskillMode:options( 'Normal', 'Buffed' )
+	state.IdleMode:options( 'Normal', 'Refresh', 'Regen' )
+	state.CastingMode:options( 'Normal', 'MagicBurst', 'Recover', 'Resistant', 'Proc' )
 
 	include('Mote-TreasureHunter')
-	-- For th_action_check():
-	-- JA IDs for actions that always have TH: Provoke, Animated Flourish
-	info.default_ja_ids = S{35, 204}
-	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
-	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
-
-	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
-	gear.weapons['Default'] = {
-		---main="",
-		--sub="",
-		--ammo="Staunch Tathlum",
-	}
+	gear.weapons['Default'] = {}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade' }
 
-	state.PreWSAbility = M{['description'] = 'Pre-Weaponskill Ability', 134, 133, 54, 140, 141 }
-	info.PreWSAbilities = {}
-	info.PreWSAbilities[134] = 'Meditate'
-	info.PreWSAbilities[133] = 'Third Eye'
-	info.PreWSAbilities[54] = 'Hagakure'
-	info.PreWSAbilities[140] = 'Sekkanoki'
-	info.PreWSAbilities[141] = 'Sengikori'
+	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -63,8 +47,8 @@ function job_setup()
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
-	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	--gear.capes.Nuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
+    --gear.capes.FastCast = { name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
 
 --[[
 ^   Ctrl
@@ -97,15 +81,31 @@ function unload_job_keybinds()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		--head='Volte Cap',
-		--hands=gear.Relic.Hands,
-		-- body=gear.Herc.Body.TH,
-		--waist="Chaac Belt",
-		--legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+    sets.TreasureHunter = {}
+
+	sets.precast.JA['Manafont'] = {
+        body=gear.Relic.Body,
+    }
+    sets.precast.JA['Elemental Seal'] = {}
+    sets.precast.JA['Mana Wall'] = {
+        feet=gear.Empyrean.Feet,
+    }
+    sets.precast.JA['Cascade'] = {}
+    sets.precast.JA['Enmity Douse'] = {}
+    sets.precast.JA['Manawell'] = {}
+    sets.precast.JA['Subtle Sorcery'] = {}
+
+	sets.precast.FC = {
+        back=gear.capes.FastCast,
+    }
+	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
+		--head=empty,
+		--body="Twilight Cloak"
+	})
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+		--main="Daybreak",
+		--sub="Sacro Bulwark"
+	})
 
 	sets.precast.WS = {
 		--ammo="Knobkierrie",
@@ -122,55 +122,29 @@ function init_gear_sets()
 		--right_ring="Rajas Ring",
 		--back=gear.capes.StrDA,
 	}
+    sets.precast.WS.Buffed = set_combine(sets.precast.WS,{})
 
-	sets.idle = {
-		--ammo="Staunch Tathlum",
-		--head="Malignance Chapeau",
-		--body="Malignance Tabard",
-		--hands=gear.Adhemar.Hands.TP,
-		--legs="Malignance Tights",
-		--feet="Malignance Boots",
-		--neck="Warder's Charm +1",
-		--waist="Moonbow Belt",
-		--left_ear="Odnowa Earring +1",
-		--right_ear="Genmei Earring",
-		--left_ring="Defending Ring",
-		--right_ring="Gelatinous Ring +1",
-		--back=gear.capes.DexTP,
-	}
-	sets.idle.PDT = set_combine(sets.idle, {
-	})
-	sets.idle.MDT = set_combine(sets.idle, {
-	})
-	sets.idle.Regen = set_combine(sets.idle, {
-	})
+    sets.midcast.FastRecast = {}
+    sets.midcast.Cure = {}
+    sets.midcast.Curaga = sets.midcast.Cure
+    sets.midcast.Cursna = set_combine(sets.midcast.Cure, {})
+    sets.midcast['Enhancing Magic'] = {}
+    sets.midcast['Enfeebling Magic'] = {}
+    sets.midcast['Elemental Magic'] = {}
+    sets.midcast['Elemental Magic'].Proc = {}
+    sets.midcast['Elemental Magic'].MagicBurst = {}
+    sets.midcast['Elemental Magic'].Recover = {}
+    sets.midcast.Impact = {}
+    sets.midcast['Dark Magic'] = {}
 
-	sets.engaged = {
-		--ammo="Staunch Tathlum",
-		--head="Malignance Chapeau",
-		--body="Malignance Tabard",
-		--hands=gear.Adhemar.Hands.TP,
-		--legs="Malignance Tights",
-		--feet="Malignance Boots",
-		--neck="Warder's Charm +1",
-		--waist="Moonbow Belt",
-		--left_ear="Odnowa Earring +1",
-		--right_ear="Genmei Earring",
-		--left_ring="Defending Ring",
-		--right_ring="Gelatinous Ring +1",
-		--back=gear.capes.DexTP,
-	}
+    sets.idle = {}
+    sets.idle.Regen = set_combine(sets.idle,{})
+    sets.idle.Refresh = set_combine(sets.idle,{})
 
-	sets.engaged.PDT = set_combine(sets.engaged, {
-	})
+    sets.engaged = {}
+    sets.engaged.PDT = set_combine(sets.engaged,{})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {
-	})
-
-	sets.engaged.Acc = set_combine(sets.engaged, {
-	})
 end
-
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
@@ -179,34 +153,28 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-
-	if spell.type == 'WeaponSkill' and state.AutoBuffMode.current == 'on' and not silent_check_amnesia() then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-
-		if abil_recasts[state.PreWSAbility.current] and abil_recasts[state.PreWSAbility.current] < latency then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "' .. info.PreWSAbilities[state.PreWSAbility.current] .. '" <me>')
-			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-			return
-		end
-	end
-
 end
-
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-	if spell.type == "WeaponSkill" then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if abil_recasts[state.PreWSAbility.current] and abil_recasts[state.PreWSAbility.current] > 0 then
-			state.PreWSAbility:cycle()
-		end
-	end
 end
 
+function job_midcast(spell,action,spellMap,eventArgs)
+    elemental_belt_check(spell)
+end
 
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+	if not spell.interrupted then
+        if spell.english == 'Sleep' or spell.english == 'Sleepga' then
+            send_command('@timers c "'..spell.english..' ['..spell.target.name..']" 60 down spells/00220.png')
+        elseif spell.english == 'Sleep II' then
+            send_command('@timers c "'..spell.english..' ['..spell.target.name..']" 90 down spells/00220.png')
+		--elseif data.spells.enspells:contains(spell.english) then
+		--	enspell = spell.english
+		--	update_melee_groups()
+		end
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -217,7 +185,10 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-	--update_melee_groups()
+	if buff == enspell and not gain then
+		enspell = ''
+	end
+	update_melee_groups()
 end
 
 
@@ -246,22 +217,33 @@ end
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
 	th_update(cmdParams, eventArgs)
-	--determine_haste_group()
 end
 
 
 function customize_idle_set(idleSet)
-	return idleSet
+    idleSet = set_combine( idleSet, gear.weapons[state.Weapons.current] )
+
+    if state.IdleMode.value == 'Normal' then
+		if player.mpp < 51 then
+			if sets.latent_refresh then
+				idleSet = set_combine(idleSet, sets.idle.Refresh)
+			end
+		end
+   end
+    
+    return idleSet
 end
 
 function customize_melee_set(meleeSet)
-	return meleeSet
+    meleeSet = set_combine( meleeSet, gear.weapons[state.Weapons.current] )
 end
 
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
-    -- Check that ranged slot is locked, if necessary
-    check_range_lock()
+end
+
+function update_melee_groups()
+	classes.CustomMeleeGroups:clear()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -273,21 +255,19 @@ function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
 end
 
+-- Custom spell mapping.
+function job_get_spell_map(spell, default_spell_map)
+end
+
 function job_tick()
 	if check_buff() then return true end
 	return false
 end
 
 function check_buff()
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+
 	if state.AutoBuffMode.current == 'on' and silent_check_fighting() and not silent_check_amnesia() then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if state.SAMStance.current == 'Hasso' and not buffactive.Hasso and abil_recasts[138] and abil_recasts[138] < latency then
-			windower.chat.input('/ja "Hasso" <me>')
-			return true
-		elseif state.SAMStance.current == 'Seigan' and not buffactive.Seigan and abil_recasts[139] and abil_recasts[139] < latency then
-			windower.chat.input('/ja "Seigan" <me>')
-			return true
-		end
 	end
 
 	return false

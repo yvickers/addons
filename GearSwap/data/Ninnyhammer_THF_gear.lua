@@ -1,15 +1,15 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Shark Bite', 'Aeolian Edge' }
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'AOE', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Evisceration', 'Aeolian Edge', 'Savage Blade', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage'}
     gear.weapons = {}
     gear.weapons['Default'] = {
-        --main="Tauret",
-        --sub="Sandung",
+        main="Tauret",
+        sub="Gleti's Knife",
     }
-    gear.weapons['AOE'] = {
-        --main="Tauret",
-        --sub="Acrontica",
+    gear.weapons['Savage'] = {
+        main="Naegling",
+        sub="Gleti's Knife",
     }
 
     gear.Artifact = {}
@@ -27,11 +27,11 @@ function user_job_setup()
     gear.Relic.Feet = ""
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
-    gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = ""
-    gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = ""
+    gear.Empyrean.Head = "Skulker's Bonnet +3"
+    gear.Empyrean.Body = "Skulker's Vest +3"
+    gear.Empyrean.Hands = "Skulk. Armlets +3"
+    gear.Empyrean.Legs = "Skulk. Culottes +3"
+    gear.Empyrean.Feet = "Skulk. Poulaines +3"
 
     gear.capes = {}
     gear.capes.TP = "" --{ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
@@ -41,13 +41,13 @@ function user_job_setup()
 end
 
 -- Define sets and vars used by this job file.
-function init_gear_sets_unused()
+function init_gear_sets()
     --------------------------------------
     -- Special sets (required by rules)
     --------------------------------------
 
     sets.TreasureHunter = set_combine( gear.TH.Herc, {
-        hands=gear.Relic.Hands,
+        --hands=gear.Relic.Hands,
         feet=gear.Empyrean.Feet
     } )
 
@@ -115,67 +115,36 @@ function init_gear_sets_unused()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        --ammo="Yetshila",
-        --head=gear.Adhemar.Head.B,
-        --body=gear.Relic.Body,
-        hands=gear.Mummu.Hands,
-        --legs=gear.Artifact.Legs,
-        --feet=gear.Adhemar.Feet.B
-        --neck="Fotia Gorget",
-        left_ear="Odr Earring",
-        right_ear="Sherida Earring",
-        left_ring="Begrudging Ring",
-        right_ring="Ilabrat Ring",
-        --back=gear.capes.Crit,
-        --waist="Fotia Belt",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body=gear.Empyrean.Body,
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Rep. Plat. Medal",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
+        left_ring="Karieyh Ring",
+        right_ring="Lehko's Ring",
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head="Skulker's Bonnet +3",
+        body="Gleti's Cuirass",
+        hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        legs="Skulk. Culottes +3",
+        feet="Gleti's Boots",
+        neck="Sanctity Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Mache Earring +1",
+        right_ear="Odr Earring",
+        left_ring="Ilabrat Ring",
     })
 
-    -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS['Evisceration'], {})
-    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {})
-    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {})
-    sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
-    sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
-    sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {})
-
-    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS['Evisceration'], {})
-    sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {})
-    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
-    sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
-    sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
-    sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {})
-
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
-        hands=gear.Mummu.Hands,
-    })
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
-    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"], {})
-    sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
-    sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
-    sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {})
-
-    sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS["Rudra's Storm"], {
-    })
-    sets.precast.WS['Shark Bite'].Acc = set_combine(sets.precast.WS['Shark Bite'], {})
-    sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {})
-    sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
-    sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
-    sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {})
-
-    sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS["Rudra's Storm"], {
-    })
-    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
-    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
-    sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
-    sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
-    sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {})
-
-    sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS["Rudra's Storm"], {
+    sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
     })
 
     sets.precast.WS['Aeolian Edge'] = {   
@@ -206,19 +175,18 @@ function init_gear_sets_unused()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {
-        --ammo="Crepuscular Pebble",
-        head=gear.Meghanada.Head,
-        body=gear.Meghanada.Body,
-        hands=gear.Meghanada.Hands,
-        legs=gear.Meghanada.Legs,
-        feet=gear.Artifact.Feet,
-        --neck="Warder's Charm +1",
-        --waist="Flume Belt +1",
-        --back=gear.capes.TP,
-        --left_ear="Odnowa Earring +1",
-        --right_ear="Genmei Earring",
-        left_ring="Meghanada Ring",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands=gear.Empyrean.Hands,
+        legs=gear.Empyrean.Legs,
+        feet=gear.Empyrean.Feet,
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Assuage Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Warden's Ring",
         right_ring="Warp Ring",
+        --back="Nexus Cape",
     }
 
     sets.idle.Town = set_combine(sets.idle,{})
@@ -241,19 +209,18 @@ function init_gear_sets_unused()
 
     -- Normal melee group
     sets.engaged = {
-        head=gear.Meghanada.Head,
-        body=gear.Meghanada.Body,
-        hands=gear.Meghanada.Hands,
-        legs=gear.Meghanada.Legs,
-        feet=gear.Mummu.Feet,
-        --ammo="Aurgelmir Orb",
+        ammo="Coiste Bodhar",
+        head=gear.Empyrean.Head,
+        body="Malignance Tabard",
+        hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        legs=gear.Empyrean.Legs,
+        feet=gear.Empyrean.Feet,
         neck="Sanctity Necklace",
-        --waist="Patentia Sash",
-        --back=gear.capes.TP,
-        left_ear="Suppanomimi",
-        right_ear="Sherida Earring",
-        left_ring="Begrudging Ring",
-        right_ring="Ilabrat Ring",
+        waist="Reiki Yotai",
+        left_ear="Sherida Earring",
+        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Lehko's Ring",
     }
     sets.engaged.Acc = set_combine(sets.engaged, {})
 
@@ -280,9 +247,4 @@ function init_gear_sets_unused()
         --right_ring="Moonbeam Ring",
     })
 
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    set_macro_page(1, 2)
 end

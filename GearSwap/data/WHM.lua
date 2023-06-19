@@ -19,7 +19,7 @@ function job_setup()
 
 	state.ElementalMode = M{['description'] = 'Elemental Mode','Light','Dark','Fire','Ice','Wind','Earth','Lightning','Water',}
 
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexastrike' }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexastrike', 'Realmrazer' }
     state.AutoBuffMode = M( true, "Automatic Buffs" )
 
     state.OffenseMode:options('Normal','Acc')
@@ -411,7 +411,14 @@ function init_gear_sets()
     })
 end
 
-function job_precast(spell, spellMap, eventArgs)
+-------------------------------------------------------------------------------------------------------------------
+-- Job-specific hooks for standard casting events.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+-- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function job_precast(spell, action, spellMap, eventArgs)
+	local abil_recasts = windower.ffxi.get_ability_recasts()
 
 	if spell.action_type == 'Magic' then
 		if spellMap == 'Cure' or spellMap == 'Curaga' then
@@ -423,7 +430,6 @@ function job_precast(spell, spellMap, eventArgs)
 			--gear.default.obi_waist = gear.obi_nuke_waist
 			--gear.default.obi_back = gear.obi_nuke_back
 		elseif spellMap == 'StatusRemoval' and not (spell.english == "Erase" or spell.english == "Esuna" or spell.english == "Sacrifice") then
-			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if abil_recasts[32] < latency and not silent_check_amnesia() and state.AutoCaress.value then
 				eventArgs.cancel = true
 				windower.chat.input('/ja "Divine Caress" <me>')
@@ -432,7 +438,6 @@ function job_precast(spell, spellMap, eventArgs)
 			end
 		end
 	elseif spell.type == 'JobAbility' then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
 		if spell.english == 'Devotion' and state.BlockLowDevotion.value and abil_recasts[28] < latency and player.hpp < 50 then
 			eventArgs.cancel = true
 			add_to_chat(123,'Abort: Blocking Devotion under 50% HP to prevent inefficient use.')
@@ -440,13 +445,95 @@ function job_precast(spell, spellMap, eventArgs)
 	end
 end
 
-function job_tick()
-    if automatic_job_buffs() then return true end
-    return false
+
+function job_post_precast(spell, action, spellMap, eventArgs)
+	if spell.type == "WeaponSkill" then
+	end
 end
 
-function automatic_job_buffs()
-    if state.AutoBuffMode.current == 'on' and player.in_combat then
+
+-- Return true if we handled the aftercast work.  Otherwise it will fall back
+-- to the general aftercast() code in Mote-Include.
+function job_aftercast(spell, action, spellMap, eventArgs)
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- Job-specific hooks for non-casting events.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called when a player gains or loses a buff.
+-- buff == buff gained or lost
+-- gain == true if the buff was gained, false if it was lost.
+function job_buff_change(buff, gain)
+	--update_melee_groups()
+	if sets.buff[buff] then
+        if gain then
+            equip(sets.buff[buff])
+        else
+            send_command('gs c update auto')
+        end     
+    end
+end
+
+
+function job_status_change(new_status, old_status)
+end
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+	if user_state_change then
+		user_state_change( stateField, newValue, oldValue )
+	end
+
+	if new_status == 'Engaged' then
+		--determine_haste_group()
+	end
+
+	--equip(gear.weapons[state.Weapons.current])
+
+end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User code that supplements standard library decisions.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called by the default 'update' self-command.
+function job_update(cmdParams, eventArgs)
+	--determine_haste_group()
+end
+
+
+function customize_idle_set(idleSet)
+	return idleSet
+end
+
+function customize_melee_set(meleeSet)
+	return meleeSet
+end
+
+-- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    -- Check that ranged slot is locked, if necessary
+    check_range_lock()
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- User self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called for custom player commands.
+function job_self_command(cmdParams, eventArgs)
+    user_self_command( cmdParams, eventArgs )
+end
+
+function job_tick()
+	if check_buff() then return true end
+	return false
+end
+
+function check_buff()
+	if state.AutoBuffMode.current == 'on' and player.in_combat then
         local abil_recasts = windower.ffxi.get_ability_recasts()
 
         if abil_recasts[29] < latency and not state.Buff['Afflatus Solace'] and not state.Buff['Afflatus Misery'] then

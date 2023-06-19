@@ -46,10 +46,10 @@
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-    state.Bullet = M{['description']='Bullet', 'Devastating Bullet'}
+    state.Bullet = M{['description']='Bullet', 'Chrono Bullet', 'Devastating Bullet'}
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
+    state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', '1000', 'Never','300',}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Arma', 'Aeolian' }
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Aeolian Edge' }
 
     gear.Artifact = {}
@@ -60,50 +60,52 @@ function user_job_setup()
     gear.Artifact.Feet = {}
 
     gear.Relic = {}
-    gear.Relic.Head = "Lanun Tricorne +1"
+    gear.Relic.Head = "Lanun Tricorne +3"
     gear.Relic.Body = "Lanun Frac +3"
     gear.Relic.Hands = "Lanun Gants +1"
     gear.Relic.Legs = "Lanun Trews +1"
     gear.Relic.Feet = "Lanun Bottes +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
-    gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = "Chasseur's Gants +2"
-    gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = "Chass. Bottes +2"
+    gear.Empyrean.Head = "Chass. Tricorne +3"
+    gear.Empyrean.Body = "Chasseur's Frac +3"
+    gear.Empyrean.Hands = "Chasseur's Gants +3"
+    gear.Empyrean.Legs = "Chas. Culottes +3"
+    gear.Empyrean.Feet = "Chass. Bottes +3"
 
     gear.capes = {}
-    gear.capes.MeleeTPCapeDW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Damage taken-5%',}}
+    gear.capes.MeleeTPCapeDW = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.MeleeTPCapeDA = gear.capes.MeleeTPCapeDW   --also evisceration
     gear.capes.MeleeWSCape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-    gear.capes.PhantomRoll = gear.capes.MeleeTPCapeDW
+    gear.capes.PhantomRoll = { name="Camulus's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+8','"Snapshot"+10',}}
     gear.capes.RngLeadenCape = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Critical hit rate +10%',}}
-    gear.capes.RngWFCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
+    gear.capes.RngWFCape = gear.capes.RngLeadenCape
     gear.capes.QDTPCape = gear.capes.RngLeadenCape
+    gear.capes.RngWSCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}}
     gear.capes.FastCast = {}
     gear.capes.RngCrit = gear.capes.RngTPCape
 
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Arma', 'Fomalhaut', 'Aeolian' }
     gear.weapons = {}
     --match key to state.weapons options
     gear.weapons['Savage'] = {
         main="Naegling",
         sub="Crepuscular Knife",
         ranged="Anarchy +2",
-        ammo="Devastating Bullet",
-    }
-    gear.weapons['Doomsday'] = {
-        main="Naegling",
-        sub="Kustawi +1",
-        ranged="Doomsday",
-        ammo="Devastating Bullet",
+        ammo="Chrono Bullet",
     }
     gear.weapons['Arma'] = {
         main="Naegling",
-        sub="Kustawi +1",
+        sub="Tauret",
         ranged="Armageddon",
-        ammo="Devastating Bullet",
+        ammo="Chrono Bullet",
+    }
+    gear.weapons['Fomalhaut'] = {
+        main="Rostam",
+        sub="Crepuscular Knife",
+        ranged="Fomalhaut",
+        ammo="Chrono Bullet",
     }
     gear.weapons['Aeolian'] = {
         main="Tauret",
@@ -134,7 +136,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     
-    --sets.precast.JA['Triple Shot'] = {body="Navarch's Frac +2"}
+    sets.precast.JA['Triple Shot'] = {body=gear.Empyrean.Body}
     sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
     sets.precast.JA['Wild Card'] = {feet=gear.Relic.Feet}
     sets.precast.JA['Random Deal'] = {body=gear.Relic.Body}
@@ -157,7 +159,10 @@ function init_gear_sets()
     
     --sets.precast.LuzafRing = set_combine( sets.precast.CorsairRoll, {ring2="Luzaf's Ring"})
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
-    sets.precast.Compensator = { ranged = "Compensator" } 
+    sets.precast.Compensator = {
+        main = "Rostam",
+        ranged = "Compensator"
+    } 
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -192,7 +197,7 @@ function init_gear_sets()
         head={ name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}},
         body=gear.Artifact.Body,
         hands=gear.Relic.Hands,
-        back="Navarch's Mantle",
+        back=gear.capes.PhantomRoll,
         waist="Yemaya Belt",
         legs=gear.Adhemar.Legs.D,
         feet=gear.Meghanada.Feet,
@@ -214,12 +219,12 @@ function init_gear_sets()
         neck="Rep. Plat. Medal",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
-        body=gear.Artifact.Body,
+        body="Nyame Mail",
         hands=gear.Empyrean.Hands,
         legs="Nyame Flanchard",
-        feet=gear.Relic.Feet,
-        ring1="Regal Ring",
-        ring2="Metamor. Ring +1",
+        feet="Nyame Sollerets",
+        left_ring="Sroda Ring",
+        right_ring="Epaminondas's Ring",
         back=gear.capes.MeleeWSCape,
         waist="Sailfi Belt +1"
     }
@@ -239,78 +244,73 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'] = set_combine( sets.precast.WS, {
         head=gear.Adhemar.Head.B,
-        body=gear.Mummu.Body,
-        hands=gear.Mummu.Hands,
+        body=gear.Meghanada.Body,
+        hands=gear.Adhemar.Hands.B,
         legs=gear.Mummu.Legs,
-        feet=gear.Mummu.Feet,
+        feet=gear.Adhemar.Feet.B,
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        ring2="Mummu Ring",
+        left_ring="Regal Ring",
+        right_ring="Ilabrat Ring",
         ear1="Odr Earring",
+        back=gear.capes.MeleeTPCapeDW,
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        head="Nyame Helm",
         neck="Sibyl Scarf",
         ear1="Friomisi Earring",
-        ear2="Hecate's Earring",
         body=gear.Relic.Body,
-        hands="Carmine Fin. Ga. +1",
-        ring1="Dingir Ring",
-        ring2="Metamor. Ring +1",
+        hands="Nyame Gauntlets",
+        feet=gear.Relic.Feet,
+        left_ring="Dingir Ring",
         back=gear.capes.RngLeadenCape,
-        waist="Eschan Stone",
-        feet=gear.Relic.Feet
+        waist="Orpheus's Sash",
     })
 
     sets.precast.WS['Leaden Salute'] = {
         head="Pixie Hairpin +1",
-        neck="Sibyl Scarf",
+        neck="Commodore Charm +2",
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
         body=gear.Relic.Body,
-        hands="Carmine Fin. Ga. +1",
-        --hands="Nyame Gauntlets",
+        hands="Nyame Gauntlets",
         ring1="Dingir Ring",
         ring2="Archon Ring",
         back=gear.capes.RngLeadenCape,
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet
     }
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {
         head="Nyame Helm",
-        ear2="Hecate's Earring",
-        ring2="Ilabrat Ring",
+        ring2="Epaminondas's Ring",
         back=gear.capes.RngWFCape,
     })
 
     sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {
         head="Nyame Helm",
-        ear2="Hecate's Earring",
-        ring2="Ilabrat Ring",
+        hands=gear.Empyrean.Hands,
+        neck="Fotia Gorget",
+        ring2="Epaminondas's Ring",
         back=gear.capes.RngWFCape,
     })
 
     sets.precast.WS['Last Stand'] = {
-        head="Malignance Chapeau",
-        body=gear.Artifact.Body,
+        head=gear.Relic.Head,
+        body="Nyame Mail",
         hands=gear.Empyrean.Hands,
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
-        neck="Fotia Gorget",
-        ear1="Beyla Earring",
-        ear2="Telos Earring",
+        neck="Commodore Charm +2",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
         left_ring="Regal Ring",
-        right_ring="Crepuscular Ring",
-        back=gear.capes.RngWFCape,
+        right_ring="Dingir Ring",
+        back=gear.capes.RngWSCape,
         waist="Fotia Belt",
     }
     sets.precast.WS['Sniper Shot'] = set_combine( sets.precast.WS['Last Stand'], {})
-
-    sets.precast.WS['Last Stand'].Acc = set_combine( sets.precast.WS['Last Stand'], {
-    })
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
@@ -329,14 +329,14 @@ function init_gear_sets()
         body=gear.Relic.Body,
         hands="Carmine Fin. Ga. +1",
         legs="Nyame Flanchard",
-        feet=gear.Relic.Feet,
-        neck="Sanctity Necklace",
+        feet=gear.Empyrean.Feet,
+        neck="Commodore Charm +2",
         ear1="Friomisi Earring",
         ear2="Hecate's Earring",
         ring1="Dingir Ring",
         ring2="Crepuscular Ring",
         back=gear.capes.RngLeadenCape,
-        waist="Eschan Stone"
+        waist="Orpheus's Sash"
     }
 
     sets.midcast.CorsairShot.Acc = set_combine( sets.midcast.CorsairShot, {
@@ -378,8 +378,12 @@ function init_gear_sets()
     }
 
     sets.midcast.RA.Acc = set_combine( sets.midcast.RA, {})
-    sets.TripleShot = {}
-    sets.TripleShotCritical = {}
+    sets.TripleShot = {
+        body=gear.Empyrean.Body,
+    }
+    sets.TripleShotCritical = {
+        body=gear.Empyrean.Body,
+    }
     sets.TrueShot = {
         body="Nisroch Jerkin",
     }
@@ -412,7 +416,7 @@ function init_gear_sets()
         left_ring="Defending Ring",
         right_ring="Warp Ring",
         neck="Loricate Torque +1",
-        waist="Flume Belt +1",
+        waist="Plat. Mog. Belt",
         left_ear="Odnowa Earring +1",
         right_ear="Genmei Earring",
         back=gear.capes.PhantomRoll,
@@ -454,15 +458,15 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged.Melee = {
-        head=gear.Meghanada.Head,
-        body="Malignance Tabard",
-        hands="Adhemar Wrist. +1",
-        legs="Samnuha Tights",
-        feet=gear.Meghanada.Feet,
-        neck="Sanctity Necklace",
-        waist="Dynamic Belt",
-        left_ear="Cessance Earring",
-        right_ear="Brutal Earring",
+        head=gear.Empyrean.Head,
+        body=gear.Adhemar.Body.A,
+        hands=gear.Adhemar.Hands.A,
+        legs=gear.Empyrean.Legs,
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Sailfi Belt +1",
+        left_ear="Dedition Earring",
+        right_ear="Suppanomimi",
         left_ring="Epona's Ring",
         right_ring="Regal Ring",
         back=gear.capes.MeleeTPCapeDW,
@@ -471,37 +475,13 @@ function init_gear_sets()
     sets.engaged.Acc = set_combine( sets.engaged.Melee, {
     })
 
-    sets.engaged.Melee.DW = set_combine( sets.engaged.Melee, {
-        ear1="Dudgeon Earring",
-        ear2="Heartseeker Earring"
-    })
-    
-    sets.engaged.Acc.DW = set_combine( sets.engaged.Melee.DW, {
-    })
-
-    sets.engaged.Ranged = set_combine( sets.engaged.Melee, {
-    })
-
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {
-        head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
         left_ring="Defending Ring",
-        right_ring="Gelatinous Ring +1",
     })
 
-    sets.engaged.MDT = set_combine( sets.engaged.Melee, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",
-        right_ear="Crep. Earring",
-        left_ring="Defending Ring",
-        right_ring="Crepuscular Ring",
+    sets.engaged.MDT = set_combine( sets.engaged.PDT, {
     })
 end
 

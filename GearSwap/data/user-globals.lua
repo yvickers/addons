@@ -8,7 +8,7 @@ function user_setup()
     state.AttackWithMe = M(false, 'Attack With Me')
     state.MagicBurstMode      = M{['description'] = 'Magic Burst Mode', 'Off', 'Single', 'Lock'}
     state.SkillchainMode      = M{['description'] = 'Skillchain Mode', 'Off', 'Single', 'Lock'}
-    state.ElementalMode       = M{['description'] = 'Elemental Mode', 'Fire','Ice','Wind','Earth','Lightning','Water','Light','Dark'}
+    state.ElementalMode       = M{['description'] = 'Elemental Mode', 'Fire','Ice','Wind','Earth','Thunder','Water','Light','Dark'}
 
     -- For th_action_check():
     -- JA IDs for actions that always have TH: Provoke, Animated Flourish, bully, chi blas
@@ -32,7 +32,7 @@ function user_setup()
     send_command('bind ^f5 gs c cycle ElementalMode')
     send_command('bind !f5 gs c cycleback ElementalMode')
 
-    send_command('bind ^numpad1 @input //send @all //raptor')
+    send_command('bind ^numpad1 @input //send @all //ixion')
     send_command('bind !numpad1 @input //send @all /dismount')
     send_command('bind ^numpad7 @input /ma "Utsusemi: Ni" <me>')
     send_command('bind !numpad7 @input //ffo me')
@@ -359,6 +359,9 @@ function user_self_command(cmdParams, eventArgs)
 	if 'smartws' == cmdParams[1] then
 		smart_ws()
 	end
+    if 'quickdraw' == cmdParams[1] then
+        current_quickdraw()
+    end
     if 'aoesleep' == cmdParams[1] then
         send_command('@send @brd //hordelullaby <tid>')
     end
@@ -379,4 +382,8 @@ end
 
 function smart_ws()
 	windower.chat.input('/ws "'..state.MainWS.current..'" <t>')
+end
+
+function current_quickdraw()
+    send_command('@send @cor //'..state.ElementalMode.current:lower()..'shot <tid>')
 end

@@ -75,6 +75,8 @@ function define_global_sets()
     gear.Adhemar.Head = {}
     gear.Adhemar.Head.B = { name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
     gear.Adhemar.Head.D = { name="Adhemar Bonnet +1", augments={'HP+105','Attack+13','Phys. dmg. taken -4',}}
+    gear.Adhemar.Body = {}
+    gear.Adhemar.Body.A = { name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
     gear.Adhemar.Hands = {}
     gear.Adhemar.Hands.A = { name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
     gear.Adhemar.Hands.B = { name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}}

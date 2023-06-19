@@ -11,7 +11,7 @@ function job_setup()
 
 	state.OffenseMode:options( 'PDT', 'Melee', 'MDT', 'ACC', 'SB' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
+	state.WeaponskillMode:options( 'Normal', 'Buffed' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
 	include('Mote-TreasureHunter')
@@ -203,6 +203,8 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
+
+	classes.JAMode = state.OffenseMode.current
 
 	if state.AutoBuffMode.current == 'on' and spell.type == 'WeaponSkill' and not buffactive['Blood Rage'] then
 		if abil_recasts[2] < latency then

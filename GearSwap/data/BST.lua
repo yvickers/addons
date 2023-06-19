@@ -4,6 +4,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include(player.name..'_'..player.main_job..'_gear.lua') -- Required Gear file.
 end
 
 function job_setup()
@@ -13,33 +14,20 @@ function job_setup()
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
-	state.PetMode = M{['description']='Pet Mode', 'None','Melee','Ranged','HybridRanged','Tank','LightTank','Magic','Heal','Nuke'}
-	state.AutoRepairMode = M(true, 'Auto Repair Mode')
-	state.AutoDeployMode = M(true, 'Auto Deploy Mode')
-	state.AutoPetMode 	 = M(true, 'Auto Pet Mode')
-	repairhpp = 45
-
 	include('Mote-TreasureHunter')
-	-- For th_action_check():
-	-- JA IDs for actions that always have TH: Provoke, Animated Flourish
-	info.default_ja_ids = S{35, 204}
-	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
-	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Godhands', 'PetHands' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
-	gear.weapons['Godhands'] = {
-		main="Godhands",
-		ranged="Animator P",
-	}
-	gear.weapons['Godhands'] = {
-		main="Ohtas",
-		ranged="Animator P",
+	gear.weapons['Default'] = {
+		---main="",
+		--sub="",
+		--ammo="Staunch Tathlum",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Shijin Spiral', 'Victory Smite' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
+    state.AutoFightMode = M( true, "Auto Pet Fight" )
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -71,16 +59,22 @@ function job_setup()
 !   Alt
 @   Win
 #   Apps
-
+~	Shift
 --]]
 	--send_command('bind ^b gs c cycle AutoBoost')
 	--send_command('bind @2 gs c cycle altstep')
 	--send_command('bind @3 gs c cycle Samba')
 
-	select_default_macro_book()
+	if select_default_macro_book then
+		select_default_macro_book()
+	end
 
 	send_command('wait 10; input /lockstyle on')
-	update_pet_mode()
+
+	if user_job_setup then
+        user_job_setup()
+    end
+
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -202,15 +196,19 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
 	--update_melee_groups()
+	if sets.buff[buff] then
+        if gain then
+            equip(sets.buff[buff])
+        else
+            send_command('gs c update auto')
+        end     
+    end
 end
 
-function job_pet_change(pet, gain)
-    update_pet_mode()
-end
 
 function job_status_change(new_status, old_status)
-	if newStatus == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoDeployMode.value and player.target.distance < 20 then
-		windower.chat.input('/pet Deploy <t>')
+    if newStatus == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
+		windower.chat.input('/pet Fight <t>')
 	end
 end
 
@@ -254,124 +252,24 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     check_range_lock()
 end
 
--- Function to lock the ranged slot if we have a ranged weapon equipped.
-function check_range_lock()
-	if player.equipment.range ~= 'empty' then
-		disable('range', 'ammo')
-	else
-		enable('range', 'ammo')
-	end
-end
-
 -------------------------------------------------------------------------------------------------------------------
 -- User self-commands.
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
+    user_self_command( cmdParams, eventArgs )
 end
 
 function job_tick()
-	if check_repair() then return true end
 	if check_buff() then return true end
 	return false
 end
 
-function check_repair()
-
-	if state.AutoRepairMode.value and pet.isvalid and pet.hpp < repairhpp then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-
-		if abil_recasts[206] < latency then
-			windower.chat.input('/ja "Repair" <me>')
-			tickdelay = os.clock() + 1.1
-			return true
-		end
-	end
-
-	return false
-end
-
 function check_buff()
-	if state.AutoBuffMode.current == 'on' and player.in_combat then
+	if state.AutoBuffMode.current == 'on' and silent_check_fighting() and not silent_check_amnesia() then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-
-		if player.sub_job == 'WAR' then
-			if not buffactive.Berserk and abil_recasts[1] < latency then
-				windower.chat.input('/ja "Berserk" <me>')
-				tickdelay = os.clock() + jatickdelay
-				return true
-			elseif not (buffactive.Aggressor or buffactive.Focus) and abil_recasts[4] < latency then
-				windower.chat.input('/ja "Aggressor" <me>')
-				tickdelay = os.clock() + jatickdelay
-				return true
-			else
-				return false
-			end
-		end
 	end
 
 	return false
-end
-
--- Get the pet mode value based on the equipped frame of the automaton.
--- Returns nil if pet is not valid.
-function update_pet_mode()
-	if pet.isvalid and state.AutoPetMode.value then
-		state.PetMode:set(get_pet_mode())
-	end
-	
-	update_custom_groups()
-end
-
-function get_pet_mode()
-	if pet.frame == 'Sharpshot Frame' then
-		if pet.head == 'Valoredge Head' or pet.head == 'Harlequin Head' then
-			return 'HybridRanged'
-		else
-			return 'Ranged'
-		end
-	elseif pet.frame == 'Valoredge Frame' then
-		if pet.head == 'Soulsoother Head' then
-			return 'Tank'
-		else
-			return 'Melee'
-		end
-	elseif pet.head == 'Sharpshot Head' or pet.head == 'Stormwaker Head' then
-		return 'Magic'
-	elseif pet.head == 'Spiritreaver Head' then
-		return 'Nuke'
-	elseif pet.frame == 'Harlequin Frame' then
-		if pet.head == 'Harlequin Head' then
-			return 'Melee'
-		else
-			return 'LightTank'
-		end
-	else
-			if pet.head == 'Soulsoother Head' then
-				return 'Heal'
-			elseif pet.head == 'Valoredge Head' then
-				return 'Melee'
-			else
-				return 'Magic'
-			end
-	end
-end
-
--- Update custom groups based on the current pet.
-function update_custom_groups()
-    classes.CustomIdleGroups:clear()
-    if pet.isvalid then
-        classes.CustomIdleGroups:append(state.PetMode.value)
-    end
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'WAR' then
-    	set_macro_page(1, 13)
-    else
-        set_macro_page(1, 13)
-    end
 end

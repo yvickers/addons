@@ -3,10 +3,10 @@ function user_job_setup()
     state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'AE', 'Arma', 'Ranged', }
     gear.weapons = {}
     gear.weapons['AE'] = {
-        main='Malevolence',
-        sub='Crepuscular Knife',
-        range="Anarchy +2",
-        ammo="Hauksbok Bullet",
+        main='Tauret',
+        sub='Malevolence',
+        range="Sparrowhawk +2",
+        ammo="Hauksbok Arrow",
     }
     gear.weapons['Ranged'] = {
         main='Malevolence',
@@ -15,8 +15,8 @@ function user_job_setup()
         ammo="Devastating Bullet",
     }
     gear.weapons['Arma'] = {
-        main='Perun +1',
-        sub='Nusku Shield',
+        main='Tauret',
+        sub="Gleti's Knife",
         ranged="Armageddon",
         ammo="Devastating Bullet",
     }
@@ -27,7 +27,7 @@ function user_job_setup()
         ammo="Hauksbok Arrow",
     }
     
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Evisceration', 'Aeolian Edge',' }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
 
     gear.Artifact = {}
     gear.Artifact.Head = "Orion Beret +3"
@@ -192,17 +192,17 @@ function init_gear_sets()
     } )
 
     sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS, {
-        head=gear.Artifact.Head,
+        head="Nyame Helm",
         body="Nyame Mail",
 		hands="Nyame Gauntlets",
-		legs=gear.Relic.Legs,
+		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
         neck="Sybil Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
         left_ring="Dingir Ring",
-        right_ring="Metamor. Ring +1",		
+        right_ring="Epaminondas's Ring",		
     } )
 
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WSPhysical, {

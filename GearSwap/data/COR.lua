@@ -365,8 +365,25 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+    
     if spell.type == 'CorsairShot' then
+        local card_count = 0
         equip({ammo=state.Bullet.current})
+        if player['inventory']['Trump Card'] then
+			card_count = player['inventory']['Trump Card'].count
+		end
+
+        if card_count < 40 then
+            if player['inventory']['Trump Card Case'] then
+                local case_count = player['inventory']['Trump Card Case'].count
+                local case_tries = 0
+                repeat
+                    windower.chat.input('/item "Trump Card Case" <me>')
+                    case_tries = case_tries + 1
+                    coroutine.sleep(5)
+                until case_tries > 4 or player['inventory']['Trump Card Case'].count < case_count
+            end
+        end
     end
 
 	if spell.type == 'CorsairRoll' and not spell.interrupted then

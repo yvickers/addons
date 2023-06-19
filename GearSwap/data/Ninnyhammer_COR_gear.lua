@@ -3,8 +3,8 @@ function user_job_setup()
 	state.Bullet = M{['description']='Bullet', 'Chrono Bullet', 'Bronze Bullet'}
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Fomalhaut', }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Fomalhaut', 'Dummy', 'AE', 'Dummy2' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Flat Blade', }
     state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
 	gear.Artifact = {}
@@ -29,7 +29,7 @@ function user_job_setup()
     gear.Empyrean.Feet = "Chasseur's Bottes +3"
 
     gear.capes = {}
-    gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10',}}
+    gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = gear.capes.MeleeTP
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
@@ -46,10 +46,26 @@ function user_job_setup()
     }
     gear.weapons['Fomalhaut'] = {
         main="Naegling",
-        sub="Demers. Degen +1",
+        sub="Tauret",
         ranged="Fomalhaut",
         ammo=state.Bullet.current,
     }
+    gear.weapons['AE'] = {
+        main="Tauret",
+        sub="Naegling",
+        ranged="Anarchy +2",
+        ammo="Hauksbok Bullet",
+    }
+    gear.weapons['Dummy'] = {
+        main="Gleti's Knife",
+        sub="Demers. Degen +1",
+    }
+    gear.weapons['Dummy2'] = {
+        main="Gleti's Knife",
+        sub="Demers. Degen +1",
+    }
+
+    state.TreasureMode:set('Tag')
 
 end
 
@@ -57,6 +73,13 @@ function init_gear_sets()
     sets.AutoBuff.sleep = {
 		--ranged="Prime Gun",
 	}
+    
+    sets.TreasureHunter = {
+        head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
+        legs={ name="Herculean Trousers", augments={'Accuracy+10','Attack+19','"Treasure Hunter"+2','Accuracy+4 Attack+4',}},
+        waist="Chaac Belt",
+    }
+
 	sets.precast.CorsairRoll = {
         --main="Lanun Knife",
         --ranged = "Compensator",
@@ -64,8 +87,8 @@ function init_gear_sets()
         hands=gear.Empyrean.Hands,
         --legs="Desultor Tassets",
         --neck="Regal Necklace",
-        left_ring="Luzaf's Ring",
-        right_ring="Warden's Ring",
+        right_ring="Luzaf's Ring",
+        left_ring="Defending Ring",
         back=gear.capes.PhantomRoll,
     }
     sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
@@ -89,7 +112,6 @@ function init_gear_sets()
         --feet="Crimson Greaves",
         neck="Voltsurge Torque",
         ring1="Lebeche Ring",
-        --ring2="Kishar Ring",
     }
 
     sets.precast.RA = {
@@ -98,7 +120,7 @@ function init_gear_sets()
         hands="Carmine Fin. Ga. +1",
         legs=gear.Empyrean.Legs,
         feet=gear.Meghanada.Feet,
-        neck="Comm. Charm +1",
+        neck="Comm. Charm +2",
         --back="Navarch's Mantle",
         --waist="Yemaya Belt",
         --left_ring="Crepuscular Ring",
@@ -118,7 +140,7 @@ function init_gear_sets()
         back=gear.capes.MeleeWS,
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
-        left_ring="Rajas Ring",
+        left_ring="Sroda Ring",
         right_ring="Karieyh Ring",
     }
 
@@ -148,11 +170,11 @@ function init_gear_sets()
         head="Nyame Helm",
         neck="Sibyl Scarf",
         ear1="Friomisi Earring",
-        ear2="Hermetic Earring",
+        ear2="Moonshade Earring",
         body=gear.Relic.Body,
-        hands="Carmine Fin. Ga. +1",
-        left_ring="Dingir Ring",
-        right_ring="Ilabarat Ring",
+        hands="Nyame Gauntlets",
+        left_ring="Lehko's Ring",
+        right_ring="Karieyh Ring",
         back=gear.capes.RngMagicalWS,
         waist="Eschan Stone",
         legs="Nyame Flanchard",
@@ -161,11 +183,11 @@ function init_gear_sets()
 
     sets.precast.WS['Leaden Salute'] = {
         head="Pixie Hairpin +1",
-        neck="Comm. Charm +1",
+        neck="Comm. Charm +2",
         ear1="Friomisi Earring",
         ear2="Hermetic Earring",
         body=gear.Relic.Body,
-        hands="Carmine Fin. Ga. +1",
+        hands="Nyame Gauntlets",
         left_ring="Dingir Ring",
         right_ring="Archon Ring",
         back=gear.capes.RngMagicalWS,
@@ -185,7 +207,7 @@ function init_gear_sets()
         hands=gear.Empyrean.Hands,
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
-        neck="Comm. Charm +1",
+        neck="Comm. Charm +2",
         ear1="Beyla Earring",
         ear2="Enervating Earring",
         left_ring="Dingir Ring",
@@ -197,14 +219,14 @@ function init_gear_sets()
     sets.midcast.CorsairShot = {
         head=gear.Empyrean.Head,
         body=gear.Relic.Body,
-        hands="Carmine Fin. Ga. +1",
+        hands="Nyame Gauntlets",
         legs=gear.Empyrean.Legs,
         feet=gear.Empyrean.Feet,
-        neck="Comm. Charm +1",
+        neck="Comm. Charm +2",
         ear1="Friomisi Earring",
         ear2="Hermetic Earring",
-        ring1="Dingir Ring",
-        right_ring="Ilabrat Ring",
+        right_ring="Dingir Ring",
+        left_ring="Lehko's Ring",
         back=gear.capes.RngMagicalWS,
         waist="Eschan Stone"
     }
@@ -254,37 +276,50 @@ function init_gear_sets()
         hands=gear.Relic.Hands,
     }
 
+    sets.midcast.ElementalNinjutsu = {
+        --ammo="Ghastly Tathlum +1",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Sibyl Scarf",
+		back=gear.capes.RngMagicalWS,
+		waist="Eschan Stone",
+		--left_ear="Heacate's Earring",
+		right_ear="Friomisi Earring",
+		right_ring="Dingir Ring",
+    }
+
     sets.idle = {
         head=gear.Empyrean.Head,
         body=gear.Empyrean.Body,
         hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
         feet="Nyame Sollerets",
-        left_ring="Warden's Ring",
+        left_ring="Defending Ring",
         right_ring="Warp Ring",
-        neck="Elite Royal Collar",
-        --waist="Flume Belt +1",
-        --left_ear="Odnowa Earring +1",
-        --right_ear="Genmei Earring",
+        neck="Loricate Torque +1",
+        waist="Plat. Mog. Belt",
+        left_ear="Eabani Earring",
+        right_ear="Assuage Earring",
         back=gear.capes.MeleeTP,
     }
 
     sets.engaged.Melee = {
-        head="Malignance Chapeau",
-        body=gear.Empyrean.Body,
-        hands=gear.Meghanada.Hands,
+        head=gear.Empyrean.Head,
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs=gear.Empyrean.Legs,
-        feet=gear.Meghanada.Feet,
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sanctity Necklace",
         waist="Sailfi Belt +1",
-        left_ear="Mache Earring +1",
-		right_ear="Odr Earring",
-        left_ring="Meghanada Ring",
-		right_ring="Ilabrat Ring",
+        left_ear="Suppanomimi",
+        right_ear={ name="Chas. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','Crit.hit rate+5',}},
+        left_ring="Lehko's Ring",
+        right_ring="Chirich Ring +1",
         back=gear.capes.MeleeTP,
     }
-    sets.engaged.Acc = set_combine( sets.engaged.Melee, {
-    })
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {
     })
     sets.engaged.MDT = set_combine( sets.engaged.Melee, {

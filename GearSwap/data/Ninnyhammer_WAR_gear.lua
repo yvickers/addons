@@ -70,7 +70,7 @@ function init_gear_sets()
 		waist="Sailfi Belt +1",
 		left_ear="Thrud Earring",
 		right_ear="Ishvara Earring",
-		left_ring="Niqmaddu Ring",
+		left_ring="Sroda Ring",
 		right_ring="Karieyh Ring",
 		back=gear.capes.StrWS,
 	}
@@ -103,7 +103,7 @@ function init_gear_sets()
 		left_ear="Boii Earring +1",
 		right_ear="Mache Earring +1",
 		left_ring="Niqmaddu Ring",
-		right_ring="Chirich Ring +1",
+		right_ring="Lehko's Ring",
 		back=gear.capes.DexTP,
 	}
 end

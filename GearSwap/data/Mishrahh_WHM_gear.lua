@@ -1,6 +1,16 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexastrike' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Melee' }
+	gear.weapons = {}
+	gear.weapons['Default'] = {
+		main="Daybreak",
+		sub="Culminus",
+	}
+    gear.weapons['Melee'] = {
+		main="C. Palug Hammer",
+		sub="Maxentius",
+	}
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Hexastrike', 'Realmrazer' }
 
     gear.Artifact = {}
     gear.Artifact.Head = ""
@@ -25,7 +35,7 @@ function user_job_setup()
 
     gear.capes = {}
     --gear.capes.TP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Magic dmg. taken-6%',}}
-    gear.capes.CurePotency = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+3','"Cure" potency +10%',}}
+    gear.capes.CurePotency = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%',}}
 
     -- Additional local binds
 --[[
@@ -74,8 +84,8 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {
-   		--ammo="",
-        --head="",
+   		ammo="Impatiens",
+        head="Bunzi's Hat",
         --body="",
         --hands="",
         --legs="",
@@ -117,7 +127,19 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-
+        ammo="Crepuscular Pebble",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Telos Earring",
+        right_ear="Mache Earring +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Rufescent Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     
     -- Midcast Sets
@@ -211,19 +233,19 @@ function init_gear_sets()
     
 	-- Idle sets
 	sets.idle = {
-		ammo="Staunch Tathlum",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
-		neck="Warder's Charm +1",
-		waist="Hachirin-no-Obi",
-		left_ear="Genmei Earring",
-		right_ear="Ethereal Earring",
-		left_ring="Ayanmo Ring",
-		right_ring="Defending Ring",
-		back="Solemnity Cape",
+		ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Bunzi's Pants",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Yngvi Choker",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Warp Ring",
+        right_ring="Defending Ring",
+        back="Solemnity Cape",
 	}
 
     sets.idle.Town = set_combine( sets.idle, {} )
@@ -251,36 +273,31 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-    sets.engaged.Melee = {
-        --ammo="",
-        --head="",
-        --body="",
-        --hands="",
-        --legs="",
-        --feet="",
-        --neck="",
-        --waist="",
-        --left_ear="",
-        --right_ear="",
-        --left_ring="",
-        --right_ring="",
-        --back="",
+    sets.engaged = {
+        ammo="Crepuscular Pebble",
+        head="Bunzi's Hat",
+        body=gear.Ayanmo.Body,
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Sanctity Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     
-    sets.engaged.Acc = set_combine( sets.engaged.Melee, {
+    sets.engaged.Acc = set_combine( sets.engaged, {
     })
 
-    sets.engaged.Melee.DW = set_combine( sets.engaged.Melee, {
+    sets.engaged.DW = set_combine( sets.engaged, {
     })
     
-    sets.engaged.Acc.DW = set_combine( sets.engaged.Melee.DW, {
+    sets.engaged.Acc.DW = set_combine( sets.engaged.DW, {
     })
 
-    sets.engaged.Ranged = set_combine( sets.engaged.Melee, {
+    sets.engaged.Ranged = set_combine( sets.engaged, {
     })
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	set_macro_page(1, 8)
 end

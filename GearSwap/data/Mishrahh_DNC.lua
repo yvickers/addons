@@ -41,7 +41,7 @@ end
 function job_setup()
     include('Mote-TreasureHunter')
 
-    state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge' }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Evisceration', "Rudra's Storm", 'Aeolian Edge' }
     state.AutoBuffMode = M( true, "Automatic Buffs" )
 
     state.Buff['Climactic Flourish'] = buffactive['Climactic Flourish'] or false
@@ -63,7 +63,7 @@ function job_setup()
 
     state.OffenseMode:options('PDT', 'Normal', 'Acc')
     state.HybridMode:options('PDT', 'Normal', 'Evasion')
-    state.WeaponskillMode:options('Normal', 'Acc', 'Fodder')
+    state.WeaponskillMode:options('Normal', 'Buffed' )
     state.PhysicalDefenseMode:options('Evasion', 'PDT')
 
     state.Buff['Climactic Flourish'] = buffactive['climactic flourish'] or false
@@ -97,9 +97,9 @@ function job_setup()
     gear.Empyrean.Feet = ""
 
     gear.capes = {}
-    gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
-    --gear.capes.Crit = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
-    --gear.capes.WSDMG = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+    gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
+    gear.capes.Crit = gear.capes.TP--{ name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
+    gear.capes.WSDMG = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+4','Weapon skill damage +10%',}}
 
     function calculate_step_feet_reduction()
         local tp_reduction = 0
@@ -228,70 +228,48 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        ammo="Charis Feather",
-        head="Lilitu Headpiece",
-        neck="Fotia Gorget",
-        ear1="Odr Earring",
-        ear2="Moonshade Earring",
-        body=gear.Meghanada.Body,
-        hands=gear.Meghanada.Hands,
-        ring1="Rajas Ring",
-        ring2="Ilabrat Ring",
-        back=gear.capes.TP,
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Rep. Plat. Medal",
         waist="Kentarch Belt +1",
-        legs=gear.Herc.Legs.WSD,
-        feet=gear.Adhemar.Feet.B
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear={ name="Macu. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+17','Mag. Acc.+17','"Store TP"+6','DEX+9 AGI+9',}},
+        left_ring="Epaminondas's Ring",
+        right_ring="Regal Ring",
+        back=gear.capes.WSDMG,
     }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-    })
-    
-    -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
-    })
-
-    sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS, {
-    })
-    sets.precast.WS['Pyrrhic Kleos'].Acc = set_combine(sets.precast.WS.Acc, {
+    sets.precast.WS.Buffed = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+        body="Gleti's Cuirass",
     })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-    })
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
-        ammo="Charis Feather",
-        head=gear.Adhemar.Head.B,
-        body=gear.Meghanada.Body,
-        hands=gear.Mummu.Hands,
-        legs="Samnuha Tights",
-        feet=gear.Mummu.Feet,
+        ammo="Coiste Bodhar",
+        head="Blistering Sallet +1",
         neck="Fotia Gorget",
-        back=gear.capes.TP,
+        ear1="Moonshade Earring",
+        ear2="Odr Earring",
+        body="Gleti's Cuirass",
+        hands=gear.Adhemar.Hands.A,
+        ring1="Regal Ring",
+        ring2="Gere Ring",
+        back=gear.capes.Crit,
         waist="Fotia Belt",
-        ear1="Odr Earring",
-        ear2="Sherida Earring",
-        ring1="Mummu Ring",
-        ring2="Ilabrat Ring",
+        legs="Gleti's Breeches",
+        feet=gear.Adhemar.Feet.B,
     })
 
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'] = set_combine( sets.precast.WS, {
+        ammo="Ghastly Tathlum +1",
+        neck="Sibyl Scarf",
+        right_ear="Friomisi Earring",
+        right_ring="Medada's Ring",
+        waist="Orpheus's Sash",
     })
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {
-    })
-
-    sets.precast.WS['Aeolian Edge'] = {
---        ammo="Charis Feather",
---        head="Wayfarer Circlet",
---        neck="Stoicheion Medal",
---        ear1="Friomisi Earring",
---        ear2="Moonshade Earring",
---        body="Wayfarer Robe",
---        hands="Wayfarer Cuffs",
---        ring1="Acumen Ring",
---        ring2="Demon's Ring",
---        back="Toro Cape",
---        waist="Chaac Belt",
---        legs="Shneddick Tights +1",
---        feet="Wayfarer Clogs"
-    }
     
     sets.precast.Skillchain = {}
     
@@ -342,11 +320,11 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck="Warder's Charm +1",
-        waist="Flume Belt +1",
         back=gear.capes.TP,
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Eabani Earring",
+        right_ear="Infused Earring",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
     }
@@ -360,19 +338,19 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-        head=gear.Adhemar.Head.B,
-        --body=gear.Artifact.Body,
-        hands=gear.Adhemar.Hands.TP,
-        legs="Samnuha Tights",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Gleti's Breeches",
         feet="Malignance Boots",
         ammo="Coiste Bodhar",
-        neck="Sanctity Necklace",
+        neck="Anu Torque",
         waist="Patentia Sash",
         back=gear.capes.TP,
         left_ear="Sherida Earring",
-        right_ear="Brutal Earring",
-        left_ring="Ilabrat Ring",
-        right_ring="Moonbeam Ring",
+        right_ear="Dedition Earring",
+        left_ring="Epona's Ring",
+        right_ring="Gere Ring",
     }
 
     sets.engaged.Acc = set_combine(sets.engaged, {})
@@ -747,6 +725,7 @@ function automatic_job_buffs()
         end
         
         if player.in_combat then
+
 
             if player.sub_job == 'WAR' then
                 if not buffactive.Berserk and 

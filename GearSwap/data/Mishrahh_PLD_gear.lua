@@ -1,5 +1,5 @@
 function user_job_setup()
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Aeolian Edge', 'Savage Blade' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Aeolian Edge', 'Savage Blade', 'Spirit Taker' }
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = "Rev. Surcoat +3"
@@ -136,6 +136,19 @@ function init_gear_sets()
         waist="Sailfi belt +1",
 	}
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		ammo="Crep. Pebble",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Guantlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Rep. Plat. Medal",
+        right_ear="Thrud Earring",
+        left_ear="Moonshade Earring",
+		left_ring="Regal Ring",
+        right_ring="Sroda Ring",
+        back=gear.capes.Block,
+        waist="Sailfi belt +1",
     })
     sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
     })

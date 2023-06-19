@@ -22,7 +22,7 @@ function job_setup()
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Casting', 'Accuracy', 'Melee', 'Evasion', }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Chant du Cygne', 'Savage Blade', 'Black Halo', 'Realmrazer', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Black Halo', 'Chant du Cygne', 'Savage Blade', }
 	gear.weapons = {}
 	gear.weapons['Casting'] = {
 		main="Maxentius",
@@ -67,6 +67,7 @@ function job_setup()
 	gear.capes = {}
 	gear.capes.TP = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.CritWS = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
+	gear.capes.STRWSD = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.capes.MAB = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 
@@ -142,7 +143,7 @@ function init_gear_sets()
 
 --JA SETS
 	sets.buff['Burst Affinity'] = {
-		--feet=gear.Empyrean.Feet
+		feet=gear.Empyrean.Feet
 	}
 	sets.buff['Chain Affinity'] = {
 		--feet=gear.Artifact.Feet
@@ -173,7 +174,7 @@ function init_gear_sets()
 		hands=gear.Adhemar.Hands.B,
 		legs="Gleti's Breeches",
 		feet="Gleti's Boots",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		waist="Fotia Belt",
 		left_ear="Mache Earring +1",
 		right_ear="Odr Earring",
@@ -190,13 +191,17 @@ function init_gear_sets()
 	} )
 
 	sets.precast.WS['Requiescat'] = set_combine( sets.precast.WS, {
-		head=gear.Jhakri.Head,
-		body=gear.Jhakri.Body,
-		hands=gear.Jhakri.Hands,
-		feet=gear.Jhakri.Feet,
+		head=gear.Empyrean.Head,
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Fotia Gorget",
+		waist="Fotia Gorget",
 		left_ear="Moonshade Earring",
 		right_ear="Brutal Earring",
-		right_ring="Metamor. Ring +1"
+		left_ring="Sroda Ring",
+		right_ring="Metamor. Ring +1",
 	} )
 
 	sets.precast.WS['Sanguine Blade'] = set_combine( sets.precast.WS['Requiescat'], {
@@ -216,10 +221,11 @@ function init_gear_sets()
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		left_ear="Moonshade Earring",
-		right_ear="Brutal Earring",
+		right_ear="Ishvara Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
-		waist="Sailfi Belt +1"
+		waist="Sailfi Belt +1",
+		back=gear.capes.STRWSD,
 	} )
 	sets.precast.WS['Black Halo'] = set_combine( sets.precast.WS['Savage Blade'], {} )
 
@@ -234,8 +240,8 @@ function init_gear_sets()
 		ear2="Loquac. Earring",
 		--body=gear.Relic.Body,
 		hands="Leyline Gloves",
-		ring1="Prolix Ring",
-		ring2="Weather. Ring +1",
+		ring1="Weather. Ring +1",
+		ring2="Medada's Ring",
 		back="Perimede Cape",
 		waist="Witful Belt",
 		legs="Psycloth Lappas",
@@ -264,7 +270,7 @@ function init_gear_sets()
 		--sub="Vampirism",
 		ammo="Mavi Tathlum",
 		head="Lilitu Headpiece",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Suppanomimi",
 		--ear2="Telos Earring",
 		body=gear.Artifact.Body,
@@ -282,7 +288,7 @@ function init_gear_sets()
 		--sub="Almace",
 		--ammo="Falcon Eye",
 		head=gear.Jhakri.Head,
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
 		--ear2="Telos Earring",
 	    body=gear.Artifact.Body,
@@ -365,13 +371,13 @@ function init_gear_sets()
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
-		legs=gear.Empyrean.Legs,
+		legs=gear.Relic.Legs,
 		feet=gear.Empyrean.Feet,
 		neck="Sanctity Necklace",
 		ear1="Hecate's Earring",
 		ear2="Friomisi Earring",
 		ring1="Metamor. Ring +1",
-		ring2="Jhakri Ring",		
+		ring2="Medada's Ring",		
 		back=gear.capes.MAB,
 		waist="Orpheus's Sash",
 	}
@@ -379,7 +385,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Magical.Proc = set_combine( sets.midcast.FastRecast, {} )
 					 
 	sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical, {
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ring1="Stikini Ring +1",
 		--ring2="Stikini Ring +1",
 		--waist="Yamabuki-no-Obi"
@@ -406,7 +412,7 @@ function init_gear_sets()
 		main="Iris",
 		sub="Iris",
 		--ammo="Pemphredo Tathlum",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
 		--ear2="Digni. Earring",
 		--hands="Regal Cuffs",
@@ -417,7 +423,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Blue Magic'].Magical, {
 		--ammo="Pemphredo Tathlum",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
 		--ear2="Digni. Earring",
 		--hands="Regal Cuffs",
@@ -512,7 +518,7 @@ function init_gear_sets()
 
 	sets.midcast['Elemental Magic'].Resistant = set_combine( sets.midcast['Elemental Magic'], {
 		--ammo="Pemphredo Tathlum",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ring1="Shiva Ring +1",
 		--ring2="Shiva Ring +1",
 		--waist="Yamabuki-no-Obi",
@@ -559,7 +565,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Breath = {
 		ammo="Mavi Tathlum",
 		--head=gear.Relic.Head,
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
 		--ear2="Digni. Earring",
 		body=gear.Artifact.Body,
@@ -576,7 +582,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Stun = {
 		--ammo="Pemphredo Tathlum",
 		head="Malignance Chapeau",
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
 		--ear2="Digni. Earring",
 		body="Malignance Tabard",
@@ -643,7 +649,7 @@ function init_gear_sets()
 		sub="Iris",
 		ammo="Mavi Tathlum",
 		head=gear.Relic.Head,
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		--ear1="Gifted Earring",
 		ear2="Loquac. Earring",
 		body=gear.Artifact.Body,
@@ -691,16 +697,16 @@ function init_gear_sets()
 --IDLE SETS
 	sets.idle = {
 		ammo="Crepuscular Pebble",
-        head="Malignance Chapeau",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body=gear.Empyrean.Body,
-        hands="Malignance Gloves",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Carmine Cuisses +1",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",
-        waist="Flume Belt +1",
-        back=gear.capes.TP,
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Bathy Choker +1",
+		waist="Svelt. Gouriz +1",
+        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+        left_ear="Eabani Earring",
+		right_ear="Infused Earring",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
 	}
@@ -744,14 +750,14 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Coiste Bodhar",
 		head=gear.Adhemar.Head.B,
-		body="Gleti's Cuirass",
+		body=gear.Adhemar.Body.A,
 		hands=gear.Adhemar.Hands.A,
 		legs="Samnuha Tights",
 		feet=gear.Adhemar.Feet.B,
-		neck="Mirage Stole +1",
+		neck="Mirage Stole +2",
 		waist="Kentarch Belt +1",
 		left_ear="Dedition Earring",
-		right_ear="Cessance Earring",
+		right_ear="Suppanomimi",
 		left_ring="Petrov Ring",
 		right_ring="Ilabrat Ring",
 		back=gear.capes.TP,

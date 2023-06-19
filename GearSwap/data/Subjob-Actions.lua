@@ -45,6 +45,7 @@ function sub_job_tick_SAM()
 	valid_weapons['Sturdy Axe'] = true
 	valid_weapons['Ice Lance'] = true
 	valid_weapons['Homestead Lance'] = true
+	valid_weapons['Ichigohitofuri'] = true
 
 	if state.AutoBuffMode.current == 'on' and silent_check_fighting() and valid_weapons[player.equipment.main] then
 		local abil_recasts = windower.ffxi.get_ability_recasts()

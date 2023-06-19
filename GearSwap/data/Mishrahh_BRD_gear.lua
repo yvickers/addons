@@ -43,15 +43,15 @@ function init_gear_sets()
 
 	sets.precast.FC = {
 		body=gear.Inyanga.Body,
-	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    legs="Kaykaus Tights +1",
+	    --hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
+	    --legs="Kaykaus Tights +1",
 		feet=gear.Empyrean.Feet,
 	    neck="Voltsurge Torque",
 	    waist="Embla Sash",
-	    back=gear.capes.IMBARD,
+	   -- back=gear.capes.IMBARD,
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
-		left_ring="Weather. Ring",
+		left_ring="Weather. Ring +1",
     	right_ring="Kishar Ring",
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
@@ -61,10 +61,10 @@ function init_gear_sets()
 	})
 	
 	sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
-		head=gear.Empyrean.Head,
-	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    legs={ name="Gende. Spats +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song spellcasting time -4%',}},
-	    feet={ name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}},
+		--head=gear.Empyrean.Head,
+	    --hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
+	    --legs={ name="Gende. Spats +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song spellcasting time -4%',}},
+	   -- feet={ name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}},
 	} )
 	sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong,{
 		range="Marsyas"
@@ -102,28 +102,28 @@ function init_gear_sets()
 	sets.midcast.SongEffect = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Gjallarhorn",
-		head=gear.Empyrean.Head,
-		body=gear.Empyrean.Body,
-		hands=gear.Empyrean.Hands,
+		range="Linos",
+		head=gear.Inyanga.Head,
+		body=gear.Inyanga.Body,
+		hands=gear.Inyanga.Hands,
 		legs=gear.Inyanga.Legs,
-		feet=gear.Artifact.Feet,
+		feet=gear.Inyanga.Feet,
 		neck="Mnbw. Whistle +1",
-		back=gear.capes.IMBARD,
+		--back=gear.capes.IMBARD,
 	}
 
 	sets.midcast.SongDebuff = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Gjallarhorn",
-		head=gear.Artifact.Head,
-		body=gear.Empyrean.Body,
-		hands=gear.Empyrean.Hands,
-		legs=gear.Empyrean.Legs,
-		feet=gear.Artifact.Feet,
+		range="Linos",
+		head=gear.Inyanga.Head,
+		body=gear.Inyanga.Body,
+		hands=gear.Inyanga.Hands,
+		legs=gear.Inyanga.Legs,
+		feet=gear.Inyanga.Feet,
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
-		back=gear.capes.IMBARD,
+		--back=gear.capes.IMBARD,
 		left_ring="Metamor. Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Hermetic Earring",
@@ -134,7 +134,7 @@ function init_gear_sets()
 	sets.midcast.DummySong = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Daurdabla",
+		range="Terpander",
 		--swap in items that don't extend duration to prevent overwriting with lag
 		head=gear.Ayanmo.Head,
 		body=gear.Ayanmo.Body,
@@ -159,15 +159,15 @@ function init_gear_sets()
 	sets.midcast.Lullaby = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Marsyas",
-		head=gear.Artifact.Head,
-		body=gear.Empyrean.Body,
-		hands=gear.Artifact.Hands,
+		range="Linos",
+		head=gear.Inyanga.Head,
+		body=gear.Inyanga.Body,
+		hands=gear.Inyanga.Hands,
 		legs=gear.Inyanga.Legs,
-		feet=gear.Artifact.Feet,
+		feet=gear.Inyanga.Feet,
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
-		back=gear.capes.IMBARD,
+		--back=gear.capes.IMBARD,
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Gersemi Earring",
@@ -175,9 +175,8 @@ function init_gear_sets()
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
 	sets.midcast.Lullaby.AOE = set_combine(sets.midcast.Lullaby,{
-		range="Daurdabla",
+		range="Terpander",
 		hands=gear.Inyanga.Hands,
-		feet=gear.Relic.Feet,
 	})
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby.AOE,{})
 	sets.midcast['Horde Lullaby'].Resistant = set_combine(sets.midcast.Lullaby.AOE,{})
@@ -209,41 +208,25 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Daybreak",
 		sub="Culminus",
-		head=gear.Vanya.Head.B,
-		body=gear.Vanya.Body.B,
-		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-		legs="Kaykaus Tights +1",
-		feet=gear.Vanya.Feet.B,
-		neck="Reti Pendant",
-		waist="Gishdubar Sash",
-		left_ear="Mendi. Earring",
-		right_ear="Meili Earring",
-		left_ring="Ayanmo Ring",
-		right_ring="Inyanga Ring",
-		back="Oretan. Cape +1",
+		
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Cursna = {
 		hands=gear.Inyanga.Hands,
-		feet="Gende. Galosh. +1",
-		neck="Debilis Medallion",
-		waist="Gishdubar Sash",
-		left_ring="Haoma's Ring",
-		right_ring="Haoma's Ring",
-		back="Oretan. Cape +1",
+		
 	}
 
 	sets.idle = {
 		main="Daybreak",
 		sub="Culminus",
 		range="Linos",
-		head=gear.Empyrean.Head,
-		body="Nyame Mail",
-		hands=gear.Empyrean.Hands,
-		legs=gear.Empyrean.Legs,
-		feet=gear.Empyrean.Feet,
+		head=gear.Inyanga.Head,
+		body=gear.Inyanga.Body,
+		hands=gear.Inyanga.Hands,
+		legs=gear.Inyanga.Legs,
+		feet=gear.Inyanga.Feet,
 		neck="Bathy Choker +1",
 		waist="Carrier's Sash",
 		left_ear="Etiolation Earring",
@@ -294,9 +277,4 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = {}
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	set_macro_page(1, 12)
 end

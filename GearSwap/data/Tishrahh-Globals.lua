@@ -79,16 +79,23 @@ function define_global_sets()
     gear.Val = {}
 
     gear.TH = {}
-    gear.TH.Herc = {}
+    gear.TH.Herc = {
+        waist="Chaac Belt",
+    }
 
     gear.Telchine = {}
     gear.Telchine.Head = {}
     gear.Telchine.Head.Enhancing = { name="Telchine Cap", augments={'Mag. Evasion+24','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine.Body = {}
+    gear.Telchine.Body.Enhancing = { name="Telchine Cap", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine.Hands = {}
+    gear.Telchine.Hands.Enhancing = { name="Telchine Gloves", augments={'Mag. Acc.+21','"Conserve MP"+4','Enh. Mag. eff. dur. +5',}}
     gear.Telchine.Legs = {}
     gear.Telchine.Legs.GEO = { name="Telchine Braconi", augments={'Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}}
-    gear.Telchine.Legs.Enhancing = { name="Telchine Braconi", augments={'Mag. Evasion+25','"Conserve MP"+4','Enh. Mag. eff. dur. +9',}}
+    gear.Telchine.Legs.Enhancing = { name="Telchine Braconi", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Feet = {}
     gear.Telchine.Feet.BRD = { name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}}
+    gear.Telchine.Feet.Enhancing = { name="Telchine Braconi", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
 
     gear.Vanya = {}
     gear.Vanya.Head = {}

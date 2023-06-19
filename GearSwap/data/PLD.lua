@@ -27,6 +27,7 @@ function job_setup()
 	state.IdleMode:options('Normal', 'Refresh', 'MDT', 'Phlx' )
 	state.PhysicalDefenseMode:options('PDT', 'Cleave')
     state.MagicalDefenseMode:options('MDT')
+	state.CastingMode:options('Normal', 'SIRD', 'Enmity' )
 
 	include('Mote-TreasureHunter')
 
@@ -110,20 +111,24 @@ function init_gear_sets()
 	}
 
 	sets.Enmity = {
-		--ammo="Sapience orb", --2
-		--head="Loess barbuta +1", --24
-		--body="Souv. Cuirass +1", --20
-		--hands="Souv. Handsch. +1", --9
-		--legs="Souv. Diechlings +1", --9
-		--feet="Eschite Greaves", --15
-		--neck="Unmoving collar +1", --10
-		--left_ear="Cryptic Earring", --4
-		--right_ear="Odnowa Earring +1", --0
-		--left_ring="Apeile Ring +1", --5
-		--right_ring="Eihwaz ring", --9
-		--back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}}, --10
-		--waist="Creed Baudrier", --5
+		--ammo={name="Sapience orb",priority=} --2
+		--head={name="Loess barbuta +1",priority=} --24
+		--body={name="Souv. Cuirass +1",priority=} --20
+		--hands={name="Souv. Handsch. +1",priority=} --9
+		--legs={name="Souv. Diechlings +1",priority=} --9
+		--feet={name="Eschite Greaves",priority=} --15
+		--neck={name="Unmoving collar +1",priority=} --10
+		--left_ear={name="Cryptic Earring",priority=} --4
+		--right_ear={name="Odnowa Earring +1",priority=} --0
+		--left_ring={name="Apeile Ring +1",priority=} --5
+		--right_ring={name="Eihwaz ring",priority=} --9
+		--back={ name={name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',},priority=60}, --10
+		--waist={name="Creed Baudrier",priority=} --5
     } --122 +23 burtgang 145
+
+	sets.SIRD = {
+		
+	}
 
     sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{
     	--body=gear.Relic.Body,

@@ -17,7 +17,7 @@ function user_job_setup()
     gear.Artifact.Body = ""
     gear.Artifact.Hands = ""
     gear.Artifact.Legs = ""
-    gear.Artifact.Feet = "Pillager's Poulaines"
+    gear.Artifact.Feet = "Pill. Poulaines +1"
 
     gear.Relic = {}
     gear.Relic.Head = ""
@@ -27,11 +27,11 @@ function user_job_setup()
     gear.Relic.Feet = ""
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
+    gear.Empyrean.Head = "Skulker's Bonnet +3"
     gear.Empyrean.Body = ""
     gear.Empyrean.Hands = ""
-    gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = "Skulk. Poulaines +1"
+    gear.Empyrean.Legs = "Skulk. Culottes +3"
+    gear.Empyrean.Feet = "Skulk. Poulaines +2"
 
     gear.capes = {}
     gear.capes.TP = "" --{ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
@@ -115,19 +115,19 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        --ammo="Yetshila",
-        --head=gear.Adhemar.Head.B,
-        --body=gear.Relic.Body,
-        hands=gear.Mummu.Hands,
-        --legs=gear.Artifact.Legs,
-        --feet=gear.Adhemar.Feet.B
-        --neck="Fotia Gorget",
+        ammo="Crepuscular Pebble",
+        head="Skulker's Bonnet +3",
+        body="Meg. Cuirie +2",
+        hands="Mummu Wrists +2",
+        legs="Skulk. Culottes +3",
+        feet="Mummu Gamash. +2",
+        neck="Sanctity Necklace",
+        waist="Grunfeld Rope",
         left_ear="Odr Earring",
-        right_ear="Sherida Earring",
+        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','"Store TP"+4',}},
         left_ring="Begrudging Ring",
         right_ring="Ilabrat Ring",
-        --back=gear.capes.Crit,
-        --waist="Fotia Belt",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Damage taken-5%',}},
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
@@ -206,19 +206,19 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {
-        --ammo="Crepuscular Pebble",
-        head=gear.Meghanada.Head,
-        body=gear.Meghanada.Body,
-        hands=gear.Meghanada.Hands,
-        legs=gear.Meghanada.Legs,
-        feet=gear.Artifact.Feet,
-        --neck="Warder's Charm +1",
-        --waist="Flume Belt +1",
-        --back=gear.capes.TP,
-        --left_ear="Odnowa Earring +1",
-        --right_ear="Genmei Earring",
-        left_ring="Meghanada Ring",
+        ammo="Crepuscular Pebble",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Skulk. Culottes +3",
+        feet="Pill. Poulaines +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+        right_ear="Eabani Earring",
+        left_ring="Defending Ring",
         right_ring="Warp Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Damage taken-5%',}},
     }
 
     sets.idle.Town = set_combine(sets.idle,{})
@@ -241,19 +241,19 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-        head=gear.Meghanada.Head,
-        body=gear.Meghanada.Body,
-        hands=gear.Meghanada.Hands,
-        legs=gear.Meghanada.Legs,
-        feet=gear.Mummu.Feet,
-        --ammo="Aurgelmir Orb",
+        ammo="Oshasha's Treatise",
+        head="Skulker's Bonnet +3",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Skulk. Culottes +3",
+        feet="Mummu Gamash. +2",
         neck="Sanctity Necklace",
-        --waist="Patentia Sash",
-        --back=gear.capes.TP,
-        left_ear="Suppanomimi",
-        right_ear="Sherida Earring",
-        left_ring="Begrudging Ring",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','"Store TP"+4',}},
+        left_ring="Meghanada Ring",
         right_ring="Ilabrat Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Damage taken-5%',}},
     }
     sets.engaged.Acc = set_combine(sets.engaged, {})
 

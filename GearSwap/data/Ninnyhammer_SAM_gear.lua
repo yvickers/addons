@@ -1,18 +1,25 @@
 function user_job_setup()
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Piercing', 'Proc' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		---main="",
-		--sub="",
-		--ammo="Staunch Tathlum",
+		main="Masamune",
+		sub="Utu Grip",
+	}
+	gear.weapons['Piercing'] = {
+		main="Shining One",
+		sub="Utu Grip",
+	}
+	gear.weapons['Proc'] = {
+		main="Norifusa",
+		sub="Utu Grip",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Fudo', 'Tachi: Jinpu', 'Tachi: Kagero', 'Tachi: Gekko', 'Tachi: Shoha', 'Tachi: Rana', 'Tachi: Kasha', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Fudo', 'Tachi: Jinpu', 'Impulse Drive', 'Sonic Thrust', }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Wakido Kabuto +2"
+	gear.Artifact.Head = "Wakido Kabuto +3"
 	gear.Artifact.Body = "Wakido Domaru +1"
-	gear.Artifact.Hands = "Wakido Kote +1"
+	gear.Artifact.Hands = "Wakido Kote +2"
 	gear.Artifact.Legs = "Wakido Haidate +3"
 	gear.Artifact.Feet = "Wakido Sune-Ate +1"
 
@@ -31,8 +38,8 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Kasuga Sune-Ate +3"
 
 	gear.capes = {}
-	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	gear.capes.DexTP = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
+	gear.capes.StrWS = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 end
 
 function init_gear_sets()
@@ -57,7 +64,9 @@ function init_gear_sets()
 	sets.precast.JA['Sekkanoki'] = {
 		hands=gear.Empyrean.Hands,
 	}
-	sets.precast.JA['Sengikori'] = {}
+	sets.precast.JA['Sengikori'] = {
+		feet=gear.Empyrean.Feet,
+	}
 	sets.precast.JA['Hamanoha'] = {}
 	sets.precast.JA['Konzen-ittai'] = {}
 	sets.precast.JA['Third Eye'] = {
@@ -70,14 +79,14 @@ function init_gear_sets()
 		body=gear.Relic.Body,
 		hands=gear.Empyrean.Hands,
 		legs=gear.Artifact.Legs,
-		feet=gear.Empyrean.Feet,
-		neck="Rep. Plat. Medal",
+		feet="Nyame Sollerets",
+		neck="Sam. Nodowa +2",
 		waist="Sailfi Belt +1",
 		left_ear="Ishvara Earring",
 		right_ear="Thrud Earring",
 		left_ring="Karieyh Ring",
 		right_ring="Niqmaddu Ring",
-		--back=gear.capes.StrDA,
+		back=gear.capes.StrWS,
 	}
    
 	sets.idle = {
@@ -87,15 +96,13 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs=gear.Empyrean.Legs,
 		feet="Nyame Sollerets",
-		neck="Warder's Charm +1",
-		waist="Moonbow Belt",
-		neck="Elite Royal Collar",
+		neck="Loricate Torque +1",
 		waist="Sailfi Belt +1",
 		left_ear="Etiolation Earring",
 		right_ear="Assuage Earring",
-		left_ring="Warden's Ring",
+		left_ring="Defending Ring",
 		right_ring="Warp Ring",
-		--back=gear.capes.DexTP,
+		back=gear.capes.DexTP,
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})
@@ -105,19 +112,19 @@ function init_gear_sets()
 	})
 
 	sets.engaged = {
-		ammo="Oshasha's Treatise",
+		ammo="Coiste Bodhar",
 		head=gear.Flamma.Head,
 		body=gear.Empyrean.Body,
 		hands="Tatena. Gote +1",
 		legs=gear.Empyrean.Legs,
 		feet=gear.Ryou.Feet.C,
-		neck="Sanctity Necklace",
+		neck="Sam. Nodowa +2",
 		waist="Sailfi Belt +1",
 		left_ear="Mache Earring +1",
 		right_ear="Assuage Earring",
-		left_ring="Chirich Ring +1",
+		left_ring="Lehko's Ring",
 		right_ring="Niqmaddu Ring",
-		--back=gear.capes.DexTP,
+		back=gear.capes.DexTP,
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

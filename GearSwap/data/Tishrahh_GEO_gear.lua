@@ -12,8 +12,8 @@ function user_job_setup()
 	gear.Artifact.Head = "Geo. Galero +1"
 	gear.Artifact.Body = "Geo. Tunic +1"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
-	gear.Artifact.Legs = "Geo. Pants +1"
-	gear.Artifact.Feet = "Geo. Sandals +2"
+	gear.Artifact.Legs = "Geomancy Pants +2"
+	gear.Artifact.Feet = "Geo. Sandals +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
@@ -24,9 +24,9 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Azimuth Hood +3"
-	gear.Empyrean.Body = "Azimuth Coat +1"
-	gear.Empyrean.Hands = "Azimuth Gloves +1"
-	gear.Empyrean.Legs = "Azimuth Tights +1"
+	gear.Empyrean.Body = "Azimuth Coat +3"
+	gear.Empyrean.Hands = "Azimuth Gloves +3"
+	gear.Empyrean.Legs = "Azimuth Tights +3"
 	gear.Empyrean.Feet = "Azimuth Gaiters +3"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
@@ -66,7 +66,7 @@ function init_gear_sets()
 		left_ear="Enchntr. Earring +1",
 		right_ear="Loquac. Earring",
 		left_ring="Weather. Ring",
-    	right_ring="Lebeche Ring",
+    	right_ring="Kishar Ring",
 		back=gear.capes.GeoSkill,
 	}
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
@@ -137,9 +137,9 @@ function init_gear_sets()
 	sets.idle = {
 		main="Idris",
 		head=gear.Empyrean.Head,
-		body="Shamash Robe",
-		hands=gear.Artifact.Hands,
-		legs=gear.Artifact.Legs,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs="Nyame Flanchard",
 		feet=gear.Artifact.Feet,
 		neck="Loricate Torque +1",
 		left_ear="Etiolation Earring",
@@ -153,6 +153,8 @@ function init_gear_sets()
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
 		main="Idris",
+		body="Shamash Robe",
+		hands=gear.Artifact.Hands,
 		legs=gear.Telchine.Legs.GEO,
 		feet=gear.Relic.Feet,
 		neck="Bagua Charm +2",

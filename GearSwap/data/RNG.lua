@@ -231,6 +231,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             end
         end
     end
+
+    if spell.english == "Bounty Shot" or spell.english == "Shadowbind" then
+        if special_ammo_check() then
+            equip({ammo=state.Ammo.current})
+        end
+    end
 end
 
 -- Run after the general precast() is done.

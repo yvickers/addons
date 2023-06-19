@@ -1,6 +1,7 @@
 function user_job_setup()
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Seraph Blade', 'Savage Blade', 'Sanguine Blade', }
 	gear.Artifact = {}
-	gear.Artifact.Head = "Atro. Chapeau +2"
+	gear.Artifact.Head = "Atro. Chapeau +3"
 	gear.Artifact.Body = "Atrophy Tabard +2"
 	gear.Artifact.Hands = "Atrophy Gloves +3"
 	gear.Artifact.Legs = "Atrophy Tights +1"
@@ -25,6 +26,10 @@ function user_job_setup()
 	gear.capes.FC = gear.capes.MNDEnfeeble
 	gear.capes.INTEnfeeble = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
 	gear.capes.DRKMagic = gear.capes.INTEnfeeble
+	gear.capes.DexTP = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+	gear.capes.MagicMndWS = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
+	gear.capes.MagicMndWS = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
+	gear.capes.StrWS =  { name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 end
 
@@ -56,7 +61,7 @@ function init_gear_sets()
 		waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
 		right_ear="Lethargy Earring +2",
-		left_ring="Lebeche Ring",
+		left_ring="Kishar Ring",
 		right_ring="Weather. Ring",
 		back=gear.capes.FC,
 	}
@@ -70,35 +75,35 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS = {
-		--ammo="Knobkierrie",
-		--head="Ken. Jinpachi +1",
-		--body="Ken. Samue +1",
-		--hands=gear.Artifact.Hands,
-		--legs="Ken. Hakama +1",
-		--feet="Ken. Sune-Ate +1",
-		--neck="Mnk. Nodowa +1",
-		--waist="Moonbow Belt",
-		--left_ear="Sherida Earring",
-		--right_ear="Moonshade Earring",
-		--left_ring="Epona's Ring",
-		--right_ring="Rajas Ring",
-		--back=gear.capes.StrDA,
+		ammo="Oshasha's Treatise",
+		head="Nyame Helm",
+		neck="Rep. Plat. Medal",
+		ear1="Moonshade Earring",
+		ear2="Sherida Earring",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet=gear.Empyrean.Feet,
+		left_ring="Rajas Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back=gear.capes.StrWS,
+		waist="Sailfi Belt +1",
 	}
 
 	sets.precast.MagicWS = {
-		--ammo="Knobkierrie",
-		--head="Ken. Jinpachi +1",
-		--body="Ken. Samue +1",
-		--hands=gear.Artifact.Hands,
-		--legs="Ken. Hakama +1",
-		--feet="Ken. Sune-Ate +1",
-		--neck="Mnk. Nodowa +1",
-		--waist="Moonbow Belt",
-		--left_ear="Sherida Earring",
-		--right_ear="Moonshade Earring",
-		--left_ring="Epona's Ring",
-		--right_ring="Rajas Ring",
-		--back=gear.capes.StrDA,
+		ammo="Sroda Tathlum",
+		head=gear.Empyrean.Head,
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands=gear.Empyrean.Hands,
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet=gear.Empyrean.Feet,
+		neck="Eddy Necklace",
+		waist="Eschan Stone",
+		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		right_ear="Malignance Earring",
+		left_ring="Weather. Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back=gear.capes.MagicMndWS,
 	}
 
 	sets.precast.WS['Seraph Blade'] = set_combine( sets.precast.MagicWS, {
@@ -108,10 +113,16 @@ function init_gear_sets()
 
 	} )
 	sets.precast.WS['Sanguine Blade'] = set_combine( sets.precast.MagicWS, {
-		
+		hands=gear.Jhakri.Hands,
+		legs=gear.Empyrean.Legs,
+		left_ear="Friomisi Earring",
+		left_ring="Archon Ring",
 	} )
 	sets.precast.WS['Aeolian Edge'] = set_combine( sets.precast.MagicWS, {
-		
+		neck="Sibyl Scarf",
+		hands=gear.Jhakri.Hands,
+		legs=gear.Empyrean.Legs,
+		back=gear.capes.MagicIntWS,
 	} )
 
 	sets.midcast.FastRecast = {}
@@ -198,12 +209,20 @@ function init_gear_sets()
 		legs=gear.Artifact.Legs,
 	}
 	sets.midcast.Refresh = {
-		--head="Amalric Coif +1",
+		head="Amalric Coif +1",
 		body=gear.Artifact.Body,
 		legs=gear.Empyrean.Legs,
 	}
 	sets.midcast['Refresh II'] = sets.midcast.Refresh
 	sets.midcast['Refresh III'] = sets.midcast.Refresh
+
+	sets.midcast['Haste'] = {
+		head=gear.Telchine.Head.Enhancing,
+		body=gear.Relic.Body,
+		legs=gear.Telchine.Legs.Enhancing,
+	}
+	sets.midcast['Haste II'] = sets.midcast.Haste
+
 	--sets.midcast.Aquaveil = {head="Amalric Coif +1",hands="Regal Cuffs",waist="Emphatikos Rope",legs="Shedir Seraweels"}
 	--sets.midcast.BarElement = {legs="Shedir Seraweels"}
 	sets.midcast.Temper = sets.EnhancingSkill
@@ -221,8 +240,8 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {
 		main="Daybreak",
 		sub="Ammurapi Shield",
-		range=empty,
-		ammo="Quartz Tathlum +1",
+		range="Ullr",
+		--ammo="Quartz Tathlum +1",
 		head=gear.Relic.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
@@ -232,7 +251,7 @@ function init_gear_sets()
 		left_ear="Snotra Earring",
 		right_ear="Lethargy Earring +2",
 		left_ring="Metamor. Ring +1",
-		right_ring="Stikini Ring +1",
+		right_ring="Kishar Ring",
 		back=gear.capes.MNDEnfeeble,
 		waist="Luminary Sash",	
 	}
@@ -263,6 +282,7 @@ function init_gear_sets()
 		ear1="Vor Earring",
 		hands=gear.Empyrean.Hands,
 		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
 		legs="Psycloth Lappas",
 	})
 	
@@ -340,7 +360,7 @@ function init_gear_sets()
 	sets.idle = {
 		main="Daybreak",
 		sub="Culminus",
-		ammo="Quartz Tathlum +1",
+		ammo="Homiliary",
 		head=gear.Relic.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
@@ -364,19 +384,19 @@ function init_gear_sets()
 	})
 
 	sets.engaged = {
-		--ammo="Staunch Tathlum",
-		--head="Malignance Chapeau",
-		--body="Malignance Tabard",
-		--hands=gear.Adhemar.Hands.TP,
-		--legs="Malignance Tights",
-		--feet="Malignance Boots",
-		--neck="Warder's Charm +1",
-		--waist="Moonbow Belt",
-		--left_ear="Odnowa Earring +1",
-		--right_ear="Genmei Earring",
-		--left_ring="Defending Ring",
-		--right_ring="Gelatinous Ring +1",
-		--back=gear.capes.DexTP,
+		ammo="Sroda Tathlum",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands=gear.Ayanmo.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear={ name="Leth. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+18','Mag. Acc.+18','"Dbl.Atk."+7','STR+11 DEX+11',}},
+		left_ring="Ilabrat Ring",
+		right_ring="Crepuscular Ring",
+		back=gear.capes.DexTP,
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

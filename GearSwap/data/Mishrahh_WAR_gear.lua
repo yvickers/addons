@@ -1,6 +1,7 @@
 function user_job_setup()
+	state.OffenseMode:options( 'PDT', 'Melee', 'Tanking', 'SB' )
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'GAXE', 'Mace' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'GAXE', 'Shining', 'Mace', 'Axe' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Naegling",
@@ -20,10 +21,10 @@ function user_job_setup()
 	}
 	gear.weapons['AXE'] = {
 		main="Dolichenus",
-		sub="Zantetsuken",
+		sub="Blurred Shield +1",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Upheaval", "Fell Cleave", "Judgment" }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Upheaval", "Impulse Drive", "Judgment", 'Decimation' }
 
 
 	gear.Artifact = {}
@@ -41,16 +42,17 @@ function user_job_setup()
 	gear.Relic.Feet = "Agoge Calligae +3"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = ""
-	gear.Empyrean.Body = ""
+	gear.Empyrean.Head = "Boii Mask +3"
+	gear.Empyrean.Body = "Boii Lorica +3"
 	gear.Empyrean.Hands = "Boii Mufflers +3"
 	gear.Empyrean.Legs = "Boii Cuisses +3"
-	gear.Empyrean.Feet = "Boii Calligae +2"
+	gear.Empyrean.Feet = "Boii Calligae +3"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.capes.VitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+	gear.capes.STRCrit = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 
 --[[
 ^   Ctrl
@@ -81,32 +83,57 @@ function init_gear_sets()
 		--feet=gear.Empyrean.Feet
 	}
 
+	sets.Enmity = {
+		ammo="Sapience Orb",
+		head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=280},
+		body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=171},
+		hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=239},
+		legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}, priority=162},
+		feet={ name="Eschite Greaves", priority=98},
+		neck="Moonlight Necklace",
+		left_ear={name="Cryptic Earring",priority=40},
+		right_ear="Rimeice Earring",
+		left_ring="Begrudging Ring",
+		right_ring={name="Supershear Ring",priority=30},
+	}
+
 	sets.precast.FC = {
         --head=gear.Herc.Head.TH,
         --hands="Leyline Gloves",
         ammo="Impatiens",
         neck="Voltsurge Torque",
         left_ring="Weather. Ring +1",
-        right_ring="Lebeche Ring",
+        right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
         right_ear="Enchntr. Earring +1",
     }
 
+	sets.precast.JA['Provoke'] = sets.Enmity
+
 	sets.precast.JA['Aggressor'] = {
 		head=gear.Artifact.Head,
 	}
+	sets.precast.JA['Aggressor'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Aggressor'])
+
 	sets.precast.JA['Berserk'] = {
 		body=gear.Artifact.Body,
 		feet=gear.Relic.Feet,
 	}
+	sets.precast.JA['Berserk'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Berserk'])
+
 	sets.precast.JA['Warcry'] = {
 		head=gear.Relic.Head,
 	}
+	sets.precast.JA['Warcry'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Warcry'])
+
 	sets.precast.JA['Jump'] = {
 		feet="Ostro Greaves"
 	}
 	sets.precast.JA['High Jump'] = {
 		feet="Ostro Greaves"
+	}
+	sets.precast.JA['Tomahawk'] = {
+		ammo="Thr. Tomahawk",
 	}
 
 	sets.buff['Mighty Strikes'] = {
@@ -122,16 +149,72 @@ function init_gear_sets()
 		head=gear.Relic.Head,
 		body="Nyame Mail",
 		hands=gear.Empyrean.Hands,
-		legs=gear.Empyrean.Legs,
+		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="War. Beads +1",
+		neck="War. Beads +2",
 		waist="Sailfi Belt +1",
-		left_ear="Thrud Earring",
-		right_ear="Moonshade Earring",
+		left_ear="Moonshade Earring",
+		right_ear="Thrud Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
 		back=gear.capes.StrWS,
 	}
+
+	sets.precast.WS.Buffed = set_combine(sets.precast.WS, {
+		body="Sakpata's Plate",
+		legs=gear.Empyrean.Legs,
+	})
+
+	--sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {})
+	--sets.precast.WS['Judgment'].Buffed = set_combine(sets.precast.WS['Judgment'], {})
+
+	sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {
+		legs=gear.Empyrean.Legs,
+		right_ring="Regal Ring",
+	})
+	sets.precast.WS['Judgment'].Buffed = set_combine(sets.precast.WS['Judgment'], {
+		body="Sakpata's Plate",
+		right_ring="Epaminondas's Ring",
+	})
+
+	--ideally 2k-3k tp
+	sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
+		ammo="Yetshila +1",
+		head=gear.Empyrean.Head,
+		body="Hjarrandi Breast.",
+		feet=gear.Empyrean.Feet,
+		left_ear="Boii Earring +1",
+		left_ring="Begrudging Ring",
+		right_ring="Niqmaddu Ring",
+		back=gear.capes.STRCrit,
+	})
+	sets.precast.WS['Impulse Drive'].Buffed = set_combine(sets.precast.WS['Impulse Drive'], {
+		head="Blistering Sallet +1",
+		body="Sakpata's Plate",
+		legs=gear.Empyrean.Legs,
+		left_ring="Sroda Ring",
+	})
+
+	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
+		ammo="Yetshila +1",
+		head=gear.Empyrean.Head,
+		body="Hjarrandi Breast.",
+		hands=gear.Flamma.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		right_ear="Boii Earring +1",
+		left_ring="Begrudging Ring",
+		right_ring="Niqmaddu Ring",
+		back=gear.capes.STRCrit,
+	})
+	sets.precast.WS['Stardiver'].Buffed = set_combine(sets.precast.WS['Stardiver'], {
+		head="Blistering Sallet +1",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		left_ring="Sroda Ring",
+	})
 
 	sets.precast.GAXEWS = set_combine(sets.precast.WS, {
 		legs="Nyame Flanchard",
@@ -160,9 +243,10 @@ function init_gear_sets()
 	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.GAXEWS, {
 		ammo="Yetshila +1",
 		left_ear="Schere Earring",
-		right_ear="Moonshade Earring",
+		right_ear="Boii Earring +1",
 		left_ring="Regal Ring",
 		right_ring="Niqmaddu Ring",
+		back=gear.capes.STRCrit,
 	})
 
 	sets.precast.WS["Armor Break"] = set_combine(sets.precast.GAXEWS, {
@@ -238,6 +322,69 @@ function init_gear_sets()
         right_ring="Weather. Ring +1",		
     } )
 
+	sets.precast.WS["Decimation"] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
+		head=gear.Empyrean.Head,
+		neck="War. Beads +2",
+		ear1="Schere Earring",
+		ear2="Boii Earring +1",
+		body="Nyame Mail",
+		hands=gear.Empyrean.Hands,
+		ring1="Regal Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.capes.STRCrit,
+		waist="Fotia Belt",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets"		
+    } )
+
+	sets.precast.WS["Decimation"].Buffed = set_combine(sets.precast.WS["Decimation"], {
+		head="Sakpata's Helm",
+		neck="Fotia Gorget",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		ring1="Sroda Ring",
+		legs=gear.Empyrean.Legs,
+		feet="Sakpata's Leggings"		
+    } )
+
+	sets.precast.WS["Mistral Axe"] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+		head=gear.Artifact.Head,
+		neck="War. Beads +2",
+		ear1="Moonshade Earring",
+		ear2="Thrud Earring",
+		body="Nyame Mail",
+		hands=gear.Empyrean.Hands,
+		ring1="Sroda Ring",
+		ring2="Regal Ring",
+		back=gear.capes.StrWS,
+		waist="Sailfi Belt +1",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets"		
+    } )
+	sets.precast.WS["Mistral Axe"].Buffed = set_combine(sets.precast.WS["Mistral Axe"], {
+		body="Sakpata's Plate",
+		ring1="Sroda Ring",
+		ring2="Epaminondas's Ring",
+		back="Cichol's Mantle",
+		legs=gear.Empyrean.Legs,
+    } )
+
+	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+        neck="Sybil Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Weather. Ring +1",		
+    } )
+
 	sets.idle = {
 		ammo="Crepuscular Pebble",
 		head="Sakpata's Helm",
@@ -245,10 +392,10 @@ function init_gear_sets()
 		hands="Sakpata's Gauntlets",
 		legs="Sakpata's Cuisses",
 		feet="Hermes' Sandals",
-		neck="Warder's Charm +1",
-		waist="Flume Belt +1",
-		left_ear="Odnowa Earring +1",
-		right_ear="Genmei Earring",
+		neck="Bathy Choker +1",
+		waist="Carrier's Sash",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.DexTP,
@@ -262,15 +409,15 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Coiste Bodhar",
-		head="Hjarrandi Helm",
-		body="Hjarrandi Breast.",
-		hands=gear.Sulevia.Hands,
+		head=gear.Flamma.Head,
+		body=gear.Empyrean.Body,
+		hands="Sakpata's Gauntlets",
 		legs=gear.Artifact.Legs,
 		feet=gear.Artifact.Feet,
-		neck="War. Beads +1",
+		neck="War. Beads +2",
 		waist="Ioskeha Belt +1",
 		left_ear="Schere Earring",
-		right_ear="Telos Earring",
+		right_ear="Boii Earring +1",
 		left_ring="Chirich Ring +1",
 		right_ring="Niqmaddu Ring",
 		back=gear.capes.DexTP,
@@ -284,24 +431,10 @@ function init_gear_sets()
 		feet="Sakpata's Leggings",
 	})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
-		left_ring="Shadow Ring",
-		--back="Archon Cape",
-	})
-
-	sets.engaged.ACC = set_combine(sets.engaged, {
-		ammo="Seeth. Bomblet +1",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		--left_ear="Crep. Earring",
-		left_ring="Regal Ring",
-		right_ring="Moonbeam Ring",
+	sets.engaged.Tanking = set_combine(sets.engaged.PDT, {
+		left_ear="Telos Earring",
+		left_ring="Defending Ring",
+		right_ring="Moonlight Ring",
 	})
 
 	sets.engaged.SB = set_combine(sets.engaged, {
@@ -311,7 +444,6 @@ function init_gear_sets()
 		legs="Sakpata's Cuisses",
 		feet="Sakpata's Leggings",
 		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
 	})
 end
 
