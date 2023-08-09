@@ -31,7 +31,7 @@ function user_job_setup()
     gear.capes = {}
     gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-    gear.capes.PhantomRoll = gear.capes.MeleeTP
+    gear.capes.PhantomRoll = { name="Camulus's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Snapshot"+10','Evasion+15',}}
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
@@ -81,8 +81,8 @@ function init_gear_sets()
     }
 
 	sets.precast.CorsairRoll = {
-        --main="Lanun Knife",
-        --ranged = "Compensator",
+        main="Rostam",
+        ranged="Compensator",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
         --legs="Desultor Tassets",
@@ -99,12 +99,12 @@ function init_gear_sets()
     sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
     sets.precast.Compensator = {
-        main="Lanun Knife",
+        main="Rostam",
         ranged = "Compensator",
     }
 
     sets.precast.FC = {
-        --head=gear.Herc.Head.TH,
+        head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
         --ear2="Loquacious Earring",
         ear1="Etiolation Earring",
         hands="Leyline Gloves",
@@ -121,10 +121,10 @@ function init_gear_sets()
         legs=gear.Empyrean.Legs,
         feet=gear.Meghanada.Feet,
         neck="Comm. Charm +2",
-        --back="Navarch's Mantle",
-        --waist="Yemaya Belt",
+        waist="Ponente Sash",
         --left_ring="Crepuscular Ring",
         right_ring="Dingir Ring",
+        back=gear.capes.PhantomRoll,
     }
     sets.precast.RA.Flurry1 = set_combine( sets.precast.RA, {})
     sets.precast.RA.Flurry2 = set_combine( sets.precast.RA.Flurry1, {})

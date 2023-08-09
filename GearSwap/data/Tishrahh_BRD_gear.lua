@@ -52,7 +52,7 @@ function init_gear_sets()
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
 		left_ring="Weather. Ring",
-    	right_ring="Kishar Ring",
+    	right_ring="Medada's Ring",
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
 	})
@@ -223,8 +223,31 @@ function init_gear_sets()
 		back="Oretan. Cape +1",
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
-	sets.midcast['Enhancing Magic'] = {}
-	sets.midcast.Stoneskin = {}
+	sets.midcast['Enhancing Magic'] = {
+		main="Pukulatmuj +1",
+		sub="Ammurapi Shield",
+		range={ name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}},
+		head="Umuthi Hat",
+		body={ name="Telchine Chas.", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}},
+		hands="Inyan. Dastanas +2",
+		legs="Shedir Seraweels",
+		feet={ name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
+		neck="Reti Pendant",
+		waist="Embla Sash",
+		left_ear="Mimir Earring",
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	}
+	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{
+		neck="Nodens Gorget",
+		waist="Seigel Sash",
+	})
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'],{
+		head="Chironic Hat",
+		waise="Emphatikos Rope",
+	})
 	sets.midcast.Cursna = {
 		hands=gear.Inyanga.Hands,
 		feet="Gende. Galosh. +1",
@@ -234,6 +257,42 @@ function init_gear_sets()
 		right_ring="Haoma's Ring",
 		back="Oretan. Cape +1",
 	}
+	sets.midcast['Enfeebling Magic'] = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		range={ name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}},
+		head="Fili Calot +3",
+		body={ name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		hands="Inyan. Dastanas +2",
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+27','Weapon Skill Acc.+14','Accuracy+19 Attack+19','Mag. Acc.+10 "Mag.Atk.Bns."+10',}},
+		feet="Fili Cothurnes +3",
+		neck="Sanctity Necklace",
+		waist="Siegel Sash",
+		left_ear="Vor Earring",
+		right_ear="Crep. Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	}
+
+	sets.midcast['Banish'] = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Sanctity Necklace",
+		waist="Eschan Stone",
+		left_ear="Hermetic Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Weather. Ring",
+		right_ring="Medada's Ring",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	}
+	sets.midcast['Banish II'] = sets.midcast['Banish']
 
 	sets.idle = {
 		main="Daybreak",

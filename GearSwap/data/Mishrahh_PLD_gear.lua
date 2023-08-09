@@ -1,5 +1,19 @@
 function user_job_setup()
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Aeolian Edge', 'Savage Blade', 'Spirit Taker' }
+	state.OffenseMode:options( 'Tank', 'Melee', 'NinetyNine' )
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Naegling' }
+	gear.weapons = {}
+	gear.weapons['Default'] = {
+		main="Sakpata's Sword",
+		sub="Priwen",
+	}
+
+	gear.weapons['Naegling'] = {
+		main="Naegling",
+		sub="Blurred Shield +1",
+	}
+
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', }
+
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = "Rev. Surcoat +3"
@@ -21,8 +35,8 @@ function user_job_setup()
 	gear.Empyrean.Legs = ""
 	gear.Empyrean.Feet = ""
 
-	gear.capes.FastCast = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
-	gear.capes.Block = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}}
+	gear.capes.FastCast = { name="Rudianos's Mantle", priority=60, augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
+	gear.capes.Block = { name="Rudianos's Mantle", priority=60, augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}}
 end
 
 function unload_job_keybinds()
@@ -37,19 +51,19 @@ function init_gear_sets()
 	}
 
 	sets.Enmity = {
-		ammo="Sapience orb", --2
-		head="Souv. Schaller +1", --9
-		body="Souv. Cuirass +1", --20
-		hands="Souv. Handsch. +1", --9
-		legs="Souv. Diechlings +1", --9
-		feet="Eschite Greaves", --15
-		neck="Moonlight Necklace ", --15
-		left_ear="Cryptic Earring", --4
-		right_ear="Odnowa Earring +1", --0
-		left_ring="Supershear Ring", --5
-		right_ring="Begrudging Ring", --5
+		ammo= {name="Sapience orb"}, --2
+		head= { name="Souv. Schaller +1", priority=280 }, --9
+		body= { name="Souv. Cuirass +1", priority=171 }, --20
+		hands= { name="Souv. Handsch. +1", priority=239 }, --9
+		legs= { name="Souv. Diechlings +1", priority=162 }, --9
+		feet= { name="Eschite Greaves", priority=98 }, --15
+		neck= { name="Moonlight Necklace", }, --15
+		left_ear= { name="Cryptic Earring", priority=40 }, --4
+		right_ear= { name="Friomisi Earring", }, --2
+		left_ring= { name="Supershear Ring", priority=30 }, --5
+		right_ring= { name="Begrudging Ring", }, --5
 		back=gear.capes.Block, --10
-		waist="Creed Baudrier", --5
+		waist={name="Creed Baudrier", priority=40 }, --5
     } --108
 
     sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{
@@ -59,14 +73,14 @@ function init_gear_sets()
 		--feet=gear.Relic.Feet,
 	})
 	sets.precast.JA['Shield Bash'] = set_combine(sets.Enmity,{
-		head="Nyame Helm",
-		body=gear.Artifact.Body,
-		hands=gear.Relic.Hands,
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		head={name="Nyame Helm", priority=91},
+		body={name=gear.Artifact.Body, priority=254},
+		hands={name=gear.Relic.Hands, priority=114},
+		legs={name="Nyame Flanchard", priority=114},
+		feet={name="Nyame Sollerets", priority=68},
 	})
 	sets.precast.JA['Chivalry'] = set_combine(sets.Enmity,{
-		--hands=gear.Relic.Hands,
+		hands={name=gear.Relic.Hands, priority=114},
 	})
 	sets.precast.JA['Invincible'] = set_combine(sets.Enmity,{
 		--legs=gear.Relic.Legs,
@@ -88,37 +102,21 @@ function init_gear_sets()
 	sets.precast.JA['Valiance'] = sets.Enmity
 
 	sets.precast.FC = {
-		ammo="Sapience Orb", --2
+		ammo={name="Sapience Orb",}, --2
 		--head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}}, --14
-		head="Sakpata's Helm", -- 8
-		body=gear.Artifact.Body, --10
-		hands="Leyline Gloves", --7
+		head={name="Sakpata's Helm", priority=91}, -- 8
+		body={name=gear.Artifact.Body, priority=254}, --10
+		hands={name="Leyline Gloves", priority=25}, --7
 		--legs={ name="Odyssean Cuisses", augments={'Mag. Acc.+4','"Fast Cast"+5','AGI+8',}}, --5
-		feet="Carmine Greaves +1", --8
+		feet={name="Carmine Greaves +1", priority=15}, --8
 		back=gear.capes.FastCast, --10
-		neck="Voltsurge Torque", --5
-		right_ear="Etiolation earring", --1
-		left_ring="Kishar Ring", --4
-		right_ring="Weather. Ring +1", --6
+		neck={name="Voltsurge Torque",}, --5
+		right_ear={name="Etiolation earring", priority=50}, --1
+		left_ring={name="Medada's Ring",}, --10
+		right_ring={name="Weather. Ring +1",}, --6
 	}
 	sets.precast.FC.DT = set_combine(sets.precast.FC, {
     })
-		
-	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-		--waist="Siegel sash",
-    })
-		
-	sets.precast.FC.Phalanx = set_combine(sets.precast.FC , {
-		--waist="Siegel Sash",
-	})
-	sets.precast.FC['Cure IV'] = set_combine(sets.precast.FC , {
-		--left_ear="Nourish. Earring +1",
-	})
-	sets.precast.FC.Enlight = sets.precast.FC.Phalanx
-	sets.precast.FC['Enlight II'] = sets.precast.FC.Phalanx
-	sets.precast.FC.Protect = sets.precast.FC.Phalanx
-	sets.precast.FC.Shell = sets.precast.FC.Phalanx
-	sets.precast.FC.Crusade = sets.precast.FC.Phalanx
 
 	sets.precast.WS = {
 		ammo="Coiste Bodhar",
@@ -127,7 +125,7 @@ function init_gear_sets()
 		hands="Sakpata's Gauntlets",
 		legs="Sakpata's Cuisses",
 		feet="Sakpata's Leggings",
-        --neck="Rep. Plat. Medal",
+        neck="Rep. Plat. Medal",
         right_ear="Thrud Earring",
         left_ear="Moonshade Earring",
 		left_ring="Regal Ring",
@@ -170,53 +168,88 @@ function init_gear_sets()
 
 	sets.midcast.FastRecast = sets.precast.FC
 	sets.midcast.SpellInterrupt = {
-		ammo="Staunch Tathlum", --10
-		head="Souv. Schaller +1", --20
+		ammo={name="Staunch Tathlum +1",}, --11
+		head={name="Souv. Schaller +1",priority=280}, --20
 		--body="Nyame mail",
-		legs="Founder's Hose", --30
-		--hands="Regal Gauntlets", --10
-		feet="Odyssean Greaves", --27
-		neck="Moonlight Necklace", --15
-		left_ear={name="Tuisto Earring", priority=2},
-		right_ear={name="Odnowa Earring +1", priority=3},
-		--left_ring={name="Moonbeam Ring", bag="wardrobe3", priority=1},
-		--right_ring={name="Moonbeam Ring", bag="wardrobe4", priority=4},
-		waist="Audumbla sash", --10
-		--back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
-    } --101 +10% from merit points 112sird
+		legs={name="Founder's Hose",priority=54}, --30
+		hands={name="Regal Gauntlets",priority=205}, --10
+		feet={name="Odyssean Greaves",priority=20}, --27
+		neck={name="Moonlight Necklace",}, --15
+		--only use these below if you need to shore up a difference
+		--left_ear={ name="Nourish. Earring +1", augments={'Path: A',}, },
+		--right_ear={name="Halasz Earring",},
+		--left_ring={name="Evanescence Ring",},
+		waist={name="Audumbla sash",}, --10
+		back=gear.capes.Block,
+    } --123 +10% from merit points 133 sird
 
-    sets.midcast['Enhancing Magic'] = set_combine(sets.midcast.SpellInterrupt, {})
-    sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.SpellInterrupt, {})
-    sets.midcast['Blue Magic'] = set_combine(sets.midcast.SpellInterrupt, {})
-    sets.midcast['Blue Magic'].Enmity = sets.Enmity
-    sets.midcast.Cure = set_combine(sets.Enmity, {
+    sets.midcast['Enhancing Magic'] = set_combine(sets.Enmity, {
+		hands={name="Regal Gauntlets",priority=205},
+		waist="Siegel sash",
+	})
+	sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.midcast.SpellInterrupt, {
+
+	})
+
+	sets.midcast['Enfeebling Magic'] = set_combine(sets.Enmity, {})
+	sets.midcast['Enfeebling Magic'].SIRD = set_combine(sets.Enmity, {})
+
+	sets.midcast['Blue Magic'] = set_combine(sets.Enmity, {})
+    sets.midcast['Blue Magic'].SIRD = sets.Enmity
+
+	sets.midcast.Cure = set_combine(sets.Enmity, {
     	left_ear="Nourish. Earring +1", --1
+		hands={name="Macabre Gaunt. +1",priority=29},--11CP/7enm
     })
+	sets.midcast.Cure.SIRD = set_combine(sets.midcast.SpellInterrupt, {
+    	left_ear="Nourish. Earring +1", --1
+		hands={name="Macabre Gaunt. +1",priority=29},--11CP/7enm
+    })
+
 	sets.midcast.Protect = set_combine(sets.Enmity, {})
-    sets.midcast.Shell = sets.midcast.Protect
-    sets.midcast.Flash = set_combine(sets.Enmity, {
-    	body=gear.Artifact.Body,
+
+	sets.midcast.Shell = sets.midcast.Protect
+
+	sets.midcast.Flash = set_combine(sets.Enmity, {
+    	body={name=gear.Artifact.Body, priority=254},
     })
-    sets.midcast.Stun = set_combine(sets.Enmity, {})
+	sets.midcast.Flash.SIRD = set_combine(sets.midcast.SpellInterrupt, {
+    	body={name=gear.Artifact.Body, priority=254},
+    })
+
+	sets.midcast.Stun = set_combine(sets.Enmity, {})
+
 	sets.midcast.Poisonga = set_combine(sets.Enmity, {})
+
 	sets.midcast['Sheep Song'] = set_combine(sets.Enmity, {})
-    sets.midcast['Reprisal'] = set_combine(sets.Enmity, {
+	sets.midcast['Sheep Song'].SIRD = set_combine(sets.midcast.SpellInterrupt, {})
+
+	sets.midcast['Reprisal'] = set_combine(sets.Enmity, {
+    	--body="Shabti Cuirass +1",
+    })
+	sets.midcast['Reprisal'].SIRD = set_combine(sets.midcast.SpellInterrupt, {
     	--body="Shabti Cuirass +1",
     })
 
-    sets.midcast['Cure IV'] = set_combine(sets.midcast.SpellInterrupt, {
-    	left_ear="Nourish. Earring +1", --1
-    	hands="Macabre Gaunt. +1",--11CP/7enm
-    })
-    sets.midcast.Utsusemi = set_combine(sets.midcast.SpellInterrupt, {})
-    sets.midcast['Divine Magic'] = set_combine(sets.midcast.SpellInterrupt,{})
-    sets.midcast['Phalanx'] = set_combine(sets.midcast.SpellInterrupt, {
+	sets.midcast.Utsusemi = set_combine(sets.Enmity, {})
+	sets.midcast.Utsusemi.SIRD = set_combine(sets.midcast.SpellInterrupt, {})
+
+	sets.midcast['Divine Magic'] = set_combine(sets.Enmity,{})
+	sets.midcast['Divine Magic'].SIRD = set_combine(sets.midcast.SpellInterrupt, {})
+
+	sets.midcast['Phalanx'] = set_combine(sets.Enmity, {
     	main="Sakpata's Sword",
     	hands="Souv. Handsch. +1",
     	legs="Sakpata's cuisses",
-    	--left_ear="Mimir Earring",
+    	left_ear="Mimir Earring",
     })
-    sets.midcast['Banishga'] = set_combine(sets.midcast.SpellInterrupt,{})
+	sets.midcast['Phalanx'].SIRD = set_combine(sets.midcast.SpellInterrupt, {
+		main="Sakpata's Sword",
+    	hands="Souv. Handsch. +1",
+    	left_ear="Mimir Earring",
+	})
+
+	sets.midcast['Banishga'] = set_combine(sets.midcast.SpellInterrupt,{})
     sets.midcast['Raise'] = set_combine(sets.midcast.SpellInterrupt,{})
     sets.midcast['Cursna'] = set_combine(sets.midcast.SpellInterrupt, {})
     sets.midcast['Geist Wall'] = set_combine(sets.midcast.SpellInterrupt,{})
@@ -226,18 +259,18 @@ function init_gear_sets()
 	sets.midcast['Refresh'] = set_combine(sets.midcast.SpellInterrupt, {}) 
 
 	sets.idle = {
-		ammo="Staunch Tathlum",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
-		neck="Bathy Choker +1",
-		waist="Creed Baudrier",
-		left_ear={name="Tuisto Earring", priority=2},
-		right_ear={name="Odnowa Earring +1", priority=3},
-		left_ring="Gelatinous Ring +1",
-		right_ring="Moonbeam Ring",
+		ammo={name="Staunch Tathlum +1",},
+		head={name="Sakpata's Helm", priority=91},
+		body={name="Sakpata's Plate", priority=136},
+		hands={name="Sakpata's Gauntlets", priority=91},
+		legs={name="Sakpata's Cuisses", priority=114},
+		feet={name="Sakpata's Leggings", priority=68},
+		neck={name="Bathy Choker +1", priority=35},
+		waist={name="Creed Baudrier", priority=40},
+		left_ear={name="Tuisto Earring", priority=150},
+		right_ear={name="Odnowa Earring +1", priority=110},
+		left_ring={name="Gelatinous Ring +1",priority=110},
+		right_ring={name="Moonlight Ring",priority=110},
 		back=gear.capes.Block,
 	}
 	sets.idle.Refresh = set_combine(sets.idle, {
@@ -253,18 +286,18 @@ function init_gear_sets()
 	sets.latent_refresh = {}
 
 	sets.engaged = {
-		ammo="Staunch Tathlum",
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
-		neck="Unmoving Collar +1",
-		waist="Creed Baudrier",
-		left_ear={name="Tuisto Earring", priority=2},
-		right_ear={name="Odnowa Earring +1", priority=3},
-		left_ring="Gelatinous Ring +1",
-		right_ring="Moonbeam Ring",
+		ammo={name="Staunch Tathlum +1",},
+		head={name="Sakpata's Helm", priority=91},
+		body={name="Sakpata's Plate", priority=136},
+		hands={name="Sakpata's Gauntlets", priority=91},
+		legs={name="Sakpata's Cuisses", priority=114},
+		feet={name="Sakpata's Leggings", priority=68},
+		neck={name="Unmoving Collar +1", priority=200},
+		waist={name="Creed Baudrier", priority=40},
+		left_ear={name="Tuisto Earring", priority=150},
+		right_ear={name="Odnowa Earring +1", priority=110},
+		left_ring={name="Gelatinous Ring +1",priority=110},
+		right_ring={name="Moonlight Ring",priority=110},
 		back=gear.capes.Block,
 	}
 
@@ -274,13 +307,22 @@ function init_gear_sets()
 		waist="Sailfi Belt +1",
 		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
-		left_ring="Regal Ring",
+		left_ring={name="Moonlight Ring",priority=110},
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
+	})
+
+	sets.engaged.NinetyNine = set_combine(sets.engaged, {
+		head="Perle Salade",
+		body="Perle Salade",
+		hands="Perle Salade",
+		legs="Perle Salade",
+		feet="Perle Salade",
+		back="Solemnity Cape",
 	})
 	
 	sets.AutoBuff.Sleep = {}

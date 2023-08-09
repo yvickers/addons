@@ -391,20 +391,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_midcast(spell,action,spellMap,eventArgs)
-	if spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' and spell.english ~= 'Impact' then
-		if state.MagicBurstMode.value ~= 'Off' then
-			if state.CastingMode.value:contains('Resistant') and sets.ResistantMagicBurst then
-				equip(sets.ResistantMagicBurst)
-			else
-				equip(sets.MagicBurst)
-			end
-		end
-
-		if spell.element and sets.element[spell.element] then
-			equip(sets.element[spell.element])
-		end
-
-	elseif spell.skill == 'Enfeebling Magic' then
+	if spell.skill == 'Enfeebling Magic' then
 
 		if buffactive.Saboteur then
 			equip(sets.buff.Saboteur)
@@ -466,7 +453,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 
@@ -515,7 +502,7 @@ end
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
     -- Check that ranged slot is locked, if necessary
-    check_range_lock()
+    --check_range_lock()
 end
 
 function update_melee_groups()

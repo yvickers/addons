@@ -155,6 +155,28 @@
                 <slot18>Actinic Burst</slot18>
                 <slot19>Magic Fruit</slot19>
             </evasion>
+            <mboze>
+                <slot01>barrier tusk</slot01>
+                <slot02>saline coat</slot02>
+                <slot03>delta thrust</slot03>
+                <slot04>barbed crescent</slot04>
+                <slot05>erratic flutter</slot05>
+                <slot06>battery charge</slot06>
+                <slot07>reaving wind</slot07>
+                <slot08>wind breath</slot08>
+                <slot09>glutinous dart</slot09>
+                <slot10>magnetite cloud</slot10>
+                <slot11>silent storm</slot11>
+                <slot12>diamondhide</slot12>
+                <slot13>retinal glare</slot13>
+                <slot14>feather tickle</slot14>
+                <slot15>rending deluge</slot15>
+                <slot16>tenebral crush</slot16>
+                <slot17>scouring spate</slot17>
+                <slot18>magic fruit</slot18>
+                <slot19>actinic burst</slot19>
+                <slot20>metallic body</slot20>
+            </mboze>
             <nuking>
                 <slot01>memento mori</slot01>
                 <slot02>entomb</slot02>
@@ -173,6 +195,20 @@
                 <slot15>cursed sphere</slot15>
                 <slot16>anvil lightning</slot16>
             </nuking>
+            <subtanking>
+                <slot01>healing breeze</slot01>
+                <slot02>sheep song</slot02>
+                <slot03>wild carrot</slot03>
+                <slot04>pollen</slot04>
+                <slot05>terror touch</slot05>
+                <slot06>grand slam</slot06>
+                <slot07>cocoon</slot07>
+                <slot08>jettatura</slot08>
+                <slot09>blank gaze</slot09>
+                <slot10>screwdriver</slot10>
+                <slot11>geist wall</slot11>
+                <slot12>cursed sphere</slot12>
+            </subtanking>
             <thfaoe>
 
             </thfaoe>

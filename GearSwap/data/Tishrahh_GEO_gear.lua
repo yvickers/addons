@@ -124,7 +124,22 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'] = {}
 	sets.midcast.Stun = {}
 
-	sets.midcast['Enfeebling Magic'] = {}
+	sets.midcast['Enfeebling Magic'] = {
+		main="Maxentius",
+		sub="Ammurapi Shield",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs={ name="Psycloth Lappas", augments={'Mag. Acc.+10','Spell interruption rate down +15%','MND+7',}},
+		feet=gear.Relic.Feet,
+		neck="Sanctity Necklace",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+		left_ear="Vor Earring",
+		right_ear="Malignance Earring",
+		left_ring="Medada's Ring",
+		right_ring="Stikini Ring +1",
+		back=gear.capes.GeoSkill,
+	}
 	sets.midcast.Dispel = {}
 
 	sets.midcast['Enhancing Magic'] = {}

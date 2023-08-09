@@ -409,13 +409,13 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Coiste Bodhar",
-		head=gear.Flamma.Head,
-		body=gear.Empyrean.Body,
+		head=gear.Empyrean.Head,
+		body="Hjarrandi Breast.",
 		hands="Sakpata's Gauntlets",
 		legs=gear.Artifact.Legs,
 		feet=gear.Artifact.Feet,
 		neck="War. Beads +2",
-		waist="Ioskeha Belt +1",
+		waist="Sailfi Belt +1",
 		left_ear="Schere Earring",
 		right_ear="Boii Earring +1",
 		left_ring="Chirich Ring +1",

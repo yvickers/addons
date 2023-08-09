@@ -45,10 +45,10 @@ function user_job_setup()
     gear.Relic.Feet = "Plun. Poulaines +2"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = "Skulker's Bonnet +2"
+    gear.Empyrean.Head = "Skulker's Bonnet +3"
     gear.Empyrean.Body = "Skulker's Vest +3"
     gear.Empyrean.Hands = ""
-    gear.Empyrean.Legs = "Skulk. Culottes +2"
+    gear.Empyrean.Legs = "Skulk. Culottes +3"
     gear.Empyrean.Feet = "Skulk. Poulaines +1"
 
     gear.capes = {}
@@ -164,7 +164,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Asn. Gorget +1",
+        neck="Asn. Gorget +2",
         waist="Kentarch Belt +1",
         back=gear.capes.WSDMG,
         ear1="Sherida Earring",
@@ -221,7 +221,7 @@ function init_gear_sets()
         ammo="Crepuscular Pebble",
         head=gear.Empyrean.Head,
         --hands="Gleti's Gauntlets",
-        neck="Asn. Gorget +1",
+        neck="Asn. Gorget +2",
         waist="Kentarch Belt +1",
         right_ear="Skulker's Earring +1",
         ring1="Sroda Ring",
@@ -293,8 +293,8 @@ function init_gear_sets()
         legs="Gleti's Breeches",
         feet="Malignance Boots",
         ammo="Aurgelmir Orb +1",
-        neck="Asn. Gorget +1",
-        waist="Patentia Sash",
+        neck="Asn. Gorget +2",
+        waist="Reiki Yotai",
         back=gear.capes.TP,
         left_ear="Sherida Earring",
         right_ear="Skulker's Earring +1",

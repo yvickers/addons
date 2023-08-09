@@ -11,7 +11,7 @@ function job_setup()
 
 	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
+	state.WeaponskillMode:options( 'Normal', 'PROC' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
 	include('Mote-TreasureHunter')

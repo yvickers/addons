@@ -130,7 +130,7 @@ function init_gear_sets()
         --legs=gear.Artifact.Legs,
         feet=gear.Meghanada.Feet,
         neck="Scout's Gorget +2",
-        waist="Impulse Belt",
+        waist="Yemaya Belt",
         back=gear.capes.Snapshot,
         left_ring="Crepuscular Ring",
     }
@@ -141,8 +141,7 @@ function init_gear_sets()
     })
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-        feet=gear.Relic.Feet,
-        waist="Yemaya Belt",
+        feet=gear.Relic.Feet, 
     })
 
 

@@ -46,7 +46,7 @@ function user_job_setup()
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
-	gear.capes.DexTP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+3','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.capes.DexTP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+6','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 	gear.capes.StrWS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
 --[[

@@ -60,6 +60,7 @@
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
+        <crooked_cards>2</crooked_cards>
         <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
@@ -69,6 +70,7 @@
     </mishrahh>
     <ninnyhammer>
         <aoe>
+            <p1>false</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
@@ -82,7 +84,15 @@
         </text>
     </ninnyhammer>
     <tishrahh>
+        <aoe>
+            <p1>false</p1>
+            <p2>false</p2>
+            <p3>false</p3>
+            <p4>false</p4>
+            <p5>false</p5>
+        </aoe>
         <crooked_cards>2</crooked_cards>
+        <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
                 <x>383</x>

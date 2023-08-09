@@ -39,4 +39,16 @@ return {
             ["ready_reaction"]="turnaround"
         }
     },
+    ["Shedu"]={
+        ["Hundred Fists"]={
+            ["complete_reaction"]="//savageblade", 
+            ["ready_reaction"]=""
+        },
+    },
+    ["Bozzetto High Vicar"]={
+        ["Cure VI"]={
+            ["complete_reaction"]="",
+            ["ready_reaction"]="//savageblade"
+        }
+    },
 }
