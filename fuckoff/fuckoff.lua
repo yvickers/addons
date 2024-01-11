@@ -5,7 +5,7 @@ _addon.commands = {'fuckoff','fo'} --Won't do anything atm.
  
 packets = require('packets')
  
-local blackListedUsers = T{'Minervapa','TotallyABotTwo','TotallyABotThree',} -- Want to block all messages from X user then added there name(s) here.
+local blackListedUsers = T{'Minervapa','TotallyABotThree',} -- Want to block all messages from X user then added there name(s) here.
      
 -- I could do a general digit check on JP instead of set 500/2100 values but atm I feel it's not needed. Will see if they change thier tactics.
 -- If you want to learn more about "Magical Characters" or Patterns in Lua: <a href="https://riptutorial.com/lua/example/20315/lua-pattern-matching" rel="nofollow">https://riptutorial.com/lua/example/20315/lua-pattern-matching</a>
@@ -16,6 +16,8 @@ local blackListedWords = T{
     'Job Point.*2100',
     'Job Point.*500',
     'JP.*2100',
+    '500P',
+    '2100P',
     'JP.*500',
     'Capacity Point.*2100',
     'Capacity Point.*500',
@@ -26,7 +28,9 @@ local blackListedWords = T{
     'Discount',
     'King Ranperre\'s Tomb',
     'Bibiki Bay',
-    --'Buy?',
+    'snkone*',
+    'cooldog*',
+    'Buy?',
     } -- First two are '☆' and '★' symbols.
  
 windower.register_event('incoming chunk', function(id,data)
@@ -38,7 +42,7 @@ windower.register_event('incoming chunk', function(id,data)
             return true
         elseif (chat['Mode'] == 3 or chat['Mode'] == 1 or chat['Mode'] == 26) then -- RMT checks in tell, shouts, and yells. Years ago they use to use tells to be more stealthy about gil selling.
             for k,v in ipairs(blackListedWords) do
-                if cleaned:match(v:lower()) then
+                if cleaned:match(v:lower()) or chat['Sender Name']:lower():match(v:lower()) then
                     return true
                 end
             end

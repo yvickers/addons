@@ -2,8 +2,8 @@ function user_job_setup()
     state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Refresh', }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-        main="Malignance Pole",
-        sub="Khonsu",
+        main="Marin Staff +1",
+        sub="Enki Strap",
     }
     gear.weapons['Refresh'] = {
         main="Mpaca's Staff",
@@ -59,8 +59,8 @@ function init_gear_sets()
     sets.precast.JA['Subtle Sorcery'] = {}
 
 	sets.precast.FC = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
+        --main="Mpaca's Staff",
+        --sub="Enki Strap",
         ammo="Impatiens",
         head="Merlinic Hood",
         body="Agwu's Robe",
@@ -84,7 +84,9 @@ function init_gear_sets()
 		sub="Ammurapi Shield"
 	})
 
-	sets.precast.WS = {}
+	sets.precast.WS = {
+
+    }
     sets.precast.WS.Buffed = set_combine(sets.precast.WS,{})
 
     sets.midcast.FastRecast = {}

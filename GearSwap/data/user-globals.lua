@@ -194,7 +194,7 @@ end
 function user_state_change_Attack_With_Me( newValue, oldValue )
     if state.AttackWithMe.current == 'on' then
         send_command('@input //atkwm master')
-        send_command('@input //send @others //atkwm slave on')
+        send_command('@input //send ninnyhammer //atkwm slave on')
     else
         send_command('@input //send @others //atkwm slave off')
         send_command('@input //send @all //lua reload attackwithme')

@@ -38,7 +38,7 @@ function user_job_setup()
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Mochi Kyahan +3"
+	gear.Relic.Feet = "Mochi. Kyahan +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
@@ -84,6 +84,26 @@ function init_gear_sets()
 		--feet=gear.Empyrean.Feet
 	}
 
+	sets.Enmity = {
+		ammo="Sapience Orb",
+		body="Emet Harness +1",
+		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
+		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		feet=gear.Relic.Feet,
+		neck="Moonlight Necklace",
+		waist="Kasiri Belt",
+		left_ear="Cryptic Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Begrudging Ring",
+		right_ring="Petrov Ring",
+	}
+
+	sets.precast.JA['Provoke'] = sets.Enmity
+	sets.precast.JA['Warcry'] = sets.Enmity
+	sets.precast.JA['Yonin'] = sets.Enmity
+	sets.precast.JA['Issekigan'] = sets.Enmity
+
+
 	 sets.precast.FC = {
 	 	ammo="Impatiens",
 		head="Herculean Head",
@@ -108,7 +128,7 @@ function init_gear_sets()
 
 	sets.precast.WS = {
 		ammo="Crepuscular Pebble",
-		head=gear.Artifact.Head,
+		head="Mpaca's Cap",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
@@ -294,11 +314,11 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet=gear.Artifact.Feet,
-        neck="Loricate Torque +1",
-        waist="Flume Belt +1",
+        neck="Bathy Choker +1",
+        waist="Plat. Mog. Belt",
         back=gear.capes.DexTP,
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
+        left_ear="Eabani Earring",
+        right_ear="Infused Earring",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
 	}
@@ -314,9 +334,9 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands=gear.Adhemar.Hands.A,
-		legs="Samnuha Tights",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Sanctity Necklace",
+		neck="Ninja Nodowa +2",
 		waist="Sailfi Belt +1",
 		back=gear.capes.DexTP,
 		left_ear="Dedition Earring",

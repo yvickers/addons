@@ -12,7 +12,7 @@ function user_job_setup()
 	gear.Relic.Body = "Viti. Tabard +3"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Feet = "Vitiation Boots +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Leth. Chappel +3"

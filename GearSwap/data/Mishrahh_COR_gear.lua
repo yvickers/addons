@@ -86,13 +86,19 @@ function user_job_setup()
     gear.capes.FastCast = {}
     gear.capes.RngCrit = gear.capes.RngTPCape
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Arma', 'Fomalhaut', 'Aeolian' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Proc', 'Arma', 'Fomalhaut', 'Aeolian' }
     gear.weapons = {}
     --match key to state.weapons options
     gear.weapons['Savage'] = {
         main="Naegling",
         sub="Crepuscular Knife",
         ranged="Anarchy +2",
+        ammo="Chrono Bullet",
+    }
+    gear.weapons['Proc'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+        ranged="Fomalhaut",
         ammo="Chrono Bullet",
     }
     gear.weapons['Arma'] = {

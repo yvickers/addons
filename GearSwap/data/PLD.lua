@@ -311,7 +311,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 
 	if spell.english == "Flash" or spell.english == "Holy II" then
 
-		if player.main_job_level >= 78 and abil_recasts[80] and abil_recasts[80] < 1 then
+		if abil_recasts[80] and abil_recasts[80] < 1 then
 			cast_delay(1.1)
 			send_command('input /ja "Divine Emblem" <me>')
 		end

@@ -43,7 +43,7 @@ function init_gear_sets()
 		body=gear.Relic.Body,
 	}
 	sets.precast.JA['Life Cycle'] = {
-		body=gear.Artifact.Body,
+		--body=gear.Artifact.Body,
 	}
 	sets.precast.JA['Radial Arcana'] = {
 		feet=gear.Relic.Feet,
@@ -61,10 +61,10 @@ function init_gear_sets()
 	sets.precast.FC = {}
 
 	sets.midcast.Geomancy = {
-		--head=gear.Empyrean.Head,
-		--body=gear.Relic.Body,
-		--hands=gear.Artifact.Hands,
-		--legs=gear.Relic.Legs,
+		head=gear.Empyrean.Head,
+		body=gear.Relic.Body,
+		hands=gear.Artifact.Hands,
+		legs=gear.Relic.Legs,
 		--feet="Medium's Sabots",
 		neck="Bagua Charm +2",
 		--left_ring="Stikini Ring +1",
@@ -124,5 +124,5 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1, 11)
+	--set_macro_page(1, 11)
 end

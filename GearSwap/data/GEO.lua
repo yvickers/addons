@@ -234,10 +234,15 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 
+function job_pet_change(pet, gain, eventArgs)
+	if not gain then
+
+	end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -250,6 +255,16 @@ end
 
 
 function customize_idle_set(idleSet)
+	idleSet = set_combine( idleSet, gear.weapons[state.Weapons.current] )
+
+	if state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere') then
+		if player.mpp < 51 then
+			if sets.latent_refresh then
+				idleSet = set_combine(idleSet, sets.latent_refresh)
+			end
+		end
+	end
+	
 	return idleSet
 end
 
@@ -270,6 +285,18 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
+
+	if type(cmdParams) == 'string' then
+		cmdParams = T(cmdParams:split(' '))
+		if #cmdParams == 0 then
+			return
+		end
+	end
+
+	if cmdParams[1]:lower() == 'euthanasia' then
+		windower.chat.input('/ja "Full Circle" <me>')
+		eventArgs.handled = true
+	end
 end
 
 function job_tick()

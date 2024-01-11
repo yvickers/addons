@@ -1,6 +1,7 @@
 local get = {}
 
 get.songs = {
+    aria = {'Aria of Passion'},
     paeon = {'Army\'s Paeon VI','Army\'s Paeon V','Army\'s Paeon IV','Army\'s Paeon III','Army\'s Paeon II','Army\'s Paeon'},
     ballad = {'Mage\'s Ballad III','Mage\'s Ballad II','Mage\'s Ballad'},
     minne = {'Knight\'s Minne V','Knight\'s Minne IV','Knight\'s Minne III','Knight\'s Minne II','Knight\'s Minne'},

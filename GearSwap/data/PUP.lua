@@ -9,12 +9,10 @@ end
 
 function job_setup()
 
-	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'Acc' )
+	state.OffenseMode:options( 'Melee', 'PDT' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
-	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
-
-	include('Mote-TreasureHunter')
+	state.WeaponskillMode:options( 'Normal', 'Buffed' )
+	state.IdleMode:options( 'Normal', 'PDT' )
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
@@ -24,7 +22,7 @@ function job_setup()
 		--ammo="Staunch Tathlum",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Stringing Pummel' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
     state.AutoFightMode = M( true, "Auto Pet Fight" )
@@ -51,8 +49,111 @@ function job_setup()
 	gear.Empyrean.Feet = ""
 
 	gear.capes = {}
-	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+	gear.capes.BothTP = {} --{ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Accuracy+10','Pet: Haste+10',}}
+	gear.capes.MasterTP = gear.capes.BothTP
+	gear.capes.MasterWS = gear.capes.BothTP
+
+	state.PetMode = M{['description']='Pet Mode', 'None', 'Overdrive', 'Ranger', 'BruiserTank', 'TurtleTank', 'HarlequinTank', 'SharpshotTank', 'BoneSlayer', 'WhiteMage', 'RedMage', 'BlackMage' }
+	state.AutoManeuvers = M{['description']='Auto Maneuver List', 'Default', 'Overdrive', 'Ranger', 'BruiserTank', 'TurtleTank', 'HarlequinTank', 'SharpshotTank', 'BoneSlayer', 'WhiteMage', 'RedMage', 'BlackMage' }
+
+	defaultManeuvers = {
+		None = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=1},
+		},
+		Overdrive = {
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=1},
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		OverdriveRanger = {
+			{Name='Light Maneuver',	  Amount=0},
+			{Name='Fire Maneuver', 	  Amount=2},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=1},
+		},
+		Ranger = {
+			{Name='Light Maneuver',	  Amount=0},
+			{Name='Fire Maneuver', 	  Amount=0},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=3},
+		},
+		BruiserTank = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=1},
+		},
+		TurtleTank = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=2},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		TurtleTankMagic = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Water Maneuver',   Amount=1},
+		},
+		TurtleTankDispel = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Dark Maneuver',    Amount=1},
+		},
+		HarlequinTank = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Water Maneuver',   Amount=1},
+		},
+		SharpshotTank = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=1},
+		},
+		BoneSlayer = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Fire Maneuver', 	  Amount=1},
+			{Name='Thunder Maneuver', Amount=0},
+			{Name='Wind Maneuver', 	  Amount=1},
+		},
+		WhiteMage = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Dark Maneuver', 	  Amount=1},
+			{Name='Ice Maneuver',     Amount=1},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		WhiteMageIntense = {
+			{Name='Light Maneuver',	  Amount=2},
+			{Name='Dark Maneuver', 	  Amount=1},
+			{Name='Ice Maneuver',     Amount=0},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		WhiteMageNA = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Dark Maneuver', 	  Amount=1},
+			{Name='Water Maneuver',   Amount=1},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		RedMage = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Dark Maneuver', 	  Amount=1},
+			{Name='Ice Maneuver',     Amount=1},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+		BlackMage = {
+			{Name='Light Maneuver',	  Amount=1},
+			{Name='Dark Maneuver', 	  Amount=1},
+			{Name='Ice Maneuver',     Amount=1},
+			{Name='Wind Maneuver', 	  Amount=0},
+		},
+	}
 
 --[[
 ^   Ctrl
@@ -85,6 +186,8 @@ function unload_job_keybinds()
 end
 
 function init_gear_sets()
+	sets.buff.Overdrive = {}
+
 	sets.TreasureHunter = {
 		--ammo="Per. Lucky Egg",
 		--head='Volte Cap',
@@ -132,6 +235,8 @@ function init_gear_sets()
 	})
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
+	sets.idle.Pet = {}
+	sets.idle.Pet.Engaged = {}
 
 	sets.engaged = {
 		--ammo="Staunch Tathlum",
@@ -148,6 +253,7 @@ function init_gear_sets()
 		--right_ring="Gelatinous Ring +1",
 		--back=gear.capes.DexTP,
 	}
+	sets.engaged.Pet = {}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
 	})
@@ -207,6 +313,9 @@ end
 
 
 function job_status_change(new_status, old_status)
+	if new_status == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
+		windower.chat.input('/pet Deploy <t>')
+	end
 end
 
 -- Handle notifications of general user state change.
@@ -236,6 +345,21 @@ end
 
 
 function customize_idle_set(idleSet)
+	if pet.isvalid and pet.status == 'Engaged' then
+		if sets.idle.Pet.Engaged[state.PetMode.value] then
+			idleSet = set_combine(idleSet, sets.idle.Pet.Engaged[state.PetMode.value])
+		else
+			idleSet = set_combine(idleSet, sets.idle.Pet.Engaged)
+		end
+
+		if buffactive['Overdrive'] and sets.buff.Overdrive then
+			idleSet = set_combine(idleSet, sets.buff.Overdrive)
+		end
+	elseif player.mpp < 51 and (state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere')) then
+		if sets.latent_refresh then
+			idleSet = set_combine(idleSet, sets.latent_refresh)
+		end
+	end
 	return idleSet
 end
 
@@ -246,7 +370,15 @@ end
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
     -- Check that ranged slot is locked, if necessary
-    check_range_lock()
+    --check_range_lock()
+end
+
+-- Update custom groups based on the current pet.
+function update_custom_groups()
+    classes.CustomIdleGroups:clear()
+    if pet.isvalid then
+        classes.CustomIdleGroups:append(state.PetMode.value)
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -256,10 +388,24 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
+
+	if type(cmdParams) == 'string' then
+		cmdParams = T(cmdParams:split(' '))
+		if #cmdParams == 0 then
+			return
+		end
+	end
+
+	if cmdParams[1]:lower() == 'maneuver' then
+		next_maneuver()
+		eventArgs.handled = true
+	end
 end
 
 function job_tick()
 	if check_buff() then return true end
+	if check_repair() then return true end
+	if check_maneuver() then return true end
 	return false
 end
 
@@ -268,5 +414,51 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 	end
 
+	if silent_check_fighting() and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
+		windower.chat.input('/pet Deploy <t>')
+	end
+
 	return false
+end
+
+function check_repair()
+
+	if state.AutoBuffMode.current == 'on' and pet.isvalid and pet.hpp < 50 then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if abil_recasts[206] < latency and player['inventory']['Automat. Oil +3'] then
+			windower.chat.input('/ja "Repair" <me>')
+			return true
+		end
+	end
+
+	return false
+end
+
+function check_maneuver()
+    if state.AutoBuffMode.value ~= 'Off' and pet.isvalid and pet.status == 'Engaged' and windower.ffxi.get_ability_recasts()[210] < latency then
+		return next_maneuver()
+    end
+
+	return false
+end
+
+function next_maneuver()
+	for i = 1,8 do
+		local maneuver
+		if state.AutoManeuvers.value == 'Default' then
+			maneuver = defaultManeuvers[state.PetMode.Value][i]
+		else
+			maneuver = defaultManeuvers[state.AutoManeuvers.value][i]
+		end
+		if maneuver then
+			local maneuversActive = buffactive[maneuver.Name] or 0
+			if maneuversActive < maneuver.Amount then
+				windower.chat.input('/pet "'..maneuver.Name..'" <me>')
+				return true
+			end
+		else
+			return false
+		end
+	end
 end

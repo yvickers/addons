@@ -3,18 +3,18 @@ function define_global_sets()
     sets.AutoBuff = {}
 
     gear.Meghanada = {}
-    gear.Meghanada.Head = "Meghanada Visor +1"
+    gear.Meghanada.Head = "Meghanada Visor +2"
     gear.Meghanada.Body = "Meg. Cuirie +2"
     gear.Meghanada.Hands = "Meg. Gloves +2"
     gear.Meghanada.Legs = "Meg. Chausses +2"
-    gear.Meghanada.Feet = "Meg. Jam. +1"
+    gear.Meghanada.Feet = "Meg. Jam. +2"
 
     gear.Mummu = {}
-    gear.Mummu.Head = "Mummu Bonnet +1"
+    gear.Mummu.Head = "Mummu Bonnet +2"
     gear.Mummu.Body = "Mummu Jacket +2"
     gear.Mummu.Hands = "Mummu Wrists +2"
     gear.Mummu.Legs = "Mummu Kecks +2"
-    gear.Mummu.Feet = "Mummu Gamash. +1"
+    gear.Mummu.Feet = "Mummu Gamash. +2"
 
     gear.Hiza = {}
     gear.Hiza.Head = "Hiza. Somen"

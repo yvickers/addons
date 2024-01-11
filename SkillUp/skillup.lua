@@ -38,7 +38,7 @@ require('chat')
 
 delay = 6  -- how much delay in between spells
 spell_list = T{
-	[1] = 'Cure',
+	[1] = 'Stone',
 }
 
 
@@ -60,7 +60,7 @@ end)
 function skill_up()
 	while continue == 1 do
 		for i,v in pairs(spell_list) do
-			windower.send_command('input /ma '..v..' <me>')
+			windower.send_command('input /ma '..v..' <t>')
 			coroutine.sleep(delay)
 		end
 	end

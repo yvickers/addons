@@ -110,6 +110,38 @@ function define_global_sets()
     gear.Val.Legs = {}
     gear.Val.Legs.TH = { name="Valorous Hose", augments={'Crit.hit rate+2','AGI+7','"Treasure Hunter"+1',}}
 
+    gear.Taeon = {}
+
+    gear.Telchine = {}
+    gear.Telchine.Head = {}
+    gear.Telchine.Head.Enhancing = { name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
+    gear.Telchine.Body = {}
+    gear.Telchine.Body.Enhancing = { name="Telchine Chas.", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine.Hands = {}
+    gear.Telchine.Hands.Enhancing = { name="Telchine Gloves", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
+    gear.Telchine.Legs = {}
+    gear.Telchine.Legs.GEO = { name="Telchine Braconi", augments={'Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+    gear.Telchine.Legs.Enhancing = { name="Telchine Braconi", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine.Feet = {}
+    gear.Telchine.Feet.BRD = { name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}}
+    gear.Telchine.Feet.Enhancing = { name="Telchine Braconi", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
+
+    gear.Taeon = {}
+    gear.Taeon.Head = {}
+    gear.Taeon.Head.Automaton = { name="Taeon Chapeau", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    gear.Taeon.Head.Snapshot = { name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}}
+    gear.Taeon.Body = {}
+    gear.Taeon.Body.Automaton = { name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    gear.Taeon.Body.SIRD = { name="Taeon Tabard", augments={'Evasion+20','Spell interruption rate down -7%','AGI+9',}}
+    gear.Taeon.Hands = {}
+    gear.Taeon.Hands.Automaton = { name="Taeon Gloves", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    gear.Taeon.Legs = {}
+    gear.Taeon.Legs.Automaton = { name="Taeon Tights", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    gear.Taeon.Legs.SIRD={ name="Taeon Tights", augments={'Evasion+21','Spell interruption rate down -9%','AGI+10',}}
+    gear.Taeon.Feet = {}
+    gear.Taeon.Feet.Automaton = { name="Taeon Boots", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    gear.Taeon.Feet.SIRD={ name="Taeon Boots", augments={'Evasion+20','Spell interruption rate down -9%','AGI+10',}}
+
     gear.TH = {}
     gear.TH.Herc = {
         head='Volte Cap',

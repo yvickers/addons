@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
-		main="Bolelabunga",
+		main="Idris",
 		sub="Sors Shield",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
@@ -13,21 +13,21 @@ function user_job_setup()
 	gear.Artifact.Body = "Geo. Tunic +1"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
 	gear.Artifact.Legs = "Geo. Pants +1"
-	gear.Artifact.Feet = "Geo. Sandals +1"
+	gear.Artifact.Feet = "Geo. Sandals +2"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
 	gear.Relic.Body = "Bagua Tunic +1"
 	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Bagua Sandals +1"
+	gear.Relic.Legs = "Bagua Pants +3"
+	gear.Relic.Feet = "Bagua Sandals +3"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Azimuth Hood +2"
+	gear.Empyrean.Head = "Azimuth Hood +3"
 	gear.Empyrean.Body = "Azimuth Coat +2"
-	gear.Empyrean.Hands = "Azimuth Gloves +1"
+	gear.Empyrean.Hands = "Azimuth Gloves +3"
 	gear.Empyrean.Legs = "Azimuth Tights +1"
-	gear.Empyrean.Feet = "Azimuth Gaiters +1"
+	gear.Empyrean.Feet = "Azimuth Gaiters +2"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +15','Pet: Damage taken -1%',}}
@@ -72,26 +72,30 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		head="Nahtirah Hat",
-		hands=gear.Jhakri.Hands,
+		head="Merlinic Hood",
+		body="Agwu's Robe",
+		hands="Agwu's Gages",
 		legs=gear.Artifact.Legs,
-		feet=gear.Jhakri.Feet,
+		feet="Amalric Nails +1",
 		neck="Voltsurge Torque",
     	waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
 		right_ear="Loquac Earring",
 		left_ring="Weather. Ring +1",
-    	right_ring="Lebeche Ring",
+    	right_ring="Medada's Ring",
 		back=gear.capes.GeoSkill,
 	}
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+		main="Daybreak",
+	})
 
 	sets.midcast.Geomancy = {
 		head=gear.Empyrean.Head,
 		body=gear.Relic.Body,
 		hands=gear.Artifact.Hands,
 		legs=gear.Relic.Legs,
-		feet="Medium's Sabots",
-		neck="Bagua Charm +2",
+		feet=gear.Empyrean.Feet,
+		neck="Bagua Charm +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back=gear.capes.GeoSkill,
@@ -102,17 +106,15 @@ function init_gear_sets()
 		sub="Sors Shield",
 		range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 		head={ name="Vanya Hood", augments={'MP+49','"Cure" potency +7%','Enmity-5',}},
-		body="Agwu's Robe",
-		hands="Agwu's Gages",
-		legs="Agwu's Slops",
+		hands="Vanya Cuffs",
+		legs="Vanya Slops",
 		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
-		neck="Sanctity Necklace",
+		neck="Yngvi Choker",
 		waist="Gishdubar Sash",
 		--left_ear="Malignance Earring",
 		--right_ear="Barkaro. Earring",
-		left_ring="Prolix Ring",
+		left_ring="Weather. Ring +1",
 		right_ring="Lebeche Ring",
-		back="Solemnity Cape",
 	}
 	sets.midcast.Curaga = set_combine( sets.midcast.Cure, {
 	})
@@ -147,30 +149,30 @@ function init_gear_sets()
 	sets.midcast.BarElement = {}
 
 	sets.idle = {
-		main="Bolelabunga",
+		main="Idris",
 		sub="Genmei Shield",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
 		legs="Nyame Flanchard",
 		feet=gear.Artifact.Feet,
 		neck="Loricate Torque +1",
-		left_ear="Odnowa Earring +1",
-		right_ear="Genmei Earring",
+		left_ear="Eabani Earring",
+		right_ear="Etiolation Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back="Solemnity Cape",
+		waist="Carrier's Sash",
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
 		--main="Mafic Cudgel",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
-		head=gear.Empyrean.Head,
-		body=gear.Artifact.Body,
+		body=gear.Empyrean.Body,
 		hands=gear.Artifact.Hands,
 		legs="Psycloth Lappas",
 		feet=gear.Relic.Feet,
-		neck="Loricate Torque +1",
+		neck="Bagua Charm +1",
 		waist="Isa Belt",
 		--left_ear="Enchntr. Earring +1",
 		--right_ear="Loquac Earring",
@@ -186,7 +188,6 @@ function init_gear_sets()
 	}
 
 	sets.engaged = {
-		main="Maxentius",
 		sub="Genmei Shield",
 		head="Nyame Helm",
 		body="Nyame Mail",
@@ -205,5 +206,4 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1, 11)
 end

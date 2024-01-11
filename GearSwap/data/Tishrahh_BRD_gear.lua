@@ -1,6 +1,7 @@
 function user_job_setup()
+	state.IdleMode:options( 'Normal', 'Refresh', 'Zeni' )
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Mordant Rime', }
 	gear.weapons['Default'] = {
 		main="Kali",
 		sub="Ammurapi Shield",
@@ -33,6 +34,7 @@ function user_job_setup()
 	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
 	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
 	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.CHRWS = { name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%',}}
 
 end
 
@@ -69,6 +71,9 @@ function init_gear_sets()
 	sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong,{
 		range="Marsyas"
 	})
+	sets.precast.FC["Aria of Passion"] = set_combine(sets.precast.FC.BardSong,{
+		range="Loughnshade"
+	})
 
 	sets.precast.JA.Nightingale = {
 		feet=gear.Relic.Feet,
@@ -94,6 +99,22 @@ function init_gear_sets()
 		--left_ring="Epona's Ring",
 		--right_ring="Rajas Ring",
 		back=gear.capes.SavageWS,
+	}
+
+	sets.precast.WS['Mordant Rime'] = {
+		--ammo="Knobkierrie",
+		head="Nyame Helm",
+		body=gear.Relic.Body,
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Mnbw. Whistle +1",
+		waist="Sailfi Belt +1",
+		left_ear=="Enchntr. Earring +1",
+		right_ear="Moonshade Earring",
+		left_ring="Metamor. Ring +1",
+		--right_ring="Rajas Ring",
+		back=gear.capes.CHRWS,
 	}
 
 	sets.midcast.FastRecast = {}
@@ -193,6 +214,9 @@ function init_gear_sets()
 	sets.midcast.March = {}
 	sets.midcast["Honor March"] = set_combine(sets.midcast.March,{
 		range="Marsyas"
+	})
+	sets.midcast["Aria of Passion"] = set_combine(sets.midcast.March,{
+		range="Loughnashade"
 	})
 	sets.midcast.Mambo = {
 		feet="Mou. Crackows +1",
@@ -326,16 +350,20 @@ function init_gear_sets()
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	})
+	sets.idle.Zeni = set_combine(sets.idle, {
+		range="Soultrapper 2000",
+		ammo="Blank Soulplate",
+	})
 
 	sets.engaged = {
 		main="Naegling",
-		head=gear.Ayanmo.Head,
+		head="Bunzi's Hat",
 		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
+		hands="Bunzi's Gloves",
 		legs=gear.Empyrean.Legs,
 		feet=gear.Ayanmo.Feet,
 		neck="Sanctity Necklace",
-		waist="Eschan Stone",
+		waist="Sailfi Belt +1",
 		left_ear="Suppanomimi",
 		right_ear="Crep. Earring",
 		left_ring="Begrudging Ring",

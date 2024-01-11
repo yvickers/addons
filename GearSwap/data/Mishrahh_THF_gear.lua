@@ -1,6 +1,6 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-    state.WeaponskillMode:options( 'Normal', 'Buffed' )
+    state.WeaponskillMode:options( 'Normal', 'PROC', 'Buffed' )
 
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Rudra's Storm", 'Evisceration', 'Aeolian Edge' }
     state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Default', 'Cento', 'TTwash', 'Tauret', 'AOE', }
@@ -81,7 +81,6 @@ function init_gear_sets()
     -- Actions we want to use to tag TH.
     sets.precast.Step = sets.TreasureHunter
     sets.precast.Flourish1 = sets.TreasureHunter
-    sets.precast.JA.Provoke = sets.TreasureHunter
 
 
     --------------------------------------
@@ -156,6 +155,21 @@ function init_gear_sets()
         --legs="Gleti's Breeches",
         --feet="Gleti's Boots",
     })
+    sets.precast.WS.PROC = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Cacoethic Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Archon Cape",
+    })
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
@@ -200,6 +214,21 @@ function init_gear_sets()
         left_ring="Medada's Ring",
         right_ring="Dingir Ring",
         back=gear.capes.MAGWSDMG,    
+    }
+    sets.precast.WS['Aeolian Edge'].PROC = {
+        ammo="Crepuscular Pebble",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Cacoethic Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Archon Cape",
     }
 
     sets.precast.WS['Cyclone'] = set_combine( sets.precast.WS['Aeolian Edge'], sets.TreasureHunter )
@@ -329,5 +358,5 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    --set_macro_page(1, 18)
+    set_macro_page(1, 20)
 end

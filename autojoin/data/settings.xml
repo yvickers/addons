@@ -6,13 +6,16 @@
         <mode>whitelist</mode>
         <whitelist />
     </global>
+    <bishrahh>
+        <whitelist>Zemekis,Talsafir,Tamarwind,Canelo,Keshnak,Senzay,Zaffren,Benzey,Ryumii,Garct,Vhy,Noobermcnoober,Ilumii,Marsalii,Misterjones,Quagmito,Saltarino,Brettysketty,Bishrahh,Mishrahh,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
+    </bishrahh>
     <mishrahh>
-        <whitelist>Zemekis,Talsafir,Tamarwind,Ryumii,Keshnak,Senzay,Zaffren,Benzey,Canelo,Garct,Vhy,Noobermcnoober,Ilumii,Marsalii,Misterjones,Quagmito,Saltarino,Brettysketty,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
+        <whitelist>Zemekis,Talsafir,Tamarwind,Canelo,Keshnak,Senzay,Zaffren,Benzey,Ryumii,Garct,Vhy,Noobermcnoober,Ilumii,Marsalii,Misterjones,Quagmito,Saltarino,Brettysketty,Bishrahh,Mishrahh,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
     </mishrahh>
     <ninnyhammer>
-        <whitelist>Zemekis,Talsafir,Mishrahh,Kagerielle,Canelo,Keshnak,Noobermcnoober,Garct,Brettysketty,Senzay,Tishrahh,Senzey,Saltarino,Tamarwind</whitelist>
+        <whitelist>Zemekis,Talsafir,Tamarwind,Canelo,Keshnak,Senzay,Zaffren,Benzey,Ryumii,Garct,Vhy,Noobermcnoober,Ilumii,Marsalii,Misterjones,Quagmito,Saltarino,Brettysketty,Bishrahh,Mishrahh,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
     </ninnyhammer>
     <tishrahh>
-        <whitelist>Garct,Tamarwind,Kagerielle,Brettysketty,Noobermcnoober,Talsafir,Keshnak,Ninnyhammer,Senzay,Senzey,Benzey,Mishrahh</whitelist>
+        <whitelist>Zemekis,Talsafir,Tamarwind,Canelo,Keshnak,Senzay,Zaffren,Benzey,Ryumii,Garct,Vhy,Noobermcnoober,Ilumii,Marsalii,Misterjones,Quagmito,Saltarino,Brettysketty,Bishrahh,Mishrahh,Ninnyhammer,Tishrahh,Senzey,Kagerielle,Tiado</whitelist>
     </tishrahh>
 </settings>

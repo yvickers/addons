@@ -10,7 +10,7 @@ function user_job_setup()
 		sub="Utu Grip",
 	}
 	gear.weapons['Proc'] = {
-		main="Norifusa",
+		main="Soboro Sukehiro",
 		sub="Utu Grip",
 	}
 	
@@ -87,6 +87,21 @@ function init_gear_sets()
 		left_ring="Karieyh Ring",
 		right_ring="Niqmaddu Ring",
 		back=gear.capes.StrWS,
+	}
+	sets.precast.WS.PROC = {
+		ammo="Coiste Bodhar",
+		head="Flam. Zucchetto +2",
+		body="Flamma Korazin +2",
+		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+		legs="Flamma Dirs +2",
+		feet="Flam. Gambieras +2",
+		neck={ name="Vim Torque +1", augments={'Path: A',}},
+		waist="Eschan Stone",
+		left_ear="Mache Earring +1",
+		right_ear="Assuage Earring",
+		left_ring="Cacoethic Ring +1",
+		right_ring="Chirich Ring +1",
+		back=gear.capes.DexTP,
 	}
    
 	sets.idle = {

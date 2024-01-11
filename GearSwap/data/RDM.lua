@@ -423,6 +423,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 		--	update_melee_groups()
 		end
 	end
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------

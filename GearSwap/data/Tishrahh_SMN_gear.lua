@@ -33,8 +33,8 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Beckoner's Horn +2"
-	gear.Empyrean.Body = "Beck. Doublet +2"
+	gear.Empyrean.Head = "Beckoner's Horn +3"
+	gear.Empyrean.Body = "Beck. Doublet +3"
 	gear.Empyrean.Hands = "Beck. Bracers +2"
 	gear.Empyrean.Legs = "Beck. Spats +2"
 	gear.Empyrean.Feet = "Beck. Pigaches +2"
@@ -349,7 +349,7 @@ function init_gear_sets()
         sub="Sors Shield",
         ammo="Crepuscular Pebble",
         head=gear.Empyrean.Head,
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body=gear.Empyrean.Body,
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -372,23 +372,19 @@ function init_gear_sets()
     
     -- Can make due without either the head or the body, and use +refresh items in those slots.
     
-    sets.idle.Avatar = {
+    sets.idle.Avatar = set_combine(sets.idle, {
 		main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
 		ammo="Sancus Sachet +1",
-		head="Beckoner's Horn +2",
-		body="Beck. Doublet +2",
-		hands={ name="Asteria Mitts +1", augments={'Path: A',}},
-		legs={ name="Assid. Pants +1", augments={'Path: A',}},
-		feet="Baayami Sabots",
-		neck="Caller's Pendant",
+		--hands={ name="Asteria Mitts +1", augments={'Path: A',}},
+		--legs={ name="Assid. Pants +1", augments={'Path: A',}},
+		--feet="Baayami Sabots",
+		--neck="Caller's Pendant",
 		waist="Lucidity Sash",
-		left_ear="Eabani Earring",
-		right_ear="Etiolation Earring",
-		left_ring="Evoker's Ring",
+		--left_ring="Evoker's Ring",
 		right_ring="Stikini Ring +1",
 		back=gear.capes.PetPhysical,
-	}
+	})
 		
     sets.idle.Spirit = set_combine( sets.idle.Avatar, {
         --head="Convoker's Horn +3",

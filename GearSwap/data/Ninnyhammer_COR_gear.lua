@@ -1,10 +1,11 @@
 function user_job_setup()
+    state.IdleMode:options( 'Normal', 'Zeni' )
 
-	state.Bullet = M{['description']='Bullet', 'Chrono Bullet', 'Bronze Bullet'}
+	state.Bullet = M{['description']='Bullet', 'Living Bullet', 'Chrono Bullet', }
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Fomalhaut', 'Dummy', 'AE', 'Dummy2' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Flat Blade', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'Zeni', 'AE', 'AE Death Penalty', 'Dummy2', 'Fomalhaut' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Hot Shot', }
     state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
 	gear.Artifact = {}
@@ -30,11 +31,12 @@ function user_job_setup()
 
     gear.capes = {}
     gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-    gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+    gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = { name="Camulus's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Snapshot"+10','Evasion+15',}}
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
+    gear.capes.INTWS = { name="Camulus's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
 
     gear.weapons = {}
     --match key to state.weapons options
@@ -42,6 +44,12 @@ function user_job_setup()
         main="Naegling",
         sub="Demers. Degen +1",
         ranged="Anarchy +2",
+        ammo=state.Bullet.current,
+    }
+    gear.weapons['Death Penalty'] = {
+        main="Naegling",
+        sub="Tauret",
+        ranged="Death Penalty",
         ammo=state.Bullet.current,
     }
     gear.weapons['Fomalhaut'] = {
@@ -56,9 +64,17 @@ function user_job_setup()
         ranged="Anarchy +2",
         ammo="Hauksbok Bullet",
     }
-    gear.weapons['Dummy'] = {
+    gear.weapons['AE Death Penalty'] = {
+        main={ name="Rostam", augments={'Path: B',}},
+        sub="Tauret",
+        ranged="Death Penalty",
+        ammo=state.Bullet.current,
+    }
+    gear.weapons['Zeni'] = {
         main="Gleti's Knife",
         sub="Demers. Degen +1",
+        range="Soultrapper 2000",
+		ammo="Blank Soulplate",
     }
     gear.weapons['Dummy2'] = {
         main="Gleti's Knife",
@@ -81,7 +97,7 @@ function init_gear_sets()
     }
 
 	sets.precast.CorsairRoll = {
-        main="Rostam",
+        main={ name="Rostam", augments={'Path: C',}},
         ranged="Compensator",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
@@ -99,7 +115,7 @@ function init_gear_sets()
     sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
     sets.precast.Compensator = {
-        main="Rostam",
+        main={ name="Rostam", augments={'Path: C',}},
         ranged = "Compensator",
     }
 
@@ -167,16 +183,17 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+        ammo="Hauksbok Bullet",
         head="Nyame Helm",
         neck="Sibyl Scarf",
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
         body=gear.Relic.Body,
         hands="Nyame Gauntlets",
-        left_ring="Lehko's Ring",
+        left_ring="Dingir Ring",
         right_ring="Karieyh Ring",
-        back=gear.capes.RngMagicalWS,
-        waist="Eschan Stone",
+        back=gear.capes.INTWS,
+        waist="Orpheus's Sash",
         legs="Nyame Flanchard",
     	feet=gear.Relic.Feet
     })
@@ -191,13 +208,19 @@ function init_gear_sets()
         left_ring="Dingir Ring",
         right_ring="Archon Ring",
         back=gear.capes.RngMagicalWS,
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet
     }
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {
         head="Nyame Helm",
+        right_ring="Ilabrat Ring",
+    })
+
+    sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {
+        head="Nyame Helm",
+        hands=gear.Empyrean.Hands,
         right_ring="Ilabrat Ring",
     })
 
@@ -228,7 +251,7 @@ function init_gear_sets()
         right_ring="Dingir Ring",
         left_ring="Lehko's Ring",
         back=gear.capes.RngMagicalWS,
-        waist="Eschan Stone"
+        waist="Orpheus's Sash",
     }
 
     sets.midcast.CorsairShot['Light Shot'] = set_combine( sets.midcast.CorsairShot,{
@@ -285,7 +308,7 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Sibyl Scarf",
 		back=gear.capes.RngMagicalWS,
-		waist="Eschan Stone",
+		waist="Orpheus's Sash",
 		--left_ear="Heacate's Earring",
 		right_ear="Friomisi Earring",
 		right_ring="Dingir Ring",
@@ -305,6 +328,10 @@ function init_gear_sets()
         right_ear="Assuage Earring",
         back=gear.capes.MeleeTP,
     }
+    sets.idle.Zeni = set_combine(sets.idle, {
+		range="Soultrapper 2000",
+		ammo="Blank Soulplate",
+	})
 
     sets.engaged.Melee = {
         head=gear.Empyrean.Head,

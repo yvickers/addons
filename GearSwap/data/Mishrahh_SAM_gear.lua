@@ -31,11 +31,11 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Kasuga Kabuto +2"
+	gear.Empyrean.Head = "Kasuga Kabuto +3"
 	gear.Empyrean.Body = "Kasuga Domaru +3"
 	gear.Empyrean.Hands = "Kasuga Kote +3"
 	gear.Empyrean.Legs = "Kasuga Haidate +3"
-	gear.Empyrean.Feet = "Kas. Sune-Ate +2"
+	gear.Empyrean.Feet = "Kas. Sune-Ate +3"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
@@ -45,6 +45,20 @@ end
 function init_gear_sets()
 	sets.AutoBuff.sleep = {
 		neck="Vim Torque +1",
+	}
+
+	sets.Enmity = {
+		ammo="Sapience Orb",
+		body="Emet Harness +1",
+		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
+		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Kasiri Belt",
+		left_ear="Cryptic Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Begrudging Ring",
+		right_ring="Petrov Ring",
 	}
 
 	sets.TreasureHunter = {
@@ -76,6 +90,7 @@ function init_gear_sets()
 	sets.precast.JA['Third Eye'] = {
 		--legs=gear.Relic.Legs,
 	}
+	sets.precast.JA['Provoke'] = sets.Enmity
 
 	sets.precast.WS = {
 		ammo="Knobkierrie",
@@ -187,4 +202,19 @@ function init_gear_sets()
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		--hands=gear.Artifact.Hands,
 	})
+
+	sets.HP = {
+		ammo="Staunch Tathlum +1",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		right_ear="Tuisto Earring",
+		left_ring="Defending Ring",
+		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+	}
 end

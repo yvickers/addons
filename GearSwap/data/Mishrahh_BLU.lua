@@ -11,7 +11,7 @@ function job_setup()
 	state.OffenseMode:options( 'PDT', 'Evasion', 'Melee', 'MDT', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
-	state.IdleMode:options( 'Normal', 'Evasion', 'PDT', 'MDT', 'Regen' )
+	state.IdleMode:options( 'Normal', 'Evasion', 'PDT', 'MDT', 'Regen', 'Zeni' )
 	state.CastingMode         = M{['description'] = 'Casting Mode', 'Normal', 'Evasion' }
 
 	include('Mote-TreasureHunter')
@@ -745,6 +745,10 @@ function init_gear_sets()
 	})
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
+	sets.idle.Zeni = set_combine(sets.idle, {
+		range="Soultrapper 2000",
+		ammo="Blank Soulplate",
+	})
 
 --ENGAGED SETS
 	sets.engaged = {
@@ -756,8 +760,8 @@ function init_gear_sets()
 		feet=gear.Adhemar.Feet.B,
 		neck="Mirage Stole +2",
 		waist="Kentarch Belt +1",
-		left_ear="Dedition Earring",
-		right_ear="Suppanomimi",
+		left_ear="Suppanomimi",
+		right_ear="Hashi. Earring +2",
 		left_ring="Petrov Ring",
 		right_ring="Ilabrat Ring",
 		back=gear.capes.TP,

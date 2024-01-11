@@ -14,7 +14,7 @@ function user_job_setup()
     gear.Artifact.Feet = ""
 
     gear.Relic = {}
-    gear.Relic.Head = ""
+    gear.Relic.Head = "Lanun Tricorne +2"
     gear.Relic.Body = ""
     gear.Relic.Hands = ""
     gear.Relic.Legs = ""
@@ -23,14 +23,14 @@ function user_job_setup()
     gear.Empyrean = {}
     gear.Empyrean.Head = ""
     gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = ""
+    gear.Empyrean.Hands = "Chasseur's Gants +3"
     gear.Empyrean.Legs = ""
     gear.Empyrean.Feet = ""
 
     gear.capes = {}
     gear.capes.MeleeTP = ""
-    gear.capes.MeleeWS = gear.capes.MeleeTP
-    gear.capes.PhantomRoll = gear.capes.MeleeTP
+    gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+    gear.capes.PhantomRoll = gear.capes.MeleeWS
     gear.capes.RngMagicalWS = gear.capes.MeleeTP
     gear.capes.RngTPCape = gear.capes.RngMagicalWS
     gear.capes.RngPhysicalWS = gear.capes.RngMagicalWS
@@ -48,9 +48,9 @@ end
 
 function init_gear_sets()
 	sets.precast.CorsairRoll = {
-        --main="Lanun Knife",
-        --head=gear.Relic.Head,
-        --hands=gear.Empyrean.Hands,
+        ranged = "Compensator",
+        head=gear.Relic.Head,
+        hands=gear.Empyrean.Hands,
         --legs="Desultor Tassets",
         --neck="Regal Necklace",
         --left_ring="Barataria Ring",
@@ -130,11 +130,11 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
-        neck="Elite Royal Collar",
-        --waist="Flume Belt +1",
+        neck="Loricate Torque +1",
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
-        back=gear.capes.MeleeTP,
+        back="Solemnity Cape",
     }
 
     sets.engaged.Melee = {}
