@@ -24,10 +24,10 @@ function user_job_setup()
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Azimuth Hood +3"
-	gear.Empyrean.Body = "Azimuth Coat +2"
+	gear.Empyrean.Body = "Azimuth Coat +3"
 	gear.Empyrean.Hands = "Azimuth Gloves +3"
-	gear.Empyrean.Legs = "Azimuth Tights +1"
-	gear.Empyrean.Feet = "Azimuth Gaiters +2"
+	gear.Empyrean.Legs = "Azimuth Tights +3"
+	gear.Empyrean.Feet = "Azimuth Gaiters +3"
 
 	gear.capes.PetRegen = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','Pet: "Regen"+5',}}
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +15','Pet: Damage taken -1%',}}
@@ -62,8 +62,8 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Sanctity Necklace",
-		waist="Prosilio Belt +1",
+		neck="Rep. Plat. Medal",
+		waist="Grunfeld Rope",
 		left_ear="Malignance Earring",
 		right_ear="Ishvara Earring",
 		left_ring="Rufescent Ring",

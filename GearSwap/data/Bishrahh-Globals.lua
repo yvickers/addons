@@ -93,6 +93,18 @@ function define_global_sets()
     gear.Taeon.Legs = {}
     gear.Taeon.Feet = {}
 
+    gear.Vanya = {}
+    gear.Vanya.Head = {}
+    gear.Vanya.Head.B = { name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+    gear.Vanya.Body = {}
+    gear.Vanya.Body.B = { name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+    gear.Vanya.Hands = {}
+    gear.Vanya.Hands.B = { name="Vanya Cuffs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+    gear.Vanya.Legs = {}
+    gear.Vanya.Legs.B = { name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+    gear.Vanya.Feet = {}
+    gear.Vanya.Feet.B = { name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+
     gear.TH = {}
 
     sets.AutoBuff = {}

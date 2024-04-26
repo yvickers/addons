@@ -84,19 +84,30 @@
     </ninnyhammer>
     <tishrahh>
         <aoe>
-            <p1>false</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
         <crooked_cards>2</crooked_cards>
-        <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
-                <x>383</x>
-                <y>49</y>
+                <x>380</x>
             </pos>
         </text>
     </tishrahh>
+    <bishrahh>
+        <aoe>
+            <p2>false</p2>
+            <p3>false</p3>
+            <p4>false</p4>
+            <p5>false</p5>
+        </aoe>
+        <crooked_cards>2</crooked_cards>
+        <text>
+            <pos>
+                <x>380</x>
+            </pos>
+        </text>
+    </bishrahh>
 </settings>

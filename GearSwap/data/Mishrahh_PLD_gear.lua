@@ -31,7 +31,7 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = { name="Chev. Armet +3", priority=145 }
 	gear.Empyrean.Body = { name="Chev. Cuirass +2", priority=141 }
-	gear.Empyrean.Hands = { name="Chev. Gauntlets +2", priority=54 }
+	gear.Empyrean.Hands = { name="Chev. Gauntlets +3", priority=54 }
 	gear.Empyrean.Legs = { name="Chev. Cuisses +3", priority=127 }
 	gear.Empyrean.Feet = { name="Chev. Sabatons +3", priority=52 }
 

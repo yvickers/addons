@@ -30,7 +30,7 @@ local blackListedWords = T{
     'Bibiki Bay',
     'snkone*',
     'cooldog*',
-    'Buy?',
+    --'Buy?',
     } -- First two are '☆' and '★' symbols.
  
 windower.register_event('incoming chunk', function(id,data)

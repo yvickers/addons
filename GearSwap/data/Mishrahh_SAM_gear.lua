@@ -14,7 +14,7 @@ function user_job_setup()
 		sub="Utu Grip",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Jinpu', 'Impulse Drive', 'Sonic Thrust', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Jinpu', 'Tachi: Fudo', 'Impulse Drive', 'Sonic Thrust', }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Wakido Kabuto +3"
@@ -161,7 +161,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        feet="Danzo Sune-Ate",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
         left_ear="Eabani Earring",

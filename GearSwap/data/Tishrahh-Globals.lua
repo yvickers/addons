@@ -108,6 +108,14 @@ function define_global_sets()
     gear.Vanya.Legs.B = { name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
     gear.Vanya.Feet = {}
     gear.Vanya.Feet.B = { name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}
+
+    gear.Linos = {}
+    gear.Linos.Idle = { name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}}
+    gear.Linos.TP = { name="Linos", augments={'Accuracy+18','"Store TP"+4','Quadruple Attack +3',}}
+    gear.Linos.STRWS = { name="Linos", augments={'Attack+14','Crit.hit rate+1','STR+8',}}
+    gear.Linos.CHRWS = {}
+    gear.Linos.DEXWS = {}
+    gear.Linos.DEXCrit = {}
 end
 
 windower.register_event('ipc message', function(message)

@@ -42,8 +42,8 @@ function user_job_setup()
 	gear.Empyrean.Head = "Peltast's Mezail +3"
 	gear.Empyrean.Body = "Pelt. Plackart +3"
 	gear.Empyrean.Hands = "Pel. Vambraces +3"
-	gear.Empyrean.Legs = "Pelt. Cuissots +2"
-	gear.Empyrean.Feet = "Pelt. Schyn. +2"
+	gear.Empyrean.Legs = "Pelt. Cuissots +3"
+	gear.Empyrean.Feet = "Pelt. Schyn. +3"
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}

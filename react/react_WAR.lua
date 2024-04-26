@@ -1,4 +1,42 @@
 return {
+    ["Bozzetto Freyja"] = {
+        ["Petrifactive Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Petrifaction"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Impaling Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    },
+    ["Bozzetto Skathi"] = {
+        ["Poisonous Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Petrifaction"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Impaling Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    },
+    ["Bozzetto Frigg"] = {
+        ["Luxurious Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Chastening Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    }, 
     ["Glazemane"]={
         ["Tail Swing"]={
             ["complete_reaction"]="", 

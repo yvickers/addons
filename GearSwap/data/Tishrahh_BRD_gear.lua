@@ -1,11 +1,21 @@
 function user_job_setup()
 	state.IdleMode:options( 'Normal', 'Refresh', 'Zeni' )
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'Carn' }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Mordant Rime', }
 	gear.weapons['Default'] = {
-		main="Kali",
-		sub="Ammurapi Shield",
-		range="Gjallarhorn",
+		main="Daybreak",
+		sub="Culminus",
+		range=gear.Linos.Idle,
+	}
+	gear.weapons['Savage'] = {
+		main="Naegling",
+		sub="Culminus",
+		range=gear.Linos.TP,
+	}
+	gear.weapons['Carn'] = {
+		main="Carnwenhan",
+		sub="Culminus",
+		range=gear.Linos.TP,
 	}
 
 	gear.Artifact = {}
@@ -86,7 +96,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS = {
-		--ammo="Knobkierrie",
+		range=gear.Linos.STRWS,
 		head="Nyame Helm",
 		body=gear.Relic.Body,
 		hands=gear.Jhakri.Hands,
@@ -96,7 +106,7 @@ function init_gear_sets()
 		waist="Sailfi Belt +1",
 		--left_ear="Sherida Earring",
 		right_ear="Moonshade Earring",
-		--left_ring="Epona's Ring",
+		left_ring="Metamor. Ring +1",
 		--right_ring="Rajas Ring",
 		back=gear.capes.SavageWS,
 	}
@@ -108,7 +118,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Mnbw. Whistle +1",
+		neck="Bard's Charm +2",
 		waist="Sailfi Belt +1",
 		left_ear=="Enchntr. Earring +1",
 		right_ear="Moonshade Earring",
@@ -121,7 +131,7 @@ function init_gear_sets()
 
 	-- General Song sets --
 	sets.midcast.SongEffect = {
-		main="Kali",
+		main="Carnwenhan",
 		sub="Ammurapi Shield",
 		range="Gjallarhorn",
 		head=gear.Empyrean.Head,
@@ -134,7 +144,7 @@ function init_gear_sets()
 	}
 
 	sets.midcast.SongDebuff = {
-		main="Kali",
+		main="Carnwenhan",
 		sub="Ammurapi Shield",
 		range="Gjallarhorn",
 		head=gear.Artifact.Head,
@@ -153,7 +163,7 @@ function init_gear_sets()
 
 	-- Dummy Song Instruments --
 	sets.midcast.DummySong = {
-		main="Kali",
+		main="Carnwenhan",
 		sub="Ammurapi Shield",
 		range="Daurdabla",
 		--swap in items that don't extend duration to prevent overwriting with lag
@@ -178,7 +188,7 @@ function init_gear_sets()
 	-- Song specific sets --
 	sets.midcast.Ballad = {}
 	sets.midcast.Lullaby = {
-		main="Kali",
+		main="Carnwenhan",
 		sub="Ammurapi Shield",
 		range="Marsyas",
 		head=gear.Artifact.Head,
@@ -250,7 +260,7 @@ function init_gear_sets()
 	sets.midcast['Enhancing Magic'] = {
 		main="Pukulatmuj +1",
 		sub="Ammurapi Shield",
-		range={ name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}},
+		range=gear.Linos.Idle,
 		head="Umuthi Hat",
 		body={ name="Telchine Chas.", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}},
 		hands="Inyan. Dastanas +2",
@@ -284,7 +294,7 @@ function init_gear_sets()
 	sets.midcast['Enfeebling Magic'] = {
 		main="Daybreak",
 		sub="Ammurapi Shield",
-		range={ name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}},
+		range=gear.Linos.Idle,
 		head="Fili Calot +3",
 		body={ name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 		hands="Inyan. Dastanas +2",
@@ -321,7 +331,7 @@ function init_gear_sets()
 	sets.idle = {
 		main="Daybreak",
 		sub="Culminus",
-		range="Linos",
+		range=gear.Linos.Idle,
 		head=gear.Empyrean.Head,
 		body="Nyame Mail",
 		hands=gear.Empyrean.Hands,
@@ -351,18 +361,18 @@ function init_gear_sets()
 		right_ring="Stikini Ring +1",
 	})
 	sets.idle.Zeni = set_combine(sets.idle, {
-		range="Soultrapper 2000",
-		ammo="Blank Soulplate",
+		neck="Bard's Charm +2",
+		--range="Soultrapper 2000",
+		--ammo="Blank Soulplate",
 	})
 
 	sets.engaged = {
-		main="Naegling",
 		head="Bunzi's Hat",
 		body=gear.Ayanmo.Body,
 		hands="Bunzi's Gloves",
 		legs=gear.Empyrean.Legs,
 		feet=gear.Ayanmo.Feet,
-		neck="Sanctity Necklace",
+		neck="Bard's Charm +2",
 		waist="Sailfi Belt +1",
 		left_ear="Suppanomimi",
 		right_ear="Crep. Earring",
@@ -380,7 +390,11 @@ function init_gear_sets()
 	sets.engaged.Acc = set_combine(sets.engaged, {
 	})
 
-	sets.latent_refresh = {}
+	sets.latent_refresh = {
+		--legs="Volte Brais",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+	}
 end
 
 -- Select default macro book on initial load or subjob change.

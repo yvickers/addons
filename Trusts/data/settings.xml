@@ -95,11 +95,8 @@
                 <2>Kupofried</2>
             </aoe>
             <avatar>
-                <1>Selh&apos;teus</1>
-                <2>AAEV</2>
-                <3>Amchuchu</3>
-                <4>Yoran-Oran (UC)</4>
-                <5>Koru-Moru</5>
+                <1>Monberaux</1>
+                <2>King of Hearts</2>
             </avatar>
             <bakunawa>
                 <1>August</1>
@@ -110,10 +107,10 @@
             </bakunawa>
             <bishrahh>
                 <1>Valaineral</1>
-                <2>Zeid II</2>
+                <2>Qultada</2>
                 <3>Shantotto II</3>
-                <4>Halver</4>
-                <5>Sylvie (UC)</5>
+                <4>Sylvie (UC)</4>
+                <5>Koru-Moru</5>
             </bishrahh>
             <blucleave>
                 <1>Brygid</1>
@@ -419,11 +416,8 @@
                 <5>Amchuchu</5>
             </odytank>
             <omen>
-                <1>August</1>
-                <2>Iroha II</2>
-                <3>Shantotto II</3>
-                <4>Koru-Moru</4>
-                <5>Yoran-Oran (UC)</5>
+                <1>Monberaux</1>
+                <2>Koru-Moru</2>
             </omen>
             <omenblu>
                 <1>Valaineral</1>
@@ -485,9 +479,8 @@
                 <5>Koru-Moru</5>
             </shinryu>
             <sortie>
-                <1>Valaineral</1>
-                <2>Monberaux</2>
-                <3>Koru-Moru</3>
+                <1>Monberaux</1>
+                <2>Valaineral</2>
             </sortie>
             <temp>
                 <1>Joachim</1>

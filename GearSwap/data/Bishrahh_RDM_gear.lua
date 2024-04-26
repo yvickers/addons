@@ -4,7 +4,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Crocea', 'Naegling' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		main="Daybreak",
+		main="Bolelabunga",
 		sub="Culminus",
 	}
 	gear.weapons['Crocea'] = {
@@ -18,23 +18,23 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Atrophy Chapeau +3"
-	gear.Artifact.Body = "Atrophy Tabard +3"
+	gear.Artifact.Body = "Atrophy Tabard +1"
 	gear.Artifact.Hands = "Atrophy Gloves +3"
-	gear.Artifact.Legs = "Atrophy Tights +1"
-	gear.Artifact.Feet = ""
+	gear.Artifact.Legs = "Atrophy Tights"
+	gear.Artifact.Feet = "Atrophy Boots"
 
 	gear.Relic = {}
 	gear.Relic.Head = "Viti. Chapeau +3"
-	gear.Relic.Body = "Viti. Tabard +3"
+	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Vitiation Boots +3"
+	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Leth. Chappel +3"
 	gear.Empyrean.Body = "Lethargy Sayon +3"
-	gear.Empyrean.Hands = "Leth. Ganth. +3"
-	gear.Empyrean.Legs = "Leth. Fuseau +3"
+	gear.Empyrean.Hands = "Leth. Ganth. +2"
+	gear.Empyrean.Legs = "Leth. Fuseau +2"
 	gear.Empyrean.Feet = "Leth. Houseaux +3"
 
 	gear.capes = {}
@@ -65,19 +65,19 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		main="Crocea Mors",
+		main="Bolelabunga",
 		sub="Culminus",
 		ammo="Impatiens",
 		head=gear.Artifact.Head,
-		body=gear.Relic.Body,
-		hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+		body="Rosette Jaseran +1",
+		hands=gear.Ayanmo.Hands,
 		legs=gear.Ayanmo.Legs,
-		feet=gear.Empyrean.Feet,
+		feet=gear.Ayanmo.Feet,
 		neck="Voltsurge Torque",
 		waist="Embla Sash",
-		left_ear="Enchntr. Earring +1",
-		right_ear="Lethargy Earring +2",
-		left_ring="Medada's Ring",
+		left_ear="Loquac. Earring",
+		right_ear="Lethargy Earring +1",
+		left_ring="Jhakri Ring",
 		right_ring="Weather. Ring",
 		back=gear.capes.FC,
 	}
@@ -144,22 +144,22 @@ function init_gear_sets()
 	sets.midcast.FastRecast = {}
 
     sets.midcast.Cure = {
-		main="Daybreak",
+		main="Bolelabunga",
     	sub="Sors Shield",
 		range=empty,
-		ammo="Quartz Tathlum +1",
         head=gear.Vanya.Head.B,
-		body=gear.Relic.Body,
-		hands="Kaykaus Cuffs +1",
-		legs=gear.Artifact.Legs,
+        body=gear.Vanya.Body.B,
+		--body=gear.Relic.Body,
+		--hands="Kaykaus Cuffs +1",
+		--legs=gear.Artifact.Legs,
 		feet=gear.Vanya.Feet.B,
-		neck="Debilis Medallion",
-		left_ear="Meili Earring",
-		right_ear="Mendi. Earring",
+		--neck="Debilis Medallion",
+		--left_ear="Meili Earring",
+		--right_ear="Mendi. Earring",
 		left_ring="Lebeche Ring",
 		right_ring="Menelaus's Ring",
         back="Oretan. Cape +1",
-		waist="Luminary Sash",
+		waist="Witful Belt",
 		
 	}
 		
@@ -171,7 +171,7 @@ function init_gear_sets()
 	})
 		
 	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {
-		neck="Debilis Medallion",
+		--neck="Debilis Medallion",
 		--hands="Hieros Mittens",
 		feet="Gende. Galosh. +1",
 		back="Oretan. Cape +1",
@@ -196,7 +196,7 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Dls. Torque +1",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring +2",
+		right_ear="Lethargy Earring +1",
 		ring1="Stikini Ring +1",
 		ring2="Stikini Ring +1",
 		back=gear.capes.Enhancing,
@@ -388,11 +388,11 @@ function init_gear_sets()
 		head=gear.Relic.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
-		legs="Carmine Cuisses +1",
+		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Gishdubar Sash",
-		left_ear="Etiolation Earring",
+		waist="Embla Sash",
+		left_ear="Flashward Earring",
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",

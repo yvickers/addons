@@ -140,7 +140,10 @@ function init_gear_sets()
 		right_ring="Stikini Ring +1",
 		back=gear.capes.GeoSkill,
 	}
-	sets.midcast.Dispel = {}
+	sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'],{
+		main="Daybreak",
+	})
+	sets.midcast.Dispel = sets.midcast['Enfeebling Magic']
 
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast.Stoneskin = {

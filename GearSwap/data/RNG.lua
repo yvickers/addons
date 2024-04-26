@@ -151,8 +151,10 @@ function init_gear_sets()
     sets.midcast.RA = {}
 
     sets.midcast.RA.Acc = {}
+    sets.midcast.RA.DoubleShot = {}
     sets.TrueShot = {}
     sets.midcast.RA.Critical = {}
+    sets.midcast.RA.CriticalDoubleShot = {}
 
 
     --------------------------------------
@@ -261,10 +263,17 @@ end
 -- Run after the general midcast() set is constructed.
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Ranged Attack' then
-       if buffactive['Aftermath: Lv.3'] and player.equipment.ranged == "Armageddon" then
+        if buffactive['Double Shot'] then
+            equip(sets.midcast.RA.DoubleShot)
+        end
+
+        if buffactive['Aftermath: Lv.3'] and player.equipment.ranged == "Armageddon" then
             equip(sets.midcast.RA.Critical)
             if (spell.target.distance < (7 + spell.target.model_size)) and (spell.target.distance > (5 + spell.target.model_size)) then
                 equip(sets.TrueShot)
+            end
+            if buffactive['Double Shot'] then
+                equip(sets.midcast.RA.CriticalDoubleShot)
             end
         end
     end

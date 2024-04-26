@@ -354,6 +354,20 @@ function init_gear_sets()
         left_ring="Defending Ring",
     })
 
+    sets.HP = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Tuisto Earring",
+        left_ring={name="Moonlight Ring",priority=110},
+		right_ring={name="Moonlight Ring",priority=110},
+    }
+
 end
 
 -- Select default macro book on initial load or subjob change.

@@ -48,9 +48,14 @@
     <mishrahh>
         <display>
             <pos>
-                <x>163</x>
-                <y>97</y>
+                <x>406</x>
+                <y>59</y>
             </pos>
+            <text>
+                <fonts>
+
+                </fonts>
+            </text>
         </display>
     </mishrahh>
 </settings>

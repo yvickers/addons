@@ -9,16 +9,16 @@ function user_job_setup()
         ammo="Hauksbok Arrow",
     }
     gear.weapons['Ranged'] = {
-        main='Malevolence',
-        sub='Malevolence',
-        range="Doomsday",
-        ammo="Devastating Bullet",
+        main='Perun +1',
+        sub="Ternion Dagger +1",
+        range="Annihilator",
+        ammo="Chrono Bullet",
     }
     gear.weapons['Arma'] = {
         main='Tauret',
         sub="Gleti's Knife",
         ranged="Armageddon",
-        ammo="Devastating Bullet",
+        ammo="Chrono Bullet",
     }
     gear.weapons['Savage'] = {
         main='Naegling',
@@ -27,28 +27,28 @@ function user_job_setup()
         ammo="Hauksbok Arrow",
     }
     
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Coronach', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
 
     gear.Artifact = {}
     gear.Artifact.Head = "Orion Beret +3"
     gear.Artifact.Body = "Orion Jerkin +1"
-    gear.Artifact.Hands = ""
+    gear.Artifact.Hands = "Orion Bracers +3"
     gear.Artifact.Legs = ""
-    gear.Artifact.Feet = ""
+    gear.Artifact.Feet = "Orion Socks +3"
 
     gear.Relic = {}
     gear.Relic.Head = "Arcadian Beret +3"
-    gear.Relic.Body = ""
+    gear.Relic.Body = "Arc. Jerkin +3"
     gear.Relic.Hands = ""
     gear.Relic.Legs = "Arc. Braccae +3"
     gear.Relic.Feet = "Arcadian Socks +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
-    gear.Empyrean.Body = "Amini Caban +2"
-    gear.Empyrean.Hands = "Amini Glove. +2"
-    gear.Empyrean.Legs = "Amini Bragues +2"
-    gear.Empyrean.Feet = ""
+    gear.Empyrean.Head = "Amini Gapette +3"
+    gear.Empyrean.Body = "Amini Caban +3"
+    gear.Empyrean.Hands = "Amini Glove. +3"
+    gear.Empyrean.Legs = "Amini Bragues +3"
+    gear.Empyrean.Feet = "Amini Bottillons +3"
 
     gear.capes = {}
     gear.capes.DexTP = { name="Belenus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
@@ -91,7 +91,7 @@ function init_gear_sets()
     } )
 
     sets.Kiting = {
-        --feet=gear.Artifact.Feet
+        feet=gear.Artifact.Feet
     }
 
     --------------------------------------
@@ -113,6 +113,7 @@ function init_gear_sets()
         head=gear.Herc.Head.TH,
         hands="Leyline Gloves",
         neck="Voltsurge Torque",
+        waist="Witful Belt",
         left_ring="Weather. Ring +1",
         right_ring="Lebeche Ring",
         left_ear="Loquac. Earring",
@@ -123,11 +124,10 @@ function init_gear_sets()
 
     -- Ranged snapshot gear
     sets.precast.RA = {
-        head={ name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}},
+        head=gear.Artifact.Head,
         body=gear.Empyrean.Body,
         hands="Carmine Fin. Ga. +1",
-        legs=gear.Adhemar.Legs.D,
-        --legs=gear.Artifact.Legs,
+        legs=gear.Artifact.Legs,
         feet=gear.Meghanada.Feet,
         neck="Scout's Gorget +2",
         waist="Yemaya Belt",
@@ -138,10 +138,10 @@ function init_gear_sets()
     sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
         head=gear.Artifact.Head,
         legs=gear.Adhemar.Legs.D,
+        feet=gear.Relic.Feet,
     })
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-        feet=gear.Relic.Feet, 
     })
 
 
@@ -151,39 +151,41 @@ function init_gear_sets()
     sets.precast.WS = {
         head=gear.Artifact.Head,
         body="Nyame Mail",
-        hands="Carmine Fin. Ga. +1",
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Scout's Gorget +2",
-        waist="Eschan Stone",
-        back=gear.capes.MagicalRangedWS,
-        left_ear="Friomisi Earring",
-        right_ear="Moonshade Earring",
-        left_ring="Dingir Ring",
-        right_ring="Ilabrat Ring",
-    }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-    } )
-    sets.precast.WSPhysical = set_combine(sets.precast.WS, {
-        hands=gear.Meghanada.Hands,
-        legs=gear.Relic.Legs,
-        waist="K. Kachina Belt +1",
-        back=gear.capes.PhysicalRangedWS,
-        left_ear="Telos Earring",
-        right_ear="Moonshade Earring",
+        neck="Rep. Plat. Medal",
+        waist="Sailfi Belt +1",
+        back=gear.capes.PhysicalMeleeWS,
+        left_ear="Moonshade Earring",
+        right_ear="Amini Earring +1",
         left_ring="Epaminondas's Ring",
-        right_ring="Sroda Ring",
+        right_ring="Regal Ring",
+    }
+
+    sets.precast.MagicalWS = set_combine(sets.precast.WS, {
+        waist="Orpheus's Sash",
+        back=gear.capes.MagicalRangedWS,
+        left_ear="Moonshade Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Dingir Ring",
     } )
 
-    sets.precast.WS["Apex Arrow"] = set_combine(sets.precast.WSPhysical, {  
-    } )
-    sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WSPhysical, {  
-    } )
-    sets.precast.WS["Sidewinder"] = set_combine(sets.precast.WSPhysical, {  
-    } )
-    sets.precast.WS["Last Stand"] = set_combine(sets.precast.WSPhysical, {
+    sets.precast.WS["Coronach"] = set_combine(sets.precast.WS, {
+        ammo="Chrono Bullet",
+        body=gear.Empyrean.Body,
+        --feet=gear.Empyrean.Feet,
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear="Ishvara Earring",
-        right_ring="Dingir Ring",
+    } )
+    sets.precast.WS["Last Stand"] = set_combine(sets.precast, {
+        body=gear.Empyrean.Body,
+        --feet=gear.Empyrean.Feet,
+        right_ear="Ishvara Earring",
+        light_ring="Dingir Ring",
+        neck="Fotia Gorget",
         waist="Fotia Belt",
     } )
     sets.precast.WS["Trueflight"] = set_combine(sets.precast.WS, {
@@ -196,7 +198,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -204,12 +206,6 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",		
     } )
 
-    sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WSPhysical, {
-        neck="Rep. Plat. Medal",
-        waist="Sailfi Belt +1",
-        left_ear="Ishvara Earring",
-        back=gear.capes.PhysicalMeleeWS,
-    } )
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS, {
         head=gear.Adhemar.Head.B,
         body=gear.Mummu.Body,
@@ -223,20 +219,7 @@ function init_gear_sets()
         right_ring="Ilabrat Ring",
         back=gear.capes.DexTP,
     } )
-    sets.precast.WS["Decimation"] = set_combine(sets.precast.WS, {
-        head=gear.Adhemar.Head.B,
-        body=gear.Mummu.Body,
-        hands=gear.Adhemar.Hands.B,
-        legs=gear.Meghanada.Legs,
-        feet=gear.Adhemar.Feet.B,
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Sherida Earring",
-        right_ear="Brutal Earring",
-        left_ring="Regal Ring",
-        right_ring="Epona's Ring",
-        back=gear.capes.PhysicalMeleeWS,
-    } )
+
     sets.FullTP = {}
 
     --------------------------------------
@@ -251,29 +234,67 @@ function init_gear_sets()
     -- Ranged gear
     sets.midcast.RA = {
         head=gear.Relic.Head,
-        body="Nisroch Jerkin",
-        hands="Malignance Gloves",
-        legs=gear.Adhemar.Legs.C,
-        feet="Malignance Boots",
+        body="Ikenga's Vest",
+        hands=gear.Empyrean.Hands,
+        legs=gear.Empyrean.Legs,
+        feet="Ikenga's Clogs",
         neck="Scout's Gorget +2",
-        waist="K. Kachina Belt +1",
-        left_ear="Crep. Earring",
+        waist="Yemaya Belt",
+        left_ear="Dedition Earring",
         right_ear="Telos Earring",
         left_ring="Regal Ring",
-        right_ring="Crepuscular Ring",
+        right_ring="Ilabrat Ring",
         back=gear.capes.RNGTP,
     }
 
-    sets.midcast.RA.Acc = {}
-    sets.TrueShot = {}
-    sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
+    sets.midcast.RA.Acc = set_combine(sets.midcast.RA,{
+        left_ear="Beyla Earring",
+        right_ear="Crep. Earring",
+        left_ring="Crepuscular Ring",
+        right_ring="Cacoethic Ring +1",
+        waist="K. Kachina Belt +1",
+    })
+    sets.midcast.RA.DoubleShot = {
+        head=gear.Relic.Head,
+        body=gear.Relic.Body,
+        hands="Ohsosi Gloves +1",
+        legs="Osh. Trousers +1",
+        feet="Osh. Leggings +1",
+        back=gear.capes.RNGTP,
+    }
+    sets.TrueShot = {
+        body="Nisroch Jerkin",
+        legs=gear.Empyrean.Legs,
+        --feet="Ikenga's Clogs",
+        waist="Tellen Belt",
+    }
+    
+    sets.midcast.RA.Critical =  {
         head=gear.Meghanada.Head,
-        hands=gear.Empyrean.Hands,
+        body="Nisroch Jerkin",
+        hands=gear.Mummu.Hands,
         legs=gear.Empyrean.Legs,
         feet="Osh. Leggings +1",
+        left_ear="Odr Earring",
+        right_ear="Amini Earring",
+        left_ring="Mummu Ring",
         right_ring="Begrudging Ring",
+        waist="K. Kachina Belt +1",
         back=gear.capes.CritTP,
-    })
+    }
+    sets.midcast.RA.CriticalDoubleShot = {
+        head=gear.Meghanada.Head,
+        body=gear.Relic.Body,
+        hands="Ohsosi Gloves +1",
+        legs="Osh. Trousers +1",
+        feet="Osh. Leggings +1",
+        left_ear="Odr Earring",
+        right_ear="Amini Earring",
+        left_ring="Mummu Ring",
+        right_ring="Begrudging Ring",
+        waist="K. Kachina Belt +1",
+        back=gear.capes.CritTP,
+    }
 
 
     --------------------------------------
@@ -286,18 +307,18 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
+        head=gear.Empyrean.Head,
+        body="Nyame Mail",
+        hands=gear.Empyrean.Hands,
         legs="Carmine Cuisses +1",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",
-        waist="Flume Belt +1",
-        back=gear.capes.DexTP,
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
+        feet=gear.Artifact.Feet,
+        neck="Bathy Choker +1",
+        waist="Plat. Mog. Belt",
+        left_ear="Eabani Earring",
+        right_ear="Infused Earring",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
+        back=gear.capes.DexTP,
     }
 
     sets.idle.Town = set_combine(sets.idle,{})
@@ -320,25 +341,25 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-        head=gear.Adhemar.Head.B,
+        head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands=gear.Adhemar.Hands.A,
-        legs="Samnuha Tights",
-        feet="Malignance Boots",
+        hands=gear.Empyrean.Hands,
+        legs=gear.Empyrean.Legs,
+        feet="Tatena. Sune. +1",
         neck="Scout's Gorget +2",
         waist="Sailfi Belt +1",
         back=gear.capes.DexTP,
-        left_ear="Sherida Earring",
-        right_ear="Suppanomimi",
-        left_ring="Petrov Ring",
+        left_ear="Dedition Earring",
+        right_ear="Sherida Earring",
+        left_ring="Defending Ring",
         right_ring="Epona's Ring",
     }
     sets.engaged.Acc = set_combine(sets.engaged, {
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands=gear.Empyrean.Hands,
-        legs="Malignance Tights",
         feet="Malignance Boots",
+        right_ear="Crep. Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
     })
@@ -346,28 +367,15 @@ function init_gear_sets()
     sets.engaged.Evasion = set_combine(sets.engaged, {})
 
     sets.engaged.PDT = set_combine(sets.engaged, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
         feet="Malignance Boots",
     })
 
     sets.engaged.MDT = set_combine(sets.engaged, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",
-        right_ear="Crep. Earring",
-        left_ring="Defending Ring",
-        right_ring="Crepuscular Ring",
     })
 
 end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 14)
+    --set_macro_page(1, 14)
 end

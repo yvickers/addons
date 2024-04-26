@@ -11,7 +11,7 @@ function user_job_setup()
 		ranged="Trollbane",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Victory Smite', 'Raging Fists', 'Tornado Kick', 'Howling Fist', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Victory Smite', 'Shijin Spiral', 'Raging Fists', 'Tornado Kick', 'Howling Fist', }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Temple Crown"
@@ -30,7 +30,7 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""
 	gear.Empyrean.Body = "Bhikku Cyclas +3"
-	gear.Empyrean.Hands = ""
+	gear.Empyrean.Hands = "Bhikku Gloves +3"
 	gear.Empyrean.Legs = "Bhikku Hose +3"
 	gear.Empyrean.Feet = ""
 
@@ -91,50 +91,83 @@ function init_gear_sets()
 		feet="Mpaca's Boots",
 		neck="Mnk. Nodowa +2",
 		waist="Moonbow Belt +1",
-		left_ear="Sherida Earring",
-		right_ear="Moonshade Earring",
+		left_ear="Moonshade Earring",
+		right_ear="Schere Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Gere Ring",
 		back=gear.capes.StrDA,
 	}
 
 	sets.precast.WS['Raging Fists']    = set_combine(sets.precast.WS, {
-		head="Ken. Jinpachi +1",
-		body="Ken. Samue +1",
-		hands=gear.Adhemar.Hands.B,
-		neck="Fotia Gorget",
-	})
-	sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		feet="Nyame Sollerets",
-		neck="Fotia Gorget",
-		left_ear="Schere Earring",
-	})
-	sets.precast.WS['Tornado Kick']    = set_combine(sets.precast.WS, {
-		body="Ken. Samue +1",
-		hands=gear.Adhemar.Hands.B,
-		feet=gear.Artifact.Feet,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs="Nyame Flanchard",
+		ammo="Coiste Bodhar",
+		neck="Rep. Plat. Medal",
 	})
 	sets.precast.WS["Ascetic's Fury"]    = set_combine(sets.precast.WS, {
 		head=gear.Adhemar.Head.B,
-		hands=gear.Adhemar.Hands.B,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		feet="Ken. Sune-Ate +1",
+		ammo="Crep. Pebble",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Sherida Earring",
 	})
 	sets.precast.WS["Victory Smite"]   = set_combine(sets.precast.WS, {
-		head=gear.Adhemar.Head.B,
-		body="Ken. Samue +1",
-		hands=gear.Adhemar.Hands.B,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		ammo="Coiste Bodhar",
 		neck="Fotia Gorget",
-		right_ear="Odr Earring",
+		left_ear="Sherida Earring",
 	})
 	sets.precast.WS['Shijin Spiral']   = set_combine(sets.precast.WS, {
-		ammo="Aurgelmir Orb",
-		head="Ken. Jinpachi +1",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
+		ammo="Coiste Bodhar",
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs="Nyame Flanchard",
 		neck="Fotia Gorget",
 		back=gear.capes.DexTP,
-		right_ear="Mache Earring +1",
+		left_ear="Sherida Earring",
+	})
+	sets.precast.WS['Asuran Fists']   = set_combine(sets.precast.WS, {
+		ammo="Coiste Bodhar",
+		head="Nyame Helm",
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		back=gear.capes.StrDA,
+		left_ear="Sherida Earring",
+	})
+	
+	sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		ammo="Coiste Bodhar",
+		neck="Fotia Gorget",
+		left_ear="Schere Earring",
+	})
+	sets.precast.WS['Dragon Kick']    = set_combine(sets.precast.WS, {
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet=gear.Artifact.Feet,
+		ammo="Coiste Bodhar",
+		neck="Monk's Nodowa +2",
+	})
+	sets.precast.WS['Tornado Kick']    = set_combine(sets.precast.WS, {
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet=gear.Artifact.Feet,
+		ammo="Coiste Bodhar",
+		neck="Monk's Nodowa +2",
 	})
 
 	sets.precast.WS['Cataclysm']   = set_combine(sets.precast.WS, {

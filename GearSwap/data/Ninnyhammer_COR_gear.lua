@@ -1,5 +1,5 @@
 function user_job_setup()
-    state.IdleMode:options( 'Normal', 'Zeni' )
+    state.IdleMode:options( 'Normal', 'Zeni', 'Regain' )
 
 	state.Bullet = M{['description']='Bullet', 'Living Bullet', 'Chrono Bullet', }
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
@@ -332,6 +332,10 @@ function init_gear_sets()
 		range="Soultrapper 2000",
 		ammo="Blank Soulplate",
 	})
+    sets.idle.Regain = set_combine(sets.idle, {
+        neck="Rep. Plat. Medal",
+        right_ring="Karieyh Ring",
+    })
 
     sets.engaged.Melee = {
         head=gear.Empyrean.Head,
