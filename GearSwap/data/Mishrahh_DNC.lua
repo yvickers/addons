@@ -90,16 +90,17 @@ function job_setup()
     gear.Relic.Feet = ""
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = ""
-    gear.Empyrean.Body = ""
-    gear.Empyrean.Hands = ""
-    gear.Empyrean.Legs = ""
-    gear.Empyrean.Feet = ""
+    gear.Empyrean.Head = "Maculele Tiara +3"
+    gear.Empyrean.Body = "Macu. Casaque +2"
+    gear.Empyrean.Hands = "Macu. Bangles +2"
+    gear.Empyrean.Legs = "Maculele Tights +2"
+    gear.Empyrean.Feet = "Macu. Toe Sh. +2"
 
     gear.capes = {}
     gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
-    gear.capes.Crit = gear.capes.TP--{ name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
-    gear.capes.WSDMG = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+4','Weapon skill damage +10%',}}
+    gear.capes.Crit = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
+    gear.capes.WSDMG = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+    gear.capes.STRWS = { name="Senuna's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+3','Weapon skill damage +10%',}}
 
     function calculate_step_feet_reduction()
         local tp_reduction = 0
@@ -153,15 +154,7 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
-    sets.TreasureHunter = {
-        --ammo="Per. Lucky Egg",
-        head='Volte Cap',
-        hands=gear.Herc.Hands.TH,
-        body=gear.Herc.Body.TH,
-        --waist="Chaac Belt",
-        legs=gear.Herc.Legs.TH,
-        --feet=gear.Empyrean.Feet
-    }
+    sets.TreasureHunter = gear.TH.Herc
     
     -- Precast Sets
     
@@ -183,15 +176,17 @@ function init_gear_sets()
         back="Toetapper Mantle",
         waist="Prosilio Belt +1",
 --        legs="Nahtirah Trousers",
---        feet="Maxixi Toe Shoes"
+        feet=gear.Empyrean.Feet
     }
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
     
 --    sets.precast.Samba = {head="Maxixi Tiara"}
-
---    sets.precast.Jig = {legs="Horos Tights", feet="Maxixi Toe Shoes"}
+    sets.precast.Jig = {
+        --legs="Horos Tights",
+        feet=gear.Empyrean.Feet
+    }
 
     sets.precast.Step = {
         --waist="Chaac Belt"
@@ -216,7 +211,7 @@ function init_gear_sets()
     
     sets.precast.FC = {
 --        ammo="Impatiens",
---        head="Haruspex Hat",
+--        head="Haruspex Hat"   ,
 --        ear2="Loquacious Earring",
 --        hands="Thaumas Gloves",
 --        ring1="Prolix Ring"
@@ -229,12 +224,12 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head=gear.Empyrean.Head,
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Rep. Plat. Medal",
+        neck="Etoile Gorget +2",
         waist="Kentarch Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear={ name="Macu. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+17','Mag. Acc.+17','"Store TP"+6','DEX+9 AGI+9',}},
@@ -247,20 +242,31 @@ function init_gear_sets()
         body="Gleti's Cuirass",
     })
 
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-        ammo="Coiste Bodhar",
-        head="Blistering Sallet +1",
-        neck="Fotia Gorget",
-        ear1="Moonshade Earring",
-        ear2="Odr Earring",
+    sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS, {
         body="Gleti's Cuirass",
-        hands=gear.Adhemar.Hands.A,
-        ring1="Regal Ring",
-        ring2="Gere Ring",
-        back=gear.capes.Crit,
+        hands=gear.Adhemar.Hands.B,
+        feet=gear.Adhemar.Feet.B,
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
+        left_ear="Sherida Earring",
+        neck="Fotia Gorget",
         waist="Fotia Belt",
+        back=gear.capes.STRWS,
+    })
+    sets.precast.WS['Pyrrhic Kleos'].Buffed = set_combine(sets.precast.WS['Pyrrhic Kleos'], {})
+
+    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
+        head="Blistering Sallet +1",
+        body="Gleti's Cuirass",
+        hands=gear.Adhemar.Hands.B,
         legs="Gleti's Breeches",
         feet=gear.Adhemar.Feet.B,
+        neck="Fotia Gorget",
+        left_ear="Odr Earring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
+        back=gear.capes.Crit,
+        waist="Fotia Belt",
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine( sets.precast.WS, {
@@ -338,19 +344,19 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
+        head=gear.Empyrean.Head,
+        body="Gleti's Cuirass",
+        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
         legs="Gleti's Breeches",
-        feet="Malignance Boots",
+        feet=gear.Empyrean.Feet,
         ammo="Coiste Bodhar",
-        neck="Anu Torque",
-        waist="Patentia Sash",
+        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         back=gear.capes.TP,
         left_ear="Sherida Earring",
-        right_ear="Dedition Earring",
-        left_ring="Epona's Ring",
-        right_ring="Gere Ring",
+        right_ear={ name="Macu. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+17','Mag. Acc.+17','"Store TP"+6','DEX+9 AGI+9',}},
+        left_ring="Gere Ring",
+        right_ring="Chirich Ring +1",
     }
 
     sets.engaged.Acc = set_combine(sets.engaged, {})
@@ -362,19 +368,8 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Malignance Boots",
-        left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
-    })
-
-    sets.engaged.MDT = set_combine(sets.engaged, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
+        right_ring="Moonlight Ring",
     })
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
@@ -395,7 +390,7 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
 
-    if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' and player.tp > (999 + step_cost()) then
+    if spell.type == 'WeaponSkill' and state.AutoBuffMode.current == 'on' and player.tp > (999 + step_cost()) then
         local abil_recasts = windower.ffxi.get_ability_recasts()
         if under3FMs() and abil_recasts[220] < latency and (abil_recasts[236] < latency or state.Buff['Presto']) and player.status == 'Engaged' then
             eventArgs.cancel = true
@@ -412,18 +407,6 @@ function job_precast(spell, action, spellMap, eventArgs)
         elseif not under3FMs() and not state.Buff['Climactic Flourish'] and abil_recasts[222] < latency then
             eventArgs.cancel = true
             windower.chat.input('/ja "Building Flourish" <me>')
-            windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-            tickdelay = os.clock() + 1.25
-            return
-        elseif player.sub_job == 'SAM' and player.tp > 1850 and abil_recasts[140] < latency then
-            eventArgs.cancel = true
-            windower.chat.input('/ja "Sekkanoki" <me>')
-            windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-            tickdelay = os.clock() + 1.25
-            return
-        elseif player.sub_job == 'SAM' and abil_recasts[134] < latency then
-            eventArgs.cancel = true
-            windower.chat.input('/ja "Meditate" <me>')
             windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
             tickdelay = os.clock() + 1.25
             return
@@ -457,7 +440,7 @@ end
 function job_aftercast(spell, action, spellMap, eventArgs)
     -- Lock feet after using Mana Wall.
     if not spell.interrupted then
-        if spell.type == 'WeaponSkill' and state.Buff['Climactic Flourish'] and not under3FMs() and player.tp < 999 then
+        if spell.type == 'WeaponSkill' and state.AutoBuffMode.current == 'on' and state.Buff['Climactic Flourish'] and not under3FMs() and player.tp < 999 then
             local abil_recasts = windower.ffxi.get_ability_recasts()
             if abil_recasts[222] < latency then
                 windower.chat.input:schedule(1.5,'/ja "Reverse Flourish" <me>')
@@ -517,15 +500,6 @@ end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     -- Check that ranged slot is locked, if necessary
     check_range_lock()
-end
-
--- Function to lock the ranged slot if we have a ranged weapon equipped.
-function check_range_lock()
-    if player.equipment.range ~= 'empty' then
-        disable('range', 'ammo')
-    else
-        enable('range', 'ammo')
-    end
 end
 
 -- Check for various actions that we've specified in user code as being used with TH gear.
@@ -617,6 +591,7 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
+    user_self_command( cmdParams, eventArgs )
     if cmdParams[1] == 'step' then
         local doStep = ''
          if cmdParams[2] == 'secondary' then
@@ -688,16 +663,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'WAR' then
-        set_macro_page(1, 1)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(1, 1)
-    elseif player.sub_job == 'SAM' then
-        set_macro_page(1, 1)
-    else
-        set_macro_page(1, 1)
-    end
+    set_macro_page(1, 20)
 end
 
 function under3FMs()
@@ -715,7 +681,7 @@ function job_tick()
 end
 
 function automatic_job_buffs()
-    if state.AutoBuffMode.value ~= 'Off' then
+    if state.AutoBuffMode.current == 'on' then
         local abil_recasts = windower.ffxi.get_ability_recasts()
 
         if not buffactive['Finishing Move 1'] and not buffactive['Finishing Move 2'] and not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5'] and not buffactive['Finishing Move (6+)'] and abil_recasts[223] < latency then
@@ -724,24 +690,6 @@ function automatic_job_buffs()
             return true
         end
         
-        if player.in_combat then
-
-
-            if player.sub_job == 'WAR' then
-                if not buffactive.Berserk and 
-                    abil_recasts[1] < latency then
-                    windower.chat.input('/ja "Berserk" <me>')
-                    tickdelay = os.clock() + jatickdelay
-                    return true
-                elseif not buffactive.Aggressor and abil_recasts[4] < latency then
-                    windower.chat.input('/ja "Aggressor" <me>')
-                    tickdelay = os.clock() + jatickdelay
-                    return true
-                else
-                    return false
-                end
-            end
-        end
     end
 
     return false

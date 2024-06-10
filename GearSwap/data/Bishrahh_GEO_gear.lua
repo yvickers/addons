@@ -111,7 +111,7 @@ function init_gear_sets()
 	})
 	sets.midcast['Elemental Magic'] = {
 		main="Marin Staff +1",
-		sub="Benthos Grip",
+		sub="Enki Strap",
 		ammo="Ghastly Tathlum +1",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
@@ -130,6 +130,25 @@ function init_gear_sets()
 		waist="Fucho-no-Obi",
 	})
 	sets.midcast.Stun = {}
+
+	sets.midcast['Banish'] = {
+		main="Marin Staff +1",
+		sub="Enki Strap",
+		ammo="Ghastly Tathlum +1",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+		neck="Sanctity Necklace",
+		back=gear.capes.MAB,
+		waist="Eschan Stone",
+		left_ring="Weather. Ring",
+		right_ring="Metamor. Ring +1",
+		left_ear="Friomisi Earring",
+		right_ear="Azimuth Earring +2",
+	}
+	sets.midcast['Banish II'] = sets.midcast['Banish']
 
 	sets.midcast['Enfeebling Magic'] = {
 		head=gear.Empyrean.Head,
@@ -177,7 +196,7 @@ function init_gear_sets()
 		feet=gear.Artifact.Feet,
 		neck="Loricate Torque +1",
 		left_ear="Eabani Earring",
-		right_ear="Flashward Earring",
+		right_ear="Lugalbanda Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back="Solemnity Cape",
@@ -191,7 +210,7 @@ function init_gear_sets()
 		head=gear.Empyrean.Head,
 		body="Shamash Robe",
 		hands=gear.Artifact.Hands,
-		legs="Telchine Braconi",
+		legs=gear.Telchine.Legs.PetRegen,
 		feet=gear.Relic.Feet,
 		neck="Bagua Charm +2",
 		waist="Isa Belt",

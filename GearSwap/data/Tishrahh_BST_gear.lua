@@ -122,9 +122,3 @@ function init_gear_sets()
 	sets.engaged.Acc = set_combine(sets.engaged, {
 	})
 end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    set_macro_page(1, 20)
-end

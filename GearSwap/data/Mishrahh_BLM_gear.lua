@@ -2,8 +2,8 @@ function user_job_setup()
     state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Refresh', }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-        main="Marin Staff +1",
-        sub="Enki Strap",
+        main="Mpaca's Staff",
+        sub="Khonsu",
     }
     gear.weapons['Refresh'] = {
         main="Mpaca's Staff",
@@ -129,7 +129,6 @@ function init_gear_sets()
     }
     sets.midcast['Elemental Magic'].Proc = {}
     sets.midcast['Elemental Magic'].MagicBurst = set_combine(sets.midcast['Elemental Magic'], {
-        ammo="Ghastly Tathlum +1",
         head="Ea Hat +1",
         hands="Amalric Gages +1",
     })

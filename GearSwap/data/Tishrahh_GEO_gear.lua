@@ -164,6 +164,7 @@ function init_gear_sets()
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
+		waist="Carrier's Sash",
 		back=gear.capes.PetRegen,
 	}
 	sets.idle.PDT = set_combine( sets.idle, {

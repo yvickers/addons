@@ -53,6 +53,14 @@ function init_gear_sets()
 		main="Mpu Gandring",
 	}
 
+	sets.Empyrean = {
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+	}
+
 	sets.precast.FC = {
 		body=gear.Inyanga.Body,
 	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
@@ -82,7 +90,7 @@ function init_gear_sets()
 		range="Marsyas"
 	})
 	sets.precast.FC["Aria of Passion"] = set_combine(sets.precast.FC.BardSong,{
-		range="Loughnshade"
+		range="Loughnashade"
 	})
 
 	sets.precast.JA.Nightingale = {
@@ -167,11 +175,11 @@ function init_gear_sets()
 		sub="Ammurapi Shield",
 		range="Daurdabla",
 		--swap in items that don't extend duration to prevent overwriting with lag
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
-		feet=gear.Ayanmo.Feet,
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
 		neck="Sanctity Necklace",
 	}
 	sets.midcast['Warding Round'] = sets.midcast.DummySong
@@ -258,11 +266,11 @@ function init_gear_sets()
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 	sets.midcast['Enhancing Magic'] = {
-		main="Pukulatmuj +1",
+		main="Daybreak",
 		sub="Ammurapi Shield",
 		range=gear.Linos.Idle,
-		head="Umuthi Hat",
-		body={ name="Telchine Chas.", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}},
+		--head="Umuthi Hat",
+		--body={ name="Telchine Chas.", augments={'Mag. Evasion+25','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}},
 		hands="Inyan. Dastanas +2",
 		legs="Shedir Seraweels",
 		feet={ name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
@@ -361,23 +369,22 @@ function init_gear_sets()
 		right_ring="Stikini Ring +1",
 	})
 	sets.idle.Zeni = set_combine(sets.idle, {
-		neck="Bard's Charm +2",
-		--range="Soultrapper 2000",
-		--ammo="Blank Soulplate",
+		range="Soultrapper 2000",
+		ammo="Blank Soulplate",
 	})
 
 	sets.engaged = {
 		head="Bunzi's Hat",
 		body=gear.Ayanmo.Body,
 		hands="Bunzi's Gloves",
-		legs=gear.Empyrean.Legs,
-		feet=gear.Ayanmo.Feet,
+		legs="Volte Tights",
+		feet="Nyame Sollerets",
 		neck="Bard's Charm +2",
 		waist="Sailfi Belt +1",
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
-		left_ring="Begrudging Ring",
-		right_ring="Rajas Ring",
+		left_ring="Cacoethic Ring +1",
+		right_ring="Ilabrat Ring",
 		back=gear.capes.TP,
 	}
 
@@ -391,7 +398,10 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = {
-		--legs="Volte Brais",
+		head=gear.Chironic.Head.Refresh,
+		body=gear.Inyanga.Body,
+		hands=gear.Inyanga.Hands,
+		legs="Volte Brais",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	}

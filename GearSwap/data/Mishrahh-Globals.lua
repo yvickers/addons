@@ -114,7 +114,7 @@ function define_global_sets()
 
     gear.Telchine = {}
     gear.Telchine.Head = {}
-    gear.Telchine.Head.Enhancing = { name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
+    gear.Telchine.Head.Enhancing = { name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Body = {}
     gear.Telchine.Body.Enhancing = { name="Telchine Chas.", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Hands = {}

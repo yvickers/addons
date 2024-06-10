@@ -1,5 +1,5 @@
 _addon.author = 'Mishrahh'
-_addon.commands = {'item'}
+_addon.commands = {'items'}
 _addon.name = 'MB Item Helper'
 _addon.version = '0.1'
 
@@ -23,7 +23,7 @@ function use_item(name)
     elseif not item.targets.Self  then
         windower.add_to_chat(207, '%s: Cannot use "%s" on self.':format(_addon.name, item.en))
     else
-        windower.chat.input('/p "' .. item.name .. '" <me>')
+        windower.chat.input('/item "' .. item.name .. '" <me>')
     end
 end
 
@@ -34,12 +34,22 @@ windower.register_event('addon command', function(...)
         table.remove(arg,1)
         send_all = true
     end
+
     local str = _raw.table.concat(arg, ' ')
-    if command then
-        use_item(str)
-    end
-    if send_all then
-        windower.send_ipc_message(message)
+    local name = windower.convert_auto_trans(str):lower()
+    local item = get_item_res(name)
+
+    if not item then
+        windower.add_to_chat(207, '%s: "%s" not a valid item name.':format(_addon.name, name))
+    elseif not item.targets.Self  then
+        windower.add_to_chat(207, '%s: Cannot use "%s" on self.':format(_addon.name, item.en))
+    else
+        if command then
+            use_item(str)
+        end
+        if send_all then
+            windower.send_ipc_message(str)
+        end
     end
 end)
 

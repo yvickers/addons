@@ -33,12 +33,12 @@ function user_job_setup()
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Leth. Chappel +3"
 	gear.Empyrean.Body = "Lethargy Sayon +3"
-	gear.Empyrean.Hands = "Leth. Ganth. +2"
-	gear.Empyrean.Legs = "Leth. Fuseau +2"
+	gear.Empyrean.Hands = "Leth. Ganth. +3"
+	gear.Empyrean.Legs = "Leth. Fuseau +3"
 	gear.Empyrean.Feet = "Leth. Houseaux +3"
 
 	gear.capes = {}
-	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','"Fast Cast"+10','Damage taken-5%',}}
+	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','"Fast Cast"+10',}}
 	gear.capes.FC = gear.capes.MNDEnfeeble
 	gear.capes.INTEnfeeble = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 	gear.capes.DRKMagic = gear.capes.INTEnfeeble
@@ -233,9 +233,9 @@ function init_gear_sets()
 	sets.midcast['Refresh III'] = sets.midcast.Refresh
 
 	sets.midcast['Haste'] = {
-		head=gear.Telchine.Head.Enhancing,
+		head=gear.Telchine.Head.Duration,
 		body=gear.Relic.Body,
-		legs=gear.Telchine.Legs.Enhancing,
+		legs=gear.Telchine.Legs.Duration,
 	}
 	sets.midcast['Haste II'] = sets.midcast.Haste
 
@@ -384,7 +384,7 @@ function init_gear_sets()
 	}
 
 	sets.idle = {
-		ammo="Homiliary",
+		ammo="Staunch Tathlum +1",
 		head=gear.Relic.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
@@ -392,8 +392,8 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Embla Sash",
-		left_ear="Flashward Earring",
-		right_ear="Eabani Earring",
+		left_ear="Eabani Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.MNDEnfeeble,

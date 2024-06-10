@@ -56,7 +56,7 @@ function user_job_setup()
         main="Naegling",
         sub="Tauret",
         ranged="Fomalhaut",
-        ammo=state.Bullet.current,
+        ammo="Chrono Bullet",
     }
     gear.weapons['AE'] = {
         main="Tauret",
@@ -325,7 +325,7 @@ function init_gear_sets()
         neck="Loricate Torque +1",
         waist="Plat. Mog. Belt",
         left_ear="Eabani Earring",
-        right_ear="Assuage Earring",
+        right_ear="Infused Earring",
         back=gear.capes.MeleeTP,
     }
     sets.idle.Zeni = set_combine(sets.idle, {

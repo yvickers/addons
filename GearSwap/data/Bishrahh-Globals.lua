@@ -81,10 +81,16 @@ function define_global_sets()
 
     gear.Telchine = {}
     gear.Telchine.Head = {}
+    gear.Telchine.Head.Duration={ name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Body = {}
+    gear.Telchine.Body.Duration={ name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Hands = {}
+    gear.Telchine.Hands.Duration={ name="Telchine Gloves", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
     gear.Telchine.Legs = {}
+    gear.Telchine.Legs.PetRegen = { name="Telchine Braconi", augments={'Pet: DEF+10','Pet: "Regen"+3','Pet: Damage taken -4%',}}
+    gear.Telchine.Legs.Duration={ name="Telchine Braconi", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Feet = {}
+    gear.Telchine.Feet.Duration={ name="Telchine Pigaches", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
 
     gear.Taeon = {}
     gear.Taeon.Head = {}

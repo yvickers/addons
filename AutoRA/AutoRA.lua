@@ -7,7 +7,7 @@ local config = require('config')
 
 local defaults = {
     HaltOnTp = true,
-    Delay = 1.5
+    Delay = 2
 }
 
 local settings = config.load(defaults)
@@ -24,9 +24,18 @@ end
 
 local start = function()
     auto = true
+    local player = windower.ffxi.get_player()
     windower.add_to_chat(17, 'AutoRA  STARTING~~~~~~~~~~~~~~')
 
-    shoot()
+    repeat
+        shoot()
+        coroutine.sleep(settings.Delay)
+        if player.vitals.tp >= 1000 and settings.HaltOnTp then
+            auto = false
+            windower.add_to_chat(17, 'AutoRA  HALTING AT 1000 TP ~~~~~~~~~~~~~~')
+        end
+    until not auto
+
 end
 
 local stop = function()
@@ -61,12 +70,6 @@ local check = function()
         shoot()
     end
 end
-
-windower.register_event('action', function(action)
-    if auto and action.actor_id == player_id and action.category == 2 then
-        check:schedule(settings.Delay)
-    end
-end)
 
 windower.register_event('addon command', function(command)
     command = command and command:lower() or 'help'

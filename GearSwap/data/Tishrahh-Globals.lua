@@ -116,6 +116,13 @@ function define_global_sets()
     gear.Linos.CHRWS = {}
     gear.Linos.DEXWS = {}
     gear.Linos.DEXCrit = {}
+
+    gear.Chironic = {}
+    gear.Chironic.Head = {}
+    gear.Chironic.Head.Refresh = { name="Chironic Hat", augments={'MND+13','Pet: STR+7','"Refresh"+1',}}
+    gear.Chironic.Feet = {}
+    gear.Chironic.Feet.Refresh = { name="Chironic Slippers", augments={'MND+2','Pet: AGI+2','"Refresh"+1','Accuracy+3 Attack+3','Mag. Acc.+16 "Mag.Atk.Bns."+16',}}
+    
 end
 
 windower.register_event('ipc message', function(message)

@@ -2,7 +2,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Idris",
-		sub="Sors Shield",
+		sub="Genmei Shield",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
 	}
@@ -33,11 +33,20 @@ function user_job_setup()
 	gear.capes.GeoSkill = { name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +15','Pet: Damage taken -1%',}}
 	gear.capes.DexTP = { name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Pet: "Regen"+10',}}
 	gear.capes.MNDWS = { name="Nantosuelta's Cape", augments={'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-	gear.capes.MAB = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.capes.MAB = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 
 end
 
 function init_gear_sets()
+	sets.Empyrean = {
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+	}
+
+
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Bolster = {
 		body=gear.Relic.Body,
@@ -72,6 +81,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
+		range="Dunna",
 		head="Merlinic Hood",
 		body="Agwu's Robe",
 		hands="Agwu's Gages",
@@ -123,30 +133,78 @@ function init_gear_sets()
 		--right_ring="Haoma's Ring",
 	})
 	sets.midcast['Elemental Magic'] = {
-		body={ name="Cohort Cloak +1", augments={'Path: A',}},
-	    hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	    legs="Jhakri Slops +2",
-	    feet={ name="Amalric Nails +1", augments={'Mag. Acc.+20','"Mag.Atk.Bns."+20','"Conserve MP"+7',}},
-	    neck="Sanctity Necklace",
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+		ammo="Ghastly Tathlum +1",
+		head="Ea Hat +1",
+		body=gear.Empyrean.Body,
+	    hands="Agwu's Gages",
+	    legs=gear.Empyrean.Legs,
+	    feet="Agwu's Pigaches",
+	    neck="Sibyl Scarf",
 	    waist={ name="Acuity Belt +1", augments={'Path: A',}},
 	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
-	    left_ring="Freke Ring",
-	    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+	    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		right_ring="Medada's Ring",
 	    back=gear.capes.MAB,
 	}
-	sets.midcast['Dark Magic'] = {}
-	sets.midcast.Stun = {}
+	sets.midcast['Dark Magic'] = set_combine(sets.Empyrean,{
+		main="Rubicundity",
+		sub="Ammurapi Shield",
+    	ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head="Pixie Hairpin +1",
+		feet={ name="Agwu's Pigaches", augments={'Path: A',}},
+		neck="Sibyl Scarf",
+		waist="Orpheus's Sash",
+		left_ear="Malignance Earring",
+	    right_ear="Barkaro. Earring",
+		left_ring="Archon Ring",
+    	right_ring="Evanescence Ring",
+		back=gear.capes.MAB,
+	})
+	sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'],{})
 
-	sets.midcast['Enfeebling Magic'] = {}
-	sets.midcast.Dispel = {}
+	sets.midcast['Enfeebling Magic'] = set_combine(sets.Empyrean,{
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		neck="Bagua Charm +1",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+		back="Aurist's Cape +1",
+		left_ear="Malignance Earring",
+	    right_ear="Barkaro. Earring",
+		left_ring="Kishar Ring",
+    	right_ring="Stikini Ring +1",
+	})
+	sets.midcast.Dispel = set_combine(sets.midcast['Enfeebling Magic'],{})
 
-	sets.midcast['Enhancing Magic'] = {}
-	sets.midcast.Stoneskin = {
-		waist="Siegel Sash",
+	sets.midcast['Enhancing Magic'] = {
+		main="Bolelabunga",
+		sub="Ammurapi Shield",
+		ammo="Impatiens",
+		head=gear.Telchine.Head.Enhancing,
+		body=gear.Telchine.Body.Enhancing,
+		hands=gear.Telchine.Hands.Enhancing,
+		legs=gear.Telchine.Legs.Enhancing,
+		feet=gear.Telchine.Feet.Enhancing,
+		neck="Yngvi Choker",
+		waist="Embla Sash",
+		back="Fi Follet Cape +1",
+		left_ring="Stikini Ring +1",
+    	right_ring="Stikini Ring +1",
 	}
-	sets.midcast.Aquaveil = {}
-	sets.midcast.BarElement = {}
+	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{
+		waist="Siegel Sash",
+		legs="Shedir Seraweels",
+	})
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'],{
+		head="Amalric Coif +1",
+		waist="Empathikos Rope",
+		legs="Shedir Seraweels",
+	})
+	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],{
+		legs="Shedir Seraweels"
+	})
 
 	sets.idle = {
 		main="Idris",
@@ -168,7 +226,6 @@ function init_gear_sets()
 		--main="Mafic Cudgel",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
-		body=gear.Empyrean.Body,
 		hands=gear.Artifact.Hands,
 		legs="Psycloth Lappas",
 		feet=gear.Relic.Feet,

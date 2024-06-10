@@ -12,7 +12,7 @@ function user_job_setup()
 		sub="Blurred Shield +1",
 	}
 
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Chant du Cygne' }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -331,5 +331,6 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1, 3)
+    -- Default macro set/book
+    set_macro_page(1, 20)
 end

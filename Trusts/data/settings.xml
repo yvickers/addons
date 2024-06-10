@@ -226,6 +226,13 @@
                 <2>Monberaux</2>
                 <3>Koru-Moru</3>
             </jp>
+            <kalunga>
+                <1>Valaineral</1>
+                <2>Qultada</2>
+                <3>Joachim</3>
+                <4>King of Hearts</4>
+                <5>Monberaux</5>
+            </kalunga>
             <lilith>
                 <1>Selh&apos;teus</1>
                 <2>Joachim</2>
@@ -471,6 +478,34 @@
                 <2>Monberaux</2>
                 <3>Ygnas</3>
             </roe4>
+            <round>
+                <1>Valaineral</1>
+                <2>Koru-Moru</2>
+                <3>Ulmia</3>
+                <4>Moogle</4>
+                <5>Ferreous Coffin</5>
+            </round>
+            <round1>
+                <1>Valaineral</1>
+                <2>Koru-Moru</2>
+                <3>Ulmia</3>
+                <4>Moogle</4>
+                <5>Cherukiki</5>
+            </round1>
+            <round2>
+                <1>AAEV</1>
+                <2>Monberaux</2>
+                <3>Joachim</3>
+                <4>Qultada</4>
+                <5>Arciela</5>
+            </round2>
+            <round3>
+                <1>August</1>
+                <2>King of Hearts</2>
+                <3>Selh&apos;teus</3>
+                <4>Arciela II</4>
+                <5>Ygnas</5>
+            </round3>
             <shinryu>
                 <1>Selh&apos;teus</1>
                 <2>Joachim</2>

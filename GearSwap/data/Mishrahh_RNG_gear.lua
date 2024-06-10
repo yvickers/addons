@@ -310,7 +310,7 @@ function init_gear_sets()
         head=gear.Empyrean.Head,
         body="Nyame Mail",
         hands=gear.Empyrean.Hands,
-        legs="Carmine Cuisses +1",
+        legs=gear.Empyrean.Legs,
         feet=gear.Artifact.Feet,
         neck="Bathy Choker +1",
         waist="Plat. Mog. Belt",
@@ -377,5 +377,6 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    --set_macro_page(1, 14)
+    -- Default macro set/book
+    set_macro_page(1, 20)
 end
