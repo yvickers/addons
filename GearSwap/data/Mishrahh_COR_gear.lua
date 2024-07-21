@@ -108,14 +108,14 @@ function user_job_setup()
         ammo="Chrono Bullet",
     }
     gear.weapons['Fomalhaut'] = {
-        main="Rostam",
+        main={ name="Rostam", augments={'Path: B',}},
         sub="Crepuscular Knife",
         ranged="Fomalhaut",
         ammo="Chrono Bullet",
     }
     gear.weapons['Aeolian'] = {
-        main="Tauret",
-        sub="Crepuscular Knife",
+        main={ name="Rostam", augments={'Path: B',}},
+        sub="Tauret",
         ranged="Anarchy +2",
         ammo="Hauksbok Bullet"
     }
@@ -142,13 +142,17 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     
-    sets.precast.JA['Triple Shot'] = {body=gear.Empyrean.Body}
+    sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
     sets.precast.JA['Snake Eye'] = {legs=gear.Relic.Legs}
     sets.precast.JA['Wild Card'] = {feet=gear.Relic.Feet}
     sets.precast.JA['Random Deal'] = {body=gear.Relic.Body}
+    sets.precast.JA["Blitzer's Roll"] = {head=gear.Empyrean.Head}
+    sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
 
     
     sets.precast.CorsairRoll = {
+        main={ name="Rostam", augments={'Path: C',}},
+        ranged="Compensator",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
         legs="Desultor Tassets",
@@ -156,6 +160,7 @@ function init_gear_sets()
         ring2="Luzaf's Ring",
         back=gear.capes.PhantomRoll,
     }
+    sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
     
     --sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     --sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
@@ -166,8 +171,8 @@ function init_gear_sets()
     --sets.precast.LuzafRing = set_combine( sets.precast.CorsairRoll, {ring2="Luzaf's Ring"})
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
     sets.precast.Compensator = {
-        main = "Rostam",
-        ranged = "Compensator"
+        main={ name="Rostam", augments={'Path: C',}},
+        ranged="Compensator",
     } 
 
     -- Waltz set (chr and vit)
@@ -185,15 +190,15 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {
-        head=gear.Herc.Head.TH,
-        ear2="Loquacious Earring",
-        ear1="Etiolation Earring",
+        head=gear.Herc.Head.FC,
         hands="Leyline Gloves",
         legs="Rawhide Trousers",
         feet="Crimson Greaves",
         neck="Voltsurge Torque",
-        ring1="Prolix Ring",
-        ring2="Kishar Ring",
+        left_ring="Weather. Ring +1",
+        right_ring="Medada's Ring",
+        left_ear="Loquac. Earring",
+        right_ear="Enchntr. Earring +1",
     }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -414,17 +419,17 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
+        head=gear.Empyrean.Head,
+        body=gear.Empyrean.Body,
+        hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
-        feet="Malignance Boots",
+        feet="Nyame Sollerets",
         left_ring="Defending Ring",
         right_ring="Warp Ring",
         neck="Loricate Torque +1",
         waist="Plat. Mog. Belt",
-        left_ear="Odnowa Earring +1",
-        right_ear="Genmei Earring",
+        left_ear="Eabani Earring",
+        right_ear="Infused Earring",
         back=gear.capes.PhantomRoll,
     }
 

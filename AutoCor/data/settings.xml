@@ -52,7 +52,7 @@
             </text>
         </text>
     </global>
-    <mishrahh>
+    <bishrahh>
         <aoe>
             <p1>false</p1>
             <p2>false</p2>
@@ -64,12 +64,29 @@
         <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
+                <x>380</x>
+            </pos>
+        </text>
+    </bishrahh>
+    <mishrahh>
+        <aoe>
+            <p1>false</p1>
+            <p2>false</p2>
+            <p3>false</p3>
+            <p4>false</p4>
+            <p5>false</p5>
+        </aoe>
+        <crooked_cards>2</crooked_cards>
+        <roll>Samurai Roll,Corsair&apos;s Roll</roll>
+        <text>
+            <pos>
                 <x>930</x>
             </pos>
         </text>
     </mishrahh>
     <ninnyhammer>
         <aoe>
+            <p1>false</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
@@ -84,30 +101,18 @@
     </ninnyhammer>
     <tishrahh>
         <aoe>
+            <p1>false</p1>
             <p2>false</p2>
             <p3>false</p3>
             <p4>false</p4>
             <p5>false</p5>
         </aoe>
         <crooked_cards>2</crooked_cards>
+        <roll>Chaos Roll,Samurai Roll</roll>
         <text>
             <pos>
                 <x>380</x>
             </pos>
         </text>
     </tishrahh>
-    <bishrahh>
-        <aoe>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
-        <text>
-            <pos>
-                <x>380</x>
-            </pos>
-        </text>
-    </bishrahh>
 </settings>

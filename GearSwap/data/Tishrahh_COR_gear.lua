@@ -4,7 +4,7 @@ function user_job_setup()
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
     state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Hot Shot', }
 
 	gear.Artifact = {}
     gear.Artifact.Head = ""
@@ -28,10 +28,10 @@ function user_job_setup()
     gear.Empyrean.Feet = ""
 
     gear.capes = {}
-    gear.capes.MeleeTP = ""
+    gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = gear.capes.MeleeWS
-    gear.capes.RngMagicalWS = gear.capes.MeleeTP
+    gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+3','Weapon skill damage +10%',}}
     gear.capes.RngTPCape = gear.capes.RngMagicalWS
     gear.capes.RngPhysicalWS = gear.capes.RngMagicalWS
 
@@ -40,14 +40,15 @@ function user_job_setup()
     gear.weapons['Savage'] = {
         main="Naegling",
         sub="Tauret",
-        --ranged="Anarchy +2",
-        ammo=state.Bullet.current,
+        ranged="Anarchy",
+        ammo="Bronze Bullet",
     }
 
 end
 
 function init_gear_sets()
 	sets.precast.CorsairRoll = {
+        main="Lanun Knife",
         ranged = "Compensator",
         head=gear.Relic.Head,
         hands=gear.Empyrean.Hands,
@@ -64,7 +65,7 @@ function init_gear_sets()
     sets.precast.JA["Blitzer's Roll"] = {head=gear.Empyrean.Head}
     sets.precast.JA["Tactician's Roll"] = {body=gear.Empyrean.Body}
     sets.precast.FoldDoubleBust = {hands=gear.Relic.Hands}    
-    sets.precast.Compensator = { ranged = "Compensator" }
+    sets.precast.Compensator = { main="Lanun Knife",ranged = "Compensator" }
 
     sets.precast.FC = {
         --head=gear.Herc.Head.TH,
@@ -75,14 +76,26 @@ function init_gear_sets()
         --feet="Crimson Greaves",
         neck="Voltsurge Torque",
         ring1="Lebeche Ring",
-        --ring2="Kishar Ring",
+        ring2="Medada's Ring",
     }
 
     sets.precast.RA = {}
     sets.precast.RA.Flurry1 = set_combine( sets.precast.RA, {})
     sets.precast.RA.Flurry2 = set_combine( sets.precast.RA.Flurry1, {})
 
-    sets.precast.WS = {}
+    sets.precast.WS = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands=gear.Empyrean.Hands,
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Rep. Plat. Medal",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        right_ear="Chas. Earring +2",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Begrudging Ring",
+    }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
@@ -108,11 +121,15 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {})
 
-    sets.precast.WS['Leaden Salute'] = {}
+    sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS, {
+        left_ring="Ilabrat Ring",
+        right_ring="Cacoethic Ring +1",
+        back=gear.capes.RngMagicalWS,
+    })
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {})
 
-    sets.precast.WS['Last Stand'] = {}
+    sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {})
 
     sets.midcast.CorsairShot = {}
 
@@ -134,10 +151,23 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
-        back="Solemnity Cape",
+        back=gear.capes.MeleeTP,
     }
 
-    sets.engaged.Melee = {}
+    sets.engaged.Melee = {
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Volte Tights",
+        feet="Volte Spats",
+        neck="Sanctity Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Ilabrat Ring",
+        right_ring="Cacoethic Ring +1",
+        back=gear.capes.MeleeTP,
+    }
     sets.engaged.Acc = set_combine( sets.engaged.Melee, {
     })
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {

@@ -82,10 +82,10 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Sam. Nodowa +2",
 		waist="Sailfi Belt +1",
-		left_ear="Ishvara Earring",
-		right_ear="Thrud Earring",
+		left_ear="Thrud Earring",
+		right_ear="Kasuga Earring +1",
 		left_ring="Karieyh Ring",
-		right_ring="Niqmaddu Ring",
+		right_ring="Sroda Ring",
 		back=gear.capes.StrWS,
 	}
 	sets.precast.WS.PROC = {
@@ -98,14 +98,21 @@ function init_gear_sets()
 		neck={ name="Vim Torque +1", augments={'Path: A',}},
 		waist="Eschan Stone",
 		left_ear="Mache Earring +1",
-		right_ear="Assuage Earring",
+		right_ear="Kasuga Earring +1",
 		left_ring="Cacoethic Ring +1",
 		right_ring="Chirich Ring +1",
 		back=gear.capes.DexTP,
 	}
+
+	sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS,{
+		head="Nyame Helm",
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		right_ear="Friomisi Earring",
+		waist="Orpheus's Sash",
+	})
    
 	sets.idle = {
-		--ammo="Staunch Tathlum",
+		ammo="Crepuscular Pebble",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
 		hands="Nyame Gauntlets",
@@ -113,8 +120,8 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Loricate Torque +1",
 		waist="Sailfi Belt +1",
-		left_ear="Etiolation Earring",
-		right_ear="Assuage Earring",
+		left_ear="Eabani Earring",
+		right_ear="Infused Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.DexTP,
@@ -135,8 +142,8 @@ function init_gear_sets()
 		feet=gear.Ryou.Feet.C,
 		neck="Sam. Nodowa +2",
 		waist="Sailfi Belt +1",
-		left_ear="Mache Earring +1",
-		right_ear="Assuage Earring",
+		left_ear="Schere Earring",
+		right_ear="Kasuga Earring +1",
 		left_ring="Lehko's Ring",
 		right_ring="Niqmaddu Ring",
 		back=gear.capes.DexTP,

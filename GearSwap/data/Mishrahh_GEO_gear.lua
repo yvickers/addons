@@ -13,7 +13,7 @@ function user_job_setup()
 	gear.Artifact.Body = "Geo. Tunic +1"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
 	gear.Artifact.Legs = "Geo. Pants +1"
-	gear.Artifact.Feet = "Geo. Sandals +2"
+	gear.Artifact.Feet = "Geo. Sandals +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""

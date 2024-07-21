@@ -74,15 +74,7 @@ function unload_job_keybinds()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		head='Volte Cap',
-		hands=gear.Herc.Hands.TH,
-		body=gear.Herc.Body.TH,
-		--waist="Chaac Belt",
-		legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	--sets.TreasureHunter = gear.TH.Herc
 
 	sets.Enmity = {
 		ammo="Sapience Orb",

@@ -30,6 +30,14 @@ local blackListedWords = T{
     'Bibiki Bay',
     'snkone*',
     'cooldog*',
+    'daa*',
+    'uail*',
+    'genb*',
+    'shmil*',
+    'jini*',
+    'mimi*',
+    'kanna*',
+    'caa*',
     --'Buy?',
     } -- First two are '☆' and '★' symbols.
  

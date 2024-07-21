@@ -76,7 +76,7 @@ function job_setup()
 ~   Shift
 --]]
     --send_command('bind ^` input /ja "Flee" <me>')
-    send_command('bind numpad0 input /ra <t>')
+    send_command('bind %numpad0 input /ra <t>')
 
     send_command('wait 10; input /lockstyle on')
 

@@ -36,9 +36,15 @@ _addon.command = 'skillup'
 
 require('chat')
 
-delay = 6  -- how much delay in between spells
+delay = 10  -- how much delay in between spells
 spell_list = T{
-	[1] = 'Stone',
+	[1] = 'Refresh III',
+	[2] = 'Enstone',
+	[3] = 'Enaero',
+	[4] = 'Enwater',
+	[5] = 'Enfire',
+	[6] = 'Enblizzard',
+	[7] = 'Enthunder',
 }
 
 
@@ -60,7 +66,7 @@ end)
 function skill_up()
 	while continue == 1 do
 		for i,v in pairs(spell_list) do
-			windower.send_command('input /ma '..v..' <t>')
+			windower.send_command('input /ma '..v..' <me>')
 			coroutine.sleep(delay)
 		end
 	end

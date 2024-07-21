@@ -1,3 +1,10 @@
+--[[
+* Test targeting while assisting
+* String replacements for better messaging
+* Listen for monster buffs rather than self-targets (-na spells)
+* On screen UI
+]]--
+
 _addon.author = 'Mishrahh'
 _addon.commands = {'autodispel','ad'}
 _addon.name = 'AutoDispel'
@@ -174,7 +181,6 @@ windower.register_event('prerender', function()
             ['Target'] = target.id,
             ['Player Index'] = player.index,
         }))
-
 
 
         if recasts[462] <= 0 then

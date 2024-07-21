@@ -2,33 +2,27 @@
 function user_job_setup()
     state.WeaponskillMode:options( 'Normal', 'PROC', 'Buffed' )
 
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', "Rudra's Storm", 'Evisceration', 'Aeolian Edge' }
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Default', 'Cento', 'TTwash', 'Tauret', 'AOE', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge', 'Savage Blade', }
+    state.Weapons = M{['description'] = 'Weapon Setup',  'Default', 'Tauret', 'Savage',}
     gear.weapons = {}
+
     gear.weapons['Savage'] = {
         main="Naegling",
         sub="Centovente",
     }
     gear.weapons['Default'] = {
         main="Twashtar",
-        sub="Crepuscular Knife",
+        sub="Gleti's Knife",
     }
     gear.weapons['Cento'] = {
         main="Twashtar",
         sub="Centovente",
     }
-    gear.weapons['TTwash'] = {
-        main="Tauret",
-        sub="Twashtar",
-    }
     gear.weapons['Tauret'] = {
         main="Tauret",
-        sub="Crepuscular Knife",
+        sub="Gleti's Knife",
     }
-    gear.weapons['AOE'] = {
-        main="Tauret",
-        sub="Malevolence",
-    }
+
 
     gear.Artifact = {}
     gear.Artifact.Head = "Pill. Bonnet +3"
@@ -49,7 +43,7 @@ function user_job_setup()
     gear.Empyrean.Body = "Skulker's Vest +3"
     gear.Empyrean.Hands = ""
     gear.Empyrean.Legs = "Skulk. Culottes +3"
-    gear.Empyrean.Feet = "Skulk. Poulaines +1"
+    gear.Empyrean.Feet = "Skulk. Poulaines +3"
 
     gear.capes = {}
     gear.capes.TP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}}
@@ -68,7 +62,7 @@ function init_gear_sets()
     --------------------------------------
 
     sets.TreasureHunter = set_combine( gear.TH.Herc, {
-        hands=gear.Relic.Hands,
+        --hands=gear.Relic.Hands,
         feet=gear.Empyrean.Feet
     } )
 
@@ -118,7 +112,7 @@ function init_gear_sets()
         ammo="Impatiens",
         neck="Voltsurge Torque",
         left_ring="Weather. Ring +1",
-        right_ring="Lebeche Ring",
+        right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
         right_ear="Enchntr. Earring +1",
     }
@@ -138,7 +132,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         ear1="Odr Earring",
         ear2="Moonshade Earring",
-        body=gear.Relic.Body,
+        body="Gleti's Cuirass",
         hands=gear.Adhemar.Hands.B,
         ring1="Regal Ring",
         ring2="Begrudging Ring",

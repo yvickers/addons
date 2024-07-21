@@ -59,8 +59,8 @@ function init_gear_sets()
     sets.precast.JA['Subtle Sorcery'] = {}
 
 	sets.precast.FC = {
-        --main="Mpaca's Staff",
-        --sub="Enki Strap",
+        main="Mpaca's Staff",
+        sub="Khonsu",
         ammo="Impatiens",
         head="Merlinic Hood",
         body="Agwu's Robe",
@@ -111,7 +111,7 @@ function init_gear_sets()
         back="Aurist's Cape +1",
     }
     sets.midcast['Elemental Magic'] = {
-        main="Marin Staff +1",
+        main="Mpaca's Staff",
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head="Agwu's Cap",

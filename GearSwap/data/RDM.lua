@@ -9,14 +9,12 @@ end
 
 function job_setup()
 
-	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'Acc' )
+	state.OffenseMode:options( 'Melee', 'Enspell', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
-	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	state.WeaponskillMode:options( 'Normal', 'Buffed' )
+	state.IdleMode:options( 'Normal', 'Refresh', 'Turtle' )
 	state.CastingMode:options( 'Normal', 'Resistant', 'Potency', 'Proc' )
 	enspell = ''
-
-	include('Mote-TreasureHunter')
 
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
@@ -139,30 +137,18 @@ function init_gear_sets()
         --head="Gende. Caubeen +1",neck="Incanter's Torque",ear1="Meili Earring",ear2="Mendi. Earring",
         --body="Viti. Tabard +3",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Menelaus's Ring",
         --back="Tempered Cape +1",waist="Luminary Sash",legs="Carmine Cuisses +1",feet="Kaykaus Boots"
-	}
-		
-    sets.midcast.LightWeatherCure = {
-		--main="Chatoyant Staff",sub="Curatio Grip",range=empty,ammo="Hasty Pinion +1",
-        --head="Gende. Caubeen +1",neck="Incanter's Torque",ear1="Meili Earring",ear2="Mendi. Earring",
-        --body="Kaykaus Bliaut",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Menelaus's Ring",
-        --back="Twilight Cape",waist="Hachirin-no-Obi",legs="Carmine Cuisses +1",feet="Kaykaus Boots"
-	}
-		
-		--Cureset for if it's not light weather but is light day.
-    sets.midcast.LightDayCure = {
-		--main="Daybreak",sub="Sors Shield",range=empty,ammo="Hasty Pinion +1",
-        --head="Gende. Caubeen +1",neck="Incanter's Torque",ear1="Meili Earring",ear2="Mendi. Earring",
-        --body="Kaykaus Bliaut",hands="Kaykaus Cuffs",ring1="Janniston Ring",ring2="Menelaus's Ring",
-        --back="Twilight Cape",waist="Hachirin-no-Obi",legs="Carmine Cuisses +1",feet="Kaykaus Boots"
-	}
-		
+	}		
+	sets.midcast.Curaga = sets.midcast.Cure
 	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {
 		--neck="Debilis Medallion",hands="Hieros Mittens",
 		--back="Oretan. Cape +1",ring1="Haoma's Ring",ring2="Menelaus's Ring",waist="Witful Belt",feet="Vanya Clogs"
 	})
-		
-	sets.midcast.Curaga = sets.midcast.Cure
 
+	--When you really want to min/max @TODO
+	--sets.Cure.Targets['Self'] = {}
+
+	--Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
+	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
 	sets.midcast['Enhancing Magic'] = {
 		--main="Colada",sub="Ammurapi Shield",range=empty,ammo="Hasty Pinion +1",
 		--head="Telchine Cap",neck="Dls. Torque +2",ear1="Andoaa Earring",ear2="Gifted Earring",
@@ -176,9 +162,9 @@ function init_gear_sets()
 		--body="Lethargy Sayon +1",hands="Leth. Gantherots +1",
 		--legs="Leth. Fuseau +1",feet="Leth. Houseaux +1"
 	}
-		
-	--Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
-	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
+	
+	sets.buff.ComposureSelf = {}
+	
 	sets.EnhancingSkill = {
 		--main="Pukulatmuj +1",head="Befouled Crown",neck="Incanter's Torque",ear2="Mimir Earring",hands="Viti. Gloves +3",back="Ghostfyre Cape",waist="Olympus Sash",legs="Atrophy Tights +3"
 	}
@@ -186,9 +172,7 @@ function init_gear_sets()
 	--sets.midcast.Aquaveil = {head="Amalric Coif +1",hands="Regal Cuffs",waist="Emphatikos Rope",legs="Shedir Seraweels"}
 	--sets.midcast.BarElement = {legs="Shedir Seraweels"}
 	--sets.midcast.Temper = sets.EnhancingSkill
-	--sets.midcast.Temper.DW = set_combine(sets.midcast.Temper, {sub="Pukulatmuj"})
 	--sets.midcast.Enspell = sets.midcast.Temper
-	--sets.midcast.Enspell.DW = set_combine(sets.midcast.Enspell, {sub="Pukulatmuj"})
 	--sets.midcast.BoostStat = {hands="Viti. Gloves +3"}
 	--sets.midcast.Stoneskin = {neck="Nodens Gorget",ear2="Earthcry Earring",waist="Siegel Sash",legs="Shedir Seraweels"}
 	--sets.midcast.Protect = {ring2="Sheltered Ring"}
@@ -200,47 +184,42 @@ function init_gear_sets()
 		--body="Lethargy Sayon +1",hands="Regal Cuffs",ring1="Kishar Ring",ring2="Stikini Ring +1",
 		--back=gear.nuke_jse_back,waist="Luminary Sash",legs="Chironic Hose",feet="Vitiation Boots +3"
 	}
-	sets.midcast.INTEnfeeble = {}
 		
-	sets.midcast['Enfeebling Magic'].Resistant = {
-		--main="Daybreak",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		--head="Viti. Chapeau +3",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Snotra Earring",
-		--body="Atrophy Tabard +3",hands=gear.chironic_enfeeble_hands,ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-		--back=gear.nuke_jse_back,waist="Luminary Sash",legs="Chironic Hose",feet="Vitiation Boots +3"
-	}
-		
-	--sets.midcast.DurationOnlyEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {body="Atrophy Tabard +3",range="Kaja Bow"})
-		
-	--sets.midcast.Silence = sets.midcast.DurationOnlyEnfeebling
-	--sets.midcast.Silence.Resistant = sets.midcast['Enfeebling Magic'].Resistant
-	--sets.midcast.Sleep = set_combine(sets.midcast.DurationOnlyEnfeebling,{waist="Acuity Belt +1"})
-	--sets.midcast.Sleep.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant,{waist="Acuity Belt +1"})
-	--sets.midcast.Bind = set_combine(sets.midcast.DurationOnlyEnfeebling,{waist="Acuity Belt +1"})
-	--sets.midcast.Bind.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant,{waist="Acuity Belt +1"})
-	--sets.midcast.Break = set_combine(sets.midcast.DurationOnlyEnfeebling,{waist="Acuity Belt +1"})
-	--sets.midcast.Break.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant,{waist="Acuity Belt +1"})
+	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {}) --accuracy
+	sets.midcast['Enfeebling Magic'].Skill = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast['Enfeebling Magic'].Duration = set_combine(sets.midcast['Enfeebling Magic'], {})
+				
+	sets.midcast.Silence = sets.midcast['Enfeebling Magic'].Duration
+	sets.midcast.Silence.Resistant = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast.Sleep = sets.midcast['Enfeebling Magic'].Duration
+	sets.midcast.Sleep.Resistant = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast.Bind = sets.midcast['Enfeebling Magic'].Duration
+	sets.midcast.Bind.Resistant = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast.Break = sets.midcast['Enfeebling Magic'].Duration
+	sets.midcast.Break.Resistant = sets.midcast['Enfeebling Magic'].Resistant
 	
-	--sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
 	
-	--sets.midcast.SkillBasedEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {ear1="Vor Earring",hands="Leth. Gantherots +1",ring1="Stikini Ring +1",legs="Psycloth Lappas"})
+	sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast['Frazzle III'] = sets.midcast['Enfeebling Magic'].Skill
+	sets.midcast['Frazzle III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 	
-	--sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic'].Resistant
-	--sets.midcast['Frazzle III'] = sets.midcast.SkillBasedEnfeebling
-	--sets.midcast['Frazzle III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast['Distract II'] = sets.midcast['Enfeebling Magic'].Resistant
+	sets.midcast['Distract III'] = sets.midcast['Enfeebling Magic'].Skill
+	sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 	
-	--sets.midcast['Distract III'] = sets.midcast.SkillBasedEnfeebling
-	--sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
-	
-	--sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
+	sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
-	--sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	--sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	--sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	--sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {waist="Chaac Belt"})
+	sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], {
+	})
+	sets.midcast.Diaga = sets.midcast.Dia
+	sets.midcast['Dia II'] = sets.midcast.Dia
+	sets.midcast['Dia III'] = sets.midcast.Dia
 	
-	--sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	--sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-	--sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +3",waist="Chaac Belt",feet=gear.chironic_treasure_feet})
+	sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], {
+	})
+	sets.midcast['Bio II'] = sets.midcast.Bio
+	sets.midcast['Bio III'] = sets.midcast.Bio
 
     sets.midcast['Elemental Magic'] = {
 		--main="Daybreak",sub="Ammurapi Shield",range=empty,ammo="Dosis Tathlum",
@@ -248,19 +227,8 @@ function init_gear_sets()
        -- body=gear.merlinic_nuke_body,hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
         --back=gear.nuke_jse_back,waist=gear.ElementalObi,legs="Merlinic Shalwar",feet=gear.merlinic_nuke_feet
 	}
-		
-    sets.midcast['Elemental Magic'].Resistant = {
-		--main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-        --head=gear.merlinic_nuke_head,neck="Dls. Torque +2",ear1="Regal Earring",ear2="Friomisi Earring",
-       -- body=gear.merlinic_nuke_body,hands="Amalric Gages +1",ring1="Metamor. Ring +1",ring2="Freke Ring",
-        --back=gear.nuke_jse_back,waist="Yamabuki-no-Obi",legs="Merlinic Shalwar",feet=gear.merlinic_nuke_feet
-	}
 
-    sets.midcast['Elemental Magic'].Proc = {}
-		
-	sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {ammo="Pemphredo Tathlum",ear1="Regal Earring",ring1="Metamor. Ring +1"})
-	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {ear1="Regal Earring",ring1="Metamor. Ring +1"})
-	sets.midcast['Elemental Magic'].HighTierNuke.Fodder = set_combine(sets.midcast['Elemental Magic'].Fodder, {ammo="Pemphredo Tathlum",ear1="Regal Earring",ring1="Metamor. Ring +1"})
+    sets.midcast['Elemental Magic'].Proc = set_combine(sets.precast.FC, {})
 		
 	sets.midcast.Impact = {}
 
@@ -271,13 +239,12 @@ function init_gear_sets()
 		--back=gear.nuke_jse_back,waist="Luminary Sash",legs="Psycloth Lappas",feet=gear.merlinic_nuke_feet
 	}
 
-    sets.midcast.Drain = {
+    sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
 		--main="Rubicundity",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
         --head="Pixie Hairpin +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
         --body=gear.merlinic_nuke_body,hands=gear.chironic_enfeeble_hands,ring1="Evanescence Ring",ring2="Archon Ring",
         --back=gear.nuke_jse_back,waist="Fucho-no-obi",legs="Chironic Hose",feet=gear.merlinic_aspir_feet
-	}
-
+	})
 	sets.midcast.Aspir = sets.midcast.Drain
 		
 	sets.midcast.Stun = {
@@ -286,42 +253,35 @@ function init_gear_sets()
 		--body="Zendik Robe",hands="Volte Gloves",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
 		--back=gear.nuke_jse_back,waist="Sailfi Belt +1",legs="Chironic Hose",feet=gear.merlinic_aspir_feet
 	}
-		
-	sets.midcast.Stun.Resistant = {
-		--main="Daybreak",sub="Ammurapi Shield",range="Kaja Bow",ammo=empty,
-		--head="Atrophy Chapeau +3",neck="Dls. Torque +2",ear1="Regal Earring",ear2="Malignance Earring",
-		--body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-		--back=gear.nuke_jse_back,waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.merlinic_aspir_feet
-	}
 
 	-- Sets for special buff conditions on spells.
 		
 	sets.buff.Saboteur = {
 		hands=gear.Empyrean.Hands,
 	}
-	
 
 	sets.idle = {
-		--ammo="Staunch Tathlum",
-		--head="Malignance Chapeau",
-		--body="Malignance Tabard",
-		--hands=gear.Adhemar.Hands.TP,
-		--legs="Malignance Tights",
-		--feet="Malignance Boots",
-		--neck="Warder's Charm +1",
-		--waist="Moonbow Belt",
-		--left_ear="Odnowa Earring +1",
-		--right_ear="Genmei Earring",
-		--left_ring="Defending Ring",
-		--right_ring="Gelatinous Ring +1",
-		--back=gear.capes.DexTP,
+		--main="Daybreak",
+		--sub="Sacro Bulwark",
+		--ammo="Homiliary",
+		--head=gear.Relic.Head,
+		--body=gear.Empyrean.Body,
+		--hands="Volte Gloves",
+		--legs="Volte Brais",
+		--feet="Volte Gaiters",
+		--neck="Yngvi Choker",
+		--back="Sucellos's Cape",
+		--waist="Flume Belt +1",
+		--ear1="Odnowa Earring +1",
+		--ear2="Etiolation Earring",
+		--ring1="Stikini Ring +1",
+		--ring2="Stikini Ring +1",		
 	}
-	sets.idle.PDT = set_combine(sets.idle, {
+	sets.idle.Normal = set_combine(sets.idle, {
 	})
-	sets.idle.MDT = set_combine(sets.idle, {
+	sets.idle.Turtle = set_combine(sets.idle, {
 	})
-	sets.idle.Regen = set_combine(sets.idle, {
-	})
+	--must augment chironic, several weapon choices
 	sets.idle.Refresh = set_combine(sets.idle, {
 	})
 	sets.latent_refresh = {}
@@ -342,10 +302,10 @@ function init_gear_sets()
 		--back=gear.capes.DexTP,
 	}
 
-	sets.engaged.PDT = set_combine(sets.engaged, {
+	sets.engaged.Melee = set_combine(sets.engaged, {
 	})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {
+	sets.engaged.Enspell = set_combine(sets.engaged, {
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
@@ -418,9 +378,6 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             send_command('@timers c "'..spell.english..' ['..spell.target.name..']" 60 down spells/00220.png')
         elseif spell.english == 'Sleep II' then
             send_command('@timers c "'..spell.english..' ['..spell.target.name..']" 90 down spells/00220.png')
-		--elseif data.spells.enspells:contains(spell.english) then
-		--	enspell = spell.english
-		--	update_melee_groups()
 		end
 	end
 	equip(gear.weapons[state.Weapons.current])
@@ -434,9 +391,6 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-	if buff == enspell and not gain then
-		enspell = ''
-	end
 	update_melee_groups()
 end
 
@@ -450,12 +404,7 @@ function job_state_change(stateField, newValue, oldValue)
 		user_state_change( stateField, newValue, oldValue )
 	end
 
-	if new_status == 'Engaged' then
-		--determine_haste_group()
-	end
-
 	equip(gear.weapons[state.Weapons.current])
-
 end
 
 
@@ -465,7 +414,6 @@ end
 
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
-	th_update(cmdParams, eventArgs)
 end
 
 
@@ -477,26 +425,10 @@ function customize_idle_set(idleSet)
 			end
 		end
    end
-    
     return idleSet
 end
 
 function customize_melee_set(meleeSet)
-	if state.Weapons.value:contains('Enspell') and enspell ~= '' then
-		local enspell_element = data.elements.enspells_lookup[enspell]
-		if sets.element.enspell and sets.element.enspell[enspell_element] then
-			meleeSet = set_combine(meleeSet, sets.element.enspell[enspell_element])
-		end
-
-		local hachirin_avail = item_available('Hachirin-no-Obi')
-		if hachirin_avail and enspell_element == world.weather_element and world.weather_intensity == 2 then
-			meleeSet = set_combine(meleeSet, {waist="Hachirin-no-Obi"})
-		elseif item_available("Orpheus's Sash") then
-			meleeSet = set_combine(meleeSet, {waist="Orpheus's Sash"})
-		elseif hachirin_avail and enspell_element == world.weather_element or enspell_element == world.day_element then
-			meleeSet = set_combine(meleeSet, {waist="Hachirin-no-Obi"})
-		end
-	end
 	return meleeSet
 end
 
@@ -507,15 +439,6 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 end
 
 function update_melee_groups()
-	classes.CustomMeleeGroups:clear()
-	
-	if enspell ~= '' then
-		if enspell:endswith('II') then
-			classes.CustomMeleeGroups:append('Enspell2')
-		else
-			classes.CustomMeleeGroups:append('Enspell')
-		end
-	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -529,14 +452,10 @@ end
 
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)
-	if  default_spell_map == 'Cure' or default_spell_map == 'Curaga'  then
-		if world.weather_element == 'Light' then
-                return 'LightWeatherCure'
-		elseif world.day_element == 'Light' then
-                return 'LightDayCure'
-        end
-	end	
-	
+	if spell.english:startswith('En') then
+		return 'Enspell'
+	end
+	--[[
 	if spell.skill == 'Enfeebling Magic' then
 		if spell.english:startswith('Dia') then
 			return "Dia"
@@ -546,6 +465,7 @@ function job_get_spell_map(spell, default_spell_map)
             return 'IntEnfeebles'
         end
     end
+	]]--
 end
 
 function job_tick()

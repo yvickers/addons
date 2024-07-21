@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
-		main="Bolelabunga",
+		main="Idris",
 		sub="Sors Shield",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
@@ -79,7 +79,7 @@ function init_gear_sets()
 	})
 
 	sets.midcast.Geomancy = {
-		main="Solstice",
+		main="Idris",
 		ranged="Dunna",
 		head=gear.Empyrean.Head,
 		body=gear.Relic.Body,
@@ -186,7 +186,7 @@ function init_gear_sets()
 	}
 
 	sets.idle = {
-		main="Bolelabunga",
+		main="Idris",
 		sub="Sors Shield",
 		ranged="Dunna",
 		head=gear.Empyrean.Head,
@@ -200,13 +200,12 @@ function init_gear_sets()
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back="Solemnity Cape",
-		--waist="Carrier's Sash",
+		waist="Carrier's Sash",
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
 		--main="Mafic Cudgel",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
-		main="Solstice",
 		head=gear.Empyrean.Head,
 		body="Shamash Robe",
 		hands=gear.Artifact.Hands,

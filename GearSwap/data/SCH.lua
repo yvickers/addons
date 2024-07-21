@@ -117,9 +117,29 @@ function job_setup()
 #   Apps
 
 --]]
-	--send_command('bind ^b gs c cycle AutoBoost')
-	--send_command('bind @2 gs c cycle altstep')
-	--send_command('bind @3 gs c cycle Samba')
+	--ctrl
+	send_command('bind ^%1 gs c elemental skillchain1')
+	send_command('bind ^%2 gs c elemental skillchain2')
+	send_command('bind ^%3 gs c elemental skillchain3')
+	send_command('bind ^%4 gs c buff klimaform')
+	--send_command('bind ^%5')
+	send_command('bind ^%6 //silence')
+	--send_command('bind ^%7')
+	--send_command('bind ^%8')
+	send_command('bind ^%9 gs c buff invisible')
+	send_command('bind ^%0 gs c buff sneak')
+
+	--alt
+	send_command('bind !%1 gs c scholar dark')
+	send_command('bind !%2 gs c elemental nuke')
+	send_command('bind !%3 gs c elemental tier4')
+	send_command('bind !%4 gs c elemental tier3')
+	send_command('bind !%5 gs c elemental helix')
+	--send_command('bind !%6')
+	send_command('bind !%7 gs c buff embrava')
+	send_command('bind !%8 gs c buff weather')
+	send_command('bind !%9 gs c buff regen')
+	send_command('bind !%0 gs c scholar light')
 
 	select_default_macro_book()
 
@@ -132,9 +152,27 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function unload_job_keybinds()
-	--send_command('unbind ^b')
-	--send_command('unbind @2')
-	--send_command('unbind @3')
+	send_command('unbind ^%1')
+	send_command('unbind ^%2')
+	send_command('unbind ^%3')
+	send_command('unbind ^%4')
+	send_command('unbind ^%5')
+	send_command('unbind ^%6')
+	send_command('unbind ^%7')
+	send_command('unbind ^%8')
+	send_command('unbind ^%9')
+	send_command('unbind ^%0')
+
+	send_command('unbind !%1')
+	send_command('unbind !%2')
+	send_command('unbind !%3')
+	send_command('unbind !%4')
+	send_command('unbind !%5')
+	send_command('unbind !%6')
+	send_command('unbind !%7')
+	send_command('unbind !%8')
+	send_command('unbind !%9')
+	send_command('unbind !%0')
 end
 
 function init_gear_sets()
@@ -675,6 +713,10 @@ function job_post_midcast(spell, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
         apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
     end
+
+	if spell.skill == 'Elemental Magic' and elemental_belt_check then
+		elemental_belt_check(spell)
+	end
 	
 	if spell.skill == 'Enfeebling Magic' then
 		if (buffactive['Light Arts'] or buffactive['Addendum: White']) and sets.buff['Light Arts'] then
@@ -990,6 +1032,7 @@ function handle_elemental(cmdParams)
 		if player.target.type ~= "MONSTER" then
 			add_to_chat(123,'Abort: You are not targeting a monster.')
 		elseif buffactive.silence or buffactive.mute or buffactive.paralysis then
+			windower.chat.input('/item "remedy" <me>')
 			add_to_chat(123,'You are silenced, muted, or paralyzed, cancelling skillchain.')
 		elseif (get_current_strategem_count() + immactive) < 2 then
 			add_to_chat(123,'Abort: You have less than two stratagems available.')
@@ -1396,6 +1439,26 @@ function handle_buffing(cmdParams)
 	elseif command == 'tp' then
 		params.spell = 'Adloquium'
 		buff_helper(params)
+	elseif command == 'klimaform' then
+		local schedule = 0.1
+		if not (buffactive['Dark Arts'] or buffactive['Addendum: Black']) then
+			windower.chat.input('/ja "Dark Arts" <me>')
+			schedule = schedule + 2
+		end
+		if not (buffactive['Manifestation']) then
+			windower.chat.input:schedule(schedule,'/ja "Manifestation" <me>')
+			schedule = schedule + 2
+		end
+		windower.chat.input:schedule(schedule,'/ma "Klimaform" <me>')
+	elseif command == 'weather' then
+		params.perpetuance = false
+		params.target = '<me>'
+		if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 99 then
+			params.spell = data.elements.storm_of[state.ElementalMode.value]..' II'
+		else
+			params.spell = data.elements.storm_of[state.ElementalMode.value]
+		end
+		buff_helper(params)
 	elseif command == 'embrava' then
 		if not buffactive['Tabula Rasa'] then
 			add_to_chat(123,'Abort: You need to tabula rasa.')	
@@ -1423,7 +1486,8 @@ function handle_buffing(cmdParams)
 			params.spell = 'Reraise III'
 			params.perpetuance = false
 			params.accession = false
-			target = '<me>'
+			params.needs_addendum = true
+			params.target = '<me>'
 			buff_helper(params)
 		else				
 		add_to_chat(123,'Unrecognized buffing command.')

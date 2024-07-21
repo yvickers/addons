@@ -43,7 +43,7 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Arbatel Loafers +3"
 
 	gear.capes = {}
-	gear.capes.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Damage taken-5%',}}
+	gear.capes.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+8','"Mag.Atk.Bns."+10','Damage taken-5%',}}
 	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 
 end
@@ -392,7 +392,7 @@ function init_gear_sets()
         ring1="Mujin Band",
         ring2="Medada's Ring",
         back=gear.capes.MAB,
-        waist="Acuity Belt +1",
+        waist="Skrymir Cord +1",
         legs=gear.Empyrean.Legs,
         feet=gear.Empyrean.Feet,
     }
@@ -606,4 +606,10 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = sets.idle.Refresh
+end
+
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    -- Default macro set/book
+    set_macro_page(2, 3)
 end

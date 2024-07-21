@@ -87,14 +87,14 @@ function job_setup()
     gear.Relic.Body = ""
     gear.Relic.Hands = ""
     gear.Relic.Legs = ""
-    gear.Relic.Feet = ""
+    gear.Relic.Feet = "Horos T. Shoes +3"
 
     gear.Empyrean = {}
     gear.Empyrean.Head = "Maculele Tiara +3"
-    gear.Empyrean.Body = "Macu. Casaque +2"
-    gear.Empyrean.Hands = "Macu. Bangles +2"
-    gear.Empyrean.Legs = "Maculele Tights +2"
-    gear.Empyrean.Feet = "Macu. Toe Sh. +2"
+    gear.Empyrean.Body = "Macu. Casaque +3"
+    gear.Empyrean.Hands = "Macu. Bangles +3"
+    gear.Empyrean.Legs = "Maculele Tights +3"
+    gear.Empyrean.Feet = "Macu. Toe Sh. +3"
 
     gear.capes = {}
     gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
@@ -160,9 +160,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
 
-    --sets.precast.JA['No Foot Rise'] = {body="Horos Casaque"}
+    --sets.precast.JA['No Foot Rise'] = {body=gear.Relic.Body}
 
-    --sets.precast.JA['Trance'] = {head="Horos Tiara"}
+    --sets.precast.JA['Trance'] = {head=gear.Relic.Head}
     
 
     -- Waltz set (chr and vit)
@@ -189,9 +189,9 @@ function init_gear_sets()
     }
 
     sets.precast.Step = {
-        --waist="Chaac Belt"
+        --waist="Chaac Belt",
+        feet=gear.Relic.Feet,
     }
---    sets.precast.Step['Feather Step'] = {feet="Charis Shoes +2"}
 
     sets.precast.Flourish1 = {}
     sets.precast.Flourish1['Violent Flourish'] = {
@@ -201,20 +201,30 @@ function init_gear_sets()
     } -- acc gear
 
     sets.precast.Flourish2 = {}
---    sets.precast.Flourish2['Reverse Flourish'] = {hands="Charis Bangles +2"}
+    sets.precast.Flourish2['Reverse Flourish'] = {
+        hands=gear.Empyrean.Hands
+    }
 
     sets.precast.Flourish3 = {}
---    sets.precast.Flourish3['Striking Flourish'] = {body="Charis Casaque +2"}
---    sets.precast.Flourish3['Climactic Flourish'] = {head="Charis Tiara +2"}
+    sets.precast.Flourish3['Striking Flourish'] = {
+        body=gear.Empyrean.Body,
+    }
+    sets.precast.Flourish3['Climactic Flourish'] = {
+        head=gear.Empyrean.Head,
+    }
 
     -- Fast cast sets for spells
     
     sets.precast.FC = {
---        ammo="Impatiens",
---        head="Haruspex Hat"   ,
---        ear2="Loquacious Earring",
---        hands="Thaumas Gloves",
---        ring1="Prolix Ring"
+        ammo="Impatiens",
+        head=gear.Herc.Head.FC,
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        legs={ name="Rawhide Trousers", augments={'MP+50','"Fast Cast"+5','"Refresh"+1',}},
+        neck="Voltsurge Torque",
+        left_ear="Loquac. Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Weather. Ring +1",
+        right_ring="Medada's Ring",
     }
 
 --    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -359,6 +369,8 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
     }
 
+    sets.engaged.Normal = set_combine(sets.engaged, {})
+
     sets.engaged.Acc = set_combine(sets.engaged, {})
 
     sets.engaged.Evasion = set_combine(sets.engaged, {})
@@ -377,7 +389,7 @@ function init_gear_sets()
         --legs="Horos Tights"
     }
     sets.buff['Climactic Flourish'] = {
-        --head="Charis Tiara +2"
+        head=gear.Empyrean.Head,
     }
 end
 

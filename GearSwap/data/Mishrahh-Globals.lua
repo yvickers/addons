@@ -90,6 +90,7 @@ function define_global_sets()
     gear.Herc = {}
     gear.Herc.Head = {}
     gear.Herc.Head.TH = { name="Herculean Helm", augments={'Accuracy+23','"Snapshot"+2','"Treasure Hunter"+1','Accuracy+6 Attack+6',}}
+    gear.Herc.Head.FC = { name="Herculean Helm", augments={'"Fast Cast"+5','STR+1','Mag. Acc.+14',}}
     gear.Herc.Hands = {}
     gear.Herc.Hands.TH = { name="Herculean Gloves", augments={'VIT+6','Accuracy+17','"Treasure Hunter"+1','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
     gear.Herc.Hands.MAB = { name="Herculean Gloves", augments={'Phys. dmg. taken -2%','"Mag.Atk.Bns."+21','Mag. Acc.+7 "Mag.Atk.Bns."+7',}}
@@ -163,6 +164,10 @@ function define_global_sets()
         waist="Gishdubar Sash",
         left_ring="Purity Ring",
     }
+
+    gear.rings = {}
+    gear.rings['Stikini L'] = {name="Stikini Ring +1", bag="wardrobe7"}
+    gear.rings['Stikini R'] = {name="Stikini Ring +1", bag="wardrobe8"}
 end
 
 function elemental_belt_check(spell)

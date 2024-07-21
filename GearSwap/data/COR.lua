@@ -11,7 +11,7 @@ function job_setup()
 
 	state.OffenseMode:options( 'PDT', 'Melee', 'MDT', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
-	state.WeaponskillMode:options( 'Normal', 'Acc' )
+	state.WeaponskillMode:options( 'Normal', 'Buffed' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
 	include('Mote-TreasureHunter')
@@ -72,7 +72,7 @@ function job_setup()
 	--send_command('bind ^b gs c cycle AutoBoost')
 	--send_command('bind @2 gs c cycle altstep')
 	--send_command('bind @3 gs c cycle Samba')
-	send_command('bind numpad0 input /ra <t>')
+	send_command('bind %numpad0 input /ra <t>')
 
 	if select_default_macro_book then
 		select_default_macro_book()

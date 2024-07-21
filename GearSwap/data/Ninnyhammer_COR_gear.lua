@@ -162,6 +162,9 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
+    sets.precast.WS['Savage Blade'].Buffed = set_combine(sets.precast.WS['Savage Blade'], {
+        body="Ikenga's Vest",
+    })
 
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
         --head=gear.Adhemar.Head.B,
