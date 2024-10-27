@@ -126,6 +126,16 @@ function init_gear_sets()
 	}
 	sets.precast.JA['Warcry'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Warcry'])
 
+	sets.precast.JA['Blood Rage'] = {
+		body=gear.Empyrean.Body,
+	}
+	sets.precast.JA['Blood Rage'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Blood Rage'])
+
+	sets.precast.JA['Restraint'] = {
+		hands=gear.Empyrean.Hands,
+	}
+	sets.precast.JA['Restraint'].Tanking = set_combine(sets.Enmity,sets.precast.JA['Restraint'])
+
 	sets.precast.JA['Jump'] = {
 		feet="Ostro Greaves"
 	}

@@ -110,6 +110,7 @@ function init_gear_sets()
 		right_ear="Friomisi Earring",
 		waist="Orpheus's Sash",
 	})
+	sets.precast.WS['Tachi: Jinpu'].PROC = set_combine(sets.precast.WS.PROC,{})
    
 	sets.idle = {
 		ammo="Crepuscular Pebble",

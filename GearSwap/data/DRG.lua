@@ -276,6 +276,7 @@ end
 function job_tick()
 	if check_buff() then return true end
 	if check_jump() then return true end
+	if check_wyvern() then return true end
 	return false
 end
 
@@ -305,6 +306,17 @@ function check_jump()
 			end
 		end
 
+	end
+	return false
+end
+
+function check_wyvern()
+	if state.AutoBuffMode.current == 'on' and silent_check_fighting() then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if abil_recasts[162] and abil_recasts[162] < latency then
+			windower.chat.input('/ja "Spirit Link" <me>')
+			return true
+		end
 	end
 	return false
 end

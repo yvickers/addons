@@ -362,6 +362,15 @@ function user_self_command(cmdParams, eventArgs)
     if 'quickdraw' == cmdParams[1] then
         current_quickdraw()
     end
+    if 'schsc1' == cmdParams[1] then
+        current_scholar_skillchain(1)
+    end
+    if 'schsc2' == cmdParams[1] then
+        current_scholar_skillchain(2)
+    end
+    if 'schsc3' == cmdParams[1] then
+        current_scholar_skillchain(3)
+    end
     if 'aoesleep' == cmdParams[1] then
         send_command('@send @brd //hordelullaby <tid>')
     end
@@ -386,4 +395,14 @@ end
 
 function current_quickdraw()
     send_command('@send @cor //'..state.ElementalMode.current:lower()..'shot <tid>')
+end
+
+function current_scholar_skillchain(level)
+    send_command('@send @sch //gs c set ElementalMode '..state.ElementalMode.current:lower())
+    send_command('@send @sch //gs c elemental skillchain'..level)
+end
+
+function all_nuke()
+    send_command('@send @others //gs c set ElementalMode '..state.ElementalMode.current:lower())
+    send_command('@send @others //gs c elemental nuke')
 end

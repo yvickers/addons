@@ -13,6 +13,7 @@ function job_setup()
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	state.CastingMode:options('Normal', 'SIRD', 'Enmity' )
 
 	include('Mote-TreasureHunter')
 

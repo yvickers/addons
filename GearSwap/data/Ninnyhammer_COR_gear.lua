@@ -345,7 +345,7 @@ function init_gear_sets()
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs=gear.Empyrean.Legs,
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        feet="Malignance Boots",
         neck="Sanctity Necklace",
         waist="Sailfi Belt +1",
         left_ear="Suppanomimi",

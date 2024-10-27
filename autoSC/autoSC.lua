@@ -594,6 +594,10 @@ function open_skillchain()
 end
 
 --[[ Windower Events ]]--
+windower.register_event('status change', function()
+	skillchain_closed()
+end)
+
 windower.register_event('prerender', function(...)
 	local time = os.clock()
 	local delta_time = time - last_frame_time

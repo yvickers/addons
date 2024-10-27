@@ -78,7 +78,7 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'Barthundra' <me>"
         }, 
-        ["Words of Bane"]={
+        ["Kibosh"]={
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'barfira' <me>"
         }, 
@@ -90,7 +90,7 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'Barwatera' <me>"
         }, 
-        ["Pierce Vitals"]={
+        ["Steal Support"]={
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'Baraera' <me>"
         }, 
@@ -102,7 +102,7 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'Barstonra' <me>"
         }, 
-        ["Sigh"]={
+        ["Cutpurse"]={
             ["complete_reaction"]="", 
             ["ready_reaction"]="input /ma 'Barblizzara' <me>"
         }
@@ -111,12 +111,6 @@ return {
         ["Hundred Fists"]={
             ["complete_reaction"]="//savageblade", 
             ["ready_reaction"]=""
-        }
-    }, 
-    ["Bozzetto Housemaker"]={
-        ["Earthshaker?"]={
-            ["complete_reaction"]="", 
-            ["ready_reaction"]="runaway 20"
         }
     }
 }

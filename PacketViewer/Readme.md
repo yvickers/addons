@@ -81,6 +81,7 @@ Depending on where you are and if there are mobs and people around it might get 
 You will see a lot of packets being sent despite no chat messages coming in, which makes sense, since the client has to be informed of a lot of things by the server. But this isn't particularly helpful, so we need to filter them. To do that, we can exclude some packets, as described above. Simply note which packets are being spammed (the ID is shown in the log output). The most common packets that are spammed are `0x00D` and `0x00E`, which are carrying other PC and NPC information respectively, so we are going to filter those out. `0x028` is carrying information on any action that a player or NPC are performing, and they can get spammed quite a bit as well. Hence we are going to use this command:
 ```
 //pv l c i not 0x00d 0x00e
+//pv l c o not 0x015
 ```
 
 Now only packets that are not of those two IDs will be logged to the console, which makes it much less spammy. More packets can be filtered that way if they turn out to be interfering with finding the right packet. But make sure to not filter the right packet by accident. Since we're trying to capture chat packets, they can be regarded as spam if the LS is very active at that point.

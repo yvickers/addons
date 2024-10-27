@@ -373,7 +373,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 			card_count = player['inventory']['Trump Card'].count
 		end
 
-        if card_count < 40 then
+        if card_count < 15 then
             if player['inventory']['Trump Card Case'] then
                 local case_count = player['inventory']['Trump Card Case'].count
                 local case_tries = 0

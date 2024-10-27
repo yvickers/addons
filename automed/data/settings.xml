@@ -5,6 +5,7 @@
         <buffs>
             <doom>Holy Water</doom>
             <silence>Remedy</silence>
+            <bind>Panacea</bind>
         </buffs>
         <max_retry>4</max_retry>
         <text>

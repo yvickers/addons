@@ -28,13 +28,41 @@ active = settings.active
 needs_dispel = false
 player = windower.ffxi.get_player()
 casting = false
-dispels = L{260,360,462}
+
+function determine_dispel_spell()
+    local player = windower.ffxi.get_player()
+    if player.main_job == 'BRD' then
+        return 462 -- magic finale
+    end
+
+    if player.main_job == 'RDM' or player.sub_job == 'RDM' then
+        return 260 -- dispel
+    end
+end
+dispel = determine_dispel_spell()
+
 -- messages where buff is removed, but maybe more?
 dispel_green = L{
+    64,
+    74,
+    83,
+    123,
+    159,
+    168,
+    204,
+    206,
+    321,
+    322,
     341,
     342,
     343,
     344,
+    350,
+    378,
+    453,
+    531,
+    647,
+
 }
 -- messages that should result in a retry
 dispel_yellow = L{
@@ -43,7 +71,9 @@ dispel_yellow = L{
 -- these should be messages when no buffs present
 dispel_red = L{
     75,
+    156,
     283,
+    323,
     423,
     659,
 }
@@ -68,7 +98,7 @@ user_actions = {
     [3] = function(param,targets) finishCasting() end,
     [4] = function(param,targets)
         finishCasting()
-        if dispels:contains(param) then
+        if dispel == param then
             for i in pairs(targets) do
                 if targets[i].id == needs_dispel then
                     for j in pairs(targets[i].actions) do
@@ -182,9 +212,8 @@ windower.register_event('prerender', function()
             ['Player Index'] = player.index,
         }))
 
-
-        if recasts[462] <= 0 then
-            windower.chat.input('/ma "'..res.spells[462].en..'" <t>')
+        if dispel and recasts[dispel] <= 0 then
+            windower.chat.input('/ma "'..res.spells[dispel].en..'" <t>')
             return
         end
     end
@@ -250,7 +279,9 @@ commands.stop = function()
 end
 
 commands.on = function()
-    active = true
+    if dispel then
+        active = true
+    end
 end
 commands.off = function()
     active = false
@@ -268,7 +299,10 @@ end
 
 -- Basic clearing from transitions
 windower.register_event('zone change', commands.off)
-windower.register_event('job change', commands.off)
+windower.register_event('job change', function()
+    commands.off()
+    dispel = determine_dispel_spell()
+end)
 windower.register_event('logout', commands.off)
 function status_change(new,old)
     if new > 1 and new < 4 then

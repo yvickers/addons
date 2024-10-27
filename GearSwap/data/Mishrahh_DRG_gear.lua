@@ -11,7 +11,7 @@ function user_job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Impulse Drive', 'Stardiver', 'Sonic Thrust', "Camlann's Torment", 'Drakesbane', 'Savage Blade' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		main="Shining One",
+		main="Trishula",
 		sub="Utu Grip",
 	}
 	gear.weapons['Naegling'] = {
@@ -120,13 +120,13 @@ function init_gear_sets()
 	sets.precast.WS['Sonic Thrust'] = set_combine( sets.precast.WS, {
 	} )
 	sets.precast.WS["Camlann's Torment"] = set_combine( sets.precast.WS, {
-		neck="Drg. Collar +2",
+		neck="Dgn. Collar +2",
 		left_ring="Niqmaddu Ring",
 		waist="Fotia Belt",
 	} )
 	sets.precast.WS['Impulse Drive'] = set_combine( sets.precast.WS, {
 		left_ear="Moonshade Earring",
-		neck="Drg. Collar +2",
+		neck="Dgn. Collar +2",
 		left_ring="Begrudging Ring",
 		right_ring="Niqmaddu Ring",
 	} )
@@ -153,7 +153,7 @@ function init_gear_sets()
 		hands="Gleti's Gauntlets",
 		legs=gear.Empyrean.Legs,
 		feet="Gleti's Boots",
-		neck="Drg. Collar +2",
+		neck="Dgn. Collar +2",
 		right_ear="Sherida Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Niqmaddu Ring",
@@ -161,7 +161,7 @@ function init_gear_sets()
 	} )
 
 	sets.precast.WS['Cataclysm'] = set_combine( sets.precast.WS, {
-		right_ear="Friomis Earring",
+		right_ear="Friomisi Earring",
 		left_ring="Medada's Ring",
 		right_ring="Archon Ring",
 		neck="Sibyl Scarf",
@@ -218,7 +218,7 @@ function init_gear_sets()
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {
-		head="Gelti's Mask",
+		head="Gleti's Mask",
 		body="Gleti's Cuirass",
 		hands="Gleti's Gauntlets",
 		legs="Gleti's Breeches",

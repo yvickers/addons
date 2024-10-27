@@ -194,9 +194,6 @@ function init_gear_sets()
 	sets.precast.WS['Chant Du Cygne'] = set_combine( sets.precast.WS, {
 
 	} )
-	sets.precast.WS['Realmrazer'] = set_combine( sets.precast.WS['Chant Du Cygne'], {
-
-	} )
 
 	sets.precast.WS['Requiescat'] = set_combine( sets.precast.WS, {
 		head=gear.Empyrean.Head,
@@ -211,9 +208,14 @@ function init_gear_sets()
 		left_ring="Sroda Ring",
 		right_ring="Metamor. Ring +1",
 	} )
+	sets.precast.WS['Realmrazer'] = set_combine( sets.precast.WS['Requiescat'], {
+
+	} )
 
 	sets.precast.WS['Sanguine Blade'] = set_combine( sets.precast.WS['Requiescat'], {
 		head="Pixie Hairpin +1",
+		neck="Sibyl Scarf",
+		waist="Orpheus's Sash",
 		left_ear="Hecate's Earring",
 		right_ear="Friomisi Earring",
 		left_ring="Metamor. Ring +1",
@@ -415,6 +417,8 @@ function init_gear_sets()
 	} )
 
 	sets.midcast.diaga = sets.TreasureHunter
+	sets.midcast['Poisonga'] = sets.TreasureHunter
+	sets.midcast['Poisonga II'] = sets.TreasureHunter
 
 	sets.midcast.Helix = sets.midcast['Elemental Magic']
 	sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant

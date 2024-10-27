@@ -62,17 +62,18 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		body=gear.Inyanga.Body,
-	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    legs="Kaykaus Tights +1",
-		feet=gear.Empyrean.Feet,
-	    neck="Voltsurge Torque",
-	    waist="Embla Sash",
-	    back=gear.capes.IMBARD,
+		head="Bunzi's Hat",--10
+		body=gear.Inyanga.Body,--14
+	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},--7
+	    legs="Kaykaus Tights +1",--11
+		feet=gear.Empyrean.Feet,--13
+	    neck="Voltsurge Torque",--4
+	    waist="Embla Sash",--5
+	    back=gear.capes.IMBARD,--10
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
 		left_ring="Weather. Ring",
-    	right_ring="Medada's Ring",
+    	right_ring="Medada's Ring",--10
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
 	})
@@ -107,7 +108,7 @@ function init_gear_sets()
 		range=gear.Linos.STRWS,
 		head="Nyame Helm",
 		body=gear.Relic.Body,
-		hands=gear.Jhakri.Hands,
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		neck="Rep. Plat. Medal",
@@ -251,16 +252,16 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Daybreak",
 		sub="Culminus",
-		head=gear.Vanya.Head.B,
-		body=gear.Vanya.Body.B,
+		head="Kaykaus Mitra +1",
+		body="Bunzi's Robe",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
 		legs="Kaykaus Tights +1",
-		feet=gear.Vanya.Feet.B,
+		feet="Kaykaus Boots +1",
 		neck="Reti Pendant",
 		waist="Gishdubar Sash",
 		left_ear="Mendi. Earring",
 		right_ear="Meili Earring",
-		left_ring="Ayanmo Ring",
+		left_ring="Lebeche Ring",
 		right_ring="Inyanga Ring",
 		back="Oretan. Cape +1",
 	}
@@ -284,7 +285,7 @@ function init_gear_sets()
 	}
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{
 		neck="Nodens Gorget",
-		waist="Seigel Sash",
+		waist="Siegel Sash",
 	})
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'],{
 		head="Chironic Hat",

@@ -10,7 +10,7 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Geomancy Galero"
-	gear.Artifact.Body = "Geo. Tunic +1"
+	gear.Artifact.Body = "Geo. Tunic +3"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
 	gear.Artifact.Legs = "Geomancy Pants +3"
 	gear.Artifact.Feet = "Geo. Sandals +3"
@@ -38,6 +38,9 @@ function user_job_setup()
 end
 
 function init_gear_sets()
+	sets.AutoBuff.sleep = {
+		main="Lorg Mor",
+	}
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Bolster = {
 		body=gear.Relic.Body,

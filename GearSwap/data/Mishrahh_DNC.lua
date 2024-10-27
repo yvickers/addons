@@ -100,7 +100,7 @@ function job_setup()
     gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.Crit = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
     gear.capes.WSDMG = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
-    gear.capes.STRWS = { name="Senuna's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+3','Weapon skill damage +10%',}}
+    gear.capes.STRWS = { name="Senuna's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}}
 
     function calculate_step_feet_reduction()
         local tp_reduction = 0

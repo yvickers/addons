@@ -20,6 +20,16 @@ default = {}
 
 trade_ok = false
 
+--[[
+0x036 the trade o
+0x034 i
+0x016 update request?
+0x05B - need to track in pv for values Option index 1234, unk 1&2 0, automated false, menu 29
+--]]
+
+
+
+
 items = {
     'habilitator'
 }

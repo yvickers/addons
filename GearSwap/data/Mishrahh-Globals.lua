@@ -168,6 +168,8 @@ function define_global_sets()
     gear.rings = {}
     gear.rings['Stikini L'] = {name="Stikini Ring +1", bag="wardrobe7"}
     gear.rings['Stikini R'] = {name="Stikini Ring +1", bag="wardrobe8"}
+    gear.rings['Moonlight L'] = {name="Moonlight Ring", priority=110, bag="wardrobe7"}
+    gear.rings['Moonlight R'] = {name="Moonlight Ring", priority=110, bag="wardrobe8"}
 end
 
 function elemental_belt_check(spell)
