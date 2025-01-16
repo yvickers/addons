@@ -89,4 +89,18 @@ return {
             ["ready_reaction"]="//savageblade"
         }
     },
+    ["Onychophora"]={
+        ["Aeolian Void"]={
+            ["complete_reaction"]="facemob", 
+            ["ready_reaction"]="turnaround"
+        },
+        ["Gorge"]={
+            ["complete_reaction"]="facemob", 
+            ["ready_reaction"]="turnaround"
+        },
+        ["Psyche Suction"]={
+            ["complete_reaction"]="facemob", 
+            ["ready_reaction"]="turnaround"
+        }
+    }
 }

@@ -215,16 +215,20 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.action_type == 'Ranged Attack' or spell.english == "Bounty Shot" or spell.english == "Shadowbind" then
+        equip({ammo=state.Ammo.current})
+    end
+    if spell.type == 'WeaponSkill'  then
+        if spell.skill == 'Marksmanship' or spell.skill == 'Archery' then
+            equip({ammo=state.Ammo.current})
+        end
+    end
+end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    -- Don't shoot the good bullet....again
-    if spell.action_type == 'Ranged Attack' then
-        if special_ammo_check() then
-            equip({ammo=state.Ammo.current})
-        end
-    end
 
     if spell.type == 'WeaponSkill'  then
         if spell.skill == 'Marksmanship' or spell.skill == 'Archery' then
@@ -239,10 +243,14 @@ function job_precast(spell, action, spellMap, eventArgs)
             equip({ammo=state.Ammo.current})
         end
     end
-end
 
--- Run after the general precast() is done.
-function job_post_precast(spell, action, spellMap, eventArgs)
+    -- Don't shoot the good bullet....again
+    if spell.action_type == 'Ranged Attack' then
+        if special_ammo_check() then
+            equip({ammo=state.Ammo.current})
+        end
+    end
+
     if spell.type == 'WeaponSkill'  then
         if player.tp > 2900 then
             equip(sets.FullTP)
@@ -251,6 +259,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             elemental_belt_check(spell)
         end
     end
+end
+
+-- Run after the general precast() is done.
+function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Ranged Attack' then
         if flurry == 2 then
             equip(sets.precast.RA.Flurry2)
@@ -276,11 +288,33 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
                 equip(sets.midcast.RA.CriticalDoubleShot)
             end
         end
+
+        if buffactive['Aftermath: Lv.3'] and player.equipment.ranged == "Gandiva" then
+            equip(sets.midcast.RA.Critical)
+            if (spell.target.distance < (12 + spell.target.model_size)) and (spell.target.distance > (10 + spell.target.model_size)) then
+                equip(sets.TrueShot)
+            end
+            if buffactive['Double Shot'] then
+                equip(sets.midcast.RA.CriticalDoubleShot)
+            end
+        end
     end
 end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
+    if 
+        spell.action_type == 'Ranged Attack' or
+        spell.english == "Bounty Shot" or
+        spell.english == "Shadowbind" or
+        ( spell.type == 'WeaponSkill' and ( spell.skill == 'Marksmanship' or spell.skill == 'Archery' ) )
+    then
+        if state.Weapons.current and gear.weapons[state.Weapons.current] and gear.weapons[state.Weapons.current].ammo then
+            equip({
+                ammo=gear.weapons[state.Weapons.current].ammo,
+            })
+        end
+    end
 end
 
 -- Called after the default aftercast handling is complete.
@@ -350,6 +384,15 @@ function customize_idle_set(idleSet)
     end
 
     return idleSet
+end
+
+function customize_melee_set(meleeSet)
+    if state.Weapons.current and gear.weapons[state.Weapons.current] and gear.weapons[state.Weapons.current].ammo then
+        meleeSet = set_combine(meleeSet,{
+            ammo=gear.weapons[state.Weapons.current].ammo,
+        })
+    end
+    return meleeSet
 end
 
 -- Called by the 'update' self-command.

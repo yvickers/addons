@@ -69,7 +69,7 @@ function search_item()
             local ext = extdata.decode(item)
             local enchant = ext.type == 'Enchanted Equipment'
             local recast = enchant and ext.charges_remaining > 0 and math.max(ext.next_use_time+18000-os.time(),0)
-            local usable = recast and recast == 0
+            local usable = recast
             log(stats[lang],usable and '' or recast and recast..' sec recast.')
             if usable or ext.type == 'General' then
                 if enchant and item.status ~= 5 then --not equipped

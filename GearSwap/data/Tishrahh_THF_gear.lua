@@ -165,7 +165,7 @@ function init_gear_sets()
         legs="Skulk. Culottes +3",
         feet="Pill. Poulaines +1",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
         right_ear="Eabani Earring",
         left_ring="Defending Ring",

@@ -110,7 +110,7 @@ function init_gear_sets()
 		--legs={ name="Odyssean Cuisses", augments={'Mag. Acc.+4','"Fast Cast"+5','AGI+8',}}, --5
 		feet=gear.Empyrean.Feet, --10
 		back=gear.capes.FastCast, --10
-		--neck={name="Voltsurge Torque",}, --5
+		--neck={name="Baetyl Pendant",}, --5
 		right_ear={name="Etiolation earring", priority=50}, --1
 		left_ring={name="Medada's Ring",}, --10
 		right_ring={name="Weather. Ring +1",}, --6

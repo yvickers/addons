@@ -21,6 +21,8 @@
 
 function user_job_setup()
 
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Myrkr' }
+
 	gear.Artifact = {}
 	gear.Artifact.Head = "Acad. Mortar. +3"
 	gear.Artifact.Body = "Acad. Gown +2"
@@ -29,7 +31,7 @@ function user_job_setup()
 	gear.Artifact.Feet = "Acad. Loafers +2"
 
 	gear.Relic = {}
-	gear.Relic.Head = "Peda. Mortar. +2"
+	gear.Relic.Head = "Peda. M.Board +2"
 	gear.Relic.Body = "Peda. Gown +3"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
@@ -43,7 +45,7 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Arbatel Loafers +3"
 
 	gear.capes = {}
-	gear.capes.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+8','"Mag.Atk.Bns."+10','Damage taken-5%',}}
+	gear.capes.MAB = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
 	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 
 end
@@ -74,11 +76,11 @@ function init_gear_sets()
 		sub="Khonsu",
 		ammo="Impatiens",
 		head="Merlinic Hood",--12
-		body="Agwu's Robe",--8
+		body="Zendik Robe",--8
 		hands=gear.Artifact.Hands,--7
 		legs="Agwu's Slops",--7
 		feet="Regal Pumps +1",--5-7
-		neck="Voltsurge Torque",--4
+		neck="Baetyl Pendant",--4
 		left_ear="Loquac. Earring",--1
 		right_ear="Malignance Earring",--4
 		left_ring="Medada's Ring",--10
@@ -122,7 +124,7 @@ function init_gear_sets()
     	main="Mpaca's Staff",
     	sub="Enki Strap",
     	neck="Argute Stole +2",
-    	ring1="Mujin Band",
+    	ring1="Freke Ring",
     	ring2="Medada's Ring",
     	head="Ea Hat +1",
     	body="Agwu's Robe",
@@ -220,7 +222,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 	    head=gear.Empyrean.Head,
-	    body="Telchine Chas.",
+	    body=gear.Telchine.Body.Enhancing,
 	    back=gear.capes.MAB,
 	})
 
@@ -346,8 +348,8 @@ function init_gear_sets()
     	--sub="Clerisy Strap +1",
     	--ammo="Hasty Pinion +1",
         head=gear.Artifact.Head,
-        neck="Voltsurge Torque",
-        ear1="Enchntr. Earring +1",
+        neck="Baetyl Pendant",
+        ear1="Digni. Earring",
         ear2="Malignance Earring",
         body=gear.Artifact.Body,
         hands=gear.Artifact.Hands,
@@ -389,7 +391,7 @@ function init_gear_sets()
         right_ear="Arbatel Earring +1",
         body="Agwu's Robe",
         hands="Agwu's Gages",
-        ring1="Mujin Band",
+        ring1="Freke Ring",
         ring2="Medada's Ring",
         back=gear.capes.MAB,
         waist="Skrymir Cord +1",
@@ -413,8 +415,9 @@ function init_gear_sets()
 
 	--subtle blow + fast cast for immmanence
 	sets.midcast['Geohelix'] = set_combine(sets.precast.FC,{
-		main="Ternion Dagger +1",--9
+		--main="Ternion Dagger +1",--9
 		neck="Bathy Choker +1",--11
+		waist="Ninurta's Sash",--6
 		left_ear="Digni. Earring",--5
 		left_ring="Chirich Ring +1",--10
 		right_ring="Chirich Ring +1",--10
@@ -461,8 +464,9 @@ function init_gear_sets()
 		hands=gear.Empyrean.Hands,
 	}
 	sets.buff['Immanence'] = set_combine(sets.precast.FC,{
-		main="Ternion Dagger +1",--9
+		--main="Ternion Dagger +1",--9
 		neck="Bathy Choker +1",--11
+		waist="Ninurta's Sash",
 		left_ear="Digni. Earring",--5
 		left_ring="Chirich Ring +1",--10
 		right_ring="Chirich Ring +1",--10
@@ -555,7 +559,7 @@ function init_gear_sets()
 		legs=gear.Empyrean.Legs,
 		feet="Herald's Gaiters",
 		neck="Warder's Charm +1",
-		waist="Plat. Mog. Belt",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Lugalbanda Earring",
 		left_ring="Stikini Ring +1",
@@ -580,7 +584,7 @@ function init_gear_sets()
 		right_ring="Stikini Ring +1",
 	})
 
-	sets.engaged = {
+	sets.engaged = set_combine( sets.idle, {
 		--ammo="Staunch Tathlum",
 		--head="Malignance Chapeau",
 		--body="Malignance Tabard",
@@ -594,7 +598,7 @@ function init_gear_sets()
 		--left_ring="Defending Ring",
 		--right_ring="Gelatinous Ring +1",
 		--back=gear.capes.MAB,
-	}
+	})
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
 	})

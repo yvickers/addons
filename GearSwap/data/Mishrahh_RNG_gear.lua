@@ -28,6 +28,7 @@ function user_job_setup()
     }
     
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Coronach', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
+    state.Ammo = M{['description'] = 'Main Ammo', 'Chrono Arrow', 'Chrono Bullet', 'Quelling Bolt', }
 
     gear.Artifact = {}
     gear.Artifact.Head = "Orion Beret +3"
@@ -54,11 +55,13 @@ function user_job_setup()
     gear.capes.DexTP = { name="Belenus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.capes.RNGTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     gear.capes.PhysicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
-    gear.capes.MagicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}
+    gear.capes.MagicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.PhysicalMeleeWS = { name="Belenus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.Snapshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
     gear.capes.CritTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Critical hit rate +10%',}}
     --gear.capes.VitWS = { name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+
+    --need str/ranged/wsd, dex/crit/ranged
 
 --[[
 ^   Ctrl
@@ -112,7 +115,7 @@ function init_gear_sets()
     sets.precast.FC = {
         head=gear.Herc.Head.TH,
         hands="Leyline Gloves",
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         waist="Witful Belt",
         left_ring="Weather. Ring +1",
         right_ring="Lebeche Ring",
@@ -149,7 +152,7 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head=gear.Artifact.Head,
+        head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -163,62 +166,101 @@ function init_gear_sets()
         right_ring="Regal Ring",
     }
 
-    sets.precast.MagicalWS = set_combine(sets.precast.WS, {
-        waist="Orpheus's Sash",
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+        left_ring="Sroda Ring",
+        right_ear="Sherida Earring",
+    })
+    sets.precast.WS['Decimation'] = set_combine(sets.precast.WS, {
+        body=gear.Empyrean.Body,
+        neck="Fotia Gorget",
+        left_ear="Sherida Earring",
+        left_ring="Sroda Ring",
+    })
+
+    sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS, {
+        neck="Baetyl Pendant",
         back=gear.capes.MagicalRangedWS,
-        left_ear="Moonshade Earring",
+        waist="Orpheus's Sash",
         right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
         right_ring="Dingir Ring",
     } )
 
-    sets.precast.WS["Coronach"] = set_combine(sets.precast.WS, {
-        ammo="Chrono Bullet",
+    sets.precast.WS["Last Stand"] = set_combine(sets.precast.WS, {
+        head=gear.Artifact.Head,
         body=gear.Empyrean.Body,
-        --feet=gear.Empyrean.Feet,
+        feet=gear.Empyrean.Feet,
         neck="Fotia Gorget",
+        back=gear.capes.PhysicalRangedWS,
+        waist="Fotia Belt",
+        right_ear="Ishvara Earring",
+        left_ring="Dingir Ring",
+    } )
+    sets.precast.WS["Coronach"] = set_combine(sets.precast.WS, {
+        head=gear.Artifact.Head,
+        body=gear.Empyrean.Body,
+        feet=gear.Empyrean.Feet,
+        neck="Fotia Gorget",
+        back=gear.capes.PhysicalMeleeWS,
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
     } )
-    sets.precast.WS["Last Stand"] = set_combine(sets.precast, {
-        body=gear.Empyrean.Body,
-        --feet=gear.Empyrean.Feet,
-        right_ear="Ishvara Earring",
-        light_ring="Dingir Ring",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-    } )
     sets.precast.WS["Trueflight"] = set_combine(sets.precast.WS, {
+        neck="Scout's Gorget +2",
+        back=gear.capes.MagicalRangedWS,
+        waist="Orpheus's Sash",
+        right_ear="Friomisi Earring",
+        left_ring="Dingir Ring",
         right_ring="Weather. Ring +1",
     } )
-
-    sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS, {
-        head="Nyame Helm",
-        body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
-        neck="Sibyl Scarf",
+    sets.precast.WS["Wildfire"] = set_combine(sets.precast.WS, {
+        neck="Scout's Gorget +2",
+        back=gear.capes.MagicalRangedWS,
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Moonshade Earring",
-        left_ring="Dingir Ring",
-        right_ring="Epaminondas's Ring",		
+        right_ear="Friomisi Earring",
+        right_ring="Dingir Ring",
+    } )
+    sets.precast.WS["Hot Shot"] = set_combine(sets.precast.WS, {
+        neck="Fotia Gorget",
+        back=gear.capes.MagicalRangedWS,
+        waist="Fotia Belt",
+        right_ear="Friomisi Earring",
+        right_ring="Dingir Ring",
     } )
 
-    sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS, {
-        head=gear.Adhemar.Head.B,
-        body=gear.Mummu.Body,
-        hands=gear.Adhemar.Hands.B,
-        legs=gear.Mummu.Legs,
-        feet=gear.Adhemar.Feet.B,
+    sets.precast.WS["Jishnu's Radiance"] = set_combine(sets.precast.WS, {
+        ammo="Chrono Arrow",
+        head=gear.Artifact.Head,
+        body=gear.Empyrean.Body,
+        hands=gear.Empyrean.Hands,
+        feet=gear.Empyrean.Feet,
         neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Mache Earring +1",
-        left_ring="Regal Ring",
-        right_ring="Ilabrat Ring",
         back=gear.capes.DexTP,
-    } )
+        waist="Fotia Belt",
+        left_ring="Begrudging Ring",
+        left_ear="Odr Earring",
+        right_ear="Amini Earring +1",
+    })
+    sets.precast.WS["Apex Arrow"] = set_combine(sets.precast.WS, {
+        ammo="Chrono Arrow",
+        head=gear.Artifact.Head,
+        body=gear.Empyrean.Body,
+        feet=gear.Empyrean.Feet,
+        neck="Scout's Gorget +2",
+        back=gear.capes.PhysicalRangedWS,
+        waist="Fotia Belt",
+        left_ear="Ishvara Earring",
+        right_ear="Amini Earring +1",
+        right_ring="Sroda Ring",
+    })
+    sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS["Apex Arrow"], {})
+    sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS, {
+        ammo="Chrono Arrow",
+        neck="Fotia Gorget",
+        back=gear.capes.PhysicalMeleeWS,
+        waist="Fotia Belt",
+        right_ear="Friomisi Earring",
+        right_ring="Dingir Ring",
+    })
 
     sets.FullTP = {}
 
@@ -313,7 +355,7 @@ function init_gear_sets()
         legs=gear.Empyrean.Legs,
         feet=gear.Artifact.Feet,
         neck="Bathy Choker +1",
-        waist="Plat. Mog. Belt",
+        waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",
@@ -349,8 +391,8 @@ function init_gear_sets()
         neck="Scout's Gorget +2",
         waist="Sailfi Belt +1",
         back=gear.capes.DexTP,
-        left_ear="Dedition Earring",
-        right_ear="Sherida Earring",
+        left_ear="Sherida Earring",
+        right_ear="Dedition Earring",
         left_ring="Defending Ring",
         right_ring="Epona's Ring",
     }
@@ -359,9 +401,9 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands=gear.Empyrean.Hands,
         feet="Malignance Boots",
-        right_ear="Crep. Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
+        right_ear="Dignitary Earring",
+        left_ring=gear.rings['Chririch L'],
+        right_ring=gear.rings['Chririch R'],
     })
 
     sets.engaged.Evasion = set_combine(sets.engaged, {})

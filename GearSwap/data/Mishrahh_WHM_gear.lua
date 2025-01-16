@@ -86,7 +86,7 @@ function init_gear_sets()
     sets.precast.FC = {
    		ammo="Impatiens",
         head="Bunzi's Hat",
-        --body="",
+        body="Zendik Robe",
         --hands="",
         --legs="",
         --feet="",
@@ -240,7 +240,7 @@ function init_gear_sets()
         legs="Bunzi's Pants",
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Yngvi Choker",
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Etiolation Earring",
         left_ring="Warp Ring",

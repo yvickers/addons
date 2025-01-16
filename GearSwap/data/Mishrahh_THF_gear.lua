@@ -3,7 +3,7 @@ function user_job_setup()
     state.WeaponskillMode:options( 'Normal', 'PROC', 'Buffed' )
 
     state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge', 'Savage Blade', }
-    state.Weapons = M{['description'] = 'Weapon Setup',  'Default', 'Tauret', 'Savage',}
+    state.Weapons = M{['description'] = 'Weapon Setup',  'Default', 'TH', 'Tauret', 'Savage',}
     gear.weapons = {}
 
     gear.weapons['Savage'] = {
@@ -14,12 +14,12 @@ function user_job_setup()
         main="Twashtar",
         sub="Gleti's Knife",
     }
-    gear.weapons['Cento'] = {
-        main="Twashtar",
-        sub="Centovente",
-    }
     gear.weapons['Tauret'] = {
         main="Tauret",
+        sub="Gleti's Knife",
+    }
+    gear.weapons['TH'] = {
+        main="Gandring",
         sub="Gleti's Knife",
     }
 
@@ -50,7 +50,7 @@ function user_job_setup()
     gear.capes.Crit = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
     gear.capes.WSDMG = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
     gear.capes.STRWSDMG = { name="Toutatis's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-    gear.capes.MAGWSDMG = { name="Toutatis's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+7','Weapon skill damage +10%',}}
+    gear.capes.MAGWSDMG = { name="Toutatis's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
 
     select_default_macro_book()
 end
@@ -110,7 +110,7 @@ function init_gear_sets()
         head=gear.Herc.Head.TH,
         hands="Leyline Gloves",
         ammo="Impatiens",
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         left_ring="Weather. Ring +1",
         right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
@@ -132,8 +132,8 @@ function init_gear_sets()
         neck="Fotia Gorget",
         ear1="Odr Earring",
         ear2="Moonshade Earring",
-        body="Gleti's Cuirass",
-        hands=gear.Adhemar.Hands.B,
+        body=gear.Relic.Body,
+        hands="Gleti's Gauntlets",
         ring1="Regal Ring",
         ring2="Begrudging Ring",
         back=gear.capes.Crit,
@@ -175,7 +175,6 @@ function init_gear_sets()
         neck="Asn. Gorget +2",
         waist="Kentarch Belt +1",
         back=gear.capes.WSDMG,
-        ear1="Sherida Earring",
         ring2="Ilabrat Ring",
     })
     sets.precast.WS["Rudra's Storm"].Buffed = set_combine(sets.precast.WS["Rudra's Storm"], {
@@ -194,6 +193,22 @@ function init_gear_sets()
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS["Rudra's Storm"], {
     })
 
+    sets.precast.WS['Sanguine Blade'] = {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        head="Pixie Hairpin +1",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Archon Ring",
+        back=gear.capes.MNDWS,
+    }
+
     sets.precast.WS['Aeolian Edge'] = {
         ammo="Ghastly Tathlum +1",
         head="Nyame Helm",
@@ -201,7 +216,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Baetyl Pendant",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -275,14 +290,14 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {
-        ammo="Crepuscular Pebble",
+        ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet=gear.Artifact.Feet,
         neck="Bathy Choker +1",
-		waist="Carrier's Sash",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
 		left_ring="Defending Ring",

@@ -148,7 +148,7 @@ function init_gear_sets()
         left_ring="Defending Ring",
         right_ring="Warp Ring",
         neck="Loricate Torque +1",
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         back=gear.capes.MeleeTP,

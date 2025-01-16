@@ -83,11 +83,11 @@ function init_gear_sets()
 	sets.precast.FC = {
 		range="Dunna",
 		head="Merlinic Hood",
-		body="Agwu's Robe",
+		body="Zendik Robe",
 		hands="Agwu's Gages",
 		legs=gear.Artifact.Legs,
 		feet="Amalric Nails +1",
-		neck="Voltsurge Torque",
+		neck="Baetyl Pendant",
     	waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
 		right_ear="Loquac Earring",
@@ -220,7 +220,7 @@ function init_gear_sets()
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
 		back="Solemnity Cape",
-		waist="Carrier's Sash",
+		waist="Engraved Belt",
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
 		--main="Mafic Cudgel",

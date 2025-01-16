@@ -8,7 +8,7 @@
 _addon.author = 'Mishrahh'
 _addon.commands = {'autodispel','ad'}
 _addon.name = 'AutoDispel'
-_addon.version = '0.1'
+_addon.version = '0.5'
 
 require('luau')
 config = require('config')
@@ -18,24 +18,34 @@ res = require('resources')
 
 default = {
     active = true,
+    multi = false,
     retry = 5,
     text = {text={size=10}},
     assist = '',
+    update_frequency = 0.5,
 }
 
 settings = config.load(default)
 active = settings.active
 needs_dispel = false
+current_retry = 0
 player = windower.ffxi.get_player()
 casting = false
+last_check_time = os.clock()
+
+function addon_message(str)
+    windower.add_to_chat(207, _addon.name..': '..str)
+end
 
 function determine_dispel_spell()
     local player = windower.ffxi.get_player()
     if player.main_job == 'BRD' then
+        addon_message('Setting dispel to '..res.spells[462].en..' based on '..player.main_job)
         return 462 -- magic finale
     end
 
     if player.main_job == 'RDM' or player.sub_job == 'RDM' then
+        addon_message('Setting dispel to '..res.spells[260].en..' based on '..player.main_job)
         return 260 -- dispel
     end
 end
@@ -66,7 +76,7 @@ dispel_green = L{
 }
 -- messages that should result in a retry
 dispel_yellow = L{
-
+    85,
 }
 -- these should be messages when no buffs present
 dispel_red = L{
@@ -103,10 +113,24 @@ user_actions = {
                 if targets[i].id == needs_dispel then
                     for j in pairs(targets[i].actions) do
                         if dispel_red:contains(targets[i].actions[j].message) then
-                            needs_dispel = false
-                            addon_message('Dispel complete.')
+                            reset_dispel()
+                            addon_message('Dispel complete, no buffs.')
                         elseif dispel_green:contains(targets[i].actions[j].message) then
-                            addon_message('Dispel successful, continuing.')
+                            if settings.multi then
+                                addon_message('Dispel successful, continuing.')
+                            else
+                                reset_dispel()
+                                addon_message('Dispel successful, stopping.')
+                            end 
+                        elseif dispel_green:contains(targets[i].actions[j].message) then
+                            current_retry = current_retry + 1
+                            if ( settings.retry < current_retry ) then
+                                addon_message('Dispel unsuccessful, trying again.')
+                            else
+                                reset_dispel()
+                                addon_message('Dispel unsuccessful, retry limit reached.')
+                            end
+                            
                         else
                             addon_message('Unknown - '..res.action_messages[targets[i].actions[j].message].en)
                         end
@@ -126,16 +150,19 @@ user_actions = {
 function beginOrInterrupt(param)
     if param == 24931 then
         casting = true
-        addon_message('Self casting on')
     elseif param == 28787 then
         casting = false
-        addon_message('Self casting off')
     end
+    casting = false
 end
 
 function finishCasting()
     casting = false
-    addon_message('Self casting off')
+end
+
+function reset_dispel()
+    needs_dispel = false
+    current_retry = 0
 end
 
 windower.register_event('action',function (act)
@@ -143,6 +170,10 @@ windower.register_event('action',function (act)
 
     if not player.in_combat then
         return nil
+    end
+
+    if '' == settings.assist then
+        windower.chat.input('/target <bt>')
     end
 
     local actor = windower.ffxi.get_mob_by_id(act.actor_id)
@@ -197,14 +228,26 @@ function getTargetID()
 end
 
 windower.register_event('prerender', function()
+    local time = os.clock()
+    if (last_check_time + settings.update_frequency > time) then
+		return
+	end
+	last_check_time = time
+
     if needs_dispel and not casting and not moving then
         local recasts = windower.ffxi.get_spell_recasts()
         local target = windower.ffxi.get_mob_by_id(needs_dispel)
         local player = windower.ffxi.get_player()
-        if not target then
-            needs_dispel = false
+
+        if not player.in_combat then
+            reset_dispel()
             return
         end
+
+        if target == nil or target.hpp <= 0 then
+            reset_dispel()
+            return
+        end        
 
         packets.inject(packets.new('incoming', 0x058, {
             ['Player'] = player.id,
@@ -262,6 +305,17 @@ commands.assist = function(...)
     end
 end
 
+commands.multi = function(...)
+    local args = {...}
+    if args[1] and args[1] == 'on' then
+        settings.multi = true
+        addon_message('Multicast turned on')
+    else
+        settings.multi = off
+        addon_message('Multicast turned off')
+    end
+end
+
 commands.save = function()
     settings:save('all')
     addon_message('Saving settings')
@@ -272,6 +326,7 @@ commands.start = function(...)
     local target = tonumber(args[1])
     addon_message('Dispel >> %s':format(target))
     needs_dispel = target
+    last_check_time = os.clock()
 end
 commands.stop = function()
     needs_dispel = false
@@ -281,6 +336,8 @@ end
 commands.on = function()
     if dispel then
         active = true
+        last_check_time = os.clock()
+        current_retry = 0
     end
 end
 commands.off = function()
@@ -293,17 +350,17 @@ commands.help = function()
     addon_message('Usage: //am save --saves current settings')
 end
 
-function addon_message(str)
-    windower.add_to_chat(207, _addon.name..': '..str)
-end
-
 -- Basic clearing from transitions
-windower.register_event('zone change', commands.off)
+windower.register_event('zone change', function()
+    commands.off()
+end)
 windower.register_event('job change', function()
     commands.off()
     dispel = determine_dispel_spell()
 end)
-windower.register_event('logout', commands.off)
+windower.register_event('logout', function()
+    commands.off()
+end)
 function status_change(new,old)
     if new > 1 and new < 4 then
         commands.off()

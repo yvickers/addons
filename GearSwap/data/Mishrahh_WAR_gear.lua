@@ -101,7 +101,7 @@ function init_gear_sets()
         --head=gear.Herc.Head.TH,
         --hands="Leyline Gloves",
         ammo="Impatiens",
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         left_ring="Weather. Ring +1",
         right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
@@ -382,12 +382,13 @@ function init_gear_sets()
     } )
 
 	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS, {
+		ammo="Seething Bomblet +1",
         head="Nyame Helm",
         body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Baetyl Pendant",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -403,7 +404,7 @@ function init_gear_sets()
 		legs="Sakpata's Cuisses",
 		feet="Hermes' Sandals",
 		neck="Bathy Choker +1",
-		waist="Carrier's Sash",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
 		left_ring="Defending Ring",

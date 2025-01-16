@@ -248,8 +248,8 @@ function init_gear_sets()
 		main="Vampirism",
 		--sub="Vampirism",
 		ammo="Impatiens",
-		--head="Carmine Mask +1",
-		neck="Voltsurge Torque",
+		head="Carmine Mask +1",
+		neck="Baetyl Pendant",
 		ear1="Enchntr. Earring +1",
 		ear2="Loquac. Earring",
 		body=gear.Relic.Body,
@@ -577,14 +577,14 @@ function init_gear_sets()
 
 --IDLE SETS
 	sets.idle = {
-		ammo="Crepuscular Pebble",
+		ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body=gear.Empyrean.Body,
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Carmine Cuisses +1",
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Bathy Choker +1",
-		waist="Svelt. Gouriz +1",
+		waist="Carrier's Sash",
         back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
         left_ear="Eabani Earring",
 		right_ear="Infused Earring",
@@ -593,7 +593,7 @@ function init_gear_sets()
 	}
 	
 	sets.idle.Evasion = {
-		ammo="Staunch Tathlum",
+		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},

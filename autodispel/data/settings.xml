@@ -2,6 +2,8 @@
 <settings>
     <global>
         <active>true</active>
+        <assist />
+        <multi>false</multi>
         <retry>5</retry>
         <text>
             <text>

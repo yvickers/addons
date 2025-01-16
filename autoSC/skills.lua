@@ -51,7 +51,7 @@ skills.weapon_skills = {
     [20] = {en='Cyclone',skillchain={'Detonation','Impaction'}},
     [23] = {en='Dancing Edge',skillchain={'Scission','Detonation'}},
     [24] = {en='Shark Bite',skillchain={'Fragmentation'}},
-    [25] = {en='Evisceration',skillchain={'Gravitation','Transfixion'}},
+    [25] = {en='Evisceration',skillchain={'Gravitation'}},
     [26] = {en='Mercy Stroke',skillchain={'Darkness','Gravitation'}},
     [27] = {en='Mandalic Stab',skillchain={'Fusion','Compression'}},
     [28] = {en='Mordant Rime',skillchain={'Fragmentation','Distortion'}},

@@ -4,6 +4,12 @@ return {
             ["complete_reaction"]="", 
             ["ready_reaction"]="//perfectcounter"
         }
+    },
+    ["Bozzetto Voyager Moogle"] = {
+        ["Bill Toss"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
     }, 
     ["Grand Grenade"]={
         ["Hellstorm"]={

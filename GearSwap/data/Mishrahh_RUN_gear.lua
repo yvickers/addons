@@ -48,11 +48,11 @@ function user_job_setup()
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = {name="Futhark Trousers +3",priority=107}
-	gear.Relic.Feet = {name="Futhark Boots +1",priority=13}
+	gear.Relic.Feet = {name="Futhark Boots +2",priority=13}
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = {name="Erilaz Galea +3",priority=91}
-	gear.Empyrean.Body = {name="Erilaz Surcoat +2",priority=123}
+	gear.Empyrean.Body = {name="Erilaz Surcoat +3",priority=123}
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = {name="Eri. Leg Guards +3",priority=100}
 	gear.Empyrean.Feet = {name="Erilaz Greaves +3",priority=48}
@@ -84,7 +84,8 @@ function init_gear_sets()
 		left_ear="Magnetic Earring", --8
 		right_ear={name="Halasz Earring",priority=0},--5
 		body={name="Nyame Mail",priority=91},
-		hands={name="Rawhide Gloves",priority=75},--15
+		--hands={name="Rawhide Gloves",priority=75},--15
+		hands={name="Regal Gauntlets",priority=205},--10
 		left_ring={name="Defending Ring",priority=0},
 		right_ring={name="Gelatinous Ring +1",priority=110},
 		back=gear.capes.Utility,--10
@@ -157,7 +158,7 @@ function init_gear_sets()
 	sets.precast.FC = {
 		ammo="Impatiens", --2
 		head={name="Carmine Mask +1", priority=38}, --14
-		neck="Voltsurge Torque", --4
+		neck="Baetyl Pendant", --4
 		left_ear={name="Etiolation Earring", priority=50}, --1
 		body=gear.Empyrean.Body,--10
 		hands={name="Leyline Gloves",priority=25},--8
@@ -228,7 +229,7 @@ function init_gear_sets()
         legs={name="Carmine Cuisses +1",priority=130},
         feet={ name="Nyame Sollerets", priority=68, augments={'Path: B',}},
         neck={name="Warder's Charm +1",priority=0},
-        waist={ name="Plat. Mog. Belt", priority=100},
+        waist="Engraved Belt",
         left_ear={name="Eabani Earring",priority=45},
         right_ear={ name="Erilaz Earring +1",},
         left_ring="Warp Ring",

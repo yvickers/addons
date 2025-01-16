@@ -295,7 +295,7 @@ function init_gear_sets()
         legs=gear.Empyrean.Legs,
         feet="Nyame Sollerets",
         neck="Loricate Torque +1",
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Etiolation Earring",
         left_ring="Stikini Ring +1",

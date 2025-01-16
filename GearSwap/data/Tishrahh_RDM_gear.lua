@@ -391,7 +391,7 @@ function init_gear_sets()
 		legs="Carmine Cuisses +1",
 		feet=gear.Empyrean.Feet,
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Gishdubar Sash",
+		waist="Engraved Belt",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",

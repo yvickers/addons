@@ -354,7 +354,7 @@ function init_gear_sets()
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Etiolation Earring",
         left_ring="Defending Ring",

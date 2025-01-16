@@ -161,6 +161,7 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+        ammo="Bayeux Bullet",
     })
     sets.precast.WS['Savage Blade'].Buffed = set_combine(sets.precast.WS['Savage Blade'], {
         body="Ikenga's Vest",
@@ -188,7 +189,7 @@ function init_gear_sets()
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         ammo="Hauksbok Bullet",
         head="Nyame Helm",
-        neck="Sibyl Scarf",
+        neck="Baetyl Pendant",
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
         body=gear.Relic.Body,
@@ -348,8 +349,8 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck="Sanctity Necklace",
         waist="Sailfi Belt +1",
-        left_ear="Suppanomimi",
-        right_ear={ name="Chas. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','Crit.hit rate+5',}},
+        left_ear="Eabani Earring",
+        right_ear="Odr Earring",
         left_ring="Lehko's Ring",
         right_ring="Chirich Ring +1",
         back=gear.capes.MeleeTP,

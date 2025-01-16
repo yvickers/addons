@@ -42,7 +42,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		body=gear.Inyanga.Body,
+		body="Zendik Robe",
 	    --hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
 	    --legs="Kaykaus Tights +1",
 		feet=gear.Empyrean.Feet,
@@ -228,7 +228,7 @@ function init_gear_sets()
 		legs=gear.Inyanga.Legs,
 		feet=gear.Inyanga.Feet,
 		neck="Bathy Choker +1",
-		waist="Carrier's Sash",
+		waist="Engraved Belt",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",

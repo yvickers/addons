@@ -76,17 +76,17 @@ function job_setup()
     state.SkillchainPending = M(false, 'Skillchain Pending')
 
     gear.Artifact = {}
-    gear.Artifact.Head = ""
-    gear.Artifact.Body = ""
-    gear.Artifact.Hands = ""
-    gear.Artifact.Legs = ""
-    gear.Artifact.Feet = ""
+    gear.Artifact.Head = "Maxixi Tiara +3"
+    gear.Artifact.Body = "Maxixi Casaque +3"
+    gear.Artifact.Hands = "Maxixi Bangles +2"
+    gear.Artifact.Legs = "Maxixi Tights +1"
+    gear.Artifact.Feet = "Maxixix Toe Shoes +3"
 
     gear.Relic = {}
-    gear.Relic.Head = ""
-    gear.Relic.Body = ""
-    gear.Relic.Hands = ""
-    gear.Relic.Legs = ""
+    gear.Relic.Head = "Horos Tiara +3"
+    gear.Relic.Body = "Horos Casaque +3"
+    gear.Relic.Hands = "Horos Bangles +1"
+    gear.Relic.Legs = "Horos Tights +3"
     gear.Relic.Feet = "Horos T. Shoes +3"
 
     gear.Empyrean = {}
@@ -97,10 +97,10 @@ function job_setup()
     gear.Empyrean.Feet = "Macu. Toe Sh. +3"
 
     gear.capes = {}
-    gear.capes.TP = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
-    gear.capes.Crit = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
-    gear.capes.WSDMG = { name="Senuna's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
-    gear.capes.STRWS = { name="Senuna's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}}
+    gear.capes.TP = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
+    gear.capes.Crit = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
+    gear.capes.WSDMG = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+    gear.capes.STRWS = { name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}}
 
     function calculate_step_feet_reduction()
         local tp_reduction = 0
@@ -160,9 +160,13 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
 
-    --sets.precast.JA['No Foot Rise'] = {body=gear.Relic.Body}
+    sets.precast.JA['No Foot Rise'] = {
+        body=gear.Relic.Body
+    }
 
-    --sets.precast.JA['Trance'] = {head=gear.Relic.Head}
+    sets.precast.JA['Trance'] = {
+        head=gear.Relic.Head
+    }
     
 
     -- Waltz set (chr and vit)
@@ -184,7 +188,7 @@ function init_gear_sets()
     
 --    sets.precast.Samba = {head="Maxixi Tiara"}
     sets.precast.Jig = {
-        --legs="Horos Tights",
+        legs=gear.Relic.Legs,
         feet=gear.Empyrean.Feet
     }
 
@@ -220,7 +224,7 @@ function init_gear_sets()
         head=gear.Herc.Head.FC,
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Rawhide Trousers", augments={'MP+50','"Fast Cast"+5','"Refresh"+1',}},
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         left_ear="Loquac. Earring",
         right_ear="Etiolation Earring",
         left_ring="Weather. Ring +1",
@@ -286,6 +290,7 @@ function init_gear_sets()
         right_ring="Medada's Ring",
         waist="Orpheus's Sash",
     })
+    sets.precast.WS['Cyclone'] = set_combine( sets.precast.WS['Aeolian Edge'], sets.TreasureHunter )
     
     sets.precast.Skillchain = {}
     
@@ -330,7 +335,7 @@ function init_gear_sets()
     -- Idle sets
 
     sets.idle = {
-        ammo="Crepuscular Pebble",
+        ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -338,7 +343,7 @@ function init_gear_sets()
         feet="Malignance Boots",
         back=gear.capes.TP,
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Svelt. Gouriz +1",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",

@@ -2,7 +2,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Idris",
-		sub="Sors Shield",
+		sub="Genmei Shield",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
 	}
@@ -83,6 +83,7 @@ function init_gear_sets()
 
 	sets.midcast.Geomancy = {
 		main="Idris",
+		sub="Genmei Shield",
 		ranged="Dunna",
 		head=gear.Empyrean.Head,
 		body=gear.Relic.Body,
@@ -190,7 +191,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		main="Idris",
-		sub="Sors Shield",
+		sub="Genmei Shield",
 		ranged="Dunna",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,

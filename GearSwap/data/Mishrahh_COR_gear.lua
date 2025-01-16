@@ -194,7 +194,7 @@ function init_gear_sets()
         hands="Leyline Gloves",
         legs="Rawhide Trousers",
         feet="Crimson Greaves",
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         left_ring="Weather. Ring +1",
         right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
@@ -268,7 +268,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        neck="Sibyl Scarf",
+        ammo="Hauksbok Bullet",
+        neck="Baetyl Pendant",
         ear1="Friomisi Earring",
         body=gear.Relic.Body,
         hands="Nyame Gauntlets",
@@ -427,7 +428,7 @@ function init_gear_sets()
         left_ring="Defending Ring",
         right_ring="Warp Ring",
         neck="Loricate Torque +1",
-        waist="Plat. Mog. Belt",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         back=gear.capes.PhantomRoll,

@@ -81,7 +81,7 @@ function init_gear_sets()
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Warp Ring",

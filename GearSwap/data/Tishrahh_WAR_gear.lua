@@ -14,7 +14,7 @@ function user_job_setup()
 
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
+	gear.Artifact.Head = "Agoge Mask +3"
 	gear.Artifact.Body = ""
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
@@ -36,7 +36,7 @@ function user_job_setup()
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10',}}
-	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.StrWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.capes.VitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
 	gear.capes.STRCrit = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 
@@ -44,21 +44,49 @@ end
 
 function init_gear_sets()
 
+	sets.precast.JA['Warcry'] = {
+		head=gear.Relic.Head,
+	}
+
     sets.precast.WS = {
-		ammo="Knobkierrie",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+		ammo="Coiste Bodhar",
+        head=gear.Empyrean.Head,
         body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        hands=gear.Empyrean.Hands,
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Rep. Plat. Medal",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        neck="War. Beads +2",
+        waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
         left_ring="Cacoethic Ring +1",
         right_ring="Begrudging Ring",
 		back=gear.capes.StrWS,
 	}
+	sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS,{
+		ammo="Knobkierrie",
+		head=gear.Relic.Head,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
+		waist="Sailfi Belt +1",
+		back=gear.capes.VitWS,
+	})
+	sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS,{
+		ammo="Knobkierrie",
+		body="Sakpata's Breastplate",
+		legs=gear.Empyrean.Legs,
+		waist="Sailfi Belt +1",
+	})
+	sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS,{
+		ammo="Knobkierrie",
+		head="Nyame Helm",
+		hands="Nyame Gauntlets",
+		neck="Sanctity Necklace",
+		waist="Eschan Stone",
+		left_ring="Medada's Ring",
+		right_ring="Metamor. Ring +1",
+		right_ear="Friomisi Earring",
+	})
     sets.idle = {
 		ammo="Crepuscular Pebble",
         head="Sakpata's Helm",
@@ -67,7 +95,7 @@ function init_gear_sets()
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Plat. Mog. Belt",
+        waist="Engraved Belt",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         left_ring="Cacoethic Ring +1",

@@ -125,7 +125,7 @@ function define_global_sets()
     gear.Telchine.Legs.Enhancing = { name="Telchine Braconi", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine.Feet = {}
     gear.Telchine.Feet.BRD = { name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}}
-    gear.Telchine.Feet.Enhancing = { name="Telchine Braconi", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +8',}}
+    gear.Telchine.Feet.Enhancing = { name="Telchine Pigaches", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +9',}}
 
     gear.Taeon = {}
     gear.Taeon.Head = {}
@@ -170,6 +170,8 @@ function define_global_sets()
     gear.rings['Stikini R'] = {name="Stikini Ring +1", bag="wardrobe8"}
     gear.rings['Moonlight L'] = {name="Moonlight Ring", priority=110, bag="wardrobe7"}
     gear.rings['Moonlight R'] = {name="Moonlight Ring", priority=110, bag="wardrobe8"}
+    gear.rings['Chririch L'] = {name="Chririch Ring +1", bag="wardrobe7"}
+    gear.rings['Chririch R'] = {name="Chririch Ring +1", bag="wardrobe8"}
 end
 
 function elemental_belt_check(spell)

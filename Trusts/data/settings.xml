@@ -60,8 +60,7 @@
             </allwoe>
             <ambu>
                 <1>Monberaux</1>
-                <2>Ygnas</2>
-                <3>Koru-Moru</3>
+                <2>King of Hearts</2>
             </ambu>
             <ambu2>
                 <1>Iroha II</1>
@@ -109,8 +108,8 @@
                 <1>Valaineral</1>
                 <2>Qultada</2>
                 <3>Shantotto II</3>
-                <4>Sylvie (UC)</4>
-                <5>Koru-Moru</5>
+                <4>Monberaux</4>
+                <5>Semih Lafihna</5>
             </bishrahh>
             <blucleave>
                 <1>Brygid</1>
@@ -375,6 +374,13 @@
                 <4>Koru-Moru</4>
                 <5>Yoran-Oran (UC)</5>
             </ninnyexp>
+            <ninnyhammer>
+                <1>Valaineral</1>
+                <2>Shantotto II</2>
+                <3>Monberaux</3>
+                <4>Koru-Moru</4>
+                <5>Semih Lafihna</5>
+            </ninnyhammer>
             <ninnywar>
                 <1>Qultada</1>
                 <2>Cornelia</2>
@@ -557,7 +563,7 @@
                 <2>Zeid II</2>
                 <3>Shantotto II</3>
                 <4>Monberaux</4>
-                <5>Koru-Moru</5>
+                <5>Cornelia</5>
             </tishrahh>
             <tishwar>
                 <1>Qultada</1>

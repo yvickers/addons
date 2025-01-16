@@ -57,17 +57,17 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		head="Nahtirah Hat",
-		hands=gear.Jhakri.Hands,
+		head="Amalric Coif +1",
+		hands="Agwu's Gages",
 		legs=gear.Artifact.Legs,
-		feet=gear.Jhakri.Feet,
+		feet="Regal Pumps +1",
 		neck="Voltsurge Torque",
     	waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
 		right_ear="Loquac. Earring",
 		left_ring="Weather. Ring",
-    	right_ring="Kishar Ring",
-		back=gear.capes.GeoSkill,
+    	right_ring="Medada's Ring",
+		back="Fi Follet Cape +1",
 	}
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
 		main="Daybreak",
@@ -168,7 +168,7 @@ function init_gear_sets()
 		back=gear.capes.PetRegen,
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
-		right_ring="Vertigo Ring",
+		right_ring="Purity Ring",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
 		main="Idris",
@@ -186,17 +186,7 @@ function init_gear_sets()
 	sets.latent_refresh = {
 	}
 
-	sets.engaged = {
-	    sub="Sors Shield",
-		head=gear.Empyrean.Head,
-	    hands=gear.Jhakri.Hands,
-	    feet=gear.Jhakri.Feet,
-	    --neck="Sanctity Necklace",
-	    waist="Eschan Stone",
-	    left_ear="Crep. Earring",
-	    left_ring="Crepuscular Ring",
-	    right_ring="Rajas Ring",
-	}
+	sets.engaged = {}
 end
 
 -- Select default macro book on initial load or subjob change.

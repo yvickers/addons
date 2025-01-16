@@ -8,7 +8,7 @@ function user_setup()
     state.AttackWithMe = M(false, 'Attack With Me')
     state.MagicBurstMode      = M{['description'] = 'Magic Burst Mode', 'Off', 'Single', 'Lock'}
     state.SkillchainMode      = M{['description'] = 'Skillchain Mode', 'Off', 'Single', 'Lock'}
-    state.ElementalMode       = M{['description'] = 'Elemental Mode', 'Fire','Ice','Wind','Earth','Thunder','Water','Light','Dark'}
+    state.ElementalMode       = M{['description'] = 'Elemental Mode', 'Fire','Ice','Wind','Earth','Lightning','Water','Light','Dark'}
 
     -- For th_action_check():
     -- JA IDs for actions that always have TH: Provoke, Animated Flourish, bully, chi blas
@@ -97,6 +97,9 @@ function user_precast(spell, action, spellMap, eventArgs)
     if 'JobAbility' == spell.type then
         tickdelay = os.clock() + jatickdelay
     end
+    if 'Scholar' == spell.type then
+        tickdelay = os.clock() + jatickdelay
+    end
     if 'WeaponSkill' == spell.type then
         windower.send_ipc_message( 'weaponskill ' .. spell.name:gsub("%W",'_') )
         tickdelay = os.clock() + wstickdelay
@@ -175,7 +178,7 @@ function user_state_change( stateField, newValue, oldValue )
 
 end
 
-function user_state_change_Weapon_Setup( newValue, oldValue )
+function user_state_change_Weapon_Setup( newValue, oldValue ) 
 	equip(gear.weapons[state.Weapons.current])
 end
 
@@ -394,7 +397,7 @@ function smart_ws()
 end
 
 function current_quickdraw()
-    send_command('@send @cor //'..state.ElementalMode.current:lower()..'shot <tid>')
+    send_command('@send @cor //'..data.elements.quickdraw_of[state.ElementalMode.current]..'shot <tid>')
 end
 
 function current_scholar_skillchain(level)

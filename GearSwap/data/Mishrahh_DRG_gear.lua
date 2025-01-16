@@ -170,14 +170,14 @@ function init_gear_sets()
 	} )
 
 	sets.idle = {
-		ammo="Crepuscular Pebble",
+		ammo="Staunch Tathlum +1",
 		head="Hjarrandi Helm",
 		body="Hjarrandi Breast.",
 		hands="Gleti's Gauntlets",
 		legs="Carmine Cuisses +1",
 		feet="Gleti's Boots",
 		neck="Bathy Choker +1",
-		waist="Carrier's Sash",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
 		left_ring="Defending Ring",

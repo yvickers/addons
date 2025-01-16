@@ -3,7 +3,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'TPBonus', 'Aeolian' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		main="Gokotai",
+		main="Kikoku",
 		sub="Kunimitsu",
 	}
 	gear.weapons['Savage'] = {
@@ -19,7 +19,7 @@ function user_job_setup()
 		sub="Uzura +2",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ten', 'Blade: Ei', 'Aeolin Edge', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Metsu', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ten', 'Blade: Ei', 'Aeolin Edge', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 	state.NINStance = M{['description'] = 'Ninja Stance',  'None', 'Yonin', 'Innin', }
@@ -49,7 +49,9 @@ function user_job_setup()
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
+	gear.capes.DexWSD = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 	gear.capes.StrWSD = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.StrDA = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
 	gear.capes.MagicWSD = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
     gear.capes.FC = { name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}}
     gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+4','"Mag.Atk.Bns."+10',}}
@@ -99,7 +101,7 @@ function init_gear_sets()
 	 sets.precast.FC = {
 	 	ammo="Impatiens",
 		head="Herculean Head",
-		neck="Voltsurge Torque",
+		neck="Baetyl Pendant",
 		ear1="Enchntr. Earring +1",
 		ear2="Loquac. Earring",
 		--body="Dread Jupon",
@@ -134,83 +136,51 @@ function init_gear_sets()
 		back=gear.capes.StrWSD,
 	}
 
-	sets.precast.WS.Hybrid = {
-		ammo="Seeth. Bomblet +1",
-		head=gear.Relic.Head,
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
-		neck="Fotia Gorget",
-		waist="Orpheus's Sash",
-		left_ear="Moonshade Earring",
-		right_ear="Lugra Earring +1",
-		left_ring="Gere Ring",
-		right_ring="Epaminondas's Ring",
-		back=gear.capes.StrWSD,
-	}
-	sets.precast.WS['Blade: To'] = sets.precast.WS.Hybrid
-	sets.precast.WS['Blade: Teki'] = sets.precast.WS.Hybrid
-	sets.precast.WS['Blade: Chi'] = sets.precast.WS.Hybrid
-	sets.precast.WS['Blade: Yu'] = sets.precast.WS.Hybrid
-	sets.precast.WS['Blade: Ei'] = set_combine(sets.precast.WS.Hybrid, {
-		head="Pixie Hairpin +1",
-		neck="Sibyl Scarf",
-		back=gear.capes.MagicWSD,
-		right_ear="Friomisi Earring",
-		left_ring="Archon Ring",
-	})
-	sets.precast.WS['Sanguine Blade'] = sets.precast.WS['Blade: Ei']
-
-	sets.precast.WS['Blade: Hi'] = {
+	sets.precast.WS['Blade: Hi'] = set_combine( sets.precast.WS, {
 		ammo="Yetshila +1",
-		head="Mpaca's Cap",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet=gear.Empyrean.Feet,
-		neck="Ninja Nodowa +2",
-		waist="Sailfi Belt +1",
-		left_ear="Odr Earring",
-		right_ear="Hattori Earring +2",
-		left_ring="Gere Ring",
-		right_ring="Regal Ring",
-		back=gear.capes.StrWSD,
-	}
-
-	sets.precast.WS['Blade: Kamu'] = {
-		ammo="Crepuscular Pebble",
 		head=gear.Artifact.Head,
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Mpaca's Hose",
-		feet=gear.Empyrean.Feet,
+		--body=gear.Empyrean.Body,
 		neck="Ninja Nodowa +2",
-		waist="Sailfi Belt +1",
+		waist="Svelt. Gouriz +1",
+		left_ear="Odr Earring",
+		right_ear="Lugra Earring +1",
+		left_ring="Ilabrat Ring",
+		right_ring="Regal Ring",
+		--back=gear.capes.AgiWSD,
+	})
+	sets.precast.WS['Blade: Kamu'] = set_combine( sets.precast.WS, {
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Nyame Sollerets",
+		neck="Ninja Nodowa +2",
+		left_ear="Lugra Earring +1",
+		left_ring="Sroda Ring",
+		right_ring="Gere Ring",
+	})
+
+	sets.precast.WS['Blade: Metsu'] = set_combine( sets.precast.WS, {
+		ammo="Coiste Bodhar",
+		head="Nyame Helm",
+		neck="Ninja Nodowa +2",
 		left_ear="Lugra Earring +1",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
-		right_ring="Sroda Ring",
-		back=gear.capes.StrWSD,
-	}
+		right_ring="Regal Ring",
+		back=gear.capes.DexWSD,
+	})
 
-	sets.precast.WS['Blade: Ku'] = {
+	sets.precast.WS['Blade: Ku'] = set_combine( sets.precast.WS, {
 		ammo="Coiste Bodhar",
-		head="Mpaca's Cap",
-		body="Nyame Mail",
-		hands="Malignance Gloves",
-		legs="Nyame Flanchard",
-		feet=gear.Empyrean.Feet,
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Lugra Earring +1",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
 		right_ring="Regal Ring",
-		back=gear.capes.StrWSD,
-	}
+		back=gear.capes.StrDA,
+	})
 
-	sets.precast.WS['Blade: Shun'] = {
+	sets.precast.WS['Blade: Shun'] = set_combine( sets.precast.WS, {
 		ammo="Coiste Bodhar",
 		head="Mpaca's Cap",
 		body="Malignance Tabard",
@@ -219,12 +189,34 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Ninja Nodowa +2",
 		waist="Fotia Belt",
-		left_ear="Moonshade Earring",
+		left_ear="Lugra Earring +1",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
 		right_ring="Regal Ring",
-		back=gear.capes.StrWSD,
-	}
+		back=gear.capes.DexWSD,
+	})
+
+	sets.precast.WS.Hybrid = set_combine( sets.precast.WS, {
+		ammo="Seeth. Bomblet +1",
+		head=gear.Relic.Head,
+		feet="Nyame Sollerets",
+		neck="Fotia Gorget",
+		waist="Orpheus's Sash",
+		right_ear="Lugra Earring +1",
+		left_ring="Gere Ring",
+	})
+	sets.precast.WS['Blade: To'] = sets.precast.WS.Hybrid
+	sets.precast.WS['Blade: Teki'] = sets.precast.WS.Hybrid
+	sets.precast.WS['Blade: Chi'] = sets.precast.WS.Hybrid
+	sets.precast.WS['Blade: Yu'] = sets.precast.WS.Hybrid
+	sets.precast.WS['Blade: Ei'] = set_combine(sets.precast.WS.Hybrid, {
+		head="Pixie Hairpin +1",
+		neck="Baetyl Pendant",
+		back=gear.capes.MagicWSD,
+		right_ear="Friomisi Earring",
+		left_ring="Archon Ring",
+	})
+	sets.precast.WS['Sanguine Blade'] = set_combine( sets.precast.WS['Blade: Ei'], {} )
 
 	sets.precast.WS['Aeolian Edge'] = {
 		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -233,7 +225,7 @@ function init_gear_sets()
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Sibyl Scarf",
+		neck="Baetyl Pendant",
 		waist="Orpheus's Sash",
 		left_ear="Friomisi Earring",
 		right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -300,14 +292,14 @@ function init_gear_sets()
 	}
 
 	sets.idle = {
-		ammo="Crepuscular Pebble",
+		ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet=gear.Artifact.Feet,
         neck="Bathy Choker +1",
-        waist="Plat. Mog. Belt",
+        waist="Engraved Belt",
         back=gear.capes.DexTP,
         left_ear="Eabani Earring",
         right_ear="Infused Earring",

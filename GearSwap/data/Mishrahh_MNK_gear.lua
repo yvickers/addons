@@ -193,7 +193,7 @@ function init_gear_sets()
 		legs=gear.Empyrean.Legs,
 		feet="Hermes' Sandals",
 		neck="Bathy Choker +1",
-		waist="Moonbow Belt +1",
+		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
 		left_ring="Defending Ring",

@@ -1625,16 +1625,25 @@ function job_tick()
 end
 
 function check_arts()
-	if not arts_active() then
-	
-		local abil_recasts = windower.ffxi.get_ability_recasts()
+	local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if abil_recasts[232] < latency then
+	if not buffactive['Addendum: Black'] then
+		if not buffactive['Dark Arts'] then
 			windower.chat.input('/ja "Dark Arts" <me>')
-			tickdelay = os.clock() + jatickdelay
 			return true
 		end
+		windower.chat.input('/ja "Addendum: Black" <me>')
+		return true
+	end
 
+	if not buffactive[ data.elements.storm_of[state.ElementalMode.value] ] then
+		windower.chat.input('/ma "'..data.elements.storm_of[state.ElementalMode.value]..' II" <me>')
+		return true
+	end
+
+	if not buffactive['klimaform'] then
+		windower.chat.input('/ma "Klimaform" <me>')
+		return true
 	end
 	
 	return false

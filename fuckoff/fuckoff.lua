@@ -12,11 +12,13 @@ local blackListedUsers = T{'Minervapa','TotallyABotThree',} -- Want to block all
 local blackListedWords = T{
     string.char(0x81,0x99),
     string.char(0x81,0x9A),
+    string.char(0x81,0x9C),
     '1%-99',
     'Job Point.*2100',
     'Job Point.*500',
     'JP.*2100',
     '500P',
+    '2100JP',
     '2100P',
     'JP.*500',
     'Capacity Point.*2100',
@@ -38,6 +40,7 @@ local blackListedWords = T{
     'mimi*',
     'kanna*',
     'caa*',
+    'ＫＲＴ',
     --'Buy?',
     } -- First two are '☆' and '★' symbols.
  

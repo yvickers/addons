@@ -101,7 +101,7 @@ function init_gear_sets()
 		body=gear.Relic.Body,
 	}
 	sets.precast.JA['Soul Voice'] = {
-		--legs=gear.Relic.Legs,
+		legs=gear.Relic.Legs,
 	}
 
 	sets.precast.WS = {
@@ -113,28 +113,20 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Rep. Plat. Medal",
 		waist="Sailfi Belt +1",
-		--left_ear="Sherida Earring",
+		left_ear="Telos Earring",
 		right_ear="Moonshade Earring",
 		left_ring="Metamor. Ring +1",
 		--right_ring="Rajas Ring",
 		back=gear.capes.SavageWS,
 	}
 
-	sets.precast.WS['Mordant Rime'] = {
-		--ammo="Knobkierrie",
-		head="Nyame Helm",
-		body=gear.Relic.Body,
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+	sets.precast.WS["Mordant Rime"] = set_combine(sets.precast.WS,{
 		neck="Bard's Charm +2",
-		waist="Sailfi Belt +1",
 		left_ear=="Enchntr. Earring +1",
-		right_ear="Moonshade Earring",
 		left_ring="Metamor. Ring +1",
-		--right_ring="Rajas Ring",
 		back=gear.capes.CHRWS,
-	}
+	})
+
 
 	sets.midcast.FastRecast = {}
 
@@ -375,17 +367,18 @@ function init_gear_sets()
 	})
 
 	sets.engaged = {
-		head="Bunzi's Hat",
+		range=gear.Linos.TP,
+		head=gear.Ayanmo.Head,
 		body=gear.Ayanmo.Body,
 		hands="Bunzi's Gloves",
 		legs="Volte Tights",
-		feet="Nyame Sollerets",
+		feet="Volte Spats",
 		neck="Bard's Charm +2",
 		waist="Sailfi Belt +1",
 		left_ear="Telos Earring",
-		right_ear="Crep. Earring",
+		right_ear="Dedition Earring",
 		left_ring="Cacoethic Ring +1",
-		right_ring="Ilabrat Ring",
+		right_ring="Chirich Ring +1",
 		back=gear.capes.TP,
 	}
 

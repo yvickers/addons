@@ -33,13 +33,19 @@ function job_setup()
 	
 	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
 
-	state.PreWSAbility = M{['description'] = 'Pre-Weaponskill Ability', 134, 133, 54, 140, 141 }
+	state.PreWSAbility = M{['description'] = 'Pre-Weaponskill Ability', 134, 133, 140, 141 }
 	info.PreWSAbilities = {}
 	info.PreWSAbilities[134] = 'Meditate'
 	info.PreWSAbilities[133] = 'Third Eye'
 	info.PreWSAbilities[54] = 'Hagakure'
 	info.PreWSAbilities[140] = 'Sekkanoki'
 	info.PreWSAbilities[141] = 'Sengikori'
+
+	state.PostWSAbility = M{['description'] = 'Pre-Weaponskill Ability', 54, 134, }
+	info.PostWSAbilities = {}
+	info.PostWSAbilities[134] = 'Meditate'
+	info.PostWSAbilities[54] = 'Hagakure'
+
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -207,6 +213,14 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+	if spell.type == "WeaponSkill" then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if abil_recasts[state.PostWSAbility.current] and abil_recasts[state.PostWSAbility.current] < latency then
+			windower.chat.input:schedule(2.5,'/ja "' .. info.PostWSAbilities[state.PostWSAbility.current] .. '" <me>')
+			state.PostWSAbility:cycle()
+			return true
+		end
+	end
 end
 
 -------------------------------------------------------------------------------------------------------------------
