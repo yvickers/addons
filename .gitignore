@@ -1,6 +1,11 @@
 # Windower addons - may want to specifically track settings files
+aecho/
+autocontrol/
+autoinvite/
 autojoin/
+azureSets/
 battlemod/
+bluguide/
 boxdestroyer/
 cancel/
 Dimmer/
@@ -9,26 +14,36 @@ DressUp/
 enternity/
 equipviewer/
 findAll/
+itemizer/
+latentchecker/
 libs/
 MyHome/
+Nostrum/
+ohShi/
+Omen/
+PetTP/
 pointwatch/
+PorterPacker/
 Pouches/
+rolltracker/
 scoreboard/
 send/
 shortcuts/
 Silence/
+SpeedChecker/
+SpellCheck/
 SubTarget/
+targetinfo/
 temps/
 TParty/
 Treasury/
 Trusts/
+vwhl/
 
 # Other Addons
 Debuffed/
 Gearswap/data/export/*.*
 sheolhelper/
-SpeedChecker/
-SpellCheck/
 targeter/
 whereisdi/
 widescantool/

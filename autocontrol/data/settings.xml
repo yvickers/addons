@@ -4,6 +4,22 @@
         <AutoActivate>true</AutoActivate>
         <AutoDeusExAutomata>false</AutoDeusExAutomata>
         <autosets>
+            <blm>
+                <frame>stormwaker frame</frame>
+                <head>spiritreaver head</head>
+                <slot01>Loudspeaker IV</slot01>
+                <slot02>Ice Maker</slot02>
+                <slot03>Amplifier</slot03>
+                <slot04>Amplifier II</slot04>
+                <slot05>Arcanoclutch</slot05>
+                <slot06>Optic Fiber</slot06>
+                <slot07>Optic Fiber II</slot07>
+                <slot08>Arcanic Cell</slot08>
+                <slot09>Arcanic Cell II</slot09>
+                <slot10>Mana Tank III</slot10>
+                <slot11>Mana Tank IV</slot11>
+                <slot12>Mana Conserver</slot12>
+            </blm>
             <boneslayer>
                 <frame>valoredge frame</frame>
                 <head>valoredge head</head>
@@ -71,6 +87,22 @@
                 <slot11>optic fiber</slot11>
                 <slot12>turbo charger ii</slot12>
             </frog>
+            <fu>
+                <frame>valoredge frame</frame>
+                <head>soulsoother head</head>
+                <slot01>auto-repair kit iv</slot01>
+                <slot02>optic fiber</slot02>
+                <slot03>optic fiber ii</slot03>
+                <slot04>coiler ii</slot04>
+                <slot05>inhibitor</slot05>
+                <slot06>inhibitor ii</slot06>
+                <slot07>attuner</slot07>
+                <slot08>magniplug ii</slot08>
+                <slot09>speedloader ii</slot09>
+                <slot10>turbo charger ii</slot10>
+                <slot11>mana jammer III</slot11>
+                <slot12>armor plate iv</slot12>
+            </fu>
             <harletank>
                 <frame>harlequin frame</frame>
                 <head>soulsoother head</head>
@@ -193,7 +225,7 @@
                 <slot05>magniplug ii</slot05>
                 <slot06>speedloader ii</slot06>
                 <slot07>truesights</slot07>
-                <slot08>turbo charger</slot08>
+                <slot08>auto-repair kit iv</slot08>
                 <slot09>turbo charger ii</slot09>
                 <slot10>optic fiber</slot10>
                 <slot11>optic fiber ii</slot11>
