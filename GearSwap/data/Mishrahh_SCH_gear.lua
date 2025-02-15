@@ -282,7 +282,7 @@ function init_gear_sets()
         ring1="Metamor. Ring +1",
         ring2="Kishar Ring",
         back=gear.capes.MAB,
-        waist="Acuity Belt +1",
+        waist="Null Belt",
         --waist="Luminary Sash",
     }
 		
@@ -561,7 +561,7 @@ function init_gear_sets()
 		neck="Warder's Charm +1",
 		waist="Engraved Belt",
 		left_ear="Eabani Earring",
-		right_ear="Lugalbanda Earring",
+		right_ear="Etiolation Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Warp Ring",
 		back="Aurist's Cape +1",

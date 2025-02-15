@@ -14,6 +14,8 @@ DressUp/
 enternity/
 equipviewer/
 findAll/
+Gearswap/
+Gearswap/data/export/*.*
 itemizer/
 latentchecker/
 libs/
@@ -42,7 +44,6 @@ vwhl/
 
 # Other Addons
 Debuffed/
-Gearswap/data/export/*.*
 sheolhelper/
 targeter/
 whereisdi/

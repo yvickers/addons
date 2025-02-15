@@ -10,7 +10,7 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Geomancy Galero"
-	gear.Artifact.Body = "Geo. Tunic +3"
+	gear.Artifact.Body = "Geomancy Tunic +3"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
 	gear.Artifact.Legs = "Geomancy Pants +3"
 	gear.Artifact.Feet = "Geo. Sandals +3"
@@ -72,10 +72,10 @@ function init_gear_sets()
         neck="Voltsurge Torque",
         waist="Witful Belt",
         --left_ear="Enchntr. Earring +1",
-        right_ear="Loquac Earring",
-		left_ring="Lebeche Ring",
-        right_ring="Weather. Ring",
-        back=gear.capes.GeoSkill,--"Fi Follet Cape +1",
+        right_ear="Loquac. Earring",
+		left_ring="Weather. Ring",
+        right_ring="Kishar Ring",
+        back="Fi Follet Cape +1",
     }
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
 		--main="Daybreak",
@@ -114,17 +114,17 @@ function init_gear_sets()
 		right_ring="Haoma's Ring",
 	})
 	sets.midcast['Elemental Magic'] = {
-		main="Marin Staff +1",
-		sub="Enki Strap",
+		main="Idris",
+		sub="Ammurapi Shield",
 		ammo="Ghastly Tathlum +1",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
 		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
-		neck="Sanctity Necklace",
+		neck="Sibyl Scarf",
 		back=gear.capes.MAB,
-		waist="Eschan Stone",
+		waist="Acuity Belt +1",
 		left_ring="Jhakri Ring",
 		right_ring="Metamor. Ring +1",
 		left_ear="Friomisi Earring",
@@ -136,8 +136,8 @@ function init_gear_sets()
 	sets.midcast.Stun = {}
 
 	sets.midcast['Banish'] = {
-		main="Marin Staff +1",
-		sub="Enki Strap",
+		main="Idris",
+		sub="Ammurapi Shield",
 		ammo="Ghastly Tathlum +1",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
@@ -146,7 +146,7 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Sanctity Necklace",
 		back=gear.capes.MAB,
-		waist="Eschan Stone",
+		waist="Acuity Belt +1",
 		left_ring="Weather. Ring",
 		right_ring="Metamor. Ring +1",
 		left_ear="Friomisi Earring",
@@ -172,22 +172,19 @@ function init_gear_sets()
 	sets.midcast.Dispel = {}
 
 	sets.midcast['Enhancing Magic'] = {
+		sub="Ammurapi Shield",
 		legs="Shedir Seraweels",
 		waist="Embla Sash",
 	}
-	sets.midcast.Stoneskin = {
-		legs="Shedir Seraweels",
-		--waist="Siegel Sash",
-	}
-	sets.midcast.Aquaveil = {
+	sets.midcast.Stoneskin = set_combine( sets.midcast['Enhancing Magic'],{
+		waist="Siegel Sash",
+	})
+	sets.midcast.Aquaveil = set_combine( sets.midcast['Enhancing Magic'],{
 		main="Vadose Rod",
 		head="Amalric Coif +1",
-		legs="Shedir Seraweels",
-	}
-	sets.midcast.BarElement = {
-		legs="Shedir Seraweels",
-		waist="Embla Sash",
-	}
+	})
+	sets.midcast.BarElement = set_combine( sets.midcast['Enhancing Magic'], {
+	})
 
 	sets.idle = {
 		main="Idris",

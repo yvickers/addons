@@ -145,18 +145,14 @@ function define_global_sets()
 
     gear.TH = {}
     gear.TH.Herc = {
-        head='Volte Cap',
-       -- body=gear.Herc.Body.TH,
-        hands=gear.Herc.Hands.TH,
-        legs=gear.Herc.Legs.TH,
-        waist="Chaac Belt",
+        head='Volte Cap',--1
+        body="Volte Jupon",--2
+        waist="Chaac Belt",--1
     }
     gear.TH.Val = {
-        head='Volte Cap',
-        body=gear.Val.Body.TH,
-        hands=gear.Val.Hands.TH,
-        legs=gear.Val.Legs.TH,
-        waist="Chaac Belt",
+        head='Volte Cap',--1
+        body="Volte Jupon",--2
+        waist="Chaac Belt",--1
     }
 
     sets.AutoBuff = {}

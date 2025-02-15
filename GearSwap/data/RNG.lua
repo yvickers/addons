@@ -387,11 +387,6 @@ function customize_idle_set(idleSet)
 end
 
 function customize_melee_set(meleeSet)
-    if state.Weapons.current and gear.weapons[state.Weapons.current] and gear.weapons[state.Weapons.current].ammo then
-        meleeSet = set_combine(meleeSet,{
-            ammo=gear.weapons[state.Weapons.current].ammo,
-        })
-    end
     return meleeSet
 end
 

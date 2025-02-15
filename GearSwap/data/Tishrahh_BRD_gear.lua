@@ -368,8 +368,8 @@ function init_gear_sets()
 
 	sets.engaged = {
 		range=gear.Linos.TP,
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
+		head="Nyame Helm",
+		body="Nyame Mail",
 		hands="Bunzi's Gloves",
 		legs="Volte Tights",
 		feet="Volte Spats",

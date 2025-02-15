@@ -44,13 +44,13 @@ function user_job_setup()
         main="Naegling",
         sub="Demers. Degen +1",
         ranged="Anarchy +2",
-        ammo=state.Bullet.current,
+        ammo="Chrono Bullet",
     }
     gear.weapons['Death Penalty'] = {
         main="Naegling",
         sub="Tauret",
         ranged="Death Penalty",
-        ammo=state.Bullet.current,
+        ammo="Chrono Bullet",
     }
     gear.weapons['Fomalhaut'] = {
         main="Naegling",
@@ -62,13 +62,13 @@ function user_job_setup()
         main="Tauret",
         sub="Naegling",
         ranged="Anarchy +2",
-        ammo="Hauksbok Bullet",
+        ammo="Chrono Bullet",
     }
     gear.weapons['AE Death Penalty'] = {
         main={ name="Rostam", augments={'Path: B',}},
         sub="Tauret",
         ranged="Death Penalty",
-        ammo=state.Bullet.current,
+        ammo="Chrono Bullet",
     }
     gear.weapons['Zeni'] = {
         main="Gleti's Knife",
@@ -79,6 +79,7 @@ function user_job_setup()
     gear.weapons['Dummy2'] = {
         main="Gleti's Knife",
         sub="Demers. Degen +1",
+        ammo="Chrono Bullet",
     }
 
     state.TreasureMode:set('Tag')
@@ -91,7 +92,7 @@ function init_gear_sets()
 	}
     
     sets.TreasureHunter = {
-        head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
+        head="Volte Cap",
         legs={ name="Herculean Trousers", augments={'Accuracy+10','Attack+19','"Treasure Hunter"+2','Accuracy+4 Attack+4',}},
         waist="Chaac Belt",
     }
@@ -123,7 +124,7 @@ function init_gear_sets()
         head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
         --ear2="Loquacious Earring",
         ear1="Etiolation Earring",
-        hands="Leyline Gloves",
+        --hands="Leyline Gloves",
         --legs="Rawhide Trousers",
         --feet="Crimson Greaves",
         neck="Voltsurge Torque",
@@ -131,6 +132,7 @@ function init_gear_sets()
     }
 
     sets.precast.RA = {
+        ammo="Chrono Bullet",
         head=gear.Empyrean.Head,
         body=gear.Artifact.Body,
         hands="Carmine Fin. Ga. +1",
@@ -168,6 +170,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+        ammo="Bayeux Bullet",
         --head=gear.Adhemar.Head.B,
         --neck="Fotia Gorget",
         --waist="Fotia Belt",
@@ -175,6 +178,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Evisceration'] = set_combine( sets.precast.WS, {
+        ammo="Bayeux Bullet",
         --head=gear.Adhemar.Head.B,
         --body=gear.Mummu.Body,
         --hands=gear.Mummu.Hands,
@@ -203,10 +207,11 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Leaden Salute'] = {
+        ammo="Living Bullet",
         head="Pixie Hairpin +1",
         neck="Comm. Charm +2",
         ear1="Friomisi Earring",
-        ear2="Hermetic Earring",
+        ear2="Moonshade Earring",
         body=gear.Relic.Body,
         hands="Nyame Gauntlets",
         left_ring="Dingir Ring",
@@ -218,17 +223,20 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Wildfire'] = set_combine( sets.precast.WS['Leaden Salute'], {
+        ammo="Living Bullet",
         head="Nyame Helm",
         right_ring="Ilabrat Ring",
     })
 
     sets.precast.WS['Hot Shot'] = set_combine( sets.precast.WS['Leaden Salute'], {
+        ammo="Living Bullet",
         head="Nyame Helm",
         hands=gear.Empyrean.Hands,
         right_ring="Ilabrat Ring",
     })
 
     sets.precast.WS['Last Stand'] = {
+        ammo="Chrono Bullet",
         head="Nyame Helm",
         body=gear.Artifact.Body,
         hands=gear.Empyrean.Hands,
@@ -251,7 +259,7 @@ function init_gear_sets()
         feet=gear.Empyrean.Feet,
         neck="Comm. Charm +2",
         ear1="Friomisi Earring",
-        ear2="Hermetic Earring",
+        ear2="Enervating Earring",
         right_ring="Dingir Ring",
         left_ring="Lehko's Ring",
         back=gear.capes.RngMagicalWS,
@@ -319,6 +327,7 @@ function init_gear_sets()
     }
 
     sets.idle = {
+        ammo="Chrono Bullet",
         head=gear.Empyrean.Head,
         body=gear.Empyrean.Body,
         hands="Nyame Gauntlets",
@@ -342,6 +351,7 @@ function init_gear_sets()
     })
 
     sets.engaged.Melee = {
+        ammo="Chrono Bullet",
         head=gear.Empyrean.Head,
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},

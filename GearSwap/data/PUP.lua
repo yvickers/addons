@@ -55,6 +55,7 @@ function job_setup()
 
 	state.PetMode = M{['description']='Pet Mode', 'None', 'Overdrive', 'Ranger', 'BruiserTank', 'TurtleTank', 'HarlequinTank', 'SharpshotTank', 'BoneSlayer', 'WhiteMage', 'RedMage', 'BlackMage' }
 	state.AutoManeuvers = M{['description']='Auto Maneuver List', 'Default', 'Overdrive', 'Ranger', 'BruiserTank', 'TurtleTank', 'HarlequinTank', 'SharpshotTank', 'BoneSlayer', 'WhiteMage', 'RedMage', 'BlackMage' }
+	state.AutoEngageDistance = 8
 
 	defaultManeuvers = {
 		None = {
@@ -254,6 +255,7 @@ function init_gear_sets()
 		--back=gear.capes.DexTP,
 	}
 	sets.engaged.Pet = {}
+	sets.engaged.Pet.Engaged = {}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
 	})
@@ -313,7 +315,7 @@ end
 
 
 function job_status_change(new_status, old_status)
-	if new_status == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
+	if new_status == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < state.AutoEngageDistance then
 		windower.chat.input('/pet Deploy <t>')
 	end
 end
@@ -364,6 +366,14 @@ function customize_idle_set(idleSet)
 end
 
 function customize_melee_set(meleeSet)
+	if pet.isvalid and pet.status == 'Engaged' then
+		if sets.engaged.Pet.Engaged[state.PetMode.value] then
+			meleeSet = set_combine(idleSet, sets.engaged.Pet.Engaged[state.PetMode.value])
+		else
+			meleeSet = set_combine(idleSet, sets.engaged.Pet)
+		end
+
+	end
 	return meleeSet
 end
 
@@ -400,6 +410,12 @@ function job_self_command(cmdParams, eventArgs)
 		next_maneuver()
 		eventArgs.handled = true
 	end
+
+	if cmdParams[1]:lower() == 'petdistance' then
+		state.AutoEngageDistance = tonumber(cmdParams[2])
+		add_to_chat(104, 'Automaton will engage < '..state.AutoEngageDistance..' yalms.')
+		eventArgs.handled = true
+	end
 end
 
 function job_tick()
@@ -414,7 +430,7 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 	end
 
-	if silent_check_fighting() and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
+	if silent_check_fighting() and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < state.AutoEngageDistance then
 		windower.chat.input('/pet Deploy <t>')
 	end
 
@@ -423,11 +439,17 @@ end
 
 function check_repair()
 
-	if state.AutoBuffMode.current == 'on' and pet.isvalid and pet.hpp < 50 then
+	if state.AutoBuffMode.current == 'on' and pet.isvalid and pet.hpp < 25 then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if abil_recasts[206] < latency and player['inventory']['Automat. Oil +3'] then
 			windower.chat.input('/ja "Repair" <me>')
+			return true
+		end
+
+		--swap hp
+		if abil_recasts[211] < latency then
+			windower.chat.input('/ja "Role Reversal" <me>')
 			return true
 		end
 	end

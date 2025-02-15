@@ -288,3 +288,71 @@ do
         return cache[term]
     end
 end
+
+function get_spell_table_by_name(name)
+	spells = require('resources').spells
+	for k,v in pairs(spells) do
+        if v.en:lower() == name:lower() then
+            return v
+        end
+    end
+    return nil
+end
+
+function actual_cost(spell)
+	return spell.mp_cost
+end
+
+function get_closest_mob_id_by_name(name)
+	local name = get_fuzzy_name(name)
+	local mobs = windower.ffxi.get_mob_array()
+	local fuzzy_list = T{}
+	local best_match = T{}
+
+	for i, mob in pairs(mobs) do
+		if mob.valid_target then
+			local fuzzy_mob_name = get_fuzzy_name(mob.name)
+			if (name:length() >= 3 and fuzzy_mob_name:contains(name)) or fuzzy_mob_name == name then
+				fuzzy_list[mob.id] = mob
+				fuzzy_list[mob.id].score = fuzzy_mob_name:length() - name:length()
+			end
+		end
+	end
+	
+	for i, mob in pairs(fuzzy_list) do
+		if (not best_match.score or mob.score < best_match.score) or (mob.score == best_match.score and (mob.distance < best_match.distance)) then
+			best_match = mob
+		end
+	end
+
+	return best_match.id or false
+end
+
+function get_closest_mob_by_name(name)
+	local name = get_fuzzy_name(name)
+	local mobs = windower.ffxi.get_mob_array()
+	local fuzzy_list = T{}
+	local best_match = T{}
+
+	for i, mob in pairs(mobs) do
+		if mob.valid_target then
+			local fuzzy_mob_name = get_fuzzy_name(mob.name)
+			if (name:length() >= 3 and fuzzy_mob_name:contains(name)) or fuzzy_mob_name == name then
+				fuzzy_list[mob.id] = mob
+				fuzzy_list[mob.id].score = fuzzy_mob_name:length() - name:length()
+			end
+		end
+	end
+	
+	for i, mob in pairs(fuzzy_list) do
+		if (not best_match.score or mob.score < best_match.score) or (mob.score == best_match.score and (mob.distance < best_match.distance)) then
+			best_match = mob
+		end
+	end
+
+	return best_match or false
+end
+
+function get_fuzzy_name(name)
+	return name:lower():gsub("%s", ""):gsub("%p", "")
+end

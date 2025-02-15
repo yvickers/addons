@@ -333,7 +333,7 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         neck="Asn. Gorget +2",
         waist="Reiki Yotai",
-        back=gear.capes.TP,
+        back="Null Shawl",
         left_ear="Sherida Earring",
         right_ear="Skulker's Earring +1",
         left_ring="Gere Ring",
@@ -360,6 +360,7 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
+        back=gear.capes.TP,
         left_ring="Defending Ring",
     })
 

@@ -79,7 +79,11 @@ function define_global_sets()
     gear.Val = {}
 
     gear.TH = {}
-    gear.TH.Herc = {}
+    gear.TH.Herc = {
+        head="Volte Cap",
+        legs={ name="Herculean Trousers", augments={'Accuracy+10','Attack+19','"Treasure Hunter"+2','Accuracy+4 Attack+4',}},
+        waist="Chaac Belt",
+    }
 
     gear.Telchine = {}
 

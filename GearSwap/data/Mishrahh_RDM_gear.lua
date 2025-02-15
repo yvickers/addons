@@ -321,7 +321,7 @@ function init_gear_sets()
 		range="Ullr",
 		ammo="",
 		back="Aurist's Cape +1",
-		waist="Acuity Belt +1",
+		waist="Null Loop",
 		right_ring="Stikini Ring +1",
 	}) --accuracy
 	sets.midcast['Enfeebling Magic'].Skill = set_combine(sets.midcast['Enfeebling Magic'], {
@@ -403,7 +403,7 @@ function init_gear_sets()
 		feet="Merlinic Crackows",
 		neck="Erra Pendant",
 		back=gear.capes.INT,
-		waist="Acuity Belt +1",
+		waist="Null Belt",
 		left_ear="Malignance Earring",
 		right_ear="Digni. Earring",
 		left_ring="Archon Ring",
@@ -478,7 +478,7 @@ function init_gear_sets()
 		ammo="Sroda Tathlum",
 		hands=gear.Ayanmo.Hands,
 		legs=gear.Relic.Legs,
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 		waist="Orpheus's Sash",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
@@ -486,7 +486,7 @@ function init_gear_sets()
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
 		hands="Malignance Gloves",
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
 	})

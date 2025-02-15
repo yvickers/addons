@@ -104,6 +104,9 @@ function user_precast(spell, action, spellMap, eventArgs)
         windower.send_ipc_message( 'weaponskill ' .. spell.name:gsub("%W",'_') )
         tickdelay = os.clock() + wstickdelay
     end
+    if 'PetCommand' == spell.type then
+        tickdelay = os.clock() + jatickdelay
+    end
 
     local magic_types = S{ 'WhiteMagic', 'BlackMagic', 'SummonerPact', 'Ninjutsu', 'BardSong', 'BlueMagic', 'Geomancy', 'Trust' }
     if magic_types:contains(spell.type) then
@@ -389,6 +392,9 @@ function user_self_command(cmdParams, eventArgs)
         --windower.ffxi.follow()
         windower.send_command('input //ffo stopall')
     end
+    if 'allnuke' == cmdParams[1] then
+        all_nuke()
+    end
 
 end
 
@@ -407,5 +413,5 @@ end
 
 function all_nuke()
     send_command('@send @others //gs c set ElementalMode '..state.ElementalMode.current:lower())
-    send_command('@send @others //gs c elemental nuke')
+    send_command('@send @others //gs c elemental nuke <tid>')
 end

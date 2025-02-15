@@ -25,18 +25,18 @@ function user_job_setup()
 		ammo="Automat. Oil +3"
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Shijin Spiral' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Shijin Spiral', 'Victory Smite' }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = ""
-	gear.Artifact.Hands = "Foire Dastanas +1"
+	gear.Artifact.Hands = "Foire Dastanas +2"
 	gear.Artifact.Legs = ""
 	gear.Artifact.Feet = ""
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = "Pitre Tobe +1"
+	gear.Relic.Body = "Pitre Tobe +3"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
@@ -50,8 +50,8 @@ function user_job_setup()
 
 	gear.capes = {}
 	gear.capes.BothTP = { name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Accuracy+10','Pet: Haste+10','Pet: Damage taken -5%',}}
-	gear.capes.MasterTP = gear.capes.BothTP
-	gear.capes.MasterWS = { name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+	gear.capes.MasterTP = { name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+	gear.capes.MasterDexWS = { name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 	gear.capes.MasterSTRWS = { name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 	gear.capes.AutomatonTP = gear.capes.BothTP
 
@@ -107,16 +107,24 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
-        left_ear="Mache Earring +1",
-        right_ear="Cessance Earring",
+        left_ear="Moonshade Earring",
+        right_ear="Schere Earring",
         left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back=gear.capes.MasterWS,
+        right_ring="Regal Ring",
+        back=gear.capes.MasterSTRWS,
 	}
+	sets.precast.WS['Stringing Pummel'] = set_combine( sets.precast.WS, {
+		waist="Fotia Belt",
+	})
 	sets.precast.WS['Victory Smite'] = set_combine( sets.precast.WS, {
 		legs="Mpaca's Hose",
 		back=gear.capes.MasterSTRWS,
-		left_ear="Moonshade Earring",
+		right_ring="Niqmaddu Ring",
+	})
+	sets.precast.WS['Shijin Spiral'] = set_combine( sets.precast.WS, {
+		legs="Nyame Flanchard",
+		back=gear.capes.MasterDexWS,
+		left_ear="Mache Earring +1",
 	})
 
 	sets.idle = {
@@ -126,7 +134,7 @@ function init_gear_sets()
         legs="Malignance Tights",
         feet="Hermes' Sandals",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Engraved Belt",
+        waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",
@@ -157,7 +165,7 @@ function init_gear_sets()
 	sets.idle.Pet.Engaged.Overdrive = set_combine( sets.idle.Pet.Engaged, {
 		feet="Mpaca's Boots",
 		waist="Klouskap Sash +1",
-		right_ear="Rimeice Earring",
+		right_ear="Kara. Earring +1",
 		back=gear.capes.BothTP,
 	})
 	sets.idle.Pet.Engaged.Ranger = set_combine( sets.idle.Pet.Engaged, {
@@ -176,7 +184,7 @@ function init_gear_sets()
 		head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Mpaca's Hose",
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
@@ -191,13 +199,11 @@ function init_gear_sets()
 	})
 
 	sets.engaged.Pet = set_combine(sets.engaged, {
-		head=gear.Taliah.Head,
-		body=gear.Taliah.Body,
-		hands=gear.Taliah.Hands,
-		legs=gear.Taliah.Legs,
-		feet=gear.Taliah.Feet,
-		back=gear.capes.BothTP,
+		feet="Mpaca's Boots",
+		back="Null Shawl",
+		right_ear="Kara. Earring +1",
 	})
+	sets.engaged.Pet.Engaged = {}
 	sets.engaged.PDT.Pet = set_combine(sets.engaged.Pet, {
 	})
 end

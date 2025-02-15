@@ -27,7 +27,7 @@ function user_job_setup()
         ammo="Hauksbok Arrow",
     }
     
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Coronach', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Decimation', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
     state.Ammo = M{['description'] = 'Main Ammo', 'Chrono Arrow', 'Chrono Bullet', 'Quelling Bolt', }
 
     gear.Artifact = {}
@@ -54,7 +54,9 @@ function user_job_setup()
     gear.capes = {}
     gear.capes.DexTP = { name="Belenus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.capes.RNGTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
+    gear.capes.DexWS = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','DEX+10','Critical hit rate +10%',}}
     gear.capes.PhysicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
+    gear.capes.PhysicalSTRWS = { name="Belenus's Cape", augments={'STR+20','Rng.Acc.+20 Rng.Atk.+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.MagicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.PhysicalMeleeWS = { name="Belenus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.Snapshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
@@ -168,7 +170,8 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         left_ring="Sroda Ring",
-        right_ear="Sherida Earring",
+        left_ear="Sherida Earring",
+        right_ear="Moonshade Earring",
     })
     sets.precast.WS['Decimation'] = set_combine(sets.precast.WS, {
         body=gear.Empyrean.Body,
@@ -200,7 +203,7 @@ function init_gear_sets()
         body=gear.Empyrean.Body,
         feet=gear.Empyrean.Feet,
         neck="Fotia Gorget",
-        back=gear.capes.PhysicalMeleeWS,
+        back=gear.capes.PhysicalSTRWS,
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
     } )
@@ -221,7 +224,7 @@ function init_gear_sets()
     } )
     sets.precast.WS["Hot Shot"] = set_combine(sets.precast.WS, {
         neck="Fotia Gorget",
-        back=gear.capes.MagicalRangedWS,
+        back=gear.capes.PhysicalSTRWS,
         waist="Fotia Belt",
         right_ear="Friomisi Earring",
         right_ring="Dingir Ring",
@@ -234,7 +237,7 @@ function init_gear_sets()
         hands=gear.Empyrean.Hands,
         feet=gear.Empyrean.Feet,
         neck="Fotia Gorget",
-        back=gear.capes.DexTP,
+        back=gear.capes.DexWS,
         waist="Fotia Belt",
         left_ring="Begrudging Ring",
         left_ear="Odr Earring",
@@ -256,7 +259,7 @@ function init_gear_sets()
     sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS, {
         ammo="Chrono Arrow",
         neck="Fotia Gorget",
-        back=gear.capes.PhysicalMeleeWS,
+        back=gear.capes.PhysicalSTRWS,
         waist="Fotia Belt",
         right_ear="Friomisi Earring",
         right_ring="Dingir Ring",

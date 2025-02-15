@@ -72,7 +72,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
-		main="Pedagogy Staff",
+		main="Musa",
 		ammo="Impatiens",
 		head="Amalric Coif +1",
 		body="Jhakri Robe +2",
@@ -119,7 +119,7 @@ function init_gear_sets()
     sets.MagicBurst = {
     	main="Mpaca's Staff",
     	sub="Enki Strap",
-    	neck="Argute Stole +1",
+    	neck="Argute Stole +2",
     	ring1="Mujin Band",
     	ring2="Freke Ring",
     	head="Agwu's Cap",
@@ -146,7 +146,7 @@ function init_gear_sets()
 	} )
 		
 	sets.midcast.Cure = {
-		main="Pedagogy Staff",
+		main="Musa",
 		ammo="Impatiens",
 		head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 		body={ name="Vanya Robe", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -193,7 +193,7 @@ function init_gear_sets()
 	})
 
 	sets.midcast['Enhancing Magic'] = {
-		main="Pedagogy Staff",
+		main="Musa",
 		ammo="Impatiens",
 		head=gear.Telchine.Head.Duration,
 		body=gear.Relic.Body,
@@ -299,7 +299,7 @@ function init_gear_sets()
 		hands="Arbatel Bracers +3",
 		legs="Arbatel Pants +3",
 		feet="Arbatel Loafers +3",
-		neck="Argute Stole +1",
+		neck="Argute Stole +2",
 		waist="Eschan Stone",
 		left_ear="Hermetic Earring",
 		right_ear="Friomisi Earring",
@@ -318,7 +318,7 @@ function init_gear_sets()
 		hands="Arbatel Bracers +3",
 		legs="Arbatel Pants +3",
 		feet="Arbatel Loafers +3",
-		neck="Argute Stole +1",
+		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
 		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
@@ -381,7 +381,7 @@ function init_gear_sets()
 		hands="Arbatel Bracers +3",
 		legs="Arbatel Pants +3",
 		feet="Arbatel Loafers +3",
-		neck="Argute Stole +1",
+		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
 		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
@@ -404,7 +404,7 @@ function init_gear_sets()
 		hands="Arbatel Bracers +3",
 		legs="Arbatel Pants +3",
 		feet="Arbatel Loafers +3",
-		neck="Argute Stole +1",
+		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
 		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},

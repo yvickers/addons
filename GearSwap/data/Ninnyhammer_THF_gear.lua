@@ -47,7 +47,6 @@ function init_gear_sets()
     --------------------------------------
 
     sets.TreasureHunter = set_combine( gear.TH.Herc, {
-        --hands=gear.Relic.Hands,
         feet=gear.Empyrean.Feet
     } )
 
