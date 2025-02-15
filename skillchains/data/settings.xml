@@ -53,28 +53,36 @@
             </text>
         </display>
     </global>
+    <garct>
+        <Show>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,MNK</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,MNK</props>
+        </Show>
+        <display>
+            <pos>
+                <x>1858</x>
+                <y>119</y>
+            </pos>
+        </display>
+    </garct>
+    <keshnak>
+        <Show>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,MNK</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,MNK</props>
+        </Show>
+        <display>
+            <pos>
+                <x>1758</x>
+                <y>75</y>
+            </pos>
+        </display>
+    </keshnak>
     <mishrahh>
         <display>
             <pos>
-                <x>793</x>
-                <y>86</y>
+                <x>801</x>
+                <y>69</y>
             </pos>
         </display>
     </mishrahh>
-    <ninnyhammer>
-        <display>
-            <pos>
-                <x>1203</x>
-                <y>89</y>
-            </pos>
-        </display>
-    </ninnyhammer>
-    <tishrahh>
-        <display>
-            <pos>
-                <x>1071</x>
-                <y>64</y>
-            </pos>
-        </display>
-    </tishrahh>
 </settings>

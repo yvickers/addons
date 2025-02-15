@@ -14,5 +14,5 @@ return {
         ["Tishrahh"] = L{"Mage's Ballad III",},
         ["Bishrahh"] = L{"Mage's Ballad III",},
     },
-    ["songs"] = L{"Valor Minuet IV","Valor Minuet V","Victory March","Honor March",},
+    ["songs"] = L{"Valor Minuet V","Blade Madrigal","Victory March","Honor March",},
 }

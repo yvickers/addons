@@ -2,16 +2,33 @@
 <settings>
     <global>
         <active>true</active>
-        <aoe>
-            <p1>true</p1>
-            <p2>true</p2>
-            <p3>true</p3>
-            <p4>true</p4>
-            <p5>true</p5>
-        </aoe>
-        <autora>true</autora>
-        <crooked_cards>1</crooked_cards>
-        <roll>Samurai Roll,Chaos Roll</roll>
+        <aug>
+            <lifestream>20</lifestream>
+        </aug>
+        <buffs>
+            <haste />
+            <refresh />
+        </buffs>
+        <delay>4.2</delay>
+        <entrust>
+            <ma>Indi-Strength</ma>
+            <target>mishrahh</target>
+        </entrust>
+        <geo>Geo-Frailty</geo>
+        <indi>Indi-Fury</indi>
+        <max_ws_hp>99</max_ws_hp>
+        <min_ws_hp>20</min_ws_hp>
+        <recast>
+            <buff>
+                <max>10</max>
+                <min>5</min>
+            </buff>
+            <indi>
+                <max>25</max>
+                <min>20</min>
+            </indi>
+        </recast>
+        <start_on_load>false</start_on_load>
         <text>
             <bg>
                 <alpha>255</alpha>
@@ -30,7 +47,7 @@
             <padding>0</padding>
             <pos>
                 <x>0</x>
-                <y>50</y>
+                <y>0</y>
             </pos>
             <text>
                 <alpha>255</alpha>
@@ -53,66 +70,49 @@
         </text>
     </global>
     <bishrahh>
-        <aoe>
-            <p1>false</p1>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
-        <roll>Chaos Roll,Samurai Roll</roll>
+        <geo>Geo-Precision</geo>
+        <indi>Indi-Precision</indi>
         <text>
             <pos>
                 <x>380</x>
+                <y>50</y>
             </pos>
         </text>
     </bishrahh>
     <mishrahh>
-        <aoe>
-            <p1>false</p1>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
-        <roll>Samurai Roll,Corsair&apos;s Roll</roll>
+        <buffs>
+            <refresh>mishrahh</refresh>
+        </buffs>
+        <entrust>
+            <ma>Indi-Acumen</ma>
+            <target>maddyline</target>
+        </entrust>
+        <geo>Geo-Regen</geo>
+        <indi>Indi-STR</indi>
         <text>
             <pos>
-                <x>930</x>
+                <x>925</x>
+                <y>98</y>
             </pos>
         </text>
     </mishrahh>
     <ninnyhammer>
-        <aoe>
-            <p1>false</p1>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
+        <geo>Geo-Precision</geo>
+        <indi>Indi-Precision</indi>
         <text>
             <pos>
                 <x>380</x>
-                <y>72</y>
+                <y>50</y>
             </pos>
         </text>
     </ninnyhammer>
     <tishrahh>
-        <aoe>
-            <p1>false</p1>
-            <p2>false</p2>
-            <p3>false</p3>
-            <p4>false</p4>
-            <p5>false</p5>
-        </aoe>
-        <crooked_cards>2</crooked_cards>
-        <roll>Chaos Roll,Samurai Roll</roll>
+        <geo>Geo-Malaise</geo>
+        <indi>Indi-INT</indi>
         <text>
             <pos>
-                <x>380</x>
+                <x>385</x>
+                <y>92</y>
             </pos>
         </text>
     </tishrahh>

@@ -122,7 +122,7 @@ user_actions = {
                                 reset_dispel()
                                 addon_message('Dispel successful, stopping.')
                             end 
-                        elseif dispel_green:contains(targets[i].actions[j].message) then
+                        elseif dispel_yellow:contains(targets[i].actions[j].message) then
                             current_retry = current_retry + 1
                             if ( settings.retry < current_retry ) then
                                 addon_message('Dispel unsuccessful, trying again.')
@@ -150,10 +150,9 @@ user_actions = {
 function beginOrInterrupt(param)
     if param == 24931 then
         casting = true
-    elseif param == 28787 then
+    else
         casting = false
     end
-    casting = false
 end
 
 function finishCasting()
@@ -167,6 +166,10 @@ end
 
 windower.register_event('action',function (act)
     local player = windower.ffxi.get_player()
+
+    if not active then
+        return
+    end
 
     if not player.in_combat then
         return nil
@@ -331,23 +334,31 @@ end
 commands.stop = function()
     needs_dispel = false
     casting = false
+    addon_message('Stopping current dispel')
 end
 
 commands.on = function()
     if dispel then
+        addon_message('Watching for buffs to dispel')
         active = true
         last_check_time = os.clock()
         current_retry = 0
     end
 end
 commands.off = function()
-    active = false
-    needs_dispel = false
-    casting = false
+    if active then
+        addon_message('Stopping')
+        active = false
+        needs_dispel = false
+        casting = false
+    end
 end
 commands.help = function()
     addon_message('Attempts to dispel until no buffs on target.')
-    addon_message('Usage: //am save --saves current settings')
+    addon_message('Usage: //ad on --start auto dispeling')
+    addon_message('Usage: //ad off --stop auto dispelling')
+    addon_message('Usage: //ad start <tid> --dispel current target')
+    addon_message('Usage: //ad save --saves current settings')
 end
 
 -- Basic clearing from transitions

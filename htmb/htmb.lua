@@ -37,6 +37,7 @@ htmb_map = T{
     [22] = {name = 'Divine phantom gem',           cost = 10},
     [23] = {name = 'Maiden phantom gem',           cost = 10},
     [24] = {name = 'Wrym God phantom gem',         cost = 30},
+    [25] = {name = 'Orb of Radiance phantom gem',  cost = 30},
 }
 
 htmb_npcs = {
@@ -55,7 +56,7 @@ end
 function get_option_index(menu_options, merit_points)
     local buy = buy_key_item or buy_list
     for x = 1, #buy do
-        local option = buy[x]
+        local option = buy[x]     
         if htmb_map[option] and htmb_map[option].cost <= merit_points and menu_options:has_bit(option) then
             return 0x100 * option + 0x02
         end
