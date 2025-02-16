@@ -9,4 +9,5 @@ return {
     ['portals'] = require('map/portals'),
     ['voidwatch'] = require('map/voidwatch'),
 	['spd'] = require('map/spd'),
+    ['randos'] = require('map/randos'),
 }
