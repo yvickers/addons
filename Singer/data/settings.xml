@@ -7,7 +7,7 @@
             <p1>true</p1>
             <p2>true</p2>
             <p3>true</p3>
-            <p4>false</p4>
+            <p4>true</p4>
             <p5>false</p5>
             <party>true</party>
         </aoe>
@@ -74,9 +74,4 @@
         <troubadour>true</troubadour>
         <use_ws>false</use_ws>
     </global>
-    <tishrahh>
-        <aoe>
-            <p4>true</p4>
-        </aoe>
-    </tishrahh>
 </settings>
