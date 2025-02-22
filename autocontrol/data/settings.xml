@@ -247,6 +247,22 @@
                 <slot11>optic fiber ii</slot11>
                 <slot12>flashbulb</slot12>
             </turtletank>
+            <upinarms1>
+                <frame>valoredge frame</frame>
+                <head>valoredge head</head>
+                <slot01>Steam Jacket</slot01>
+                <slot02>Magniplug</slot02>
+                <slot03>Magniplug II</slot03>
+                <slot04>Tension Spring IV</slot04>
+                <slot05>Turbo Charger</slot05>
+                <slot06>Turbo Charger II</slot06>
+                <slot07>Heatsink</slot07>
+                <slot08>Optic Fiber</slot08>
+                <slot09>Auto-Repair Kit III</slot09>
+                <slot10>Armor Plate III</slot10>
+                <slot11>Armor Plate II</slot11>
+                <slot12>Stabilizer V</slot12>
+            </upinarms1>
             <whm>
                 <frame>stormwaker frame</frame>
                 <head>soulsoother head</head>

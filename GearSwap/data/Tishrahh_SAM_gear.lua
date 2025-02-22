@@ -52,8 +52,8 @@ function init_gear_sets()
 	sets.TreasureHunter = {}
 
 	sets.precast.JA['Meditate'] = {
-		head=gear.Artifact.Head,
-		hands=gear.Relic.Hands,
+		--head=gear.Artifact.Head,
+		--hands=gear.Relic.Hands,
 	}
 	sets.precast.JA['Blade Bash'] = {
 		--hands=gear.Relic.Hands,
@@ -83,8 +83,8 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        --left_ring="Epaminondas's Ring",
-        --right_ring="Sroda Ring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Ilabrat Ring",
         back=gear.capes.StrWS,
     }
 	sets.precast.WS.PROC = {
@@ -169,7 +169,7 @@ function init_gear_sets()
         waist="Ioskeha Belt +1",
         left_ear="Dedition Earring",
         right_ear="Telos Earring",
-        left_ring="Begrudging Ring",
+        left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
         back=gear.capes.DexTP,
     }

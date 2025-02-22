@@ -73,15 +73,8 @@ function init_gear_sets()
 	sets.AutoBuff.sleep = {
 		neck="Vim Torque +1",
 	}
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		head='Volte Cap',
-		hands=gear.Val.Hands.TH,
-		body=gear.Val.Body.TH,
-		--waist="Chaac Belt",
-		legs=gear.Val.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = set_combine(gear.TH.Val,{
+	})
 
 	sets.Enmity = {
 		ammo="Sapience Orb",

@@ -53,12 +53,13 @@ function init_gear_sets()
 	}
 	sets.precast.JA['Life Cycle'] = {
 		body=gear.Artifact.Body,
+		back=gear.capes.PetRegen,
 	}
 	sets.precast.JA['Radial Arcana'] = {
 		feet=gear.Relic.Feet,
 	}
 	sets.precast.JA['Mending Halation'] = {
-		--legs=gear.Relic.Legs,
+		legs=gear.Relic.Legs,
 	}
 	sets.precast.JA['Full Circle'] = {
 		head=gear.Empyrean.Head,
@@ -66,6 +67,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS = {
+		ammo="Crepuscular Pebble",
 		head="Nyame Helm",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
@@ -75,7 +77,7 @@ function init_gear_sets()
 		waist="Grunfeld Rope",
 		left_ear="Malignance Earring",
 		right_ear="Ishvara Earring",
-		left_ring="Rufescent Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back=gear.capes.MNDWS,
 	}
@@ -89,8 +91,8 @@ function init_gear_sets()
 		feet="Amalric Nails +1",
 		neck="Baetyl Pendant",
     	waist="Embla Sash",
-		left_ear="Enchntr. Earring +1",
-		right_ear="Loquac Earring",
+		left_ear="Malignance Earring",
+		right_ear="Loquac. Earring",
 		left_ring="Weather. Ring +1",
     	right_ring="Medada's Ring",
 		back=gear.capes.GeoSkill,
@@ -100,12 +102,13 @@ function init_gear_sets()
 	})
 
 	sets.midcast.Geomancy = {
+		range="Dunna",
 		head=gear.Empyrean.Head,
 		body=gear.Relic.Body,
 		hands=gear.Artifact.Hands,
 		legs=gear.Relic.Legs,
 		feet=gear.Empyrean.Feet,
-		neck="Bagua Charm +2",
+		neck="Bagua Charm +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back=gear.capes.GeoSkill,
@@ -129,7 +132,7 @@ function init_gear_sets()
 	sets.midcast.Curaga = set_combine( sets.midcast.Cure, {
 	})
 	sets.midcast.Cursna = set_combine( sets.midcast.Cure, {
-		--left_ring="Haoma's Ring",
+		left_ring="Menelaus's Ring",
 		--right_ring="Haoma's Ring",
 	})
 	sets.midcast['Elemental Magic'] = {
@@ -199,7 +202,7 @@ function init_gear_sets()
 	})
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'],{
 		head="Amalric Coif +1",
-		waist="Empathikos Rope",
+		waist="Emphatikos Rope",
 		legs="Shedir Seraweels",
 	})
 	sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'],{
@@ -209,12 +212,13 @@ function init_gear_sets()
 	sets.idle = {
 		main="Idris",
 		sub="Genmei Shield",
+		range="Dunna",
 		head=gear.Empyrean.Head,
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
 		legs="Nyame Flanchard",
 		feet=gear.Artifact.Feet,
-		neck="Loricate Torque +1",
+		neck="Null Loop",
 		left_ear="Eabani Earring",
 		right_ear="Etiolation Earring",
 		left_ring="Defending Ring",
@@ -226,6 +230,7 @@ function init_gear_sets()
 		--main="Mafic Cudgel",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
+		range="Dunna",
 		hands=gear.Artifact.Hands,
 		legs="Psycloth Lappas",
 		feet=gear.Relic.Feet,
@@ -254,7 +259,7 @@ function init_gear_sets()
 		neck="Null Loop",
 		waist="Null Belt",
 		left_ear="Telos Earring",
-		right_ear="Crep. Earring",
+		right_ear="Digni. Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
 		back=gear.capes.DexTP,

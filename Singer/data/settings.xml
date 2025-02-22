@@ -7,7 +7,7 @@
             <p1>true</p1>
             <p2>true</p2>
             <p3>true</p3>
-            <p4>true</p4>
+            <p4>false</p4>
             <p5>false</p5>
             <party>true</party>
         </aoe>
@@ -28,8 +28,8 @@
             </flags>
             <padding>0</padding>
             <pos>
-                <x>382</x>
-                <y>50</y>
+                <x>380</x>
+                <y>44</y>
             </pos>
             <text>
                 <alpha>255</alpha>

@@ -363,9 +363,10 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Lehko's Ring",
         right_ring="Chirich Ring +1",
-        back=gear.capes.MeleeTP,
+        back="Null Shawl",
     }
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {
+        back=gear.capes.MeleeTP,
     })
     sets.engaged.MDT = set_combine( sets.engaged.Melee, {
     })

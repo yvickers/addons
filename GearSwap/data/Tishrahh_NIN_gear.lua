@@ -23,11 +23,11 @@ function init_gear_sets()
 
     sets.idle = {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        head = "Mummu Bonnet +2",
+        body = "Mummu Jacket +2",
+        hands = "Mummu Wrists +2",
+        legs = "Mummu Kecks +2",
+        feet = "Mummu Gamash. +2",
         neck="Sanctity Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Eabani Earring",
