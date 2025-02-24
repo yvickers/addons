@@ -74,4 +74,15 @@
         <troubadour>true</troubadour>
         <use_ws>false</use_ws>
     </global>
+    <tishrahh>
+        <box>
+            <text>
+                <fonts>
+
+                </fonts>
+            </text>
+        </box>
+        <pianissimo>false</pianissimo>
+        <troubadour>false</troubadour>
+    </tishrahh>
 </settings>

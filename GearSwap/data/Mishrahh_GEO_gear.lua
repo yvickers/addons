@@ -73,14 +73,27 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Rep. Plat. Medal",
+		neck="Fotia Gorget",
 		waist="Grunfeld Rope",
 		left_ear="Malignance Earring",
-		right_ear="Ishvara Earring",
+		right_ear="Moonshade Earring",
 		left_ring="Epaminondas's Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back=gear.capes.MNDWS,
 	}
+
+	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS,{
+		ammo="Sroda Tathlum",
+		neck="Rep. Plat. Medal",
+		waist="Orpheus's Sash",
+		left_ring="Weather. Ring +1",
+	})
+
+	sets.precast.WS['Exudation'] = set_combine(sets.precast.WS,{
+		waist="Fotia Belt",
+	})
+
+	sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS['Exudation'],{})
 
 	sets.precast.FC = {
 		range="Dunna",
@@ -250,7 +263,7 @@ function init_gear_sets()
 	}
 
 	sets.engaged = {
-		sub="Genmei Shield",
+		sub="Ammurapi Shield",
 		head="Nyame Helm",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
@@ -260,8 +273,8 @@ function init_gear_sets()
 		waist="Null Belt",
 		left_ear="Telos Earring",
 		right_ear="Digni. Earring",
-		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
+		left_ring=gear.rings['Chririch L'],
+		right_ring=gear.rings['Chririch R'],
 		back=gear.capes.DexTP,
 	}
 end
