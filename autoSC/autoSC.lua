@@ -587,7 +587,7 @@ function open_skillchain()
 
 		debug_message("Opening SC with "..title_case(ws_name).." Job: "..job:upper().." Weapon: "..title_case(weapon_name))
 		ws_range = ws_range + mob.model_size/2 + windower.ffxi.get_mob_by_id(player.id).model_size/2
-		if (dist > ws_range) then return end -- Don't throw away TP on out of range mobs
+		--if (dist > ws_range) then return end -- Don't throw away TP on out of range mobs
 
 		use_weaponskill(ws_name)
 	end

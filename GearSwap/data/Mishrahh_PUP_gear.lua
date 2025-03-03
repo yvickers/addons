@@ -128,7 +128,7 @@ function init_gear_sets()
 	})
 
 	sets.idle = {
-        head="Malignance Chapeau",
+        head="Null Masque",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",

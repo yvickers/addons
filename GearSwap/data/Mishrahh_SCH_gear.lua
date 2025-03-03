@@ -553,7 +553,7 @@ function init_gear_sets()
 		main="Mpaca's Staff",
 		sub="Khonsu",
 		ammo="Homiliary",
-		head=gear.Empyrean.Head,
+		head="Null Masque",
 		body=gear.Empyrean.Body,
 		hands="Nyame Gauntlets",
 		legs=gear.Empyrean.Legs,

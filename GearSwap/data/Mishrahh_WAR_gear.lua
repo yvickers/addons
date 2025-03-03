@@ -391,7 +391,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Crepuscular Pebble",
-		head="Sakpata's Helm",
+		head="Null Masque",
 		body="Sakpata's Plate",
 		hands="Sakpata's Gauntlets",
 		legs="Sakpata's Cuisses",

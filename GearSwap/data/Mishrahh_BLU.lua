@@ -578,7 +578,7 @@ function init_gear_sets()
 --IDLE SETS
 	sets.idle = {
 		ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head="Null Masque",
         body=gear.Empyrean.Body,
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Carmine Cuisses +1",
@@ -674,7 +674,7 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = {
-		head="Rawhide Mask",
+		head="Null Masque",
 		body=gear.Empyrean.Body,
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",

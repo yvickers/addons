@@ -157,7 +157,7 @@ function init_gear_sets()
    
 	sets.idle = {
 		ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head="Null Masque",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},

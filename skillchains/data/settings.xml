@@ -2,13 +2,13 @@
 <settings>
     <global>
         <Show>
-            <burst>BST,GEO,WHM,DRG,NIN,COR,BLU,DRK,DNC,MNK,RDM,RNG,PUP,SCH,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</burst>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,SAM,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLU</burst>
             <pet>BST,SMN</pet>
-            <props>BST,GEO,WHM,DRG,NIN,COR,BLU,DRK,DNC,MNK,RDM,RNG,PUP,SCH,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</props>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,SAM,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLU</props>
             <spell>SCH,BLU</spell>
-            <step>BST,GEO,WHM,DRG,NIN,COR,BLU,DRK,DNC,MNK,RDM,RNG,PUP,SCH,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</step>
-            <timer>BST,GEO,WHM,DRG,NIN,COR,BLU,DRK,DNC,MNK,RDM,RNG,PUP,SCH,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</timer>
-            <weapon>BST,GEO,WHM,DRG,NIN,COR,BLU,DRK,DNC,MNK,RDM,RNG,PUP,SCH,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</weapon>
+            <step>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,SAM,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLU</step>
+            <timer>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,SAM,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLU</timer>
+            <weapon>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,SAM,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLU</weapon>
         </Show>
         <UpdateFrequency>0.2</UpdateFrequency>
         <aeonic>false</aeonic>
@@ -55,8 +55,8 @@
     </global>
     <garct>
         <Show>
-            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,MNK,WAR,THF,SMN,BRD,PLD,SAM</burst>
-            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLM</props>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,BLM</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</props>
         </Show>
         <display>
             <pos>
@@ -67,8 +67,8 @@
     </garct>
     <keshnak>
         <Show>
-            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,MNK,WAR,THF,SMN,BRD,PLD,SAM</burst>
-            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,MNK,WAR,THF,SMN,BRD,PLD,BLM</props>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,BLM</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</props>
         </Show>
         <display>
             <pos>

@@ -4,7 +4,7 @@ function user_job_setup()
 	state.Bullet = M{['description']='Bullet', 'Living Bullet', 'Chrono Bullet', }
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'Zeni', 'AE', 'AE Death Penalty', 'Dummy2', 'Fomalhaut' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'AE Death Penalty', 'Fomalhaut', 'Zeni' }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Hot Shot', }
     state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
@@ -42,7 +42,7 @@ function user_job_setup()
     --match key to state.weapons options
     gear.weapons['Savage'] = {
         main="Naegling",
-        sub="Demers. Degen +1",
+        sub="Gleti's Knife",
         ranged="Anarchy +2",
         ammo="Chrono Bullet",
     }
@@ -52,34 +52,23 @@ function user_job_setup()
         ranged="Death Penalty",
         ammo="Chrono Bullet",
     }
-    gear.weapons['Fomalhaut'] = {
-        main="Naegling",
-        sub="Tauret",
-        ranged="Fomalhaut",
-        ammo="Chrono Bullet",
-    }
-    gear.weapons['AE'] = {
-        main="Tauret",
-        sub="Naegling",
-        ranged="Anarchy +2",
-        ammo="Chrono Bullet",
-    }
     gear.weapons['AE Death Penalty'] = {
         main={ name="Rostam", augments={'Path: B',}},
         sub="Tauret",
         ranged="Death Penalty",
         ammo="Chrono Bullet",
     }
+    gear.weapons['Fomalhaut'] = {
+        main="Naegling",
+        sub="Gleti's Knife",
+        ranged="Fomalhaut",
+        ammo="Chrono Bullet",
+    }
     gear.weapons['Zeni'] = {
-        main="Gleti's Knife",
-        sub="Demers. Degen +1",
+        main="Naegling",
+        sub="Gleti's Knife",
         range="Soultrapper 2000",
 		ammo="Blank Soulplate",
-    }
-    gear.weapons['Dummy2'] = {
-        main="Gleti's Knife",
-        sub="Demers. Degen +1",
-        ammo="Chrono Bullet",
     }
 
     state.TreasureMode:set('Tag')
@@ -121,13 +110,13 @@ function init_gear_sets()
     }
 
     sets.precast.FC = {
-        head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
+        --head={ name="Herculean Helm", augments={'Attack+4','STR+3','"Treasure Hunter"+1','Accuracy+9 Attack+9',}},
         --ear2="Loquacious Earring",
         ear1="Etiolation Earring",
         --hands="Leyline Gloves",
         --legs="Rawhide Trousers",
         --feet="Crimson Greaves",
-        neck="Voltsurge Torque",
+        neck="Baetyl Pendant",
         ring1="Lebeche Ring",
     }
 
@@ -172,8 +161,8 @@ function init_gear_sets()
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
         ammo="Bayeux Bullet",
         --head=gear.Adhemar.Head.B,
-        --neck="Fotia Gorget",
-        --waist="Fotia Belt",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         --ear1="Telos Earring",
     })
 
@@ -184,8 +173,8 @@ function init_gear_sets()
         --hands=gear.Mummu.Hands,
         --legs=gear.Mummu.Legs,
         --feet=gear.Mummu.Feet,
-        --neck="Fotia Gorget",
-        --waist="Fotia Belt",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         --ring2="Mummu Ring",
         --ear1="Odr Earring",
     })
@@ -283,26 +272,22 @@ function init_gear_sets()
     sets.midcast.RA = {
         --head="Ikenga's Hat",
         --body="Malignance Tabard",
-        --hands="Malignance Gloves",
         --legs="Ikenga's Trousers",
-        --feet="Malignance Boots",
         --neck="Iskur Gorget",
         --ear1="Telos Earring",
         --ear2="Crep. Earring",
         --ring1="Crepuscular Ring",
-        --ring2="Ilabrat Ring",
-        --back=gear.capes.RngLeadenCape,
         --waist="Yemaya Belt",
-        head=gear.Meghanada.Head,
+        head="Malignance Chapeau",
 		body="Nisroch Jerkin",
-		hands=gear.Meghanada.Hands,
+		hands="Malignance Gloves",
 		legs=gear.Empyrean.Legs,
-		feet=gear.Empyrean.Feet,
-		neck="Sanctity Necklace",
+		feet="Malignance Boots",
+		neck="Null Loop",
 		waist="Elanid Belt",
 		left_ear="Beyla Earring",
 		right_ear="Enervating Earring",
-		left_ring="Meghanada Ring",
+		left_ring="Dingir Ring",
 		right_ring="Ilabrat Ring",
         back=gear.capes.RngTPCape,
     }
@@ -357,7 +342,7 @@ function init_gear_sets()
         hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs=gear.Empyrean.Legs,
         feet="Malignance Boots",
-        neck="Sanctity Necklace",
+        neck="Null Loop",
         waist="Sailfi Belt +1",
         left_ear="Eabani Earring",
         right_ear="Odr Earring",

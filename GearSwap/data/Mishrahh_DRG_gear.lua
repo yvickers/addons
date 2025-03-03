@@ -171,7 +171,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Staunch Tathlum +1",
-		head="Hjarrandi Helm",
+		head="Null Masque",
 		body="Hjarrandi Breast.",
 		hands="Gleti's Gauntlets",
 		legs="Carmine Cuisses +1",

@@ -96,7 +96,7 @@ function init_gear_sets()
 		legs="Flamma Dirs +2",
 		feet="Flam. Gambieras +2",
 		neck={ name="Vim Torque +1", augments={'Path: A',}},
-		waist="Eschan Stone",
+		waist="Ioskeha Belt +1",
 		left_ear="Mache Earring +1",
 		right_ear="Kasuga Earring +1",
 		left_ring="Cacoethic Ring +1",

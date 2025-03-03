@@ -293,7 +293,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
+        head="Null Masque",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",

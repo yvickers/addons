@@ -117,7 +117,7 @@ function init_gear_sets()
 
 	sets.idle = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
+        head="Null Masque",
         body="Sakpata's Plate",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs="Carmine Cuisses +1",

@@ -8,25 +8,25 @@ function user_job_setup()
 	}
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Brioso Roundlet +3"
-	gear.Artifact.Body = "Brioso Justau. +3"
-	gear.Artifact.Hands = "Brioso Cuffs +3"
-	gear.Artifact.Legs = "Brioso Cannions +3"
+	gear.Artifact.Head = "Brioso Roundlet +1"
+	gear.Artifact.Body = ""
+	gear.Artifact.Hands = "Brioso Cuffs +1"
+	gear.Artifact.Legs = ""
 	gear.Artifact.Feet = "Brioso Slippers +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = "Bihu Jstcorps. +3"
+	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Bihu Slippers +3"
+	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Fili Calot +3"
-	gear.Empyrean.Body = "Fili Hongreline +3"
-	gear.Empyrean.Hands = "Fili Manchettes +3"
-	gear.Empyrean.Legs = "Fili Rhingrave +3"
-	gear.Empyrean.Feet = "Fili Cothurnes +3"
+	gear.Empyrean.Head = "Fili Calot +1"
+	gear.Empyrean.Body = "Fili Hongreline +1"
+	gear.Empyrean.Hands = "Fili Manchettes +1"
+	gear.Empyrean.Legs = "Fili Rhingrave +1"
+	gear.Empyrean.Feet = "Fili Cothurnes +1"
 
 	gear.capes = {}
 	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
@@ -38,21 +38,22 @@ end
 
 function init_gear_sets()
 	sets.AutoBuff.sleep = {
-		main="Mpu Gandring",
+		--main="Mpu Gandring",
 	}
 
 	sets.precast.FC = {
-		body="Zendik Robe",
-	    --hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    --legs="Kaykaus Tights +1",
+		head="Bunzi's Hat",
+		body=gear.Inyanga.Body,
+	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
+	    legs="Kaykaus Tights +1",
 		feet=gear.Empyrean.Feet,
-	    neck="Voltsurge Torque",
+	    neck="Baetyl Pendant",
 	    waist="Embla Sash",
-	   -- back=gear.capes.IMBARD,
+	    back=gear.capes.IMBARD,
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
 		left_ring="Weather. Ring +1",
-    	right_ring="Kishar Ring",
+    	right_ring="Medada's Ring",
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
 	})
@@ -215,20 +216,19 @@ function init_gear_sets()
 	sets.midcast.Stoneskin = {}
 	sets.midcast.Cursna = {
 		hands=gear.Inyanga.Hands,
-		
 	}
 
 	sets.idle = {
 		main="Daybreak",
-		sub="Culminus",
+		sub="Genmei Shield",
 		range="Linos",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
+		head="Null Masque",
+		body="Volte Doublet",
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Empyrean.Feet,
 		neck="Bathy Choker +1",
-		waist="Engraved Belt",
+		waist="Carrier's Sash",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
 		left_ring="Defending Ring",
@@ -242,28 +242,20 @@ function init_gear_sets()
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
 	sets.idle.Refresh = set_combine(sets.idle, {
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
-		left_ring="Stikini Ring +1",
-		right_ring="Stikini Ring +1",
 	})
 
 	sets.engaged = {
-		main="Naegling",
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
-		legs=gear.Empyrean.Legs,
-		feet=gear.Ayanmo.Feet,
-		neck="Sanctity Necklace",
-		waist="Eschan Stone",
-		left_ear="Suppanomimi",
-		right_ear="Crep. Earring",
-		left_ring="Begrudging Ring",
-		right_ring="Rajas Ring",
+		head="Bunzi's Hat",
+		body="Nyame Mail",
+		hands="Bunzi's Gloves",
+		legs="Volte Tights",
+		feet="Volte Spats",
+		neck="Bard's Charm +2",
+		waist="Sailfi Belt +1",
+		left_ear="Telos Earring",
+		right_ear="Cessance Earring",
+		left_ring=gear.rings['Moonlight L'],
+		right_ring=gear.rings['Moonlight R'],
 		back=gear.capes.TP,
 	}
 

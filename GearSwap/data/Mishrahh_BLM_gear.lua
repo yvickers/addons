@@ -156,7 +156,7 @@ function init_gear_sets()
 
     sets.idle = {
         ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
+        head="Null Masque",
         body="Agwu's Robe",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",

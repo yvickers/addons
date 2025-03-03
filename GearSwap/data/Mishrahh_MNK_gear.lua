@@ -187,7 +187,7 @@ function init_gear_sets()
 
 	sets.idle = {
 		ammo="Crepuscular Pebble",
-		head="Nyame Helm",
+		head="Null Masque",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs=gear.Empyrean.Legs,

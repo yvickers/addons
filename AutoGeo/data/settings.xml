@@ -7,7 +7,7 @@
         </aug>
         <buffs>
             <haste />
-            <refresh />
+            <refresh>mishrahh</refresh>
         </buffs>
         <delay>4.2</delay>
         <entrust>
@@ -70,6 +70,13 @@
         </text>
     </global>
     <bishrahh>
+        <buffs>
+            <refresh />
+        </buffs>
+        <entrust>
+            <ma>Indi-Acumen</ma>
+            <target>maddyline</target>
+        </entrust>
         <geo>Geo-Precision</geo>
         <indi>Indi-Precision</indi>
         <text>
@@ -81,14 +88,14 @@
     </bishrahh>
     <mishrahh>
         <buffs>
-            <refresh>mishrahh</refresh>
+            <refresh />
         </buffs>
         <entrust>
-            <ma>Indi-Acumen</ma>
-            <target>maddyline</target>
+            <ma>Indi-Regen</ma>
+            <target>ninnyhammer</target>
         </entrust>
-        <geo>Geo-Regen</geo>
-        <indi>Indi-STR</indi>
+        <geo>Geo-Malaise</geo>
+        <indi>Indi-Haste</indi>
         <text>
             <pos>
                 <x>925</x>
@@ -97,6 +104,13 @@
         </text>
     </mishrahh>
     <ninnyhammer>
+        <buffs>
+            <refresh />
+        </buffs>
+        <entrust>
+            <ma>Indi-Acumen</ma>
+            <target>maddyline</target>
+        </entrust>
         <geo>Geo-Precision</geo>
         <indi>Indi-Precision</indi>
         <text>
@@ -107,6 +121,13 @@
         </text>
     </ninnyhammer>
     <tishrahh>
+        <buffs>
+            <refresh />
+        </buffs>
+        <entrust>
+            <ma>Indi-Acumen</ma>
+            <target>maddyline</target>
+        </entrust>
         <geo>Geo-Malaise</geo>
         <indi>Indi-INT</indi>
         <text>

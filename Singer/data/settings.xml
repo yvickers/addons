@@ -75,14 +75,7 @@
         <use_ws>false</use_ws>
     </global>
     <tishrahh>
-        <box>
-            <text>
-                <fonts>
-
-                </fonts>
-            </text>
-        </box>
-        <pianissimo>false</pianissimo>
-        <troubadour>false</troubadour>
+        <actions>true</actions>
+        <active>false</active>
     </tishrahh>
 </settings>
