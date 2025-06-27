@@ -587,7 +587,7 @@ function open_skillchain()
 
 		debug_message("Opening SC with "..title_case(ws_name).." Job: "..job:upper().." Weapon: "..title_case(weapon_name))
 		ws_range = ws_range + mob.model_size/2 + windower.ffxi.get_mob_by_id(player.id).model_size/2
-		--if (dist > ws_range) then return end -- Don't throw away TP on out of range mobs
+		if (dist > ws_range) then return end -- Don't throw away TP on out of range mobs
 
 		use_weaponskill(ws_name)
 	end
@@ -847,13 +847,7 @@ windower.register_event('addon command', function(...)
 			return
 		end
 
-		local ws_filtered,idx = false,-1
-		for i,v in pairs(settings.ws_filters[weapon]) do
-			if (v == ws_name) then
-				ws_filtered = true
-			end
-		end
-		if (ws_filtered) then
+		if (T(settings.ws_filters[weapon]):contains(ws_name)) then
 			T(settings.ws_filters[weapon]):delete(ws_name)
 			message("WS "..ws_name.." removed from filtered WSs for "..title_case(weapon):split("_"):concat(" ")..".")
 		else

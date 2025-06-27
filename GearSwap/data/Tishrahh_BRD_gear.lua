@@ -1,21 +1,22 @@
 function user_job_setup()
 	state.IdleMode:options( 'Normal', 'Refresh', 'Zeni' )
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'Carn' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Mordant Rime', }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'Carn', 'Carn2' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Evisceration', 'Savage Blade', 'Mordant Rime', }
 	gear.weapons['Default'] = {
 		main="Daybreak",
-		sub="Culminus",
-		range=gear.Linos.Idle,
+		sub="Ammurapi Shield",
 	}
 	gear.weapons['Savage'] = {
 		main="Naegling",
-		sub="Culminus",
-		range=gear.Linos.TP,
+		sub="Fusetto +2",
 	}
 	gear.weapons['Carn'] = {
 		main="Carnwenhan",
-		sub="Culminus",
-		range=gear.Linos.TP,
+		sub="Gleti's Knife",
+	}
+	gear.weapons['Carn2'] = {
+		main="Carnwenhan",
+		sub="Fusetto +2",
 	}
 
 	gear.Artifact = {}
@@ -42,7 +43,8 @@ function user_job_setup()
 	gear.capes = {}
 	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
 	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
-	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
+	gear.capes.DEXWSD = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Damage taken-5%',}}
+	gear.capes.DEXCRIT = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
 	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	gear.capes.CHRWS = { name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%',}}
 
@@ -67,12 +69,12 @@ function init_gear_sets()
 	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},--7
 	    legs="Kaykaus Tights +1",--11
 		feet=gear.Empyrean.Feet,--13
-	    neck="Voltsurge Torque",--4
+	    neck="Voltsurge Torque",--4s
 	    waist="Embla Sash",--5
 	    back=gear.capes.IMBARD,--10
 	    left_ear="Loquac. Earring",
 	    right_ear="Enchntr. Earring +1",
-		left_ring="Weather. Ring",
+		left_ring="Kishar Ring",
     	right_ring="Medada's Ring",--10
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
@@ -116,17 +118,45 @@ function init_gear_sets()
 		left_ear="Telos Earring",
 		right_ear="Moonshade Earring",
 		left_ring="Metamor. Ring +1",
-		--right_ring="Rajas Ring",
+		right_ring="Epaminondas's Ring",
 		back=gear.capes.SavageWS,
 	}
 
-	sets.precast.WS["Mordant Rime"] = set_combine(sets.precast.WS,{
+	sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS,{
 		neck="Bard's Charm +2",
-		left_ear=="Enchntr. Earring +1",
+		left_ear="Enchntr. Earring +1",
 		left_ring="Metamor. Ring +1",
 		back=gear.capes.CHRWS,
 	})
 
+	sets.precast.WS["Mordant Rime"] = set_combine(sets.precast.WS,{
+		range=gear.Linos.CHRWS,
+		neck="Bard's Charm +2",
+		left_ear="Enchntr. Earring +1",
+		left_ring="Metamor. Ring +1",
+		back=gear.capes.CHRWS,
+	})
+
+	sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS,{
+		range=gear.Linos.DEXCrit,
+		head={ name="Blistering Sallet +1", augments={'Path: A',}},
+		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Mache Earring +1",
+		left_ring="Begrudging Ring",
+		right_ring="Ilabrat Ring",
+		back=gear.capes.DEXCRIT,
+	})
+
+	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS,{
+		range=gear.Linos.DEXWS,
+		neck="Bard's Charm +2",
+		left_ear="Mache Earring +1",
+		left_ring="Begrudging Ring",
+		right_ring="Ilabrat Ring",
+		back=gear.capes.DEXWSD,
+	})
 
 	sets.midcast.FastRecast = {}
 
@@ -173,7 +203,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 	}
 	sets.midcast['Warding Round'] = sets.midcast.DummySong
 	sets.midcast['Gold Capriccio'] = sets.midcast.DummySong
@@ -243,7 +273,7 @@ function init_gear_sets()
 
 	sets.midcast.Cure = {
 		main="Daybreak",
-		sub="Culminus",
+		sub="Ammurapi Shield",
 		head="Kaykaus Mitra +1",
 		body="Bunzi's Robe",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
@@ -301,7 +331,7 @@ function init_gear_sets()
 		hands="Inyan. Dastanas +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+27','Weapon Skill Acc.+14','Accuracy+19 Attack+19','Mag. Acc.+10 "Mag.Atk.Bns."+10',}},
 		feet="Fili Cothurnes +3",
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 		waist="Siegel Sash",
 		left_ear="Vor Earring",
 		right_ear="Crep. Earring",
@@ -319,19 +349,17 @@ function init_gear_sets()
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 		waist="Eschan Stone",
 		left_ear="Hermetic Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Weather. Ring",
+		left_ring="Metamor. Ring +1",
 		right_ring="Medada's Ring",
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast['Banish II'] = sets.midcast['Banish']
 
 	sets.idle = {
-		main="Daybreak",
-		sub="Culminus",
 		range=gear.Linos.Idle,
 		head=gear.Empyrean.Head,
 		body="Nyame Mail",
@@ -353,11 +381,9 @@ function init_gear_sets()
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
 	sets.idle.Refresh = set_combine(sets.idle, {
-		head=gear.Inyanga.Head,
 		body=gear.Inyanga.Body,
 		hands=gear.Inyanga.Hands,
 		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	})
@@ -368,18 +394,18 @@ function init_gear_sets()
 
 	sets.engaged = {
 		range=gear.Linos.TP,
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Bunzi's Gloves",
-		legs="Volte Tights",
+		head="Blistering Sallet +1",
+		body=gear.Ayanmo.Body,
+		hands="Gazu Bracelets +1",
+		legs=gear.Empyrean.Legs,
 		feet="Volte Spats",
 		neck="Bard's Charm +2",
-		waist="Sailfi Belt +1",
-		left_ear="Telos Earring",
-		right_ear="Dedition Earring",
-		left_ring="Cacoethic Ring +1",
+		waist="Kentarch Belt +1",
+		left_ear="Mache Earring +1",
+		right_ear="Telos Earring",
+		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back=gear.capes.TP,
+		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
@@ -392,7 +418,6 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = {
-		head=gear.Chironic.Head.Refresh,
 		body=gear.Inyanga.Body,
 		hands=gear.Inyanga.Hands,
 		legs="Volte Brais",

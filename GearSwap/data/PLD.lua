@@ -43,6 +43,7 @@ function job_setup()
 	elemental_ws = S{ "Aeolian Edge", 'Cataclysm', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
+	state.AutoCurePercent = 50
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -310,10 +311,11 @@ function job_precast(spell, action, spellMap, eventArgs)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 
 	if spell.english == "Flash" or spell.english == "Holy II" then
-
-		if abil_recasts[80] and abil_recasts[80] < 1 then
-			cast_delay(1.1)
-			send_command('input /ja "Divine Emblem" <me>')
+		if state.AutoBuffMode.current == 'on' and silent_check_fighting() and not silent_check_amnesia() then
+			if abil_recasts[80] and abil_recasts[80] < 1 then
+				cast_delay(1.1)
+				send_command('input /ja "Divine Emblem" <me>')
+			end
 		end
 	end
 
@@ -434,6 +436,12 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
+
+	if cmdParams[1]:lower() == 'curepercent' then
+		state.AutoCurePercent = tonumber(cmdParams[2])
+		add_to_chat(104, 'Curing when hpp < '..state.AutoCurePercent..'%.')
+		eventArgs.handled = true
+	end
 end
 
 function job_tick()
@@ -451,15 +459,11 @@ function check_buff()
 			return true
 		end
 
-		if player.hpp < 50 then
-			windower.chat.input('/ma "Cure" <me>')
-			return true
-		end
+	end
 
-		if player.mpp < 50 then
-			windower.chat.input('/echo SAVE TP FOR CHIVALRY')
-			return true
-		end
+	if player.hpp < state.AutoCurePercent then
+		windower.chat.input('/ma "Cure" <me>')
+		return true
 	end
 
 	return false

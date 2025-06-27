@@ -304,7 +304,9 @@ function get.buffs()
         local buff_en = res.buffs[buff_id].en:lower()
         if buff_id == 272 then
             set_buff[buff_en] = 1
-            times[buff_en] = 10
+            if times then
+                times[buff_en] = 10
+            end
         else
             set_buff[buff_en] = (set_buff[buff_en] or 0) + 1
         end

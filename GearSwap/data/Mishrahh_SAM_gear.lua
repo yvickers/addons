@@ -163,7 +163,7 @@ function init_gear_sets()
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet="Danzo Sune-Ate",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Engraved Belt",
+        waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",

@@ -55,8 +55,8 @@
     </global>
     <garct>
         <Show>
-            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,BLM</burst>
-            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</props>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,MNK</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,MNK</props>
         </Show>
         <display>
             <pos>
@@ -67,8 +67,8 @@
     </garct>
     <keshnak>
         <Show>
-            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,BLM</burst>
-            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,MNK,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,SAM</props>
+            <burst>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,SAM,RDM,RNG,PUP,RUN,BLM,WAR,THF,SMN,BRD,PLD,MNK</burst>
+            <props>BST,GEO,WHM,DRG,NIN,COR,SCH,DRK,DNC,BLM,RDM,RNG,PUP,RUN,SAM,WAR,THF,SMN,BRD,PLD,MNK</props>
         </Show>
         <display>
             <pos>

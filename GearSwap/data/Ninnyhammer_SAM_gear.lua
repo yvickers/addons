@@ -79,11 +79,11 @@ function init_gear_sets()
 		body=gear.Relic.Body,
 		hands=gear.Empyrean.Hands,
 		legs=gear.Artifact.Legs,
-		feet="Nyame Sollerets",
+		feet=gear.Empyrean.Feet,
 		neck="Sam. Nodowa +2",
 		waist="Sailfi Belt +1",
 		left_ear="Thrud Earring",
-		right_ear="Kasuga Earring +1",
+		right_ear="Moonshade Earring",
 		left_ring="Karieyh Ring",
 		right_ring="Sroda Ring",
 		back=gear.capes.StrWS,
@@ -106,8 +106,10 @@ function init_gear_sets()
 
 	sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS,{
 		head="Nyame Helm",
-		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-		right_ear="Friomisi Earring",
+		body="Nyame Mail",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		left_ear="Schere Earring",
 		waist="Orpheus's Sash",
 	})
 	sets.precast.WS['Tachi: Jinpu'].PROC = set_combine(sets.precast.WS.PROC,{})

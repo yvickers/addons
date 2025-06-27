@@ -1,4 +1,19 @@
 function define_global_sets()
+    sets.craft = {}
+    sets.craft.skill = {
+        main="Aern Dagger",
+        sub="Ossifier's Ecu",
+        head="Protective Specs.",
+        body="Boneworker's Apn.",
+        neck="Bone. Torque",
+        left_ring="Artificer's Ring",
+        right_ring="Craftmaster's Ring",
+    }
+
+    sets.craft.skillup = set_combine(sets.craft.skill,{
+        head="Midras's Helm +1",
+    })
+
     gear.Reive = { neck="Adoulin's Refuge +1" }
 
     gear.Meghanada = {}
@@ -102,6 +117,10 @@ function define_global_sets()
     gear.Herc.Feet = {}
     gear.Herc.Feet.Ranged = { name="Herculean Boots", augments={'Rng.Acc.+24 Rng.Atk.+24','STR+14','Rng.Atk.+4',}}
     gear.Herc.Feet.MABWSD = { name="Herculean Boots", augments={'Accuracy+15','"Mag.Atk.Bns."+11','Weapon skill damage +7%','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
+
+    gear.Lustratio = {}
+    gear.Lustratio.Feet = {}
+    gear.Lustratio.Feet.D = { name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}}
 
     gear.Val = {}
     gear.Val.Body = {}

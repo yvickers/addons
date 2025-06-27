@@ -215,7 +215,7 @@ function init_gear_sets()
 		--right_ear="Mache Earring +1",
 		left_ring="Niqmaddu Ring",
 		right_ring="Gere Ring",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
@@ -225,6 +225,7 @@ function init_gear_sets()
 		hands="Malignance Gloves",
 		feet="Malignance Boots",
 		--left_ring="Defending Ring",
+		back=gear.capes.DexTP,
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {

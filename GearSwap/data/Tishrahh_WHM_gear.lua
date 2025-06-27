@@ -91,7 +91,7 @@ function init_gear_sets()
         waist="Witful Belt",
         left_ear="Loquac. Earring",
         right_ear="Malignance Earring",
-        left_ring="Weather. Ring",
+        left_ring="Kishar Ring",
         right_ring="Medada's Ring",
 	}
 
@@ -161,7 +161,7 @@ function init_gear_sets()
         waist="Luminary Sash",
         left_ear="Nourish. Earring +1",
         right_ear="Mendi. Earring",
-        left_ring="Weather. Ring",
+        left_ring="Menelaus's Ring",
         right_ring="Lebeche Ring",
         back=gear.capes.CurePotency,
      }

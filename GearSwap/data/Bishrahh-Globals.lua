@@ -1,12 +1,24 @@
 function define_global_sets()
     gear.Reive = {}
 
+    sets.craft = {}
+    sets.craft.skill = {
+        head="Magnifying Specs.",
+        body="Weaver's Apron",
+        left_ring="Artificer's Ring",
+        right_ring="Craftmaster's Ring",
+    }
+
+    sets.craft.skillup = set_combine(sets.craft.skill,{
+        head="Midras's Helm +1",
+    })
+
     gear.Meghanada = {}
-    gear.Meghanada.Head = "Meghanada Visor +2"
-    gear.Meghanada.Body = "Meg. Cuirie +2"
-    gear.Meghanada.Hands = "Meg. Gloves +2"
-    gear.Meghanada.Legs = "Meg. Chausses +2"
-    gear.Meghanada.Feet = "Meg. Jam. +2"
+    gear.Meghanada.Head = ""
+    gear.Meghanada.Body = ""
+    gear.Meghanada.Hands = ""
+    gear.Meghanada.Legs = ""
+    gear.Meghanada.Feet = ""
 
     gear.Mummu = {}
     gear.Mummu.Head = "Mummu Bonnet +2"
@@ -16,18 +28,18 @@ function define_global_sets()
     gear.Mummu.Feet = "Mummu Gamash. +2"
 
     gear.Hiza = {}
-    gear.Hiza.Head = "Hiza. Somen +2"
-    gear.Hiza.Body = "Hiza. Haramaki +2"
-    gear.Hiza.Hands = "Hizamaru Kote +1"
-    gear.Hiza.Legs = "Hiza. Hizayoroi +2"
-    gear.Hiza.Feet = "Hiza. Sune-Ate +1"
+    gear.Hiza.Head = ""
+    gear.Hiza.Body = ""
+    gear.Hiza.Hands = ""
+    gear.Hiza.Legs = ""
+    gear.Hiza.Feet = ""
 
     gear.Sulevia = {}
-    gear.Sulevia.Head = "Sulevia's Mask +1"
-    gear.Sulevia.Body = "Sulevia's Plate. +1"
-    gear.Sulevia.Hands = "Sulev. Gauntlets +2"
-    gear.Sulevia.Legs = "Sulev. Cuisses +2"
-    gear.Sulevia.Feet = "Sulev. Leggings +2"
+    gear.Sulevia.Head = ""
+    gear.Sulevia.Body = ""
+    gear.Sulevia.Hands = ""
+    gear.Sulevia.Legs = ""
+    gear.Sulevia.Feet = ""
 
     gear.Inyanga = {}
     gear.Inyanga.Head = "Inyanga Tiara +2"
@@ -51,11 +63,11 @@ function define_global_sets()
     gear.Jhakri.Feet = "Jhakri Pigaches +2"
 
     gear.Flamma = {}
-    gear.Flamma.Head = "Flam. Zucchetto +2"
-    gear.Flamma.Body = "Flamma Korazin +2"
-    gear.Flamma.Hands = "Flam. Manopolas +2"
-    gear.Flamma.Legs = "Flamma Dirs +2"
-    gear.Flamma.Feet = "Flam. Gambieras +2"
+    gear.Flamma.Head = ""
+    gear.Flamma.Body = ""
+    gear.Flamma.Hands = ""
+    gear.Flamma.Legs = ""
+    gear.Flamma.Feet = ""
 
     gear.Taliah = {}
     gear.Taliah.Head = "Tali'ah Turban +2"

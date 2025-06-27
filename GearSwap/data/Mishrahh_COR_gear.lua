@@ -425,8 +425,8 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
         feet="Nyame Sollerets",
-        left_ring="Defending Ring",
-        right_ring="Warp Ring",
+        right_ring="Defending Ring",
+        left_ring="Warp Ring",
         neck="Loricate Torque +1",
         waist="Engraved Belt",
         left_ear="Eabani Earring",
@@ -445,8 +445,8 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
-        right_ring="Gelatinous Ring +1",
+        right_ring="Defending Ring",
+        left_ring="Gelatinous Ring +1",
     })
 
     sets.defense.MDT = set_combine( sets.idle, {
@@ -455,8 +455,8 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
-        right_ring="Shadow Ring",
+        right_ring="Defending Ring",
+        left_ring="Shadow Ring",
     })
     
     --sets.Kiting = {feet="Skadi's Jambeaux +1"}
@@ -476,21 +476,24 @@ function init_gear_sets()
         legs=gear.Empyrean.Legs,
         feet="Malignance Boots",
         neck="Iskur Gorget",
-        waist="Sailfi Belt +1",
+        waist="Reiki Yotai",
         left_ear="Dedition Earring",
-        right_ear="Suppanomimi",
+        right_ear="Brutal Earring",
         left_ring="Epona's Ring",
-        right_ring="Regal Ring",
-        back=gear.capes.MeleeTPCapeDW,
+        right_ring="Chirich Ring +1",
+        back="Null Shawl",
     }
     
     sets.engaged.Acc = set_combine( sets.engaged.Melee, {
     })
 
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {
+        head="Null Masque",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        left_ring="Defending Ring",
+        legs="Malignance Tights",
+        neck="Null Loop",
+        right_ring="Defending Ring",
     })
 
     sets.engaged.MDT = set_combine( sets.engaged.PDT, {

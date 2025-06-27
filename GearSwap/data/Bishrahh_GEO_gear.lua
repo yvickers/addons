@@ -169,7 +169,12 @@ function init_gear_sets()
 		--left_ear="Friomisi Earring",
 		right_ear="Azimuth Earring +2",
 	}
-	sets.midcast.Dispel = {}
+	sets.midcast.Dispel = set_combine( sets.midcast['Enfeebling Magic'],{})
+	sets.midcast['Paralyze'] = set_combine( sets.midcast['Enfeebling Magic'],{
+		head="Volte Cap",
+		body="Volte Jupon",
+		waist="Chaac Belt",
+	})
 
 	sets.midcast['Enhancing Magic'] = {
 		sub="Ammurapi Shield",

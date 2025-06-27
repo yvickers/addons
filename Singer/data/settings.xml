@@ -5,8 +5,8 @@
         <active>true</active>
         <aoe>
             <p1>true</p1>
-            <p2>true</p2>
-            <p3>true</p3>
+            <p2>false</p2>
+            <p3>false</p3>
             <p4>false</p4>
             <p5>false</p5>
             <party>true</party>
@@ -28,7 +28,7 @@
             </flags>
             <padding>0</padding>
             <pos>
-                <x>380</x>
+                <x>384</x>
                 <y>44</y>
             </pos>
             <text>
@@ -65,8 +65,8 @@
                 <min>25</min>
             </buff>
             <song>
-                <max>55</max>
-                <min>45</min>
+                <max>70</max>
+                <min>60</min>
             </song>
         </recast>
         <soul_voice>false</soul_voice>
@@ -74,8 +74,42 @@
         <troubadour>true</troubadour>
         <use_ws>false</use_ws>
     </global>
-    <tishrahh>
+    <mishrahh>
         <actions>true</actions>
         <active>false</active>
+        <aoe>
+            <p2>true</p2>
+            <p3>true</p3>
+            <p4>true</p4>
+            <p5>true</p5>
+        </aoe>
+        <box>
+            <pos>
+                <x>751</x>
+                <y>53</y>
+            </pos>
+        </box>
+        <min_ws>20</min_ws>
+        <pianissimo>false</pianissimo>
+        <recast>
+            <song>
+                <max>55</max>
+                <min>30</min>
+            </song>
+        </recast>
+    </mishrahh>
+    <tishrahh>
+        <actions>true</actions>
+        <box>
+            <pos>
+                <x>387</x>
+                <y>45</y>
+            </pos>
+            <text>
+                <fonts>
+
+                </fonts>
+            </text>
+        </box>
     </tishrahh>
 </settings>

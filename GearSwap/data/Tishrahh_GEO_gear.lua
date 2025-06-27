@@ -2,7 +2,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Idris",
-		sub="Culminus",
+		sub="Ammurapi Shield",
 		range="Dunna",
 		--ammo="Staunch Tathlum",
 	}
@@ -65,7 +65,7 @@ function init_gear_sets()
     	waist="Embla Sash",
 		left_ear="Enchntr. Earring +1",
 		right_ear="Loquac. Earring",
-		left_ring="Weather. Ring",
+		left_ring="Kishar Ring",
     	right_ring="Medada's Ring",
 		back="Fi Follet Cape +1",
 	}

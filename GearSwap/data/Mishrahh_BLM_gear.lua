@@ -76,8 +76,8 @@ function init_gear_sets()
         back=gear.capes.FastCast,    
     }
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-		--head=empty,
-		--body="Twilight Cloak"
+		head=empty,
+		body="Crepuscular Cloak"
 	})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
 		main="Daybreak",
@@ -95,7 +95,7 @@ function init_gear_sets()
     sets.midcast.Cursna = set_combine(sets.midcast.Cure, {})
     sets.midcast['Enhancing Magic'] = {}
     sets.midcast['Enfeebling Magic'] = {
-        main="Marin Staff +1",
+        main="Mpaca's Staff",
         sub="Khonsu",
         ammo="Ghastly Tathlum +1",
         body="Cohort Cloak +1",
@@ -135,7 +135,21 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].Recover = set_combine(sets.midcast['Elemental Magic'].MagicBurst, {
         body=gear.Artifact.Body,
     })
-    sets.midcast.Impact = {}
+    sets.midcast.Impact = {
+        ammo="Pemphredo Tathlum",
+        head=empty,
+		body="Crepuscular Cloak"
+        hands=gear.Empyrean.Hands,
+        legs=gear.Empyrean.Legs,
+        feet=gear.Empyrean.Feet,
+        neck="Src. Stole +2",
+        waist="Acuity Belt +1",
+        left_ear="Ilmr Earring",
+        right_ear="Malignance Earring",
+        left_ring=gear.rings['Stikini L'],
+        right_ring=gear.rings['Stikini R'],
+        back="Aurist's Cape +1",
+    }
     sets.midcast['Dark Magic'] = {
         main="Rubicundity",
         sub="Ammurapi Shield",
@@ -162,7 +176,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Yngvi Choker",
-        waist="Carrirer's Sash",
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         left_ring="Archon Ring",

@@ -1,6 +1,20 @@
 -- Add items to existing profiles or create your own to sell groups of items using alias commands
 local profiles = {}
 
+profiles['thuban'] = S{
+    "Thu'ban's Scale",
+    "Dexterity Potion",
+    "Elixir",
+    "Mage's Ballad III",
+    "Jadeite",
+    "Green Rock",
+    "Stone V",
+    "Refractive Crystal",
+    "Gain-AGI",
+    'Hydra Scale',
+    'Hydra Fang',
+}
+
 -- //sellnpc junk
 profiles['junk'] = S{
     '??? Earring: WAR',
@@ -86,6 +100,11 @@ profiles['junk'] = S{
     'army\'s paeon vi',
     'arrabbiata',
     'arrowwood log',
+    'as. ygg. sh. I',
+    'as. ygg. sh. II',
+    'as. ygg. sh. III',
+    'as. ygg. sh. IV',
+    'as. ygg. sh. V',
     'ash log',
     'ash staff',
     'aspir ii',
@@ -211,6 +230,7 @@ profiles['junk'] = S{
     'dryad root',
     'dst. nugget',
     'durium ore',
+    'durium sheet',
     'dwarf remora',
     'earth crystal',
     'earth fewell',
@@ -388,7 +408,9 @@ profiles['junk'] = S{
     'mythril ingot',
     'mythril ore',
     'oak log',
+    'ocl. sheet',
     'old case',
+    'orange juice',
     'orobon meat',
     'p. ygg. shard i',
     'p. ygg. shard ii',
@@ -424,6 +446,11 @@ profiles['junk'] = S{
     'purple rock',
     'quake',
     'quus',
+    'r. ygg. shard I',
+    'r. ygg. shard II',
+    'r. ygg. shard III',
+    'r. ygg. shard IV',
+    'r. ygg. shard V',
     'raaz hide',
     'raaz tusk',
     'rabbit hide',

@@ -1,36 +1,48 @@
 function user_job_setup()
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Flat Blade', 'Burning Blade', }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Dagger', 'Sword', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Energy Drain', 'Wasp Sting', 'Mordant Rime', 'Savage Blade', }
 	gear.weapons['Default'] = {
+		main="Daybreak",
+		sub="Genmei Shield",
+		range="Linos",
+	}
+
+	gear.weapons['Dagger'] = {
 		main="Kali",
+		sub="Genmei Shield",
+		range="Linos",
+	}
+
+	gear.weapons['Sword'] = {
+		main="Naegling",
 		sub="Ammurapi Shield",
-		range="Gjallarhorn",
+		range="Linos",
 	}
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Brioso Roundlet +1"
+	gear.Artifact.Head = "Brioso Roundlet +3"
 	gear.Artifact.Body = ""
-	gear.Artifact.Hands = "Brioso Cuffs +1"
+	gear.Artifact.Hands = "Brioso Cuffs +3"
 	gear.Artifact.Legs = ""
 	gear.Artifact.Feet = "Brioso Slippers +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = ""
+	gear.Relic.Body = "Bihu Jstcorps. +3"
 	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Legs = "Bihu Cannions +3"
+	gear.Relic.Feet = "Bihu Slippers +3"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Fili Calot +1"
-	gear.Empyrean.Body = "Fili Hongreline +1"
-	gear.Empyrean.Hands = "Fili Manchettes +1"
-	gear.Empyrean.Legs = "Fili Rhingrave +1"
-	gear.Empyrean.Feet = "Fili Cothurnes +1"
+	gear.Empyrean.Head = "Fili Calot +3"
+	gear.Empyrean.Body = "Fili Hongreline +3"
+	gear.Empyrean.Hands = "Fili Manchettes +3"
+	gear.Empyrean.Legs = "Fili Rhingrave +2"
+	gear.Empyrean.Feet = "Fili Cothurnes +3"
 
 	gear.capes = {}
 	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
-	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
+	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-5%',}}--'Mag. Acc.+10',
 	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
 	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
@@ -41,19 +53,28 @@ function init_gear_sets()
 		--main="Mpu Gandring",
 	}
 
+	sets.TreasureHunter = {
+		head="Volte Cap",
+		body="Volte Jupon",
+		hands="Volte Bracers",
+	}
+
 	sets.precast.FC = {
-		head="Bunzi's Hat",
-		body=gear.Inyanga.Body,
-	    hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    legs="Kaykaus Tights +1",
-		feet=gear.Empyrean.Feet,
+		main="Kali",
+		sub="Genmei Shield",
+		ammo="Linos", --3
+		head="Bunzi's Hat",	--10
+		body=gear.Inyanga.Body,  --14
+	    hands="Leyline Gloves", --8
+	    legs="Kaykaus Tights +1", --7
+		feet=gear.Empyrean.Feet, --10
 	    neck="Baetyl Pendant",
-	    waist="Embla Sash",
-	    back=gear.capes.IMBARD,
-	    left_ear="Loquac. Earring",
-	    right_ear="Enchntr. Earring +1",
-		left_ring="Weather. Ring +1",
-    	right_ring="Medada's Ring",
+	    waist="Embla Sash",  --5
+	    back=gear.capes.IMBARD,  --10
+	    left_ear="Loquac. Earring", --2
+	    right_ear="Etiolation Earring", --1
+		left_ring="Kishar Ring", --4
+    	right_ring="Medada's Ring", --10
 	}
 	sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
 	})
@@ -62,10 +83,9 @@ function init_gear_sets()
 	})
 	
 	sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
-		--head=gear.Empyrean.Head,
-	    --hands={ name="Gende. Gages +1", augments={'Phys. dmg. taken -4%','Song spellcasting time -4%',}},
-	    --legs={ name="Gende. Spats +1", augments={'Phys. dmg. taken -3%','Magic dmg. taken -2%','Song spellcasting time -4%',}},
-	   -- feet={ name="Telchine Pigaches", augments={'Mag. Evasion+24','Song spellcasting time -7%','MP+43',}},
+		head=gear.Empyrean.Head,
+	    hands="Gende. Gages +1", --10
+	    legs="Gende. Spats +1", --10
 	} )
 	sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong,{
 		range="Marsyas"
@@ -78,22 +98,22 @@ function init_gear_sets()
 		body=gear.Relic.Body,
 	}
 	sets.precast.JA['Soul Voice'] = {
-		--legs=gear.Relic.Legs,
+		legs=gear.Relic.Legs,
 	}
 
 	sets.precast.WS = {
 		--ammo="Knobkierrie",
 		head="Nyame Helm",
-		body=gear.Relic.Body,
-		hands=gear.Jhakri.Hands,
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		neck="Rep. Plat. Medal",
 		waist="Sailfi Belt +1",
-		--left_ear="Sherida Earring",
+		left_ear="Ishvara Earring",
 		right_ear="Moonshade Earring",
-		--left_ring="Epona's Ring",
-		--right_ring="Rajas Ring",
+		left_ring="Sroda Ring",
+		right_ring="Epaminondas's Ring",
 		back=gear.capes.SavageWS,
 	}
 
@@ -103,31 +123,31 @@ function init_gear_sets()
 	sets.midcast.SongEffect = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Linos",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
+		range="Gjallarhorn",
+		head=gear.Empyrean.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
 		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
+		feet=gear.Artifact.Feet,
 		neck="Mnbw. Whistle +1",
-		--back=gear.capes.IMBARD,
+		back=gear.capes.IMBARD,
 	}
 
 	sets.midcast.SongDebuff = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Linos",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
+		range="Gjallarhorn",
+		head=gear.Artifact.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Empyrean.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Artifact.Feet,
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
-		--back=gear.capes.IMBARD,
+		back=gear.capes.IMBARD,
 		left_ring="Metamor. Ring +1",
 		right_ring="Stikini Ring +1",
-		left_ear="Hermetic Earring",
+		left_ear="Digni. Earring",
 		right_ear="Crep. Earring",
 	}
 
@@ -142,7 +162,8 @@ function init_gear_sets()
 		hands=gear.Ayanmo.Hands,
 		legs=gear.Ayanmo.Legs,
 		feet=gear.Ayanmo.Feet,
-		neck="Sanctity Necklace",
+		neck="Null Loop",
+		back="Null Shawl",
 	}
 	sets.midcast['Warding Round'] = sets.midcast.DummySong
 	sets.midcast['Gold Capriccio'] = sets.midcast.DummySong
@@ -160,18 +181,18 @@ function init_gear_sets()
 	sets.midcast.Lullaby = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Linos",
-		head=gear.Inyanga.Head,
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
-		legs=gear.Inyanga.Legs,
-		feet=gear.Inyanga.Feet,
+		range="Marsyas",
+		head=gear.Artifact.Head,
+		body=gear.Empyrean.Body,
+		hands=gear.Artifact.Hands,
+		legs=gear.Empyrean.Legs,
+		feet=gear.Artifact.Feet,
 		neck="Mnbw. Whistle +1",
 		waist="Acuity Belt +1",
-		--back=gear.capes.IMBARD,
+		back=gear.capes.IMBARD,
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		left_ear="Gersemi Earring",
+		left_ear="Digni. Earring",
 		right_ear="Crep. Earring",
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
@@ -209,7 +230,6 @@ function init_gear_sets()
 	sets.midcast.Cure = {
 		main="Daybreak",
 		sub="Culminus",
-		
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 	sets.midcast['Enhancing Magic'] = {}
@@ -229,11 +249,11 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Bathy Choker +1",
 		waist="Carrier's Sash",
-		left_ear="Etiolation Earring",
-		right_ear="Eabani Earring",
+		left_ear="Eabani Earring",
+		right_ear="Etiolation Earring",
 		left_ring="Defending Ring",
 		right_ring="Warp Ring",
-		back=gear.capes.Idle,
+		back="Null Shawl",--gear.capes.Idle,
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})
@@ -246,7 +266,7 @@ function init_gear_sets()
 
 	sets.engaged = {
 		head="Bunzi's Hat",
-		body="Nyame Mail",
+		body=gear.Ayanmo.Body,
 		hands="Bunzi's Gloves",
 		legs="Volte Tights",
 		feet="Volte Spats",
@@ -256,7 +276,7 @@ function init_gear_sets()
 		right_ear="Cessance Earring",
 		left_ring=gear.rings['Moonlight L'],
 		right_ring=gear.rings['Moonlight R'],
-		back=gear.capes.TP,
+		back="Null Shawl",--gear.capes.TP,
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

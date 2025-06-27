@@ -256,6 +256,18 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
+
+	if type(cmdParams) == 'string' then
+		cmdParams = T(cmdParams:split(' '))
+		if #cmdParams == 0 then
+			return
+		end
+	end
+
+	if cmdParams[1]:lower() == 'rune' then
+		next_rune()
+		eventArgs.handled = true
+	end
 end
 
 function job_tick()
@@ -269,4 +281,12 @@ function check_buff()
 	end
 
 	return false
+end
+
+function next_rune()
+	--add_to_chat(123,'Mote-Libs: Set parameter failure: field not specified.')
+	if buffactive["Lux"] then
+		add_to_chat(123,'Checking Lux.' .. tostring(buffactive["Lux"]) )
+	end
+
 end

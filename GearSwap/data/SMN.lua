@@ -1,3 +1,16 @@
+avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
+spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
+spirit_of = {['Light']="Light Spirit", ['Dark']="Dark Spirit", ['Fire']="Fire Spirit", ['Earth']="Earth Spirit",
+	['Water']="Water Spirit", ['Wind']="Air Spirit", ['Ice']="Ice Spirit", ['Lightning']="Thunder Spirit"}
+
+magicalRagePacts = S{
+	'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen','Clarsach Call','Impact',
+	'Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II',
+	'Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV',
+	'Thunderspark','Burning Strike','Meteorite','Nether Blast','Flaming Crush',
+	'Meteor Strike','Conflag Strike','Heavenly Strike','Wind Blade','Geocrush','Grand Fall','Thunderstorm',
+	'Holy Mist','Lunar Bay','Night Terror','Level ? Holy','Tornado II','Sonic Buffet'}
+
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -28,19 +41,6 @@ function job_setup()
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
     state.AutoFightMode = M( true, "Auto Pet Fight" )
-
-	avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
-    spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
-	spirit_of = {['Light']="Light Spirit", ['Dark']="Dark Spirit", ['Fire']="Fire Spirit", ['Earth']="Earth Spirit",
-        ['Water']="Water Spirit", ['Wind']="Air Spirit", ['Ice']="Ice Spirit", ['Lightning']="Thunder Spirit"}
-
-    magicalRagePacts = S{
-		'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen','Clarsach Call','Impact',
-		'Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II',
-		'Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV',
-		'Thunderspark','Burning Strike','Meteorite','Nether Blast','Flaming Crush',
-		'Meteor Strike','Conflag Strike','Heavenly Strike','Wind Blade','Geocrush','Grand Fall','Thunderstorm',
-		'Holy Mist','Lunar Bay','Night Terror','Level ? Holy','Tornado II','Sonic Buffet'}
 
 
 	gear.Artifact = {}
@@ -440,13 +440,15 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 
-	if pet.name == spell.english and pet.hpp > 50 then
-		add_to_chat(122, "You already have that avatar active!")
-		eventArgs.cancel = true
-	elseif avatars:contains(spell.english) and pet.isvalid then
-		eventArgs.cancel = true
-		windower.chat.input('/pet Release <me>')
-		windower.chat.input:schedule(2,'/ma "'..spell.english..'" <me>')
+	if avatars and pet then
+		if pet.name == spell.english and pet.hpp > 50 then
+			add_to_chat(122, "You already have that avatar active!")
+			eventArgs.cancel = true
+		elseif avatars:contains(spell.english) and pet.isvalid then
+			eventArgs.cancel = true
+			windower.chat.input('/pet Release <me>')
+			windower.chat.input:schedule(2,'/ma "'..spell.english..'" <me>')
+		end
 	end
 
 	--if state.AutoBuffMode.current == 'on' and spell.type == 'WeaponSkill' and player.sub_job == 'WAR' and abil_recasts[2] < latency and not buffactive.Berserk then

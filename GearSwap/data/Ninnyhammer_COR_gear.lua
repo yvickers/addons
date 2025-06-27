@@ -4,8 +4,8 @@ function user_job_setup()
 	state.Bullet = M{['description']='Bullet', 'Living Bullet', 'Chrono Bullet', }
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'AE Death Penalty', 'Fomalhaut', 'Zeni' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Hot Shot', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'AE Death Penalty', 'Fomalhaut', 'Tauret', 'Zeni', 'Onion', 'ACC' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Hot Shot', 'Evisceration', 'Fast Blade II' }
     state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
 	gear.Artifact = {}
@@ -37,6 +37,7 @@ function user_job_setup()
     gear.capes.RngTPCape = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     gear.capes.RngPhysicalWS =  { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
     gear.capes.INTWS = { name="Camulus's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
+    gear.capes.DEXWSD = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
     gear.weapons = {}
     --match key to state.weapons options
@@ -64,11 +65,29 @@ function user_job_setup()
         ranged="Fomalhaut",
         ammo="Chrono Bullet",
     }
+    gear.weapons['Tauret'] = {
+        main="Tauret",
+        sub="Gleti's Knife",
+        ranged="Anarchy +2",
+        ammo="Chrono Bullet",
+    }
+    gear.weapons['Onion'] = {
+        main="Onion Sword III",
+        sub="Gleti's Knife",
+        ranged="Anarchy +2",
+        ammo="Chrono Bullet",
+    }
     gear.weapons['Zeni'] = {
         main="Naegling",
         sub="Gleti's Knife",
         range="Soultrapper 2000",
 		ammo="Blank Soulplate",
+    }
+    gear.weapons['ACC'] = {
+        main="Naegling",
+        sub="Demers. Degen +1",
+        ranged="Anarchy +2",
+        ammo="Chrono Bullet",
     }
 
     state.TreasureMode:set('Tag')
@@ -158,6 +177,19 @@ function init_gear_sets()
         body="Ikenga's Vest",
     })
 
+    sets.precast.WS['Fast Blade II'] = set_combine(sets.precast.WS, {
+        ammo="Bayeux Bullet",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Moonshade Earring",
+        right_ear="Odr Earring",
+        left_ring="Ilabarat Ring",
+        back=gear.capes.DEXWSD,
+    })
+    sets.precast.WS['Fast Blade II'].Buffed = set_combine(sets.precast.WS['Fast Blade II'], {
+        body="Ikenga's Vest",
+    })
+
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
         ammo="Bayeux Bullet",
         --head=gear.Adhemar.Head.B,
@@ -168,15 +200,15 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'] = set_combine( sets.precast.WS, {
         ammo="Bayeux Bullet",
-        --head=gear.Adhemar.Head.B,
-        --body=gear.Mummu.Body,
-        --hands=gear.Mummu.Hands,
-        --legs=gear.Mummu.Legs,
-        --feet=gear.Mummu.Feet,
+        head="Malignance Chapeau",
+        body="Ikenga's Vest",
+        legs="Zoar Subligar",
+        feet="Malignance Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        --ring2="Mummu Ring",
-        --ear1="Odr Earring",
+        left_ear="Odr Earring",
+        left_ring="Lehko's Ring",
+        right_ring="Ilabarat Ring",
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {

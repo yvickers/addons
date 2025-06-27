@@ -32,6 +32,8 @@ function user_setup()
     send_command('bind ^f5 gs c cycle ElementalMode')
     send_command('bind !f5 gs c cycleback ElementalMode')
 
+    send_command('bind !` @input //send tishrahh //gs c smartws')
+
     send_command('bind ^numpad1 @input //send @all //ixion')
     send_command('bind !numpad1 @input //send @all /dismount')
     send_command('bind ^numpad7 @input /ma "Utsusemi: Ni" <me>')
@@ -61,6 +63,8 @@ function user_unload()
     send_command('unbind ^f4')
     send_command('unbind ^f5')
     send_command('unbind !f5')
+
+    send_command('unbind !`')
 
     send_command('unbind ^numpad1')
     send_command('unbind !numpad1')
@@ -201,6 +205,7 @@ function user_state_change_Attack_With_Me( newValue, oldValue )
     if state.AttackWithMe.current == 'on' then
         send_command('@input //atkwm master')
         send_command('@input //send ninnyhammer //atkwm slave on')
+        send_command('@input //send tishrahh //atkwm slave on')
     else
         send_command('@input //send @others //atkwm slave off')
         send_command('@input //send @all //lua reload attackwithme')
@@ -349,7 +354,7 @@ function refine_cure(spell, spellMap, eventArgs)
             eventArgs.cancel = true
         else
             if missingHP and missingHP > 0 then
-                add_to_chat(122,'Trying to cure '..tostring(missingHP)..' HP using '..newCure..'.')
+                windower.chat.input('/echo Trying to cure '..tostring(missingHP)..' HP using '..newCure..'.')
             end
         end
     end

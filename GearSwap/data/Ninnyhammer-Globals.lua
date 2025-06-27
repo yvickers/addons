@@ -2,6 +2,18 @@ function define_global_sets()
     gear.Reive = {}
     sets.AutoBuff = {}
 
+    sets.craft = {}
+    sets.craft.skill = {
+        body="Tanner's Apron",
+        hands="Tanner's Gloves",
+        left_ring="Artificer's Ring",
+        right_ring="Craftmaster's Ring",
+    }
+
+    sets.craft.skillup = set_combine(sets.craft.skill,{
+        head="Midras's Helm +1",
+    })
+
     gear.Meghanada = {}
     gear.Meghanada.Head = "Meghanada Visor +2"
     gear.Meghanada.Body = "Meg. Cuirie +2"
@@ -17,17 +29,17 @@ function define_global_sets()
     gear.Mummu.Feet = "Mummu Gamash. +2"
 
     gear.Hiza = {}
-    gear.Hiza.Head = "Hiza. Somen +1"
-    gear.Hiza.Body = "Hiza. Haramaki"
-    gear.Hiza.Hands = "Hizamaru Kote +1"
-    gear.Hiza.Legs = "Hiza. Hizayoroi"
-    gear.Hiza.Feet = "Hiza. Sune-Ate +1"
+    gear.Hiza.Head = "Hiza. Somen +2"
+    gear.Hiza.Body = "Hiza. Haramaki +2"
+    gear.Hiza.Hands = "Hizamaru Kote +2"
+    gear.Hiza.Legs = "Hiza. Hizayoroi +2"
+    gear.Hiza.Feet = "Hiza. Sune-Ate +2"
 
     gear.Sulevia = {}
-    gear.Sulevia.Head = "Sulevia's Mask"
-    gear.Sulevia.Body = "Sulevia's Plate."
-    gear.Sulevia.Hands = "Sulev. Gauntlets"
-    gear.Sulevia.Legs = "Sulevi. Cuisses"
+    gear.Sulevia.Head = "Sulevia's Mask +2"
+    gear.Sulevia.Body = "Sulevia's Plate. +2"
+    gear.Sulevia.Hands = "Sulev. Gauntlets +2"
+    gear.Sulevia.Legs = "Sulevi. Cuisses +2"
     gear.Sulevia.Feet = "Sulev. Leggings +2"
 
     gear.Inyanga = {}
@@ -59,11 +71,11 @@ function define_global_sets()
     gear.Flamma.Feet = "Flam. Gambieras +2"
 
     gear.Taliah = {}
-    gear.Taliah.Head = "Tali'ah Turban"
-    gear.Taliah.Body = "Tali'ah Manteel"
-    gear.Taliah.Hands = "Tali'ah Gages"
-    gear.Taliah.Legs = "Tali'ah Sera."
-    gear.Taliah.Feet = "Tali'ah Crackows"
+    gear.Taliah.Head = "Tali'ah Turban +2"
+    gear.Taliah.Body = "Tali'ah Manteel +2"
+    gear.Taliah.Hands = "Tali'ah Gages +2"
+    gear.Taliah.Legs = "Tali'ah Sera. +2"
+    gear.Taliah.Feet = "Tali'ah Crackows +2"
 
     gear.Mallquis = {}
     gear.Mallquis.Head = "Mallquis Chapeau"

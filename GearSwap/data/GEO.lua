@@ -15,6 +15,8 @@ function job_setup()
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 	ecliptic_used = false
 
+	include('Mote-TreasureHunter')
+
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {

@@ -17,7 +17,7 @@ function user_job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Tachi: Jinpu', 'Tachi: Fudo', 'Tachi: Kasha'  }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
+	gear.Artifact.Head = "Wakido Kabuto +3"
 	gear.Artifact.Body = ""
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
@@ -26,7 +26,7 @@ function user_job_setup()
 	gear.Relic = {}
 	gear.Relic.Head = ""
 	gear.Relic.Body = ""
-	gear.Relic.Hands = ""
+	gear.Relic.Hands = "Sakonji Kote +3"
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
 
@@ -39,12 +39,12 @@ function user_job_setup()
 
 	gear.capes = {}
 	gear.capes.DexTP = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
-	gear.capes.StrWS = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+6','Weapon skill damage +10%',}}
+	gear.capes.StrWS = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 end
 
 function init_gear_sets()
 	sets.AutoBuff.sleep = {
-		--neck="Vim Torque +1",
+		neck="Vim Torque +1",
 	}
 
 	sets.Enmity = {}
@@ -52,11 +52,11 @@ function init_gear_sets()
 	sets.TreasureHunter = {}
 
 	sets.precast.JA['Meditate'] = {
-		--head=gear.Artifact.Head,
-		--hands=gear.Relic.Hands,
+		head=gear.Artifact.Head,
+		hands=gear.Relic.Hands,
 	}
 	sets.precast.JA['Blade Bash'] = {
-		--hands=gear.Relic.Hands,
+		hands=gear.Relic.Hands,
 	}
 	sets.precast.JA['Shikikoyo'] = {}
 	sets.precast.JA['Sekkanoki'] = {
@@ -88,19 +88,19 @@ function init_gear_sets()
         back=gear.capes.StrWS,
     }
 	sets.precast.WS.PROC = {
-		--ammo="Staunch Tathlum +1",
-		--head="Ken. Jinpachi +1",
-		--body="Ken. Samue +1",
-		--hands="Flam. Manopolas +2",
-		--legs="Ken. Hakama +1",
-		--feet="Ken. Sune-Ate +1",
-		--neck={ name="Vim Torque +1", augments={'Path: A',}},
-		--waist="Eschan Stone",
-		--left_ear="Mache Earring +1",
-		--right_ear="Crep. Earring",
-		--left_ring="Cacoethic Ring +1",
-		--right_ring="Chirich Ring +1",
-		--back=gear.capes.DexTP,
+		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+		head={ name="Blistering Sallet +1", augments={'Path: A',}},
+		body="Kasuga Domaru +3",
+		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+		legs="Volte Tights",
+		feet="Volte Spats",
+		neck="Null Loop",
+		waist="Ioskeha Belt +1",
+		left_ear="Mache Earring +1",
+		right_ear="Crep. Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
+		back="Null Shawl",
 	}
 
 	sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS,{
@@ -121,10 +121,7 @@ function init_gear_sets()
 	})
 	sets.precast.WS['Tachi: Kagero'].PROC = set_combine(sets.precast.WS.PROC,{})
 
-
-	sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS,{
-
-	})
+	sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS,{})
 
 	--switch to upgrade mpaca when have
 	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS,{

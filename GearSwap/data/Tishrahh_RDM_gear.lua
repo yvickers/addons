@@ -78,7 +78,7 @@ function init_gear_sets()
 		left_ear="Enchntr. Earring +1",
 		right_ear="Lethargy Earring +2",
 		left_ring="Medada's Ring",
-		right_ring="Weather. Ring",
+		right_ring="Kishar Ring",
 		back=gear.capes.FC,
 	}
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {
@@ -117,7 +117,7 @@ function init_gear_sets()
 		waist="Eschan Stone",
 		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
 		right_ear="Malignance Earring",
-		left_ring="Weather. Ring",
+		left_ring="Metamor. Ring +1",
 		right_ring="Medada's Ring",
 		back=gear.capes.MagicMndWS,
 	}

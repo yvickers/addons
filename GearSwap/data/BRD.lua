@@ -8,6 +8,7 @@ function get_sets()
 end
 
 function job_setup()
+	include('Mote-TreasureHunter')
 
 	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'Acc' )
 	state.RangedMode:options( 'Normal', 'Acc' )
@@ -262,6 +263,10 @@ function job_post_midcast(spell, spellMap, eventArgs)
 					equip(sets.midcast[get_spell_map(spell, default_spell_map)])
 				end
 			end
+
+			if state.TreasureMode.value ~= 'None' and spell.targets.Enemy then
+				equip(sets.TreasureHunter)
+			end
         end
     end
 end
@@ -321,7 +326,7 @@ end
 
 
 function customize_idle_set(idleSet)
-	--idleSet = set_combine( idleSet, gear.weapons[state.Weapons.current] )
+	idleSet = set_combine( idleSet, gear.weapons[state.Weapons.current] )
 
 	if state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere') then
 		if player.mpp < 51 then

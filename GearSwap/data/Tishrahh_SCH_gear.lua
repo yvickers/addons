@@ -52,7 +52,7 @@ function init_gear_sets()
         left_ear="Enchntr. Earring +1",
         right_ear="Malignance Earring",
         left_ring="Medada's Ring",
-        right_ring="Weather. Ring",
+        right_ring="Kishar Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
     }
 		

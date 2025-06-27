@@ -400,10 +400,6 @@ function init_gear_sets()
     }
 
 	--elemental bonuses
-	sets.midcast['Anemohelix II'] = set_combine(sets.midcast.Helix,{
-		main="Marin Staff +1",
-		sub="Enki Strap",
-	})
 	sets.midcast['Noctohelix II'] = set_combine(sets.midcast.Helix,{
 		head="Pixie Hairpin +1",
 		left_ring="Archon Ring",
@@ -559,7 +555,7 @@ function init_gear_sets()
 		legs=gear.Empyrean.Legs,
 		feet="Herald's Gaiters",
 		neck="Warder's Charm +1",
-		waist="Engraved Belt",
+		waist="Carrier's Sash",
 		left_ear="Eabani Earring",
 		right_ear="Etiolation Earring",
 		left_ring="Stikini Ring +1",

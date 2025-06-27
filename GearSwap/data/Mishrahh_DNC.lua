@@ -41,6 +41,19 @@ end
 function job_setup()
     include('Mote-TreasureHunter')
 
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Offense', }
+	gear.weapons = {}
+	gear.weapons['Default'] = {
+		main="Twashtar",
+        sub="Gleti's Knife",
+        ammo="Staunch Tathlum +1",
+	}
+	gear.weapons['Offense'] = {
+		main="Twashtar",
+        sub="Crepuscular Knife",
+        ammo="Staunch Tathlum +1",
+	}
+
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Evisceration', "Rudra's Storm", 'Aeolian Edge' }
     state.AutoBuffMode = M( true, "Automatic Buffs" )
 
@@ -78,7 +91,7 @@ function job_setup()
     gear.Artifact = {}
     gear.Artifact.Head = "Maxixi Tiara +3"
     gear.Artifact.Body = "Maxixi Casaque +3"
-    gear.Artifact.Hands = "Maxixi Bangles +2"
+    gear.Artifact.Hands = "Maxixi Bangles +3"
     gear.Artifact.Legs = "Maxixi Tights +1"
     gear.Artifact.Feet = "Maxixix Toe Shoes +3"
 
@@ -98,9 +111,9 @@ function job_setup()
 
     gear.capes = {}
     gear.capes.TP = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}}
-    gear.capes.Crit = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}}
+    gear.capes.Crit = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
     gear.capes.WSDMG = { name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
-    gear.capes.STRWS = { name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}}
+    gear.capes.STRWS = { name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
     function calculate_step_feet_reduction()
         local tp_reduction = 0
@@ -155,6 +168,16 @@ function init_gear_sets()
     --------------------------------------
 
     sets.TreasureHunter = gear.TH.Herc
+
+    sets.Enmity = {
+		ammo="Sapience Orb",
+		neck="Unmoving Collar +1",
+        waist="Kasiri Belt",
+		left_ear={name="Cryptic Earring",priority=40},
+		right_ear="Rimeice Earring",
+		left_ring="Begrudging Ring",
+		right_ring={name="Supershear Ring",priority=30},
+	}
     
     -- Precast Sets
     
@@ -171,14 +194,17 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
+        head=gear.Relic.Head,
+        body=gear.Artifact.Body,
+        hands="",
+        legs="",
+        feet=gear.Empyrean.Feet,
 --        ammo="Sonia's Plectrum",
---        head="Horos Tiara",
 --        ear1="Roundel Earring",
---        body="Maxixi Casaque",
 --        hands="Buremte Gloves",
 --        ring1="Asklepian Ring",
-        back="Toetapper Mantle",
-        waist="Prosilio Belt +1",
+        --back="Toetapper Mantle",
+        --waist="Prosilio Belt +1",
 --        legs="Nahtirah Trousers",
         feet=gear.Empyrean.Feet
     }
@@ -217,6 +243,8 @@ function init_gear_sets()
         head=gear.Empyrean.Head,
     }
 
+    sets.precast.JA['Provoke'] = sets.Enmity
+
     -- Fast cast sets for spells
     
     sets.precast.FC = {
@@ -251,41 +279,46 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back=gear.capes.WSDMG,
     }
-    sets.precast.WS.Buffed = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
-        body="Gleti's Cuirass",
+
+    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
+        hands=gear.Artifact.Hands,
+        legs=gear.Empyrean.Legs,
+    })
+    sets.precast.WS["Mandalic Stab"] = set_combine(sets.precast.WS["Rudra's Storm"], {
     })
 
     sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS, {
-        body="Gleti's Cuirass",
+        body=gear.Relic.Body,
         hands=gear.Adhemar.Hands.B,
-        feet=gear.Adhemar.Feet.B,
-        left_ring="Regal Ring",
-        right_ring="Gere Ring",
-        left_ear="Sherida Earring",
+        legs=gear.Empyrean.Legs,
+        feet=gear.Lustratio.Feet.D,
         neck="Fotia Gorget",
         waist="Fotia Belt",
+        right_ear="Brutal Earring",
+        left_ear="Sherida Earring",
+        right_ring="Regal Ring",
+        left_ring="Gere Ring",
         back=gear.capes.STRWS,
     })
-    sets.precast.WS['Pyrrhic Kleos'].Buffed = set_combine(sets.precast.WS['Pyrrhic Kleos'], {})
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-        head="Blistering Sallet +1",
+        head=gear.Adhemar.Head.B,
         body="Gleti's Cuirass",
-        hands=gear.Adhemar.Hands.B,
-        legs="Gleti's Breeches",
+        hands=gear.Mummu.Hands,
+        legs=gear.Mummu.Legs,
         feet=gear.Adhemar.Feet.B,
         neck="Fotia Gorget",
-        left_ear="Odr Earring",
-        left_ring="Regal Ring",
-        right_ring="Gere Ring",
+        right_ear="Odr Earring",
+        left_ring="Mummu Ring",
+        right_ring="Begrudging Ring",
         back=gear.capes.Crit,
         waist="Fotia Belt",
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine( sets.precast.WS, {
         ammo="Ghastly Tathlum +1",
-        neck="Sibyl Scarf",
+        head="Nyame Helm",
+        neck="Baetyl Pendant",
         right_ear="Friomisi Earring",
         right_ring="Medada's Ring",
         waist="Orpheus's Sash",
@@ -359,19 +392,19 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head=gear.Empyrean.Head,
-        body="Gleti's Cuirass",
-        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
-        legs="Gleti's Breeches",
+        body="Malignance Tabard",
+        hands=gear.Adhemar.Hands.A,
+        legs=gear.Meghanada.Legs,
         feet=gear.Empyrean.Feet,
-        ammo="Coiste Bodhar",
-        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        back=gear.capes.TP,
+        neck="Anu Torque",
+        waist="Sailfi Belt +1",
+        back="Null Shawl",
         left_ear="Sherida Earring",
-        right_ear={ name="Macu. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+17','Mag. Acc.+17','"Store TP"+6','DEX+9 AGI+9',}},
+        right_ear="Dedition Earring",
         left_ring="Gere Ring",
-        right_ring="Chirich Ring +1",
+        right_ring="Epona's Ring",
     }
 
     sets.engaged.Normal = set_combine(sets.engaged, {})
@@ -381,12 +414,13 @@ function init_gear_sets()
     sets.engaged.Evasion = set_combine(sets.engaged, {})
 
     sets.engaged.PDT = set_combine(sets.engaged, {
+        ammo="Crepuscular Pebble",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        left_ring="Moonlight Ring",
-        right_ring="Moonlight Ring",
+        neck="Etoile Gorget +2",
+        right_ring="Defending Ring",
     })
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

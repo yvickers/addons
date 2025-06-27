@@ -1,12 +1,16 @@
 function user_job_setup()
 
-	state.OffenseMode:options( 'Melee', 'PDT', 'MDT', 'DD' )
+	state.OffenseMode:options( 'Melee', 'DD', 'PDT', 'MDT' )
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'MEVA', 'DD', 'Axe' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'MEVA', 'DD',  }
 	gear.weapons = {}
+	gear.weapons['GAXE'] = {
+		main="Lycurgos",
+		sub="Utu Grip",
+	}
 	gear.weapons['Default'] = {
 		main="Epeolatry",
 		sub="Utu Grip",
@@ -32,7 +36,7 @@ function user_job_setup()
 		sub="Vampirism",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Dimidiation', 'Decimation' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Dimidiation', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
@@ -61,6 +65,8 @@ function user_job_setup()
 	gear.capes.ParryTank = { name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Parrying rate+5%',},priority=60}
 	gear.capes.DexWS = { name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 	gear.capes.Utility = { name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',},priority=60}
+	gear.capes.VitWS = { name="Ogma's Cape", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}, priority=60}
+	gear.capes.STRDA = { name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','VIT+10','"Dbl.Atk."+10',}, priority=60}
 
 --[[
 ^   Ctrl
@@ -111,13 +117,13 @@ function init_gear_sets()
 	}
 
 	sets.precast.JA['Lux'] = sets.Enmity
-	sets.precast.JA['Lux'] = sets.Enmity
 	sets.precast.JA['Tenebrae'] = sets.Enmity
 	sets.precast.JA['Ignis'] = sets.Enmity
 	sets.precast.JA['Gelus'] = sets.Enmity
 	sets.precast.JA['Flabra'] = sets.Enmity
 	sets.precast.JA['Tellus'] = sets.Enmity
 	sets.precast.JA['Sulpor'] = sets.Enmity
+	sets.precast.JA['Unda'] = sets.Enmity
 
 	sets.precast.JA['Embolden'] = set_combine(sets.Enmity,{
 		legs=gear.Relic.Legs,
@@ -193,7 +199,6 @@ function init_gear_sets()
     })
 
 	sets.precast.WS['Decimation'] = set_combine(sets.precast.WS,{
-        left_ear="Odr Earring"
     })
 
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{
@@ -203,6 +208,16 @@ function init_gear_sets()
 		right_ear="Friomisi Earring",
 		left_ring="Medada's Ring",
 		right_ring="Metamor. Ring +1",
+    })
+
+	sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS,{
+		ammo="Knobkierrie",
+		head="Null Masque",
+		neck="Rep. Plat. Medal",
+		left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+		right_ear="Tuisto Earring",
+		left_ring="Regal Ring",
+		back=gear.capes.VitWS,
     })
 
 	sets.midcast = {}
@@ -266,18 +281,18 @@ function init_gear_sets()
 	})
 
 	sets.engaged.DD = set_combine(sets.engaged, {
-		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+		ammo="Yamarang",
 		head=gear.Adhemar.Head.B,
 		body=gear.Adhemar.Body.A,
-		hands="Turms Mittens +1",
+		hands=gear.Adhemar.Hands.A,
 		legs=gear.Empyrean.Legs,
-		feet="Turms Leggings +1",
-		neck="Sanctity Necklace",
+		feet=gear.Adhemar.Feet.B,
+		neck="Anu Torque",
 		waist="Reiki Yotai",
-		left_ear="Eabani Earring",
-		right_ear="Suppanomimi",
-		left_ring="Petrov Ring",
+		left_ear="Telos Earring",
+		right_ear="Sherida Earring",
+		left_ring="Ilabrat Ring",
 		right_ring="Niqmaddu Ring",
-		back=gear.capes.ParryTank,
+		back="Null Shawl",
 	})
 end

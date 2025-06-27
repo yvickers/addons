@@ -436,7 +436,7 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Yngvi Choker",
 		back=gear.capes.FC,
-		waist="Engraved Belt",
+		waist="Carrier's Sash",
 		left_ear="Eabani Earring",
 		right_ear="Etiolation Earring",
 		left_ring="Warp Ring",

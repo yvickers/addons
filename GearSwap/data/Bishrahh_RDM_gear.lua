@@ -4,31 +4,31 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Crocea', 'Naegling' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		main="Bolelabunga",
-		sub="Culminus",
+		main="Crocea Mors",
+		sub="Maxentius",
 	}
 	gear.weapons['Crocea'] = {
 		main="Crocea Mors",
-		sub="Culminus",
+		sub="Ammurapi Shield",
 	}
 	gear.weapons['Naegling'] = {
 		main="Naegling",
-		sub="Culminus",
+		sub="Ammurapi Shield",
 	}
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Atrophy Chapeau +3"
-	gear.Artifact.Body = "Atrophy Tabard +1"
+	gear.Artifact.Body = "Atrophy Tabard +3"
 	gear.Artifact.Hands = "Atrophy Gloves +3"
-	gear.Artifact.Legs = "Atrophy Tights"
+	gear.Artifact.Legs = "Atrophy Tights +3"
 	gear.Artifact.Feet = "Atrophy Boots"
 
 	gear.Relic = {}
 	gear.Relic.Head = "Viti. Chapeau +3"
-	gear.Relic.Body = ""
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Body = "Viti. Gloves +2"
+	gear.Relic.Hands = "Viti. Tabard +3"
+	gear.Relic.Legs = "Viti. Tights +3"
+	gear.Relic.Feet = "Vitiation Boots +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Leth. Chappel +3"
@@ -38,9 +38,9 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Leth. Houseaux +3"
 
 	gear.capes = {}
-	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','"Fast Cast"+10',}}
+	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','"Fast Cast"+10','Damage taken-5%',}}
 	gear.capes.FC = gear.capes.MNDEnfeeble
-	gear.capes.INTEnfeeble = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.capes.INTEnfeeble = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	gear.capes.DRKMagic = gear.capes.INTEnfeeble
 	gear.capes.DexTP = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
 	gear.capes.MagicMndWS = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
@@ -65,19 +65,19 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		main="Bolelabunga",
-		sub="Culminus",
+		main="Crocea Mors",
+		sub="Genmei Shield",
 		ammo="Impatiens",
 		head=gear.Artifact.Head,
-		body="Rosette Jaseran +1",
+		body=gear.Relic.Body,
 		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
+		legs="Psycloth Lappas",
 		feet=gear.Ayanmo.Feet,
 		neck="Voltsurge Torque",
 		waist="Embla Sash",
 		left_ear="Loquac. Earring",
-		right_ear="Lethargy Earring +1",
-		left_ring="Jhakri Ring",
+		right_ear="Leth. Earring +1",
+		left_ring="Kishar Ring",
 		right_ring="Weather. Ring",
 		back=gear.capes.FC,
 	}
@@ -113,12 +113,12 @@ function init_gear_sets()
 		hands=gear.Empyrean.Hands,
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
 		feet=gear.Empyrean.Feet,
-		neck="Eddy Necklace",
+		neck="Sanctity Necklace",
 		waist="Eschan Stone",
-		left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-		right_ear="Malignance Earring",
+		left_ear="Friomisi Earring",
+		right_ear="Hermetic Earring",
 		left_ring="Weather. Ring",
-		right_ring="Medada's Ring",
+		right_ring="Metamor. Ring +1",
 		back=gear.capes.MagicMndWS,
 	}
 
@@ -132,7 +132,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs=gear.Empyrean.Legs,
 		left_ear="Friomisi Earring",
-		left_ring="Archon Ring",
+		--left_ring="Archon Ring",
 	} )
 	sets.precast.WS['Aeolian Edge'] = set_combine( sets.precast.MagicWS, {
 		neck="Sibyl Scarf",
@@ -189,17 +189,17 @@ function init_gear_sets()
 		range=empty,
 		--ammo="Hasty Pinion +1",
 		ammo="Impatiens",
-		head="Umuthi Hat",
+		head="Befouled Crown",
 		body=gear.Relic.Body,
 		hands=gear.Artifact.Hands,
-		legs="Carmine Cuisses +1",
+		--legs="Carmine Cuisses +1",
 		feet=gear.Empyrean.Feet,
 		neck="Dls. Torque +1",
-		left_ear="Andoaa Earring",
+		--left_ear="Andoaa Earring",
 		right_ear="Lethargy Earring +1",
-		ring1="Stikini Ring +1",
-		ring2="Stikini Ring +1",
-		back=gear.capes.Enhancing,
+		--ring1="Stikini Ring +1",
+		--ring2="Stikini Ring +1",
+		back="Ghostfyre Cape",
 		waist="Embla Sash",
 	}
 
@@ -216,9 +216,9 @@ function init_gear_sets()
 	--Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
 	sets.EnhancingSkill = {
 		main="Pukulatmuj +1",
-		--head="Befouled Crown",
+		head="Befouled Crown",
 		--neck="Incanter's Torque",
-		ear2="Mimir Earring",
+		--ear2="Mimir Earring",
 		hands=gear.Relic.Hands,
 		back="Ghostfyre Cape",
 		--waist="Olympus Sash",
@@ -408,18 +408,18 @@ function init_gear_sets()
 	})
 
 	sets.engaged = {
-		ammo="Sroda Tathlum",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		ammo="Oshasha's Treatise",
+		head="Umuthi Hat",
+		body=gear.Ayanmo.Body,
 		hands=gear.Ayanmo.Hands,
 		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
 		neck="Null Loop",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
-		right_ear={ name="Leth. Earring +2", augments={'System: 1 ID: 1676 Val: 0','Accuracy+18','Mag. Acc.+18','"Dbl.Atk."+7','STR+11 DEX+11',}},
-		left_ring="Ilabrat Ring",
-		right_ring="Crepuscular Ring",
+		right_ear="Leth. Earring +1",
+		--left_ring="Ilabrat Ring",
+		right_ring="Ilabrat Ring",
 		back=gear.capes.DexTP,
 	}
 

@@ -37,7 +37,6 @@ function job_setup()
 	info.PreWSAbilities = {}
 	info.PreWSAbilities[134] = 'Meditate'
 	info.PreWSAbilities[133] = 'Third Eye'
-	info.PreWSAbilities[54] = 'Hagakure'
 	info.PreWSAbilities[140] = 'Sekkanoki'
 	info.PreWSAbilities[141] = 'Sengikori'
 
@@ -215,6 +214,17 @@ end
 function job_aftercast(spell, action, spellMap, eventArgs)
 	if spell.type == "WeaponSkill" then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if state.SAMStance.current == 'Hasso' and not buffactive.Hasso and abil_recasts[138] and abil_recasts[138] < latency then
+			windower.chat.input:schedule(2.5,'/ja "Hasso" <me>')
+			return true
+		end
+
+		if state.SAMStance.current == 'Seigan' and not buffactive.Seigan and abil_recasts[139] and abil_recasts[139] < latency then
+			windower.chat.input:schedule(2.5,'/ja "Seigan" <me>')
+			return true
+		end
+
 		if abil_recasts[state.PostWSAbility.current] and abil_recasts[state.PostWSAbility.current] < latency then
 			windower.chat.input:schedule(2.5,'/ja "' .. info.PostWSAbilities[state.PostWSAbility.current] .. '" <me>')
 			state.PostWSAbility:cycle()

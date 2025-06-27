@@ -107,7 +107,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-        head=gear.Herc.Head.TH,
+        head=gear.Herc.Head.FC,
         hands="Leyline Gloves",
         ammo="Impatiens",
         neck="Baetyl Pendant",

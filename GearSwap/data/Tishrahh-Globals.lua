@@ -2,6 +2,19 @@ function define_global_sets()
     gear.Reive = {}
     sets.AutoBuff = {}
 
+    sets.craft = {}
+    sets.craft.skill = {
+        head="Shaded Specs.",
+        body="Goldsmith's Apron",
+        left_ring="Artificer's Ring",
+        right_ring="Orvail Ring",
+    }
+
+    sets.craft.skillup = set_combine(sets.craft.skill,{
+        head="Midras's Helm +1",
+        right_ring="Orvail Ring",
+    })
+
     gear.Meghanada = {}
     gear.Meghanada.Head = "Meghanada Visor +2"
     gear.Meghanada.Body = "Meg. Cuirie +2"
@@ -17,18 +30,18 @@ function define_global_sets()
     gear.Mummu.Feet = "Mummu Gamash. +2"
 
     gear.Hiza = {}
-    gear.Hiza.Head = "Hiza. Somen"
-    gear.Hiza.Body = "Hiza. Haramaki"
-    gear.Hiza.Hands = "Hizamaru Kote"
-    gear.Hiza.Legs = "Hiza. Hizayoroi"
-    gear.Hiza.Feet = "Hiza. Sune-Ate"
+    gear.Hiza.Head = "Hiza. Somen +2"
+    gear.Hiza.Body = "Hiza. Haramaki +2"
+    gear.Hiza.Hands = "Hizamaru Kote +2"
+    gear.Hiza.Legs = "Hiza. Hizayoroi +2"
+    gear.Hiza.Feet = "Hiza. Sune-Ate +2"
 
     gear.Sulevia = {}
     gear.Sulevia.Head = "Sulevia's Mask"
     gear.Sulevia.Body = "Sulevia's Plate."
     gear.Sulevia.Hands = "Sulev. Gauntlets"
     gear.Sulevia.Legs = "Sulevi. Cuisses"
-    gear.Sulevia.Feet = "Sulev. Leggings"
+    gear.Sulevia.Feet = "Sulev. Leggings +2"
 
     gear.Inyanga = {}
     gear.Inyanga.Head = "Inyanga Tiara +2"
@@ -45,25 +58,25 @@ function define_global_sets()
     gear.Ayanmo.Feet = "Aya. Gambieras +2"
 
     gear.Jhakri = {}
-    gear.Jhakri.Head = "Jhakri Coronal"
-    gear.Jhakri.Body = "Jhakri Robe"
+    gear.Jhakri.Head = "Jhakri Coronal +2"
+    gear.Jhakri.Body = "Jhakri Robe +2"
     gear.Jhakri.Hands = "Jhakri Cuffs +2"
-    gear.Jhakri.Legs = "Jhakri Slops"
-    gear.Jhakri.Feet = "Jhakri Pigaches +1"
+    gear.Jhakri.Legs = "Jhakri Slops +2"
+    gear.Jhakri.Feet = "Jhakri Pigaches  +2"
 
     gear.Flamma = {}
-    gear.Flamma.Head = "Flam. Zucchetto"
-    gear.Flamma.Body = "Flamma Korazin"
-    gear.Flamma.Hands = "Flam. Manopolas"
-    gear.Flamma.Legs = "Flamma Dirs"
-    gear.Flamma.Feet = "Flam. Gambieras"
+    gear.Flamma.Head = "Flam. Zucchetto +2"
+    gear.Flamma.Body = "Flamma Korazin +2"
+    gear.Flamma.Hands = "Flam. Manopolas +2"
+    gear.Flamma.Legs = "Flamma Dirs +2"
+    gear.Flamma.Feet = "Flam. Gambieras +2"
 
     gear.Taliah = {}
-    gear.Taliah.Head = "Tali'ah Turban"
-    gear.Taliah.Body = "Tali'ah Manteel"
-    gear.Taliah.Hands = "Tali'ah Gages"
-    gear.Taliah.Legs = "Tali'ah Sera."
-    gear.Taliah.Feet = "Tali'ah Crackows"
+    gear.Taliah.Head = "Tali'ah Turban +2"
+    gear.Taliah.Body = "Tali'ah Manteel +2"
+    gear.Taliah.Hands = "Tali'ah Gages +2"
+    gear.Taliah.Legs = "Tali'ah Sera. +2"
+    gear.Taliah.Feet = "Tali'ah Crackows +2"
 
     gear.Mallquis = {}
     gear.Mallquis.Head = "Mallquis Chapeau"
@@ -112,10 +125,10 @@ function define_global_sets()
     gear.Linos = {}
     gear.Linos.Idle = { name="Linos", augments={'Mag. Evasion+14','"Regen"+2','HP+16',}}
     gear.Linos.TP = { name="Linos", augments={'Accuracy+18','"Store TP"+4','Quadruple Attack +3',}}
-    gear.Linos.STRWS = { name="Linos", augments={'Attack+14','Crit.hit rate+1','STR+8',}}
-    gear.Linos.CHRWS = {}
-    gear.Linos.DEXWS = {}
-    gear.Linos.DEXCrit = {}
+    gear.Linos.STRWS = { name="Linos", augments={'Attack+14','Weapon skill damage +2%','STR+8',}}
+    gear.Linos.CHRWS = { name="Linos", augments={'Attack+15','Weapon skill damage +2%','CHR+8',}}
+    gear.Linos.DEXWS = { name="Linos", augments={'Attack+15','Weapon skill damage +2%','DEX+8',}}
+    gear.Linos.DEXCrit = { name="Linos", augments={'Attack+15','Crit. hit damage +3%','DEX+8',}}
 
     gear.Chironic = {}
     gear.Chironic.Head = {}

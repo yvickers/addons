@@ -3,7 +3,7 @@ function user_job_setup()
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'TPBonus', 'Aeolian' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
-		main="Kikoku",
+		main="Heishi Shorinken",
 		sub="Kunimitsu",
 	}
 	gear.weapons['Savage'] = {
@@ -11,7 +11,7 @@ function user_job_setup()
 		sub="Uzura +2",
 	}
 	gear.weapons['TPBonus'] = {
-		main="Gokotai",
+		main="Heishi Shorinken",
 		sub="Uzura +2",
 	}
 	gear.weapons['Aeolian'] = {
@@ -19,7 +19,7 @@ function user_job_setup()
 		sub="Uzura +2",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Metsu', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ten', 'Blade: Ei', 'Aeolin Edge', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Ten', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ei', 'Aeolin Edge', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 	state.NINStance = M{['description'] = 'Ninja Stance',  'None', 'Yonin', 'Innin', }
@@ -48,10 +48,11 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Hattori Kyahan +3"
 
 	gear.capes = {}
-	gear.capes.DexTP = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
+	gear.capes.DexDA = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	gear.capes.DexWSD = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 	gear.capes.StrWSD = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-	gear.capes.StrDA = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
+	gear.capes.AgiWSD = { name="Andartia's Mantle", augments={'AGI+20','Accuracy+20 Attack+20','AGI+10','Weapon skill damage +10%',}}
+	gear.capes.StrDA = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.capes.MagicWSD = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
     gear.capes.FC = { name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}}
     gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+4','"Mag.Atk.Bns."+10',}}
@@ -122,13 +123,13 @@ function init_gear_sets()
 
 	sets.precast.WS = {
 		ammo="Crepuscular Pebble",
-		head="Mpaca's Cap",
+		head=gear.Artifact.Head,
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet=gear.Empyrean.Feet,
-		neck="Rep. Plat. Medal",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		neck="Ninja Nodowa +2",
+		waist="Kentarch Belt +1",
 		left_ear="Moonshade Earring",
 		right_ear="Hattori Earring +2",
 		left_ring="Sroda Ring",
@@ -139,14 +140,13 @@ function init_gear_sets()
 	sets.precast.WS['Blade: Hi'] = set_combine( sets.precast.WS, {
 		ammo="Yetshila +1",
 		head=gear.Artifact.Head,
-		--body=gear.Empyrean.Body,
-		neck="Ninja Nodowa +2",
+		body="Malignance Tabard",
+		hands="Mummu Wrists +2",
+		legs="Mummu Kecks +2",
 		waist="Svelt. Gouriz +1",
-		left_ear="Odr Earring",
-		right_ear="Lugra Earring +1",
-		left_ring="Ilabrat Ring",
-		right_ring="Regal Ring",
-		--back=gear.capes.AgiWSD,
+		left_ear="Lugra Earring +1",
+		left_ring="Regal Ring",
+		back=gear.capes.AgiWSD,
 	})
 	sets.precast.WS['Blade: Kamu'] = set_combine( sets.precast.WS, {
 		hands="Malignance Gloves",
@@ -161,7 +161,6 @@ function init_gear_sets()
 	sets.precast.WS['Blade: Metsu'] = set_combine( sets.precast.WS, {
 		ammo="Coiste Bodhar",
 		head="Nyame Helm",
-		neck="Ninja Nodowa +2",
 		left_ear="Lugra Earring +1",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
@@ -170,39 +169,40 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS['Blade: Ku'] = set_combine( sets.precast.WS, {
-		ammo="Coiste Bodhar",
+		ammo="Crepuscular Pebble",
+		head="Blistering Sallet +1",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Lugra Earring +1",
 		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
-		right_ring="Regal Ring",
+		right_ring="Sroda Ring",
 		back=gear.capes.StrDA,
 	})
 
 	sets.precast.WS['Blade: Shun'] = set_combine( sets.precast.WS, {
-		ammo="Coiste Bodhar",
-		head="Mpaca's Cap",
+		ammo="Crepuscular Pebble",
+		head="Ken. Jinpachi +1",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
-		feet=gear.Empyrean.Feet,
+		feet="Ken. Sune-Ate +1",
 		neck="Ninja Nodowa +2",
 		waist="Fotia Belt",
 		left_ear="Lugra Earring +1",
-		right_ear="Hattori Earring +2",
 		left_ring="Gere Ring",
 		right_ring="Regal Ring",
-		back=gear.capes.DexWSD,
+		back=gear.capes.DexDA,
 	})
 
 	sets.precast.WS.Hybrid = set_combine( sets.precast.WS, {
 		ammo="Seeth. Bomblet +1",
 		head=gear.Relic.Head,
 		feet="Nyame Sollerets",
-		neck="Fotia Gorget",
 		waist="Orpheus's Sash",
-		right_ear="Lugra Earring +1",
 		left_ring="Gere Ring",
 	})
 	sets.precast.WS['Blade: To'] = sets.precast.WS.Hybrid
@@ -297,10 +297,10 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet=gear.Artifact.Feet,
+        feet="Danzo Sune-Ate",
         neck="Bathy Choker +1",
         waist="Engraved Belt",
-        back=gear.capes.DexTP,
+        back="Solemnity Cape",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",
@@ -317,16 +317,16 @@ function init_gear_sets()
 		ammo="Date Shuriken",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands=gear.Adhemar.Hands.A,
+		hands="Malignance Gloves",
 		legs="Malignance Tights",
-		feet="Malignance Boots",
+        feet="Malignance Boots",
 		neck="Ninja Nodowa +2",
-		waist="Sailfi Belt +1",
-		back=gear.capes.DexTP,
-		left_ear="Dedition Earring",
-		right_ear="Telos Earring",
-		left_ring="Gere Ring",
-		right_ring="Epona's Ring",
+		waist="Windbuffet Belt +1",
+		ear1="Dedition Earring",
+		ear2="Hattori Earring +2",
+		ring1="Epona's Ring",
+		ring2="Gere Ring",
+		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

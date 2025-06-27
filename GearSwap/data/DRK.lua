@@ -13,6 +13,7 @@ function job_setup()
 	state.RangedMode:options( 'Normal', 'Acc' )
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
+	state.CastingMode:options( 'Normal', 'Resistant' )
 
 	include('Mote-TreasureHunter')
 
@@ -27,7 +28,6 @@ function job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', '' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
-    state.AutoFightMode = M( true, "Auto Pet Fight" )
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -185,6 +185,7 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -219,7 +220,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 

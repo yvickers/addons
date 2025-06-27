@@ -1,6 +1,6 @@
 function user_job_setup()
 	state.OffenseMode:options( 'Tank', 'Melee', 'NinetyNine' )
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Naegling' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Mace', 'Calad', 'Naegling' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Sakpata's Sword",
@@ -12,7 +12,17 @@ function user_job_setup()
 		sub="Blurred Shield +1",
 	}
 
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Chant du Cygne' }
+	gear.weapons['Mace'] = {
+		main="Beryllium Mace +1",
+		sub="Blurred Shield +1",
+	}
+
+	gear.weapons['Calad'] = {
+		main="Caladbolg",
+		sub="Rigorous Grip +1",
+	}
+
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Hexa Strike', 'Torcleaver', 'Chant du Cygne' }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -24,19 +34,20 @@ function user_job_setup()
 	gear.Relic = {}
 	gear.Relic.Head = ""
 	gear.Relic.Body = ""
-	gear.Relic.Hands = "Cab. Gauntlets +2"
+	gear.Relic.Hands = "Cab. Gauntlets +3"
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = { name="Chev. Armet +3", priority=145 }
-	gear.Empyrean.Body = { name="Chev. Cuirass +2", priority=141 }
+	gear.Empyrean.Body = { name="Chev. Cuirass +3", priority=141 }
 	gear.Empyrean.Hands = { name="Chev. Gauntlets +3", priority=54 }
 	gear.Empyrean.Legs = { name="Chev. Cuisses +3", priority=127 }
 	gear.Empyrean.Feet = { name="Chev. Sabatons +3", priority=52 }
 
 	gear.capes.FastCast = { name="Rudianos's Mantle", priority=60, augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 	gear.capes.Block = { name="Rudianos's Mantle", priority=60, augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}}
+	gear.capes.STRWS = { name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 end
 
 function unload_job_keybinds()
@@ -45,9 +56,8 @@ end
 function init_gear_sets()
 	sets.TreasureHunter = {
 		head='Volte Cap',
-		hands=gear.Val.Hands.TH,
-		waist="Chaac Belt",
-		legs=gear.Val.Legs.TH,
+		body="Volte Jupon",
+		hands="Volte Bracers",
 	}
 
 	sets.Enmity = {
@@ -130,14 +140,13 @@ function init_gear_sets()
         left_ear="Moonshade Earring",
 		left_ring="Regal Ring",
         right_ring="Metamor. Ring +1",
-        back=gear.capes.Block,
+        back=gear.capes.STRWS,
         waist="Sailfi belt +1",
 	}
 	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-		ammo="Crep. Pebble",
 		head="Nyame Helm",
 		body="Nyame Mail",
-		hands="Nyame Guantlets",
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
         neck="Rep. Plat. Medal",
@@ -145,9 +154,11 @@ function init_gear_sets()
         left_ear="Moonshade Earring",
 		left_ring="Regal Ring",
         right_ring="Sroda Ring",
-        back=gear.capes.Block,
         waist="Sailfi belt +1",
     })
+	sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS['Savage Blade'], {
+		right_ring="Beithir Ring",
+	})
     sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
     })
     sets.precast.WS['Atonement'] = set_combine(sets.enmity,	{
@@ -163,8 +174,36 @@ function init_gear_sets()
 		left_ring="Regal Ring",
         right_ring="Metamor. Ring +1",
 		back=gear.capes.Block,
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
 	}
+
+	sets.precast.WS['Black Halo'] = sets.precast.WS['Savage Blade']
+	sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS, {
+		head="Blistering Sallet +1",
+		hands="Nyame Gauntlets",
+		legs="Zoar Subligar +1",
+		feet="Nyame Sollerets",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		back=gear.capes.STRWS,
+		right_ear="Brutal Earring",
+		left_ear="Lugra Earring +1",
+		left_ring="Regal Ring",
+		right_ring="Begrudging Ring",
+	})
+
+	sets.precast.WS['Realmrazer'] = set_combine(sets.precast.WS['Savage Blade'], {
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Lugra Earring +1",
+		left_ring="Regal Ring",
+		right_ring="Metamor. Ring +1",
+	})
+
+	sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS['Savage Blade'], {
+		left_ring="Regal Ring",
+		right_ring="Begrudging Ring",
+	})
 
 	sets.midcast.SpellInterrupt = {
 		ammo={name="Staunch Tathlum +1",}, --11
@@ -304,10 +343,11 @@ function init_gear_sets()
 
 	sets.engaged.Melee = set_combine(sets.engaged, {
 		ammo="Coiste Bodhar",
-		neck="Sanctity Necklace",
+		neck="Null Loop",
 		waist="Sailfi Belt +1",
 		left_ear="Telos Earring",
-		right_ear="Crep. Earring",
+		right_ear="Dedition Earring",
+		back="Null Shawl",
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {
