@@ -507,6 +507,7 @@ function job_status_change(new_status, old_status)
     if new_status == "Engaged" and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and state.AutoFightMode.value and player.target.distance < 20 then
 		windower.chat.input('/pet Assault <t>')
 	end
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -- Handle notifications of general user state change.
@@ -519,7 +520,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 
@@ -535,6 +536,7 @@ function job_pet_change(petparam, gain)
             classes.CustomIdleGroups:append('Spirit')
         end
     end
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -- Custom spell mapping.
