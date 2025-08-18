@@ -175,6 +175,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 		--	update_melee_groups()
 		end
 	end
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -205,7 +206,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 
@@ -235,7 +236,7 @@ function customize_idle_set(idleSet)
 end
 
 function customize_melee_set(meleeSet)
-    meleeSet = set_combine( meleeSet, gear.weapons[state.Weapons.current] )
+    return meleeSet
 end
 
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).

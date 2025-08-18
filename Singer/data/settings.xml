@@ -28,8 +28,8 @@
             </flags>
             <padding>0</padding>
             <pos>
-                <x>384</x>
-                <y>44</y>
+                <x>387</x>
+                <y>45</y>
             </pos>
             <text>
                 <alpha>255</alpha>
@@ -74,41 +74,4 @@
         <troubadour>true</troubadour>
         <use_ws>false</use_ws>
     </global>
-    <mishrahh>
-        <actions>true</actions>
-        <active>false</active>
-        <aoe>
-            <p2>true</p2>
-            <p3>true</p3>
-            <p4>true</p4>
-            <p5>true</p5>
-        </aoe>
-        <box>
-            <pos>
-                <x>751</x>
-                <y>53</y>
-            </pos>
-        </box>
-        <min_ws>20</min_ws>
-        <pianissimo>false</pianissimo>
-        <recast>
-            <song>
-                <max>55</max>
-                <min>30</min>
-            </song>
-        </recast>
-    </mishrahh>
-    <tishrahh>
-        <box>
-            <pos>
-                <x>387</x>
-                <y>45</y>
-            </pos>
-            <text>
-                <fonts>
-
-                </fonts>
-            </text>
-        </box>
-    </tishrahh>
 </settings>

@@ -30,7 +30,7 @@ function user_job_setup()
     gear.Empyrean.Feet = "Chasseur's Bottes +3"
 
     gear.capes = {}
-    gear.capes.MeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+    gear.capes.MNDDA = { name="Camulus's Mantle", augments={'MND+20','Accuracy+20 Attack+20','MND+10','"Dbl.Atk."+10','Damage taken-5%',}}
     gear.capes.MeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.PhantomRoll = { name="Camulus's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Snapshot"+10','Evasion+15',}}
     gear.capes.RngMagicalWS = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
@@ -89,8 +89,6 @@ function user_job_setup()
         ranged="Anarchy +2",
         ammo="Chrono Bullet",
     }
-
-    state.TreasureMode:set('Tag')
 
 end
 
@@ -192,10 +190,10 @@ function init_gear_sets()
 
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
         ammo="Bayeux Bullet",
-        --head=gear.Adhemar.Head.B,
         neck="Fotia Gorget",
+        back=gear.capes.MNDDA,
         waist="Fotia Belt",
-        --ear1="Telos Earring",
+        left_ear="Cessance Earring",
     })
 
     sets.precast.WS['Evisceration'] = set_combine( sets.precast.WS, {
@@ -356,7 +354,7 @@ function init_gear_sets()
         waist="Plat. Mog. Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        back=gear.capes.MeleeTP,
+        back="Null Shawl",
     }
     sets.idle.Zeni = set_combine(sets.idle, {
 		range="Soultrapper 2000",
@@ -383,7 +381,6 @@ function init_gear_sets()
         back="Null Shawl",
     }
     sets.engaged.PDT = set_combine( sets.engaged.Melee, {
-        back=gear.capes.MeleeTP,
     })
     sets.engaged.MDT = set_combine( sets.engaged.Melee, {
     })

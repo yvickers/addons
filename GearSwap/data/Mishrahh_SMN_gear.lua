@@ -93,7 +93,7 @@ function init_gear_sets()
         legs="Baayami Slops +1",
 		feet=gear.Empyrean.Feet,
 		neck="Incanter's Torque",
-		left_ear="Andoaa Earring",
+		left_ear="Evans Earring",
 		right_ear="Lodurr Earring",        
 		left_ring="Evoker's Ring",
 		right_ring="Stikini Ring +1",
@@ -125,6 +125,11 @@ function init_gear_sets()
         waist="Siegel Sash"
     })
 
+	sets.precast.FC['Impact'] = set_combine(sets.precast.FC, {
+		head="",
+        body="Crepuscular Cloak",
+    })
+
 	sets.precast.WS = {
 		ammo="Oshasha's Treatise",
 		head={ name="Nyame Helm", augments={'Path: B',}},
@@ -149,7 +154,7 @@ function init_gear_sets()
 	})
 
 	sets.midcast.Cure = {
-        main="Daybreak",
+        main="Raetic Rod +1",
         sub="Sors Shield",
         ammo="Impatiens",
         head="Vanya Hood",
@@ -190,6 +195,28 @@ function init_gear_sets()
         back=gear.capes.SMNSkill,
 		waist="Lucidity Sash",	
 	}
+
+	sets.midcast['Enfeebling Magic'] = {
+		main="Gada",
+		sub="Ammurapi Shield",
+		ammo="Pemphredo Tathlum",
+		body={ name="Cohort Cloak +1", augments={'Path: A',}},
+		hands="Inyan. Dastanas +2",
+		legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
+		neck="Incanter's Torque",
+		waist="Null Belt",
+		left_ear="Malignance Earring",
+		right_ear="Vor Earring",
+		left_ring="Medada's Ring",
+		right_ring="Stikini Ring +1",
+		back="Null Shawl",
+	}
+
+	sets.midcast['Impact'] = set_combine(sets.midcast['Enfeebling Magic'], {
+		head="",
+		body="Crepuscular Cloak",
+	})
 
 	sets.midcast['Enhancing Magic'] = {
 		main={ name="Gada", augments={'Pet: Haste+2','Pet: Phys. dmg. taken -2%','"Fast Cast"+4','DMG:+5',}},
@@ -378,6 +405,7 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 		neck="Caller's Pendant",
 		waist="Lucidity Sash",
+		left_ear="Evans Earring",
 		left_ring="Evoker's Ring",
 		right_ring="Stikini Ring +1",
 		back=gear.capes.PetPhysical,
@@ -398,7 +426,7 @@ function init_gear_sets()
         neck="Null Loop",
         waist="Null Belt",
         left_ear="Telos Earring",
-        right_ear="Eabani Earring",
+        right_ear="Digni. Earring",
         left_ring=gear.rings['Chririch L'],
         right_ring=gear.rings['Chririch R'],
         back="Null Shawl",

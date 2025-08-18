@@ -480,7 +480,11 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 			if sets.midcast.Pet.BloodPactWard[pet.name] then
 				equip(sets.midcast.Pet.BloodPactWard[pet.name])
 			end
-		end	
+		else
+			equip(gear.weapons[state.Weapons.current])
+		end
+	else
+		equip(gear.weapons[state.Weapons.current])	
 	end
 end
 

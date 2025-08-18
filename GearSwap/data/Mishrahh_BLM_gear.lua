@@ -1,5 +1,5 @@
 function user_job_setup()
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Refresh', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Refresh', 'Club', }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
         main="Mpaca's Staff",
@@ -9,8 +9,12 @@ function user_job_setup()
         main="Mpaca's Staff",
         sub="Khonsu",
     }
+    gear.weapons['Club'] = {
+        main="Maxentius",
+        sub="Ammurapi Shield",
+    }
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Cataclysm' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Cataclysm', 'Black Halo', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
@@ -38,6 +42,7 @@ function user_job_setup()
 	gear.capes = {}
 	gear.capes.Nuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
     gear.capes.FastCast = { name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}}
+    gear.capes.MNDWS = { name="Taranus's Cape", augments={'MND+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 end
 
 function init_gear_sets()
@@ -85,12 +90,43 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS = {
-
+        ammo="Crepuscular Pebble",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Rep. Plat. Medal",
+        waist="Grunfeld Rope",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back=gear.capes.MNDWS,
     }
     sets.precast.WS.Buffed = set_combine(sets.precast.WS,{})
 
+    sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
+        waist="Fotia Belt",
+    })
+
     sets.midcast.FastRecast = {}
-    sets.midcast.Cure = {}
+    sets.midcast.Cure = {
+        main="Raetic Rod +1",
+		sub="Sors Shield",
+		range="Impatiens",
+		head="Vanya Hood",
+		hands="Vanya Cuffs",
+		legs="Vanya Slops",
+		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
+		neck="Nodens Gorget",
+		waist="Witful Belt",
+		left_ear="Magnetic Earring",
+		right_ear="Gifted Earring",
+		left_ring="Weather. Ring +1",
+		right_ring="Lebeche Ring",
+        back="Solemnity Cape",
+    }
     sets.midcast.Curaga = sets.midcast.Cure
     sets.midcast.Cursna = set_combine(sets.midcast.Cure, {})
     sets.midcast['Enhancing Magic'] = {}
@@ -138,7 +174,7 @@ function init_gear_sets()
     sets.midcast.Impact = {
         ammo="Pemphredo Tathlum",
         head=empty,
-		body="Crepuscular Cloak"
+		body="Crepuscular Cloak",
         hands=gear.Empyrean.Hands,
         legs=gear.Empyrean.Legs,
         feet=gear.Empyrean.Feet,
@@ -171,17 +207,17 @@ function init_gear_sets()
     sets.idle = {
         ammo="Staunch Tathlum +1",
         head="Null Masque",
-        body="Agwu's Robe",
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Yngvi Choker",
+        feet="Herald's Gaiters",
+        neck="Warder's Charm +1",
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
-        left_ring="Archon Ring",
-        right_ring="Shadow Ring",
-        back=gear.capes.Nuke,
+        left_ring="Warp Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
     }
     sets.idle.Regen = set_combine(sets.idle,{})
     sets.idle.Refresh = set_combine(sets.idle,{
@@ -190,7 +226,21 @@ function init_gear_sets()
         right_ring="Stikini Ring +1",
     })
 
-    sets.engaged = {}
+    sets.engaged = {
+        ammo="Oshasha's Treatise",
+        head="Null Masque",
+        body="Nyame Mail",
+        hands="Gazu Bracelets +1",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Null Loop",
+        waist="Windbuffet Belt +1",
+        left_ear="Telos Earring",
+        right_ear="Dedition Earring",
+        left_ring=gear.rings['Chririch L'],
+        right_ring=gear.rings['Chririch R'],
+        back="Null Shawl",
+    }
     sets.engaged.PDT = set_combine(sets.engaged,{})
 
 end

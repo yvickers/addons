@@ -8,14 +8,14 @@ function user_job_setup()
 	}
 
 	gear.weapons['Dagger'] = {
-		main="Kali",
-		sub="Genmei Shield",
+		main="Twashtar",
+		sub="Centovente",
 		range="Linos",
 	}
 
 	gear.weapons['Sword'] = {
 		main="Naegling",
-		sub="Ammurapi Shield",
+		sub="Centovente",
 		range="Linos",
 	}
 
@@ -37,14 +37,20 @@ function user_job_setup()
 	gear.Empyrean.Head = "Fili Calot +3"
 	gear.Empyrean.Body = "Fili Hongreline +3"
 	gear.Empyrean.Hands = "Fili Manchettes +3"
-	gear.Empyrean.Legs = "Fili Rhingrave +2"
+	gear.Empyrean.Legs = "Fili Rhingrave +3"
 	gear.Empyrean.Feet = "Fili Cothurnes +3"
 
 	gear.capes = {}
 	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
-	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-5%',}}--'Mag. Acc.+10',
-	gear.capes.TP = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
-	gear.capes.SavageWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
+	gear.capes.STRWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.DEXWSD = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+
+	gear.Linos = {}
+	gear.Linos.Idle = { name="Linos", augments={'Mag. Evasion+10','"Fast Cast"+3','INT+6 MND+6',}}
+	gear.Linos.DEXCrit = { name="Linos", augments={'Crit.hit rate+3','DEX+8',}}
+	gear.Linos.TP = { name="Linos", augments={'Accuracy+14','"Store TP"+4','Quadruple Attack +3',}}
+	gear.Linos.STRWS = { name="Linos", augments={'Attack+19','Weapon skill damage +2%','STR+5 DEX+5',}}
 
 end
 
@@ -102,20 +108,40 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS = {
-		--ammo="Knobkierrie",
+		range=gear.Linos.STRWS,
 		head="Nyame Helm",
-		body="Nyame Mail",
+		body=gear.Relic.Body,
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Rep. Plat. Medal",
+		neck="Bard's Charm +2",
 		waist="Sailfi Belt +1",
-		left_ear="Ishvara Earring",
-		right_ear="Moonshade Earring",
+		left_ear="Moonshade Earring",
+		right_ear="Ishvara Earring",
 		left_ring="Sroda Ring",
 		right_ring="Epaminondas's Ring",
-		back=gear.capes.SavageWS,
+		back=gear.capes.STRWS,
 	}
+
+	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.FC.BardSong,{
+		left_ring = "Ilabrat Ring",
+		waist="Kentarch Belt +1",
+		back=gear.capes.DEXWSD,
+	})
+
+	sets.precast.WS["Evisceration"] = set_combine(sets.precast.FC.BardSong,{
+		range=gear.Linos.DEXCrit,
+		head={ name="Blistering Sallet +1", augments={'Path: A',}},
+		hands="Volte Mittens",
+		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		right_ear="Mache Earring +1",
+		left_ring="Ilabrat Ring",
+		right_ring="Begrudging Ring",
+		back=gear.capes.DEXWSD,
+	})
 
 	sets.midcast.FastRecast = {}
 
@@ -216,7 +242,7 @@ function init_gear_sets()
 		range="Marsyas"
 	})
 	sets.midcast.Mambo = {
-		feet="Mou. Crackows +1",
+		--feet="Mou. Crackows +1",
 	}
 	sets.midcast.Minuet = {}
 	sets.midcast.Minne = {}
@@ -229,7 +255,19 @@ function init_gear_sets()
 
 	sets.midcast.Cure = {
 		main="Daybreak",
-		sub="Culminus",
+		sub="Ammurapi Shield",
+		head="Kaykaus Mitra +1",
+		body="Bunzi's Robe",
+		hands="Kaykaus Cuffs +1",
+		legs="Kaykaus Tights +1",
+		feet="Kaykaus Boots +1",
+		neck="Reti Pendant",
+		waist="Gishdubar Sash",
+		left_ear="Mendi. Earring",
+		right_ear="Meili Earring",
+		left_ring="Lebeche Ring",
+		right_ring="Inyanga Ring",
+		back="Oretan. Cape +1",
 	}
 	sets.midcast.Curaga = set_combine(sets.midcast.Cure,{})
 	sets.midcast['Enhancing Magic'] = {}
@@ -267,11 +305,11 @@ function init_gear_sets()
 	sets.engaged = {
 		head="Bunzi's Hat",
 		body=gear.Ayanmo.Body,
-		hands="Bunzi's Gloves",
+		hands="Gazu Bracelets +1",
 		legs="Volte Tights",
 		feet="Volte Spats",
 		neck="Bard's Charm +2",
-		waist="Sailfi Belt +1",
+		waist="Reiki Yotai",
 		left_ear="Telos Earring",
 		right_ear="Cessance Earring",
 		left_ring=gear.rings['Moonlight L'],

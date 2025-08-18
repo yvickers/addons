@@ -150,7 +150,7 @@ function check_ws()
 		then
 
 	local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-	local self_targ = S{"Moonlight"}
+	local self_targ = S{"Moonlight", "Myrkr"}
 		
 		if player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(47) and player.target.distance < (3.2 + player.target.model_size) then
 			windower.chat.input('/ws "Sanguine Blade" <t>')

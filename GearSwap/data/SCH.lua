@@ -118,28 +118,10 @@ function job_setup()
 
 --]]
 	--ctrl
-	send_command('bind ^%1 gs c elemental skillchain1')
-	send_command('bind ^%2 gs c elemental skillchain2')
-	send_command('bind ^%3 gs c elemental skillchain3')
-	send_command('bind ^%4 gs c buff klimaform')
-	--send_command('bind ^%5')
-	send_command('bind ^%6 //silence')
-	--send_command('bind ^%7')
-	--send_command('bind ^%8')
-	send_command('bind ^%9 gs c buff invisible')
-	send_command('bind ^%0 gs c buff sneak')
+	--send_command('bind ^%1 gs c elemental skillchain1')
 
 	--alt
-	send_command('bind !%1 gs c scholar dark')
-	send_command('bind !%2 gs c elemental nuke')
-	send_command('bind !%3 gs c elemental tier4')
-	send_command('bind !%4 gs c elemental tier3')
-	send_command('bind !%5 gs c elemental helix')
-	--send_command('bind !%6')
-	send_command('bind !%7 gs c buff embrava')
-	send_command('bind !%8 gs c buff weather')
-	send_command('bind !%9 gs c buff regen')
-	send_command('bind !%0 gs c scholar light')
+	--send_command('bind !%0 gs c scholar light')
 
 	select_default_macro_book()
 
@@ -152,27 +134,7 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function unload_job_keybinds()
-	send_command('unbind ^%1')
-	send_command('unbind ^%2')
-	send_command('unbind ^%3')
-	send_command('unbind ^%4')
-	send_command('unbind ^%5')
-	send_command('unbind ^%6')
-	send_command('unbind ^%7')
-	send_command('unbind ^%8')
-	send_command('unbind ^%9')
-	send_command('unbind ^%0')
-
-	send_command('unbind !%1')
-	send_command('unbind !%2')
-	send_command('unbind !%3')
-	send_command('unbind !%4')
-	send_command('unbind !%5')
-	send_command('unbind !%6')
-	send_command('unbind !%7')
-	send_command('unbind !%8')
-	send_command('unbind !%9')
-	send_command('unbind !%0')
+	--send_command('unbind !%0')
 end
 
 function init_gear_sets()

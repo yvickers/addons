@@ -4,7 +4,6 @@ function user_job_setup()
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Godhands",
-		ammo="Crepuscular Pebble",
 	}
 	gear.weapons['Ranged'] = {
 		main="Godhands",
@@ -15,17 +14,17 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Temple Crown"
-	gear.Artifact.Body = "Anch. Cyclas +1"
+	gear.Artifact.Body = "Anch. Cyclas +3"
 	gear.Artifact.Hands = "Anchor. Gloves +3"
 	gear.Artifact.Legs = "Temple Hose"
 	gear.Artifact.Feet = "Anch. Gaiters +3"
 
 	gear.Relic = {}
-	gear.Relic.Head = ""
-	gear.Relic.Body = ""
-	gear.Relic.Hands = "Hes. Gloves +1"
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Head = "Hes. Crown +1"
+	gear.Relic.Body = "Hes. Cyclas +1"
+	gear.Relic.Hands = "Hes. Gloves +3"
+	gear.Relic.Legs = "Hes. Hose +3"
+	gear.Relic.Feet = "Hes. Gaiters +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = ""

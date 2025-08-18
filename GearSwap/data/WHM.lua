@@ -24,7 +24,7 @@ function job_setup()
 
     state.OffenseMode:options('Normal','Acc')
     state.CastingMode:options('Normal','Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'MEVA')
+    state.IdleMode:options('Normal', 'PDT', 'Refresh', 'MDT', 'MEVA')
 
     gear.Artifact = {}
     gear.Artifact.Head = ""
@@ -455,6 +455,7 @@ end
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
 function job_aftercast(spell, action, spellMap, eventArgs)
+	equip(gear.weapons[state.Weapons.current])
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -489,7 +490,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	--equip(gear.weapons[state.Weapons.current])
+	equip(gear.weapons[state.Weapons.current])
 
 end
 
@@ -505,7 +506,14 @@ end
 
 
 function customize_idle_set(idleSet)
-	return idleSet
+	if state.IdleMode.value == 'Normal' then
+		if player.mpp < 51 then
+			if sets.idle.Refresh then
+				idleSet = set_combine(idleSet, sets.idle.Refresh)
+			end
+		end
+   end
+    return idleSet
 end
 
 function customize_melee_set(meleeSet)
