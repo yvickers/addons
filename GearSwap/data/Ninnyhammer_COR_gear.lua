@@ -10,17 +10,17 @@ function user_job_setup()
 
 	gear.Artifact = {}
     gear.Artifact.Head = {}
-    gear.Artifact.Body = "Laksa. Frac +3"
+    gear.Artifact.Body = "Laksa. Frac +4"
     gear.Artifact.Hands = {}
     gear.Artifact.Legs = "Lak. Trews +1"
     gear.Artifact.Feet = {}
 
     gear.Relic = {}
     gear.Relic.Head = "Lanun Tricorne +1"
-    gear.Relic.Body = "Lanun Frac +3"
-    gear.Relic.Hands = "Lanun Gants +3"
+    gear.Relic.Body = "Lanun Frac +4"
+    gear.Relic.Hands = "Lanun Gants +4"
     gear.Relic.Legs = "Lanun Trews +1"
-    gear.Relic.Feet = "Lanun Bottes +3"
+    gear.Relic.Feet = "Lanun Bottes +4"
 
     gear.Empyrean = {}
     gear.Empyrean.Head = "Chass. Tricorne +3"
@@ -111,7 +111,7 @@ function init_gear_sets()
         --legs="Desultor Tassets",
         --neck="Regal Necklace",
         right_ring="Luzaf's Ring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         back=gear.capes.PhantomRoll,
     }
     sets.precast.JA['Double-Up'] = sets.precast.CorsairRoll;
@@ -348,7 +348,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
         feet="Nyame Sollerets",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
         neck="Loricate Torque +1",
         waist="Plat. Mog. Belt",

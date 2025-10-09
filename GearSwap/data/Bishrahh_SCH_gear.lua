@@ -30,10 +30,10 @@ function user_job_setup()
 
 	gear.Relic = {}
 	gear.Relic.Head = "Peda. M.Board +3"
-	gear.Relic.Body = "Peda. Gown +3"
+	gear.Relic.Body = "Peda. Gown +4"
 	gear.Relic.Hands = "Peda. Bracers +3"
 	gear.Relic.Legs = "Peda. Pants +3"
-	gear.Relic.Feet = "Peda. Loafers +3"
+	gear.Relic.Feet = "Peda. Loafers +4"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Arbatel Bonnet +3"
@@ -82,7 +82,7 @@ function init_gear_sets()
 		neck="Voltsurge Torque",
 		waist="Embla Sash",
 		left_ear="Loquac. Earring",
-		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
+		right_ear="Arbatel Earring +2",
 		left_ring="Weather. Ring",
 		right_ring="Lebeche Ring",
 		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
@@ -264,7 +264,7 @@ function init_gear_sets()
 		neck="Null Loop",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Digni. Earring",
-		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
+		right_ear="Arbatel Earring +2",
 		left_ring="Weather. Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -321,7 +321,7 @@ function init_gear_sets()
 		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
-		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
+		right_ear="Arbatel Earring +2",
 		left_ring="Weather. Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
@@ -384,7 +384,7 @@ function init_gear_sets()
 		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
-		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
+		right_ear="Arbatel Earring +2",
 		left_ring="Weather. Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
@@ -407,7 +407,7 @@ function init_gear_sets()
 		neck="Argute Stole +2",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Hermetic Earring",
-		right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+11','Enmity-1',}},
+		right_ear="Arbatel Earring +2",
 		left_ring="Weather. Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},

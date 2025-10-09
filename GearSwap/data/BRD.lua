@@ -310,7 +310,7 @@ function job_state_change(stateField, newValue, oldValue)
 		--determine_haste_group()
 	end
 
-	equip(gear.weapons[state.Weapons.current])
+	--equip(gear.weapons[state.Weapons.current])
 
 end
 
@@ -356,6 +356,18 @@ end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     user_self_command( cmdParams, eventArgs )
+	if type(cmdParams) == 'string' then
+        cmdParams = T(cmdParams:split(' '))
+        if #cmdParams == 0 then
+            return
+        end
+    end
+    if cmdParams[1]:lower() == 'buff' then
+		handle_buffing(cmdParams)
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'showcharge' then
+		add_to_chat(204, '~~~Current Stratagem Charges Available: ['..get_current_strategem_count()..']~~~')
+	end
 end
 
 function job_tick()
@@ -372,4 +384,112 @@ function check_buff()
 	end
 
 	return false
+end
+
+function handle_buffing(cmdParams)
+	-- cmdParams[1] == 'buff'
+    -- cmdParams[2] == ability to use
+	-- cmdParams[3] == optional target
+
+    if not cmdParams[2] then
+        add_to_chat(123,'Error: No buff command given.')
+        return
+    end
+    local command = cmdParams[2]:lower()
+
+	if buffactive.silence or buffactive.mute or buffactive.paralysis then
+		add_to_chat(123,'You are silenced, muted, or paralyzed, cancelling buff.')
+		return
+	end
+
+	-- determine target
+	local target = '<me>'
+	if player.target.type ~= "MONSTER" then
+		target = '<t>'
+	end
+	if cmdParams[3] then
+		target = cmdParams[3]
+	end
+
+	-- default to long, party wide buffs
+	local params = {
+		needs_addendum = false,
+		accession = true,
+		perpetuance = true,
+		target = target,
+	}
+
+	if command == 'weather' then
+		params.perpetuance = false
+		params.target = '<me>'
+		if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 99 then
+			params.spell = data.elements.storm_of[state.ElementalMode.value]..' II'
+		else
+			params.spell = data.elements.storm_of[state.ElementalMode.value]
+		end
+		buff_helper(params)
+	elseif command == 'sneak' then
+		params.spell = 'Sneak'
+		params.perpetuance = false
+		buff_helper(params)
+	elseif command == 'invisible' then
+		params.spell = 'Invisible'
+		params.perpetuance = false
+		buff_helper(params)
+	elseif command == 'reraise' then
+			params.spell = 'Reraise'
+			params.perpetuance = false
+			params.accession = false
+			params.needs_addendum = true
+			params.target = '<me>'
+			buff_helper(params)
+	else				
+		add_to_chat(123,'Unrecognized buffing command.')
+	end
+end
+
+-- normalize buffing
+function buff_helper(params)
+	local schedule = .1
+	local strats_needed = 0
+
+	-- base art activation needed
+	if not (buffactive['Light Arts'] or buffactive['Addendum: White']) then
+		windower.chat.input('/ja "Light Arts" <me>')
+		schedule = schedule + 2
+	end
+
+	if params.needs_addendum and not buffactive['Addendum: White'] then
+		windower.chat.input:schedule(schedule,'/ja "Addendum: White" <me>')
+		schedule = schedule + 2
+	end
+
+	--determine strat requirements
+	if params.accession then
+		strats_needed = strats_needed + 1
+	end
+
+	if params.perpetuance then
+		strats_needed = strats_needed + 1
+	end
+
+	--abort if we don't have required strats
+	if (get_current_strategem_count()) < strats_needed then
+		add_to_chat(123,'Abort: You have less than the required stratagems available.')
+		return
+	end
+	
+	--apply ja modifiers and schedule out casting
+	if params.accession and not buffactive['Accession'] then
+		windower.chat.input:schedule(schedule,'/ja "Accession" <me>')
+		schedule = schedule + 2
+	end
+
+	if params.perpetuance and not buffactive['Perpetuance'] then
+		windower.chat.input:schedule(schedule,'/ja "Perpetuance" <me>')
+		schedule = schedule + 2
+	end
+
+	windower.chat.input:schedule(schedule,'/ma "' .. params.spell .. '" ' .. params.target)
+
 end

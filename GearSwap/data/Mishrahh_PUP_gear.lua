@@ -30,7 +30,7 @@ function user_job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = ""
-	gear.Artifact.Hands = "Foire Dastanas +2"
+	gear.Artifact.Hands = "Foire Dastanas +3"
 	gear.Artifact.Legs = ""
 	gear.Artifact.Feet = ""
 
@@ -42,8 +42,8 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = ""
-	gear.Empyrean.Body = "Kara. Farsetto +2"
+	gear.Empyrean.Head = "Kara. Capello +3"
+	gear.Empyrean.Body = "Kara. Farsetto +3"
 	gear.Empyrean.Hands = ""
 	gear.Empyrean.Legs = ""
 	gear.Empyrean.Feet = ""

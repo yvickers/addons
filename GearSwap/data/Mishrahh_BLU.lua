@@ -54,8 +54,8 @@ function job_setup()
 	gear.Relic.Head = ""
 	gear.Relic.Body = "Luhlaza Jubbah +3"
 	gear.Relic.Hands = ""
-	gear.Relic.Legs = "Luhlaza Shalwar +3"
-	gear.Relic.Feet = "Luhlaza Charuqs +2"
+	gear.Relic.Legs = "Luh. Shalwar +4"
+	gear.Relic.Feet = "Luhlaza Charuqs +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Hashishin Kavuk +3"
@@ -168,7 +168,7 @@ function init_gear_sets()
 
 --WS SETS
 	sets.precast.WS = {
-		ammo="Aurgelmir Orb",
+		ammo="Aurgelmir Orb +1",
 		head=gear.Adhemar.Head.B,
 		body="Gleti's Cuirass",
 		hands=gear.Adhemar.Hands.B,
@@ -242,7 +242,7 @@ function init_gear_sets()
 		ammo="Impatiens",
 		head="Carmine Mask +1",
 		neck="Baetyl Pendant",
-		ear1="Enchntr. Earring +1",
+		ear1="Etiolation Earring",
 		ear2="Loquac. Earring",
 		body=gear.Relic.Body,
 		hands="Leyline Gloves",
@@ -369,13 +369,13 @@ function init_gear_sets()
 		hands="Telchine Gloves",
 		legs="Telchine Braconi",
 		feet="Telchine Pigaches",
-		--neck="Incanter's Torque",
-		--ear1="Andoaa Earring",
+		neck="Incanter's Torque",
+		ear1="Andoaa Earring",
 		--ear2="Gifted Earring",
 		ring1="Stikini Ring +1",
 		ring2="Stikini Ring +1",
 		back="Perimede Cape",
-		--waist="Olympus Sash",
+		waist="Olympus Sash",
 	} )
 		
 	sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'],{})
@@ -488,7 +488,7 @@ function init_gear_sets()
 		hands="Telchine Gloves",
 		ring1="Gelatinous Ring +1",
 		ring2="Lebeche Ring",
-		--back="Moonlight Cape",
+		back="Moonlight Cape",
 		waist=gear.ElementalObi,
 		legs="Nyame Flanchard",
 		feet="Medium's Sabots"
@@ -499,7 +499,7 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Healing = {
 		ammo="Mavi Tathlum",
 		--head="Carmine Mask +1",
-		--neck="Incanter's Torque",
+		neck="Incanter's Torque",
 		--ear1="Etiolation Earring",
 		--ear2="Mendi. Earring",
 		--body="Vrikodara Jupon",
@@ -525,7 +525,7 @@ function init_gear_sets()
 		--head=gear.Relic.Head,
 		neck="Mirage Stole +2",
 		left_ear="Njordr Earring",
-		right_ear="Hashi. Earring +1",
+		right_ear="Hashi. Earring +2",
 		body=gear.Artifact.Body,
 		hands="Rawhide Gloves",
 		ring1="Stikini Ring +1",
@@ -540,7 +540,7 @@ function init_gear_sets()
 		--sub="Vampirism",
 		ammo="Mavi Tathlum",
 		--head=gear.Relic.Head,
-		--neck="Incanter's Torque",
+		neck="Incanter's Torque",
 		ear1="Gifted Earring",
 		ear2="Loquac. Earring",
 		body=gear.Artifact.Body,
@@ -580,7 +580,7 @@ function init_gear_sets()
         back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
         left_ear="Eabani Earring",
 		right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
 	}
 	
@@ -617,7 +617,7 @@ function init_gear_sets()
 		head=gear.Adhemar.Head.B,
 		body=gear.Adhemar.Body.A,
 		hands=gear.Adhemar.Hands.A,
-		legs="Samnuha Tights",
+		legs="Malignance Tights",
 		feet=gear.Adhemar.Feet.B,
 		neck="Mirage Stole +2",
 		waist="Kentarch Belt +1",
@@ -629,7 +629,7 @@ function init_gear_sets()
 	}
 
 	sets.engaged.Evasion = {
-		ammo="Staunch Tathlum",
+		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", augments={'Path: B',}},
 		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -640,7 +640,7 @@ function init_gear_sets()
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
 		left_ring="Ilabrat Ring",
-		right_ring="Defending Ring",
+		right_ring="Murky Ring",
 		back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 	}
 	
@@ -650,7 +650,7 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {
@@ -659,7 +659,7 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {

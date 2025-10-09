@@ -29,13 +29,13 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Pumm. Mask +1"
-	gear.Artifact.Body = "Pumm. Lorica +3"
+	gear.Artifact.Body = "Pumm. Lorica +4"
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = "Pumm. Cuisses +3"
-	gear.Artifact.Feet = "Pumm. Calligae +3"
+	gear.Artifact.Feet = "Pumm. Calligae +4"
 
 	gear.Relic = {}
-	gear.Relic.Head = "Agoge Mask +3"
+	gear.Relic.Head = "Agoge Mask +4"
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
@@ -92,13 +92,15 @@ function init_gear_sets()
 
 	sets.precast.FC = {
         --head=gear.Herc.Head.TH,
-        --hands="Leyline Gloves",
+		body="Sacro Breastplate",
+        hands="Leyline Gloves",
+		feet="Odyssean Greaves",
         ammo="Impatiens",
         neck="Baetyl Pendant",
         left_ring="Weather. Ring +1",
         right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
-        right_ear="Enchntr. Earring +1",
+        right_ear="Etiolation Earring",
     }
 
 	sets.precast.JA['Provoke'] = sets.Enmity
@@ -171,12 +173,19 @@ function init_gear_sets()
 	--sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {})
 	--sets.precast.WS['Judgment'].Buffed = set_combine(sets.precast.WS['Judgment'], {})
 
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		body=gear.Artifact.Body,
+	})
+	sets.precast.WS['Savage Blade'].Buffed = set_combine(sets.precast.WS['Savage Blade'], {
+		body="Sakpata's Plate",
+	})
+
 	sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {
 		legs=gear.Empyrean.Legs,
 		right_ring="Regal Ring",
 	})
 	sets.precast.WS['Judgment'].Buffed = set_combine(sets.precast.WS['Judgment'], {
-		body="Sakpata's Plate",
+		body=gear.Artifact.Body,
 		right_ring="Epaminondas's Ring",
 	})
 
@@ -202,7 +211,7 @@ function init_gear_sets()
 		ammo="Yetshila +1",
 		head=gear.Empyrean.Head,
 		body="Hjarrandi Breast.",
-		hands=gear.Flamma.Hands,
+		hands="Sakpata's Gauntlets",
 		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
 		neck="Fotia Gorget",
@@ -215,7 +224,6 @@ function init_gear_sets()
 	sets.precast.WS['Stardiver'].Buffed = set_combine(sets.precast.WS['Stardiver'], {
 		head="Blistering Sallet +1",
 		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
 		left_ring="Sroda Ring",
 	})
 
@@ -262,7 +270,7 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",
 		left_ear="Crep. Earring",
-		right_ear="Enchntr. Earring +1",
+		right_ear="Digni. Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Crepuscular Ring",
 	})
@@ -277,7 +285,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -290,7 +298,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -304,7 +312,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -317,7 +325,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-        neck="Sybil Scarf",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Moonshade Earring",
@@ -400,7 +408,7 @@ function init_gear_sets()
 		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.DexTP,
 	}
@@ -413,31 +421,31 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Coiste Bodhar",
-		head=gear.Empyrean.Head,
-		body="Hjarrandi Breast.",
+		head=gear.Flamma.Head,
+		body=gear.Empyrean.Body,
 		hands="Sakpata's Gauntlets",
 		legs=gear.Artifact.Legs,
 		feet=gear.Artifact.Feet,
-		neck="War. Beads +2",
-		waist="Sailfi Belt +1",
+		neck="Vim Torque +1",
+		waist="Ioskeha Belt +1",
 		left_ear="Schere Earring",
 		right_ear="Boii Earring +1",
 		left_ring="Chirich Ring +1",
 		right_ring="Niqmaddu Ring",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
+		
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
-		head="Sakpata's Helm",
-		body="Sakpata's Plate",
-		hands="Sakpata's Gauntlets",
-		legs="Sakpata's Cuisses",
-		feet="Sakpata's Leggings",
+		head="Hjarrandi Helm",
+		waist="Sailfi Belt +1",		
+		back=gear.capes.DexTP,
+		left_ring=gear.rings['Moonlight L'],
 	})
 
 	sets.engaged.Tanking = set_combine(sets.engaged.PDT, {
 		left_ear="Telos Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Moonlight Ring",
 	})
 

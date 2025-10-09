@@ -123,13 +123,13 @@ function init_gear_sets()
 		back=gear.capes.STRWS,
 	}
 
-	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.FC.BardSong,{
+	sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS,{
 		left_ring = "Ilabrat Ring",
 		waist="Kentarch Belt +1",
 		back=gear.capes.DEXWSD,
 	})
 
-	sets.precast.WS["Evisceration"] = set_combine(sets.precast.FC.BardSong,{
+	sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS,{
 		range=gear.Linos.DEXCrit,
 		head={ name="Blistering Sallet +1", augments={'Path: A',}},
 		hands="Volte Mittens",

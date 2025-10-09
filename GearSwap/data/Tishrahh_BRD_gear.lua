@@ -20,15 +20,15 @@ function user_job_setup()
 	}
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Brioso Roundlet +3"
+	gear.Artifact.Head = "Brioso Roundlet +4"
 	gear.Artifact.Body = "Brioso Justau. +3"
-	gear.Artifact.Hands = "Brioso Cuffs +3"
+	gear.Artifact.Hands = "Brioso Cuffs +4"
 	gear.Artifact.Legs = "Brioso Cannions +3"
-	gear.Artifact.Feet = "Brioso Slippers +3"
+	gear.Artifact.Feet = "Brioso Slippers +4"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = "Bihu Jstcorps. +3"
+	gear.Relic.Body = "Bihu Just. +4"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = "Bihu Slippers +3"
@@ -370,7 +370,7 @@ function init_gear_sets()
 		waist="Carrier's Sash",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
 		back=gear.capes.Idle,
 	}

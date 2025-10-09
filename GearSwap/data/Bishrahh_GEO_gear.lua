@@ -11,16 +11,16 @@ function user_job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = "Geomancy Galero"
 	gear.Artifact.Body = "Geomancy Tunic +3"
-	gear.Artifact.Hands = "Geo. Mitaines +3"
-	gear.Artifact.Legs = "Geomancy Pants +3"
-	gear.Artifact.Feet = "Geo. Sandals +3"
+	gear.Artifact.Hands = "Geo. Mitaines +4"
+	gear.Artifact.Legs = "Geomancy Pants +4"
+	gear.Artifact.Feet = "Geo. Sandals +4"
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
 	gear.Relic.Body = "Bagua Tunic +3"
 	gear.Relic.Hands = ""
-	gear.Relic.Legs = "Bagua Pants +3"
-	gear.Relic.Feet = "Bagua Sandals +3"
+	gear.Relic.Legs = "Bagua Pants +4"
+	gear.Relic.Feet = "Bagua Sandals +4"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Azimuth Hood +3"
@@ -203,7 +203,7 @@ function init_gear_sets()
 		neck="Null Loop",
 		left_ear="Eabani Earring",
 		right_ear="Lugalbanda Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
 		back="Solemnity Cape",
 		waist="Carrier's Sash",

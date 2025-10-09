@@ -7,11 +7,15 @@ function job_setup()
 
 	include('Mote-TreasureHunter')
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Shield',}
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Dolichenus",
 		sub="Ikenga's Axe",
+	}
+	gear.weapons['Shield'] = {
+		main="Dolichenus",
+		sub="Forfend +1",
 	}
 	
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Decimation' }
@@ -19,59 +23,84 @@ function job_setup()
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
     state.AutoFightMode = M( true, "Auto Pet Fight" )
 
-	gear.Artifact = {}
-	gear.Artifact.Head = ""
-	gear.Artifact.Body = ""
-	gear.Artifact.Hands = ""
-	gear.Artifact.Legs = ""
-	gear.Artifact.Feet = ""
-
 	gear.Relic = {}
-	gear.Relic.Head = ""
-	gear.Relic.Body = ""
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Head = "Ankusa Helm +3"
+	gear.Relic.Body = "An. Jackcoat +1"
+	gear.Relic.Hands = "Ankusa Gloves +1"
+	gear.Relic.Legs = "Ankusa Trousers +1"
+	gear.Relic.Feet = "Ankusa Gaiters +1"
+
+	gear.Artifact = {}
+	gear.Artifact.Head = "Totemic Helm +1"
+	gear.Artifact.Body = "Tot. Jackcoat +1"
+	gear.Artifact.Hands = "Totemic Gloves +3"
+	gear.Artifact.Legs = "Totemic Trousers +1"
+	gear.Artifact.Feet = "Totemic Gaiters +1"
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = ""
-	gear.Empyrean.Body = ""
-	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Head = "Nuk. Cabasset +1"
+	gear.Empyrean.Body = "Nukumi Gausape +3"
+	gear.Empyrean.Hands = "Nukumi Manoplas +3"
+	gear.Empyrean.Legs = "Nukumi Quijotes +1"
+	gear.Empyrean.Feet = "Nukumi Ocreae +3"	
+	
 
 	gear.capes = {}
-	--gear.capes.DexTP = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	--gear.capes.StrWS = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
-
+	gear.capes.STRDA = { name="Artio's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+6','"Dbl.Atk."+10',}}
+	gear.capes.CHRWS = { name="Artio's Mantle", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}--,'CHR+10'
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		--head='Volte Cap',
-		--hands=gear.Relic.Hands,
-		-- body=gear.Herc.Body.TH,
-		--waist="Chaac Belt",
-		--legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = gear.TH.Herc
 
 	sets.precast.WS = {
 		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Gleti's Cuirass",
+        head=gear.Relic.Head,
+        body=gear.Empyrean.Body,
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Fotia Gorget",
+        neck="Bst. Collar +2",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear="Sherida Earring",
+        left_ear="Moonshade Earring",
+        right_ear="Thrud Earring",
         left_ring="Gere Ring",
         right_ring="Sroda Ring",
-        back="Solemnity Cape",
+        back=gear.capes.STRDA,
 	}
+
+	sets.precast.WS['Decimation'] = set_combine( sets.precast.WS,{
+		body="Gleti's Cuirass",
+		hands="Gleti's Gauntlets",
+		legs="Gleti's Breeches",
+		feet=gear.Empyrean.Feet,
+		neck="Fotia Gorget",
+		left_ear="Sherida Earring",
+		right_ear="Nukumi Earring +1",
+	})
+	sets.precast.WS['Mistral Axe'] = set_combine( sets.precast.WS,{
+		left_ring="Epaminondas's Ring",
+	})
+	sets.precast.WS['Primal Rend'] = set_combine( sets.precast.WS,{
+		ammo="Oshasha's Treatise",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		neck="Baetyl Pendant",
+		waist="Orpheus's Sash",
+		right_ear="Friomisi Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Weather. Ring +1",
+	})
+	sets.precast.WS['Cloudsplitter'] = set_combine( sets.precast.WS,{
+		ammo="Oshasha's Treatise",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		neck="Baetyl Pendant",
+		waist="Orpheus's Sash",
+		right_ear="Friomisi Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Beithir Ring",
+	})
 
 	sets.idle = {
         ammo="Staunch Tathlum +1",
@@ -80,17 +109,15 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck="Warder's Charm +1",
         waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Warp Ring",
         right_ring="Defending Ring",
-        back="Solemnity Cape",
+        back="Null Shawl",
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
 	})
 	sets.idle.MDT = set_combine(sets.idle, {
 	})
@@ -99,18 +126,18 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Anu Torque",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Dedition Earring",
-        right_ear="Sherida Earring",
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
-        back="Solemnity Cape",
+		head="Malignance Chapeau",
+		body="Gleti's Cuirass",
+		hands="Malignance Gloves",
+		legs="Gleti's Breeches",
+		feet="Malignance Boots",
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear="Dedition Earring",
+		left_ring="Gere Ring",
+		right_ring="Moonlight Ring",
+		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {

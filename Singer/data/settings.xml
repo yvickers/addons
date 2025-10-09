@@ -74,4 +74,8 @@
         <troubadour>true</troubadour>
         <use_ws>false</use_ws>
     </global>
+    <tishrahh>
+        <actions>true</actions>
+        <active>false</active>
+    </tishrahh>
 </settings>

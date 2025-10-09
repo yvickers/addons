@@ -12,7 +12,7 @@ function user_job_setup()
 		--ammo="Staunch Tathlum",
 	}
     gear.weapons['GKTProc'] = {
-		main="Uchigatana",
+		main="Melon Slicer",
 		sub="",
 		--ammo="Staunch Tathlum",
 	}
@@ -22,20 +22,34 @@ function init_gear_sets()
     sets.precast.WS = {}
 
     sets.idle = {
-        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head = "Mummu Bonnet +2",
-        body = "Mummu Jacket +2",
-        hands = "Mummu Wrists +2",
-        legs = "Mummu Kecks +2",
-        feet = "Mummu Gamash. +2",
-        neck="Sanctity Necklace",
+        ammo="Crepuscular Pebble",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet="Volte Spats",
+        neck="Null Loop",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Warp Ring",
+        right_ring="Defending Ring",
+        back="Null Shawl",
+    }
+
+    sets.engaged = {
+        ammo="Crepuscular Pebble",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Volte Mittens",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Volte Spats",
+        neck="Null Loop",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Eabani Earring",
         right_ear="Telos Earring",
-        left_ring="Warp Ring",
+        left_ring="Chirich Ring +1",
         right_ring="Ilabrat Ring",
-        back="Solemnity Cape",
+        back="Null Shawl",
     }
-
-    sets.engaged = {}
 end

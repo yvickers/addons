@@ -25,7 +25,7 @@ function user_job_setup()
 
 	gear.Relic = {}
 	gear.Relic.Head = ""
-	gear.Relic.Body = ""
+	gear.Relic.Body = "Sakonji Do. +4"
 	gear.Relic.Hands = "Sakonji Kote +3"
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
@@ -50,7 +50,7 @@ function init_gear_sets()
 	sets.Enmity = {
 		ammo="Sapience Orb",
 		body="Emet Harness +1",
-		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
+		--hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
@@ -61,15 +61,7 @@ function init_gear_sets()
 		right_ring="Petrov Ring",
 	}
 
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		head='Volte Cap',
-		hands=gear.Val.Hands.TH,
-		--body=gear.Herc.Body.TH,
-		waist="Chaac Belt",
-		--legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = gear.TH.Val
 
 	sets.precast.JA['Meditate'] = {
 		head=gear.Artifact.Head,
@@ -95,7 +87,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Nyame Mail", augments={'Path: B',}},
+		body=gear.Relic.Body,
         hands=gear.Empyrean.Hands,
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet=gear.Empyrean.Feet,
@@ -125,6 +117,7 @@ function init_gear_sets()
 
 	sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS,{
 		head="Nyame Helm",
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		right_ear="Friomisi Earring",
 		right_ring="Medada's Ring",
@@ -133,6 +126,7 @@ function init_gear_sets()
 	sets.precast.WS['Tachi: Jinpu'].PROC = set_combine(sets.precast.WS.PROC,{})
 	sets.precast.WS['Tachi: Kagero'] = set_combine(sets.precast.WS,{
 		head="Nyame Helm",
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 		right_ear="Friomisi Earring",
 		right_ring="Medada's Ring",
@@ -142,7 +136,7 @@ function init_gear_sets()
 
 
 	sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS,{
-
+		body={ name="Nyame Mail", augments={'Path: B',}},
 	})
 
 	--switch to upgrade mpaca when have
@@ -166,7 +160,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
         back=gear.capes.DexTP,
 	}
@@ -214,7 +208,7 @@ function init_gear_sets()
 		waist="Plat. Mog. Belt",
 		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		right_ear="Tuisto Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 	}
 end

@@ -1,10 +1,14 @@
 function user_job_setup()
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'TPBonus', 'Aeolian' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Tanking', 'TPBonus', 'Casting', 'Aeolian', 'Savage' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Heishi Shorinken",
 		sub="Kunimitsu",
+	}
+	gear.weapons['Tanking'] = {
+		main="Heishi Shorinken",
+		sub="Yagyu Darkblade",
 	}
 	gear.weapons['Savage'] = {
 		main="Naegling",
@@ -13,6 +17,10 @@ function user_job_setup()
 	gear.weapons['TPBonus'] = {
 		main="Heishi Shorinken",
 		sub="Uzura +2",
+	}
+	gear.weapons['Casting'] = {
+		main="Gokotai",
+		sub="Tauret",
 	}
 	gear.weapons['Aeolian'] = {
 		main="Tauret",
@@ -107,7 +115,7 @@ function init_gear_sets()
 		ear2="Loquac. Earring",
 		--body="Dread Jupon",
 		hands="Leyline Gloves",
-		ring1="Kishar Ring",
+		ring1="Medada's Ring",
 		ring2="Weather. Ring +1",
 		legs="Rawhide Trousers",
 		feet=gear.Relic.Feet,
@@ -242,7 +250,7 @@ function init_gear_sets()
         --feet=gear.Taeon_Phalanx_feet, --10
         neck="Moonlight Necklace", --15
         ear1="Halasz Earring", --5
-        --ear2="Magnetic Earring", --8
+        ear2="Magnetic Earring", --8
         ring1="Evanescence Ring", --5
         back=gear.capes.FC, --10
         waist="Audumbla Sash", --10
@@ -253,7 +261,7 @@ function init_gear_sets()
     sets.midcast.EnhancingNinjutsu = {
 		head=gear.Artifact.Head,
 		feet=gear.Relic.Feet,
-		--neck="Incanter's Torque",
+		neck="Incanter's Torque",
 		left_ear="Hnoss Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
@@ -300,7 +308,7 @@ function init_gear_sets()
         feet="Danzo Sune-Ate",
         neck="Bathy Choker +1",
         waist="Engraved Belt",
-        back="Solemnity Cape",
+        back="Null Shawl",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Defending Ring",
