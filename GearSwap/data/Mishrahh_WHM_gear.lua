@@ -1,6 +1,6 @@
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function user_job_setup()
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Melee' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Melee', 'Omen' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Daybreak",
@@ -10,6 +10,7 @@ function user_job_setup()
 		main="Maxentius",
 		sub="Sindri",
 	}
+
     state.MainWS = M{['description'] = 'Main Weaponskill', 'Black Halo', 'Hexa Strike' }
 
     gear.Artifact = {}
@@ -17,21 +18,21 @@ function user_job_setup()
     gear.Artifact.Body = "Theo. Bliaut +1"
     gear.Artifact.Hands = "Theophany Mitts +3"
     gear.Artifact.Legs = "Th. Pant. +3"
-    gear.Artifact.Feet = "Theo. Duckbills"
+    gear.Artifact.Feet = "Theo. Duckbills +3"
 
     gear.Empyrean = {}
-    gear.Empyrean.Head = "Ebers Cap +1"
-    gear.Empyrean.Body = "Ebers Bliaut +1"
+    gear.Empyrean.Head = "Ebers Cap +3"
+    gear.Empyrean.Body = "Ebers Bliaut +3"
     gear.Empyrean.Hands = "Ebers Mitts +3"
     gear.Empyrean.Legs = "Ebers Pant. +3"
-    gear.Empyrean.Feet = "Ebers Duckbills +1"
+    gear.Empyrean.Feet = "Ebers Duckbills +3"
 
     gear.Relic = {}
     gear.Relic.Head = "Piety Cap +1"
     gear.Relic.Body = "Piety Bliaut +3"
-    gear.Relic.Hands = "Piety Pantaln. +3"
-    gear.Relic.Legs = ""
-    gear.Relic.Feet = ""
+    gear.Relic.Hands = "Piety Mitts +3"
+    gear.Relic.Legs = "Piety Pantaln. +3"
+    gear.Relic.Feet = "Piety Duckbills +3"
 
     gear.capes = {}
     gear.capes.MNDWS = { name="Alaunus's Cape", augments={'MND+20','Accuracy+20 Attack+20','MND+10','Weapon skill damage +10%',}}
@@ -54,6 +55,7 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
+    sets.TreasureHunter = gear.TH.Herc
     sets.AutoBuff.sleep = {
 		main="Prime Maul",
 	}
@@ -150,6 +152,8 @@ function init_gear_sets()
         right_ring="Rufescent Ring",
         back=gear.capes.STRCRIT,
     })
+
+    sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
     
     -- Midcast Sets
     sets.midcast.FastRecast = {}
@@ -205,8 +209,8 @@ function init_gear_sets()
         feet=gear.Empyrean.Feet,
     })
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
-        main="Vadose Rod",
-        --head="Chironic Hat",
+        --main="Vadose Rod",
+        head="Chironic Hat",
         --hands="Regal Cuffs",
         waist="Emphatikos Rope",
         legs="Shedir Seraweels",

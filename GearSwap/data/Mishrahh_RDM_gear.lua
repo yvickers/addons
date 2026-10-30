@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Seraph Blade', 'Savage Blade', 'Sanguine Blade', 'Evisceration', }
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Mage', 'Seraph', 'Savage', 'Sanguine', 'Dagger', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Mage', 'Seraph', 'Savage', 'Sanguine', 'Dagger', 'Odin', }
     gear.weapons = {}
 	gear.weapons['Mage'] = {
 		main="Daybreak",
@@ -25,16 +25,21 @@ function user_job_setup()
         sub="Gleti's Knife",
     }
 
+	gear.weapons['Odin'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
+
 	gear.Artifact = {}
 	gear.Artifact.Head = "Atrophy Chapeau +3"
-	gear.Artifact.Body = "Atrophy Tabard +3"
-	gear.Artifact.Hands = "Atrophy Gloves +3"
-	gear.Artifact.Legs = "Atrophy Tights +3"
+	gear.Artifact.Body = "Atrophy Tabard +4"
+	gear.Artifact.Hands = "Atrophy Gloves +4"
+	gear.Artifact.Legs = "Atrophy Tights +4"
 	gear.Artifact.Feet = ""
 
 	gear.Relic = {}
-	gear.Relic.Head = "Viti. Chapeau +3"
-	gear.Relic.Body = { name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}}
+	gear.Relic.Head = "Viti. Chapeau +4"
+	gear.Relic.Body = "Viti. Tabard +4"
 	gear.Relic.Hands = "Viti. Gloves +3"
 	gear.Relic.Legs = "Viti. Tights +3"
 	gear.Relic.Feet = "Vitiation Boots +3"
@@ -47,9 +52,9 @@ function user_job_setup()
 	gear.Empyrean.Feet = "Leth. Houseaux +3"
 
 	gear.capes = {}
-	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-5%',}}
+	gear.capes.MNDEnfeeble = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','"Fast Cast"+10','Damage taken-5%',}}
 	gear.capes.FC = gear.capes.MNDEnfeeble
-	gear.capes.INT = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+	gear.capes.INT = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	gear.capes.DRKMagic = gear.capes.INT
 	gear.capes.DexTP = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
 	gear.capes.DexDW = gear.capes.DexTP--{ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
@@ -405,7 +410,7 @@ function init_gear_sets()
 		back=gear.capes.INT,
 		waist="Null Belt",
 		left_ear="Malignance Earring",
-		right_ear="Digni. Earring",
+		right_ear="Alabaster Earring",
 		left_ring="Archon Ring",
 		right_ring="Evanescence Ring",
 	}
@@ -448,7 +453,7 @@ function init_gear_sets()
 	})
 	--must augment chironic, several weapon choices
 	sets.idle.Refresh = set_combine(sets.idle, {
-		hands="Merlinic Dastanas",
+		--hands="Merlinic Dastanas",
 		legs="Chironic Hose",
 		feet="Merlinic Crackows",
 		left_ring="Stikini Ring +1",
@@ -459,11 +464,11 @@ function init_gear_sets()
 		ammo="Coiste Bodhar",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands="Bunzi's Gloves",
+		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Anu Torque",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 		waist="Reiki Yotai",
 		left_ear="Eabani Earring",
 		right_ear="Telos Earring",

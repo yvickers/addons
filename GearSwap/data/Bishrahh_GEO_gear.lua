@@ -1,4 +1,5 @@
 function user_job_setup()
+	state.IdleMode:options( 'Normal', 'Zeni' )
 	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
 	gear.weapons['Default'] = {
 		main="Idris",
@@ -69,7 +70,7 @@ function init_gear_sets()
         --hands="Agwu's Gages",
         legs=gear.Artifact.Legs,
         --feet="Amalric Nails +1",
-        neck="Voltsurge Torque",
+        neck="Orunmila's Torque",
         waist="Witful Belt",
         --left_ear="Enchntr. Earring +1",
         right_ear="Loquac. Earring",
@@ -225,10 +226,17 @@ function init_gear_sets()
 		--main="Mafic Cudgel",
 	})
 
+	sets.idle.Zeni = set_combine(sets.idle, {
+		range="Soultrapper 2000",
+		ammo="H.S. Soul Plate",
+	})
+
 	sets.latent_refresh = {
 	}
 
-	sets.engaged = {}
+	sets.engaged = {
+		main="Trial Wand",
+	}
 end
 
 -- Select default macro book on initial load or subjob change.

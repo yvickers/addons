@@ -28,10 +28,10 @@ function user_job_setup()
 
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Pumm. Mask +1"
+	gear.Artifact.Head = "Pummeler's Mask +3"
 	gear.Artifact.Body = "Pumm. Lorica +4"
 	gear.Artifact.Hands = ""
-	gear.Artifact.Legs = "Pumm. Cuisses +3"
+	gear.Artifact.Legs = "Pumm. Cuisses +4"
 	gear.Artifact.Feet = "Pumm. Calligae +4"
 
 	gear.Relic = {}
@@ -269,7 +269,7 @@ function init_gear_sets()
 		feet="Sakpata's Leggings",
 		neck="Sanctity Necklace",
 		waist="Eschan Stone",
-		left_ear="Crep. Earring",
+		left_ear="Alabaster Earring",
 		right_ear="Digni. Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Crepuscular Ring",
@@ -398,7 +398,7 @@ function init_gear_sets()
     } )
 
 	sets.idle = {
-		ammo="Crepuscular Pebble",
+		ammo="Staunch Tathlum +1",
 		head="Null Masque",
 		body="Sakpata's Plate",
 		hands="Sakpata's Gauntlets",
@@ -410,7 +410,7 @@ function init_gear_sets()
 		right_ear="Infused Earring",
 		left_ring="Murky Ring",
 		right_ring="Warp Ring",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})

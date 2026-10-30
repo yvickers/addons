@@ -95,7 +95,7 @@ function th_action_check(category, param)
         then return true
     end
 end
-
+jatickdelay = 5
 -- Global intercept on precast.
 function user_precast(spell, action, spellMap, eventArgs)
     if 'JobAbility' == spell.type then
@@ -105,7 +105,7 @@ function user_precast(spell, action, spellMap, eventArgs)
         tickdelay = os.clock() + jatickdelay
     end
     if 'WeaponSkill' == spell.type then
-        windower.send_ipc_message( 'weaponskill ' .. spell.name:gsub("%W",'_') )
+        --windower.send_ipc_message( 'weaponskill ' .. spell.name:gsub("%W",'_') )
         tickdelay = os.clock() + wstickdelay
     end
     if 'PetCommand' == spell.type then
@@ -194,10 +194,12 @@ function user_state_change_Weapon_Lock( newValue, oldValue )
         disable('main')
         disable('sub')
         disable('ranged')
+        disable('ammo')
     else
         enable('main')
         enable('sub')
         enable('ranged')
+        enable('ammo')
     end
 end
 
@@ -214,11 +216,13 @@ end
 
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
 function check_range_lock()
-	if player.equipment.range ~= 'empty' then
-		disable('range', 'ammo')
-	else
-		enable('range', 'ammo')
-	end
+    if state.WeaponLock.current ~= 'on' then
+        if player.equipment.range ~= 'empty' then
+            disable('range', 'ammo')
+        else
+            enable('range', 'ammo')
+        end
+    end
 end
 
 function special_ammo_check()
@@ -400,6 +404,9 @@ function user_self_command(cmdParams, eventArgs)
     if 'allnuke' == cmdParams[1] then
         all_nuke()
     end
+    if 'subjobemnity' == cmdParams[1] then
+        sub_job_enmity()
+    end
 
 end
 
@@ -417,6 +424,84 @@ function current_scholar_skillchain(level)
 end
 
 function all_nuke()
-    send_command('@send @others //gs c set ElementalMode '..state.ElementalMode.current:lower())
-    send_command('@send @others //gs c elemental nuke <tid>')
+    send_command('@send @all //gs c set ElementalMode '..state.ElementalMode.current:lower())
+    send_command('@send @all //gs c elemental nuke <tid>')
+end
+
+function sub_job_enmity()
+    if player.target.type ~= "MONSTER" then
+        add_to_chat(123,'Abort: You are not targeting a monster.')
+        return
+
+    elseif player.sub_job == 'BLU' then
+        local spell_recasts = windower.ffxi.get_spell_recasts()
+                
+        if spell_recasts[584] < spell_latency then
+            windower.chat.input('/ma "Sheep Song" <t>')
+        elseif spell_recasts[598] < spell_latency then
+            windower.chat.input('/ma "Soporific" <t>')
+        elseif spell_recasts[605] < spell_latency then
+            windower.chat.input('/ma "Geist Wall" <t>')
+        elseif spell_recasts[575] < spell_latency then
+            windower.chat.input('/ma "Jettatura" <t>')
+        elseif spell_recasts[537] < spell_latency then
+            windower.chat.input('/ma "Stinking Gas" <t>')
+        elseif spell_recasts[592] < spell_latency then
+            windower.chat.input('/ma "Blank Gaze" <t>')
+        end
+        
+    elseif player.sub_job == 'DRK' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        local spell_recasts = windower.ffxi.get_spell_recasts()
+        
+        send_command('cancel souleater')
+        send_command('cancel last resort')
+        
+        if spell_recasts[252] < spell_latency and not silent_check_silence() then
+            windower.chat.input('/ma "Stun" <t>')
+        elseif abil_recasts[85] < latency then
+            windower.chat.input('/ja "Souleater" <me>')
+        elseif abil_recasts[87] < latency then
+            windower.chat.input('/ja "Last Resort" <me>')
+        elseif abil_recasts[88] < latency then
+            windower.chat.input('/ja "Weapon Bash" <t>')
+        elseif abil_recasts[86] < latency then
+            windower.chat.input('/ja "Arcane Circle" <me>')
+        end
+
+    elseif player.sub_job == 'WAR' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        
+        send_command('cancel berserk')
+        
+        if abil_recasts[5] < latency then
+            windower.chat.input('/ja "Provoke" <t>')
+        elseif abil_recasts[2] < latency then
+            windower.chat.input('/ja "Warcry" <me>')
+        elseif abil_recasts[3] < latency then
+            windower.chat.input('/ja "Defender" <me>')
+        elseif abil_recasts[4] < latency then
+            windower.chat.input('/ja "Aggressor" <me>')
+        elseif abil_recasts[1] < latency then
+            windower.chat.input('/ja "Berserk" <me>')
+        end
+        
+    elseif player.sub_job == 'DNC' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
+    
+        if under3FMs then
+            if abil_recasts[220] < latency then
+            send_command('@input /ja "Box Step" <t>')
+            return
+            end
+        elseif abil_recasts[221] < latency then
+            windower.chat.input('/ja "Animated Flourish" <t>')
+            return
+        elseif abil_recasts[220] < latency and not buffactive['Finishing Move 5'] then
+            send_command('@input /ja "Box Step" <t>')
+            return
+        end
+    end
+
 end

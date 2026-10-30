@@ -202,6 +202,16 @@ function silent_check_amnesia()
 	
 end
 
+function silent_check_silence()
+
+	if buffactive.silence then
+		return true
+	else
+		return false	
+	end
+	
+end
+
 function silent_check_disable()
 
 	if buffactive.terror or buffactive.petrification or buffactive.sleep or buffactive.Lullaby or buffactive.stun then
@@ -237,7 +247,9 @@ function get_current_strategem_count()
     local StratagemChargeTimer = 240
     local maxStrategems = 1
     
-    if player.sub_job == 'SCH' and player.sub_job_level > 29 then
+    if player.sub_job == 'SCH' and player.sub_job_level > 50 then
+        StratagemChargeTimer = 80
+    elseif player.sub_job == 'SCH' and player.sub_job_level > 29 then
         StratagemChargeTimer = 120
     elseif player.main_job_level > 89 then
         if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 549 then
@@ -254,7 +266,9 @@ function get_current_strategem_count()
     end
     
     if player.sub_job == 'SCH' then
-        if player.sub_job_level > 29 then
+        if player.sub_job_level > 50 then
+            maxStrategems = 3
+        elseif player.sub_job_level > 29 then
             maxStrategems = 2
         end
     else

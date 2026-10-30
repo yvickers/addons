@@ -1,24 +1,32 @@
 function user_job_setup()
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'HaloTime' }
 	gear.weapons['Default'] = {
 		main="Idris",
-		sub="Genmei Shield",
+		sub="Ammurapi Shield",
 		range="Dunna",
-		--ammo="Staunch Tathlum",
 	}
+	gear.weapons['HaloTime'] = {
+		main="Maxentius",
+		sub="Ammurapi Shield",
+		range="Dunna",
+	}
+	gear.weapons['Omen'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Black Halo', 'Hexa Strike', 'Exudation', }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Geo. Galero +1"
-	gear.Artifact.Body = "Geo. Tunic +1"
+	gear.Artifact.Head = "Geo. Galero +3"
+	gear.Artifact.Body = "Geomancy Tunic +3"
 	gear.Artifact.Hands = "Geo. Mitaines +3"
-	gear.Artifact.Legs = "Geo. Pants +1"
+	gear.Artifact.Legs = "Geomancy Pants +3"
 	gear.Artifact.Feet = "Geo. Sandals +3"
 
 	gear.Relic = {}
-	gear.Relic.Head = ""
-	gear.Relic.Body = "Bagua Tunic +1"
-	gear.Relic.Hands = ""
+	gear.Relic.Head = "Bagua Galero +3"
+	gear.Relic.Body = "Bagua Tunic +3"
+	gear.Relic.Hands = "Bagua Mitaines +3"
 	gear.Relic.Legs = "Bagua Pants +3"
 	gear.Relic.Feet = "Bagua Sandals +3"
 
@@ -46,6 +54,9 @@ function init_gear_sets()
 		feet=gear.Empyrean.Feet,
 	}
 
+	sets.TreasureHunter = set_combine( gear.TH.Herc, {
+    } )
+
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Bolster = {
@@ -67,14 +78,14 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS = {
-		ammo="Crepuscular Pebble",
+		ammo="Oshasha's Treatise",
 		head="Nyame Helm",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		neck="Fotia Gorget",
-		waist="Grunfeld Rope",
+		waist="Fotia Belt",
 		left_ear="Malignance Earring",
 		right_ear="Moonshade Earring",
 		left_ring="Epaminondas's Ring",
@@ -94,6 +105,9 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS['Exudation'],{})
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged, {})
 
 	sets.precast.FC = {
 		range="Dunna",
@@ -131,7 +145,7 @@ function init_gear_sets()
 		main="Daybreak",
 		sub="Sors Shield",
 		range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-		head={ name="Vanya Hood", augments={'MP+49','"Cure" potency +7%','Enmity-5',}},
+		head="Vanya Hood",
 		hands="Vanya Cuffs",
 		legs="Vanya Slops",
 		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
@@ -223,27 +237,27 @@ function init_gear_sets()
 	})
 
 	sets.idle = {
-		main="Idris",
-		sub="Genmei Shield",
-		range="Dunna",
-		head=gear.Empyrean.Head,
+		head="Null Masque",
 		body=gear.Empyrean.Body,
 		hands=gear.Empyrean.Hands,
 		legs="Nyame Flanchard",
 		feet=gear.Artifact.Feet,
 		neck="Null Loop",
 		left_ear="Eabani Earring",
-		right_ear="Etiolation Earring",
-		left_ring="Defending Ring",
+		right_ear="Alabaster Earring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
-		back="Solemnity Cape",
+		back="Moonlight Cape",
 		waist="Carrier's Sash",
 	}
 	sets.idle.PDT = set_combine( sets.idle, {
 		--main="Mafic Cudgel",
 	})
 	sets.idle.Pet = set_combine( sets.idle, {
+		main="Idris",
+		sub="Genmei Shield",
 		range="Dunna",
+		head=gear.Empyrean.Head,
 		hands=gear.Artifact.Hands,
 		legs="Psycloth Lappas",
 		feet=gear.Relic.Feet,
@@ -263,11 +277,11 @@ function init_gear_sets()
 	}
 
 	sets.engaged = {
-		sub="Ammurapi Shield",
-		head="Nyame Helm",
+		ammo="Oshasha's Treatise",
+		head="Blistering Sallet +1",
 		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
+		hands="Gazu Bracelets +1",
+		legs=gear.Jhakri.Legs,
 		feet="Nyame Sollerets",
 		neck="Null Loop",
 		waist="Null Belt",
@@ -275,8 +289,12 @@ function init_gear_sets()
 		right_ear="Digni. Earring",
 		left_ring=gear.rings['Chririch L'],
 		right_ring=gear.rings['Chririch R'],
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
+	sets.engaged.PDT = set_combine(sets.engaged, {
+		head="Null Masque",
+		feet=gear.Empyrean.Feet,
+	})
 end
 
 -- Select default macro book on initial load or subjob change.

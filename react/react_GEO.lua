@@ -105,4 +105,62 @@ return {
             ["ready_reaction"]="input /ma 'Barwatera' <me>"
         }
     ,}
+    ["Bozzetto Freyja"] = {
+        ["Petrifactive Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Stone Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Petrifaction"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Impaling Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        },
+        ["Imparing Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    },
+    ["Bozzetto Skathi"] = {
+        ["Poisonous Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Boulder Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Petrifaction"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Impaling Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        },
+        ["Imparing Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    },
+    ["Bozzetto Frigg"] = {
+        ["Luxurious Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Raqs Baladi Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Chastening Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        }
+    }, 
 }

@@ -210,6 +210,7 @@ data.item_fishing_parameters = {
     {name='remora', id=6146, stamina=94, arrow_duration=2, arrow_frequency=14, stamina_depletion=39, size=1, legendary=1},
     {name="dragon's tabernacle", id=6374, stamina=95, arrow_duration=2, arrow_frequency=15, stamina_depletion=32, size=1, legendary=1},
     {name='lord of ulbuka', id=6372, stamina=96, arrow_duration=2, arrow_frequency=15, stamina_depletion=25, size=1, legendary=1},
+    {name='hoptoad', id=6613, stamina=26, arrow_duration=10, arrow_frequency=5, stamina_depletion=22, continent=6},
     -- non-fish items
     {name='mithra snare', id=5330, stamina=18, arrow_duration=15, arrow_frequency=5, stamina_depletion=42},
     {name='rusty bucket', id=90, stamina=18, arrow_duration=15, arrow_frequency=3, stamina_depletion=19},
@@ -470,6 +471,7 @@ data.continent_by_zone = {
     [273]=4,
     [277]=4,
     [280]=4,
+    [291]=6,
 }
 
 data.fish_by_name = {
@@ -549,6 +551,7 @@ data.fish_by_name = {
     ['gurnard']=5132,
     ['hakuryu']=5539,
     ['hamsi']=5449,
+    ['hoptoad']=6613,
     ['icefish']=4470,
     ['istakoz']=5453,
     ['istavrit']=5136,

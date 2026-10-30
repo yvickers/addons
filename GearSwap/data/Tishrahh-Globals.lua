@@ -15,6 +15,18 @@ function define_global_sets()
         right_ring="Orvail Ring",
     })
 
+    sets.craft.fishing = {
+        range="Lu Shang's F. Rod",
+        head="Tlahtlamah Glasses",
+        --body="Fsh. Tunica",
+        hands="Kachina Gloves",
+        --legs="Fisherman's Hose",
+        feet="Waders",
+        --neck="Fisher's Torque",
+        --left_ring="Puffin Ring",
+        --right_ring="Noddy Ring",
+    }
+
     gear.Meghanada = {}
     gear.Meghanada.Head = "Meghanada Visor +2"
     gear.Meghanada.Body = "Meg. Cuirie +2"

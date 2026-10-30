@@ -1091,9 +1091,7 @@ function handle_elemental(cmdParams)
 		end
 	
 	elseif command == 'skillchain2' then
-		if player.target.type ~= "MONSTER" then
-			add_to_chat(123,'Abort: You are not targeting a monster.')
-		elseif buffactive.silence or buffactive.mute or buffactive.paralysis then
+		if buffactive.silence or buffactive.mute or buffactive.paralysis then
 			add_to_chat(123,'You are silenced, muted, or paralyzed, cancelling skillchain.')
 		elseif (get_current_strategem_count() + immactive) < 2 then
 			add_to_chat(123,'Abort: You have less than two stratagems available.')
@@ -1107,46 +1105,46 @@ function handle_elemental(cmdParams)
 			
 			if state.ElementalMode.value == 'Fire' or state.ElementalMode.value == 'Light' then
 				windower.chat.input('/p '..auto_translate('Fusion')..' -<t>- MB: '..auto_translate('Fire')..' '..auto_translate('Light')..' <scall21> OPEN!')
-				windower.chat.input:schedule(1.3,'/ma "Fire" <t>')
+				windower.chat.input:schedule(1.3,'/ma "Fire" '..target)
 				windower.chat.input:schedule(5.6,'/ja "Immanence" <me>')
 				windower.chat.input:schedule(6.9,'/p '..auto_translate('Fusion')..' -<t>- MB: '..auto_translate('Fire')..' '..auto_translate('Light')..' <scall21> CLOSE!')
 				if windower.ffxi.get_spell_recasts()[283] < (spell_latency + 6) then
-					windower.chat.input:schedule(6.9,'/ma "Ionohelix" <t>')
+					windower.chat.input:schedule(6.9,'/ma "Ionohelix" '..target)
 				else
-					windower.chat.input:schedule(6.9,'/ma "Thunder" <t>')
+					windower.chat.input:schedule(6.9,'/ma "Thunder" '..target)
 				end
 			elseif state.ElementalMode.value == 'Wind' or state.ElementalMode.value == 'Lightning' then
 				windower.chat.input('/p '..auto_translate('Fragmentation')..' -<t>- MB: '..auto_translate('wind')..' '..auto_translate('Thunder')..' <scall21> OPEN!')
-				windower.chat.input:schedule(1.3,'/ma "Blizzard" <t>')
+				windower.chat.input:schedule(1.3,'/ma "Blizzard" '..target)
 				windower.chat.input:schedule(5.6,'/ja "Immanence" <me>')
 				windower.chat.input:schedule(6.9,'/p '..auto_translate('Fragmentation')..' -<t>- MB: '..auto_translate('wind')..' '..auto_translate('Thunder')..' <scall21> CLOSE!')
 				if windower.ffxi.get_spell_recasts()[279] < (spell_latency + 6) then
-					windower.chat.input:schedule(6.9,'/ma "Hydrohelix" <t>')
+					windower.chat.input:schedule(6.9,'/ma "Hydrohelix" '..target)
 				else
-					windower.chat.input:schedule(6.9,'/ma "Water" <t>')
+					windower.chat.input:schedule(6.9,'/ma "Water" '..target)
 				end
 			elseif state.ElementalMode.value == 'Earth' or state.ElementalMode.value == 'Dark' then
 				if windower.ffxi.get_spell_recasts()[284] > (spell_latency + 6) then
 					add_to_chat(123,'Abort: Noctohelix on cooldown.')
 				else
 					windower.chat.input('/p '..auto_translate('Gravitation')..' -<t>- MB: '..auto_translate('earth')..' '..auto_translate('Darkness')..' <scall21> OPEN!')
-					windower.chat.input:schedule(1.3,'/ma "Aero" <t>')
+					windower.chat.input:schedule(1.3,'/ma "Aero" '..target)
 					windower.chat.input:schedule(5.6,'/ja "Immanence" <me>')
 					windower.chat.input:schedule(6.9,'/p '..auto_translate('Gravitation')..' -<t>- MB: '..auto_translate('earth')..' '..auto_translate('Darkness')..' <scall21> CLOSE!')
-					windower.chat.input:schedule(6.9,'/ma "Noctohelix" <t>')
+					windower.chat.input:schedule(6.9,'/ma "Noctohelix" '..target)
 				end
 			elseif state.ElementalMode.value == 'Ice' or state.ElementalMode.value == 'Water' then
 				if windower.ffxi.get_spell_recasts()[285] > spell_latency then
 					add_to_chat(123,'Abort: Luminohelix on cooldown.')
 				else
 					windower.chat.input('/p '..auto_translate('Distortion')..' -<t>- MB: '..auto_translate('ice')..' '..auto_translate('Water')..' <scall21> OPEN!')
-					windower.chat.input:schedule(1.3,'/ma "Luminohelix" <t>')
+					windower.chat.input:schedule(1.3,'/ma "Luminohelix" '..target)
 					windower.chat.input:schedule(6.6,'/ja "Immanence" <me>')
 					windower.chat.input:schedule(7.9,'/p '..auto_translate('Distortion')..' -<t>- MB: '..auto_translate('ice')..' '..auto_translate('Water')..' <scall21> CLOSE!')
 					if windower.ffxi.get_spell_recasts()[278] < (spell_latency + 6) then
-						windower.chat.input:schedule(7.9,'/ma "Geohelix" <t>')
+						windower.chat.input:schedule(7.9,'/ma "Geohelix" '..target)
 					else
-						windower.chat.input:schedule(7.9,'/ma "Stone" <t>')
+						windower.chat.input:schedule(7.9,'/ma "Stone" '..target)
 					end
 				end
 			else

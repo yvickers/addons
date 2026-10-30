@@ -29,6 +29,92 @@ function job_setup()
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
+	runedelay = os.clock() + 1
+	state.AutoRunes = M{['description']='Auto Runes List', 'Default', 'Ignis', 'Gelus', 'Flabra', 'Sulpor', 'Unda', 'Lux' }
+	runeSetups = {
+		Default = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=3},
+		},
+		Ignis = {
+			{Name='Ignis', Amount=3},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Gelus = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=3},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Flabra = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=3},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Tellus = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=3},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Sulpor = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=3},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Unda = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=3},
+			{Name='Lux', Amount=0},
+			{Name='Tenebrae', Amount=0},
+		},
+		Lux = {
+			{Name='Ignis', Amount=0},
+			{Name='Gelus', Amount=0},
+			{Name='Flabra', Amount=0},
+			{Name='Tellus', Amount=0},
+			{Name='Sulpor', Amount=0},
+			{Name='Unda', Amount=0},
+			{Name='Lux', Amount=3},
+			{Name='Tenebrae', Amount=0},
+		},
+		
+	}
+
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = ""
@@ -267,26 +353,199 @@ function job_self_command(cmdParams, eventArgs)
 	if cmdParams[1]:lower() == 'rune' then
 		next_rune()
 		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'buff' then
+		handle_buffing(cmdParams)
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'showcharge' then
+		add_to_chat(204, '~~~Current Stratagem Charges Available: ['..get_current_strategem_count()..']~~~')
 	end
+end
+
+function handle_buffing(cmdParams)
+	-- cmdParams[1] == 'buff'
+    -- cmdParams[2] == ability to use
+	-- cmdParams[3] == optional target
+
+    if not cmdParams[2] then
+        add_to_chat(123,'Error: No buff command given.')
+        return
+    end
+    local command = cmdParams[2]:lower()
+
+	if buffactive.silence or buffactive.mute or buffactive.paralysis then
+		add_to_chat(123,'You are silenced, muted, or paralyzed, cancelling buff.')
+		return
+	end
+
+	-- determine target
+	local target = '<me>'
+	if player.target.type ~= "MONSTER" then
+		target = '<t>'
+	end
+	if cmdParams[3] then
+		target = cmdParams[3]
+	end
+
+	-- default to long, party wide buffs
+	local params = {
+		needs_addendum = false,
+		accession = true,
+		perpetuance = true,
+		target = target,
+	}
+
+	if command == 'weather' then
+		params.perpetuance = false
+		params.target = '<me>'
+		if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 99 then
+			params.spell = data.elements.storm_of[state.ElementalMode.value]..' II'
+		else
+			params.spell = data.elements.storm_of[state.ElementalMode.value]
+		end
+		buff_helper(params)
+	elseif command == 'sneak' then
+		params.spell = 'Sneak'
+		params.perpetuance = false
+		buff_helper(params)
+	elseif command == 'invisible' then
+		params.spell = 'Invisible'
+		params.perpetuance = false
+		buff_helper(params)
+	elseif command == 'reraise' then
+			params.spell = 'Reraise'
+			params.perpetuance = false
+			params.accession = false
+			params.needs_addendum = true
+			params.target = '<me>'
+			buff_helper(params)
+	else				
+		add_to_chat(123,'Unrecognized buffing command.')
+	end
+end
+-- normalize buffing
+function buff_helper(params)
+	local schedule = .1
+	local strats_needed = 0
+
+	-- base art activation needed
+	if not (buffactive['Light Arts'] or buffactive['Addendum: White']) then
+		windower.chat.input('/ja "Light Arts" <me>')
+		schedule = schedule + 2
+	end
+
+	if params.needs_addendum and not buffactive['Addendum: White'] then
+		windower.chat.input:schedule(schedule,'/ja "Addendum: White" <me>')
+		schedule = schedule + 2
+	end
+
+	--determine strat requirements
+	if params.accession then
+		strats_needed = strats_needed + 1
+	end
+
+	if params.perpetuance then
+		strats_needed = strats_needed + 1
+	end
+
+	--abort if we don't have required strats
+	if (get_current_strategem_count()) < strats_needed then
+		add_to_chat(123,'Abort: You have less than the required stratagems available.')
+		return
+	end
+	
+	--apply ja modifiers and schedule out casting
+	if params.accession and not buffactive['Accession'] then
+		windower.chat.input:schedule(schedule,'/ja "Accession" <me>')
+		schedule = schedule + 2
+	end
+
+	if params.perpetuance and not buffactive['Perpetuance'] then
+		windower.chat.input:schedule(schedule,'/ja "Perpetuance" <me>')
+		schedule = schedule + 2
+	end
+
+	windower.chat.input:schedule(schedule,'/ma "' .. params.spell .. '" ' .. params.target)
 end
 
 function job_tick()
 	if check_buff() then return true end
+	if check_runes() then return true end
+	if state.AutoTank.value and player.in_combat and player.target.type == "MONSTER" and not moving then
+		if check_flash_foil() then return true end
+		windower.send_command('gs c subjobemnity')
+		return true
+	end
 	return false
 end
 
 function check_buff()
 	if state.AutoBuffMode.current == 'on' and silent_check_fighting() and not silent_check_amnesia() then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if not buffactive['Pflug'] and abil_recasts[59] < latency then
+			windower.chat.input('/ja "Pflug" <me>')
+			return true
+		elseif not (buffactive['Vallation'] or buffactive['Valiance']) then
+			if abil_recasts[113] < latency then
+				windower.chat.input('/ja "Valiance" <me>')
+				tickdelay = os.clock() + 10
+				return true
+			elseif abil_recasts[23] < latency then
+				windower.chat.input('/ja "Vallation" <me>')
+				tickdelay = os.clock() + 10
+				return true
+			end
+		end
 	end
 
 	return false
 end
 
-function next_rune()
-	--add_to_chat(123,'Mote-Libs: Set parameter failure: field not specified.')
-	if buffactive["Lux"] then
-		add_to_chat(123,'Checking Lux.' .. tostring(buffactive["Lux"]) )
+function check_runes()
+
+	if state.AutoBuffMode.value ~= 'Off' and windower.ffxi.get_ability_recasts()[242] < latency and (player.hpp < 50 or (state.AutoRunes.value == 'Default' and player.mpp < 75)) then
+		windower.chat.input('/ja "Vivacious Pulse" <me>')
+		return true
 	end
 
+	if state.AutoBuffMode.value ~= 'Off' and windower.ffxi.get_ability_recasts()[92] < latency and os.clock() > runedelay then
+		runedelay = os.clock() + 5 --additional delay to prevent chat spam
+		return next_rune()
+    end
+
+	return false
+end
+
+function next_rune()
+	for i = 1,8 do
+		local rune
+		rune = runeSetups[state.AutoRunes.value][i]
+		if rune then
+			local runesActive = buffactive[rune.Name] or 0
+			if tonumber(rune.Amount) > 0 and runesActive < rune.Amount then
+				windower.chat.input('/ja "'..rune.Name..'" <me>')
+				return true
+			end
+		else
+			return false
+		end
+	end
+end
+
+function check_flash_foil()
+	if silent_check_silence() then return false end
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+	
+	if not buffactive['Enmity Boost'] and spell_recasts[476] < spell_latency then
+		windower.chat.input('/ma "Crusade" <me>')
+		return true
+	elseif spell_recasts[112] < spell_latency then
+		windower.chat.input('/ma "Flash" <t>')
+		return true
+	elseif spell_recasts[840] < spell_latency then
+		windower.chat.input('/ma "Foil" <me>')
+		return true
+	else
+		return false
+	end
 end

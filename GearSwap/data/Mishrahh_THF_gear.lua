@@ -2,8 +2,8 @@
 function user_job_setup()
     state.WeaponskillMode:options( 'Normal', 'PROC', 'Buffed' )
 
-    state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge', 'Savage Blade', }
-    state.Weapons = M{['description'] = 'Weapon Setup',  'Default', 'TH', 'Tauret', 'Savage',}
+    state.MainWS = M{['description'] = 'Main Weaponskill', "Rudra's Storm", 'Evisceration', 'Aeolian Edge', 'Cyclone', 'Savage Blade', }
+    state.Weapons = M{['description'] = 'Weapon Setup',  'Default', 'TH', 'Tauret', 'Savage', 'Proc', }
     gear.weapons = {}
 
     gear.weapons['Savage'] = {
@@ -22,21 +22,25 @@ function user_job_setup()
         main="Gandring",
         sub="Gleti's Knife",
     }
+    gear.weapons['Proc'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
 
 
     gear.Artifact = {}
     gear.Artifact.Head = "Pill. Bonnet +3"
     gear.Artifact.Body = "Pillager's Vest +3"
-    gear.Artifact.Hands = "Pill. Armlets +2"
+    gear.Artifact.Hands = "Pill. Armlets +3"
     gear.Artifact.Legs = "Pill. Culottes +3"
-    gear.Artifact.Feet = "Pill. Poulaines +3"
+    gear.Artifact.Feet = "Pill. Poulaines +4"
 
     gear.Relic = {}
     gear.Relic.Head = ""
     gear.Relic.Body = "Plunderer's Vest +3"
-    gear.Relic.Hands = "Plun. Armlets +1"
+    gear.Relic.Hands = "Plun. Armlets +3"
     gear.Relic.Legs = "Plun. Culottes +3"
-    gear.Relic.Feet = "Plun. Poulaines +2"
+    gear.Relic.Feet = "Plun. Poulaines +3"
 
     gear.Empyrean = {}
     gear.Empyrean.Head = "Skulker's Bonnet +3"
@@ -89,7 +93,12 @@ function init_gear_sets()
     }
     --sets.precast.JA['Hide'] = {body="Pillager's Vest +1"}
     --sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
-    --sets.precast.JA['Steal'] = {head="Plunderer's Bonnet",hands="Pillager's Armlets +1",legs="Pillager's Culottes +1",feet="Pillager's Poulaines +1"}
+    sets.precast.JA['Steal'] = {
+        head=gear.Relic.Head,
+        hands=gear.Artifact.Hands,
+        legs=gear.Artifact.Legs,
+        feet=gear.Artifact.Feet,
+    }
     --sets.precast.JA['Despoil'] = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
     --sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +1"}
     --sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
@@ -114,7 +123,7 @@ function init_gear_sets()
         left_ring="Weather. Ring +1",
         right_ring="Medada's Ring",
         left_ear="Loquac. Earring",
-        right_ear="Enchntr. Earring +1",
+        right_ear="Etiolation Earring",
     }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
@@ -150,19 +159,19 @@ function init_gear_sets()
         --feet="Gleti's Boots",
     })
     sets.precast.WS.PROC = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
+        ammo="Yamarang",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck="Sanctity Necklace",
-        waist="Eschan Stone",
-        left_ear="Crep. Earring",
+        neck="Null Loop",
+        waist="Null Belt",
+        left_ear="Digni. Earring",
         right_ear="Telos Earring",
         left_ring="Cacoethic Ring +1",
         right_ring="Chirich Ring +1",
-        back="Archon Cape",
+        back="Null Shawl",
     })
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
@@ -185,6 +194,7 @@ function init_gear_sets()
         ear1="Odr Earring",
         ring2="Epaminondas's Ring",
     })
+    sets.precast.WS["Rudra's Storm"].PROC = set_combine( sets.precast.WS.PROC, {})
 
     sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS["Rudra's Storm"], {
         waist="Sailfi Belt +1",
@@ -192,6 +202,7 @@ function init_gear_sets()
 
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS["Rudra's Storm"], {
     })
+    sets.precast.WS["Mandalic Stab"].PROC = set_combine( sets.precast.WS.PROC, {})
 
     sets.precast.WS['Sanguine Blade'] = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -224,23 +235,14 @@ function init_gear_sets()
         right_ring="Dingir Ring",
         back=gear.capes.MAGWSDMG,    
     }
-    sets.precast.WS['Aeolian Edge'].PROC = {
-        ammo="Crepuscular Pebble",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Sanctity Necklace",
-        waist="Eschan Stone",
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
-        left_ring="Cacoethic Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Archon Cape",
-    }
+    sets.precast.WS['Aeolian Edge'].PROC = set_combine( sets.precast.WS.PROC, {})
 
-    sets.precast.WS['Cyclone'] = set_combine( sets.precast.WS['Aeolian Edge'], sets.TreasureHunter )
+    sets.precast.WS['Cyclone'] = set_combine( sets.precast.WS.PROC, sets.TreasureHunter )
+    sets.precast.WS["Cyclone"].PROC = set_combine( sets.precast.WS.PROC, sets.TreasureHunter)
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.precast.WS.PROC, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.precast.WS.PROC, {})
+	sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS.PROC, {})
+	sets.precast.WS['Flat Blade'] = set_combine(sets.precast.WS.PROC, {})
 
     sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
@@ -264,6 +266,7 @@ function init_gear_sets()
         right_ear="Skulker's Earring +1",
         ring1="Sroda Ring",
     })
+    sets.precast.WS["Savage Blade"].PROC = set_combine( sets.precast.WS.PROC, {})
 
     --------------------------------------
     -- Midcast sets
@@ -300,7 +303,7 @@ function init_gear_sets()
 		waist="Engraved Belt",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
         right_ring="Warp Ring",
         back=gear.capes.TP,
     }
@@ -325,11 +328,11 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-        head=gear.Empyrean.Head,
-        body="Malignance Tabard",
+        head="Duty Crown",
+		body="Duty Cyclas",
         hands=gear.Adhemar.Hands.B,
         legs="Gleti's Breeches",
-        feet="Malignance Boots",
+        feet="Duty Sollerets",
         ammo="Aurgelmir Orb +1",
         neck="Asn. Gorget +2",
         waist="Reiki Yotai",
@@ -337,7 +340,7 @@ function init_gear_sets()
         left_ear="Sherida Earring",
         right_ear="Skulker's Earring +1",
         left_ring="Gere Ring",
-        right_ring="Moonlight Ring",
+        right_ring=gear.rings['Moonlight R'],
     }
     sets.engaged.Acc = set_combine(sets.engaged, {})
 
@@ -346,12 +349,10 @@ function init_gear_sets()
     })
 
     sets.engaged.PDT = set_combine(sets.engaged, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Malignance Boots",
-        left_ring="Defending Ring",
+        feet="Duty Sollerets",
+        left_ring=gear.rings['Moonlight L'],
     })
 
     sets.engaged.MDT = set_combine(sets.engaged, {
@@ -361,7 +362,7 @@ function init_gear_sets()
         legs="Malignance Tights",
         feet="Malignance Boots",
         back=gear.capes.TP,
-        left_ring="Defending Ring",
+        left_ring=gear.rings['Moonlight L'],
     })
 
     sets.HP = {

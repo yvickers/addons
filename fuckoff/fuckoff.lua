@@ -14,6 +14,7 @@ local blackListedWords = T{
     string.char(0x81,0x9A),
     string.char(0x81,0x9C),
     '1%-99',
+    'Job Point*',
     'Job Point.*2100',
     'Job Point.*500',
     'JP.*2100',

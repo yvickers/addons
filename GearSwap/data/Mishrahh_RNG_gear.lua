@@ -1,10 +1,10 @@
 function user_job_setup()
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'AE', 'Arma', 'Ranged', }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Omen', 'Savage', 'AE', 'Arma', 'Ranged', }
     gear.weapons = {}
     gear.weapons['AE'] = {
         main='Tauret',
-        sub='Malevolence',
+        sub="Gleti's Knife",
         range="Sparrowhawk +2",
         ammo="Hauksbok Arrow",
     }
@@ -26,13 +26,18 @@ function user_job_setup()
         range="Sparrowhawk +2",
         ammo="Hauksbok Arrow",
     }
+    gear.weapons['Omen'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+        ammo="Coiste Bodhar",
+    }
     
-    state.MainWS = M{['description'] = 'Main Weaponskill', 'Decimation', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
+    state.MainWS = M{['description'] = 'Main Weaponskill', 'Cyclone', 'Savage Blade', 'Evisceration', 'Aeolian Edge', }
     state.Ammo = M{['description'] = 'Main Ammo', 'Chrono Arrow', 'Chrono Bullet', 'Quelling Bolt', }
 
     gear.Artifact = {}
     gear.Artifact.Head = "Orion Beret +3"
-    gear.Artifact.Body = "Orion Jerkin +1"
+    gear.Artifact.Body = "Orion Jerkin +3"
     gear.Artifact.Hands = "Orion Bracers +3"
     gear.Artifact.Legs = ""
     gear.Artifact.Feet = "Orion Socks +3"
@@ -53,15 +58,14 @@ function user_job_setup()
 
     gear.capes = {}
     gear.capes.DexTP = { name="Belenus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-    gear.capes.RNGTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
-    gear.capes.DexWS = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','DEX+10','Critical hit rate +10%',}}
-    gear.capes.PhysicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
-    gear.capes.PhysicalSTRWS = { name="Belenus's Cape", augments={'STR+20','Rng.Acc.+20 Rng.Atk.+20','STR+10','Weapon skill damage +10%',}}
+    gear.capes.DexWS = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','DEX+10','Crit.hit rate+10',}}
     gear.capes.MagicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
-    gear.capes.PhysicalMeleeWS = { name="Belenus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.capes.Snapshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
-    gear.capes.CritTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Critical hit rate +10%',}}
-    --gear.capes.VitWS = { name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+    gear.capes.PhysicalMeleeWS = { name="Belenus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+    gear.capes.PhysicalSTRWS = { name="Belenus's Cape", augments={'STR+20','Rng.Acc.+20 Rng.Atk.+20','STR+10','Weapon skill damage +10%',}}
+    gear.capes.PhysicalRangedWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
+    gear.capes.CritTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Crit.hit rate+10',}}
+    gear.capes.RNGTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
 
     --need str/ranged/wsd, dex/crit/ranged
 
@@ -104,7 +108,7 @@ function init_gear_sets()
     --------------------------------------
 
     -- Precast sets to enhance JAs
-    --sets.precast.JA['Collaborator'] =  {head="Raider's Bonnet +2" }
+    sets.precast.JA['Camouflage'] =  {body=gear.Artifact.Body }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = { }
@@ -115,14 +119,16 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-        head=gear.Herc.Head.TH,
-        hands="Leyline Gloves",
+        head={ name="Herculean Helm", augments={'"Fast Cast"+5','STR+1','Mag. Acc.+14',}},
+        body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        legs={ name="Rawhide Trousers", augments={'MP+50','"Fast Cast"+5','"Refresh"+1',}},
+        feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
         neck="Baetyl Pendant",
-        waist="Witful Belt",
-        left_ring="Weather. Ring +1",
-        right_ring="Lebeche Ring",
         left_ear="Loquac. Earring",
-        right_ear="Enchntr. Earring +1",
+        right_ear="Etiolation Earring",
+        left_ring="Weather. Ring +1",
+        right_ring="Medada's Ring",
     }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
@@ -265,6 +271,10 @@ function init_gear_sets()
         right_ring="Dingir Ring",
     })
 
+    sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged, {})
+
     sets.FullTP = {}
 
     --------------------------------------
@@ -282,7 +292,7 @@ function init_gear_sets()
         body="Ikenga's Vest",
         hands=gear.Empyrean.Hands,
         legs=gear.Empyrean.Legs,
-        feet="Ikenga's Clogs",
+        feet=gear.Relic.Feet,
         neck="Scout's Gorget +2",
         waist="Yemaya Belt",
         left_ear="Dedition Earring",
@@ -302,7 +312,7 @@ function init_gear_sets()
     sets.midcast.RA.DoubleShot = {
         head=gear.Relic.Head,
         body=gear.Relic.Body,
-        hands="Ohsosi Gloves +1",
+        hands="Oshosi Gloves +1",
         legs="Osh. Trousers +1",
         feet="Osh. Leggings +1",
         back=gear.capes.RNGTP,
@@ -321,7 +331,7 @@ function init_gear_sets()
         legs=gear.Empyrean.Legs,
         feet="Osh. Leggings +1",
         left_ear="Odr Earring",
-        right_ear="Amini Earring",
+        right_ear="Amini Earring +1",
         left_ring="Mummu Ring",
         right_ring="Begrudging Ring",
         waist="K. Kachina Belt +1",
@@ -330,11 +340,11 @@ function init_gear_sets()
     sets.midcast.RA.CriticalDoubleShot = {
         head=gear.Meghanada.Head,
         body=gear.Relic.Body,
-        hands="Ohsosi Gloves +1",
+        hands="Oshosi Gloves +1",
         legs="Osh. Trousers +1",
         feet="Osh. Leggings +1",
         left_ear="Odr Earring",
-        right_ear="Amini Earring",
+        right_ear="Amini Earring +1",
         left_ring="Mummu Ring",
         right_ring="Begrudging Ring",
         waist="K. Kachina Belt +1",
@@ -352,7 +362,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {
-        head=gear.Empyrean.Head,
+        head="Null Masque",
         body="Nyame Mail",
         hands=gear.Empyrean.Hands,
         legs=gear.Empyrean.Legs,
@@ -361,9 +371,9 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
-        back=gear.capes.DexTP,
+        back="Null Shawl",
     }
 
     sets.idle.Town = set_combine(sets.idle,{})
@@ -386,17 +396,17 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-        head="Null Masque",
+        head=gear.Adhemar.Head.B,
         body="Malignance Tabard",
-        hands=gear.Empyrean.Hands,
+        hands="Malignance Gloves",
         legs=gear.Empyrean.Legs,
         feet="Tatena. Sune. +1",
-        neck="Scout's Gorget +2",
-        waist="Sailfi Belt +1",
+        neck="Iskur Gorget",
+        waist="Windbuffet Belt +1",
         back=gear.capes.DexTP,
         left_ear="Sherida Earring",
         right_ear="Dedition Earring",
-        left_ring="Defending Ring",
+        left_ring=gear.rings['Chririch L'],
         right_ring="Epona's Ring",
     }
     sets.engaged.Acc = set_combine(sets.engaged, {
@@ -404,7 +414,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands=gear.Empyrean.Hands,
         feet="Malignance Boots",
-        right_ear="Dignitary Earring",
+        right_ear="Alabaster Earring",
         left_ring=gear.rings['Chririch L'],
         right_ring=gear.rings['Chririch R'],
     })
@@ -412,7 +422,11 @@ function init_gear_sets()
     sets.engaged.Evasion = set_combine(sets.engaged, {})
 
     sets.engaged.PDT = set_combine(sets.engaged, {
-        feet="Malignance Boots",
+        head="Malignance Chapeau",
+        hands=gear.Empyrean.Hands,
+        --feet="Malignance Boots",
+        waist="Sailfi Belt +1",
+        left_ring="Murky Ring",
     })
 
     sets.engaged.MDT = set_combine(sets.engaged, {

@@ -48,6 +48,7 @@ function sub_job_tick_SAM()
 	valid_weapons['Ichigohitofuri'] = true
 	valid_weapons['Caladbolg'] = true
 	valid_weapons['Apocalypse'] = true
+	valid_weapons['Trishula'] = true
 
 	if state.AutoBuffMode.current == 'on' and silent_check_fighting() and valid_weapons[player.equipment.main] then
 		local abil_recasts = windower.ffxi.get_ability_recasts()

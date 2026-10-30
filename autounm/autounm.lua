@@ -1,4 +1,4 @@
-_addon.name = "autounm4"
+_addon.name = "autounm"
 _addon.author = "Uwu/Darkdoom"
 _addon.version = "4.0"
 _addon.command = "unm"
@@ -34,7 +34,7 @@ local autounm = {
 
     ["Enabled"] = false,
 
-    ["Verbose"] = true,
+    ["Verbose"] = false,
 
     ["Timers"] = {
         ["PokeDelay"] = math.random(5,6),

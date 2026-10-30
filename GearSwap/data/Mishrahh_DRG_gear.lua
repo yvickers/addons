@@ -27,16 +27,16 @@ function user_job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
 	gear.Artifact.Body = ""
-	gear.Artifact.Hands = ""
-	gear.Artifact.Legs = ""
+	gear.Artifact.Hands = "Vis. Fng. Gaunt. +3"
+	gear.Artifact.Legs = "Vishap Brais +3"
 	gear.Artifact.Feet = ""
 
 	gear.Relic = {}
-	gear.Relic.Head = ""
+	gear.Relic.Head = "Ptero. Armet +3"
 	gear.Relic.Body = "Ptero. Mail +3"
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Hands = "Ptero. Fin. G. +3"
+	gear.Relic.Legs = "Ptero. Brais +3"
+	gear.Relic.Feet = "Ptero. Greaves +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Peltast's Mezail +3"
@@ -65,45 +65,41 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		head='Volte Cap',
-		hands=gear.Val.Hands.TH,
-		--body=gear.Val.Body.TH,
-		waist="Chaac Belt",
-		legs=gear.Val.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = gear.TH.Val
 
 	sets.precast.JA['Jump'] = {
 		ammo="Aurgelmir Orb +1",
-		head=gear.Flamma.Head,
+		head="Hjarrandi Helm",
 		body=gear.Relic.Body,
-		hands=gear.Flamma.Hands,
-		legs=gear.Empyrean.Legs,
+		hands=gear.Artifact.Hands,
+		legs=gear.Relic.Legs,
 		feet="Ostro Greaves",
 		neck="Vim Torque +1",
-		back=gear.capes.STP,
+		back="Null Shawl",
 		waist="Ioskeha Belt +1",
 		left_ear="Sherida Earring",
 		right_ear="Telos Earring",
-		left_ring="Petrov Ring",
-		right_ring="Niqmaddu Ring",
+		left_ring=gear.rings['Chririch L'],
+		right_ring=gear.rings['Chririch R'],
 	}
 	sets.precast.JA['High Jump'] = set_combine( sets.precast.JA['Jump'], {} )
 	sets.precast.JA['Spirit Jump'] = set_combine( sets.precast.JA['Jump'], {
+		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
 	} )
-	sets.precast.JA['Soul Jump'] = set_combine( sets.precast.JA['Jump'], {} )
+	sets.precast.JA['Soul Jump'] = set_combine( sets.precast.JA['Jump'], {
+		body=gear.Empyrean.Body,
+		hands="Gleti's Gauntlets",
+	} )
 
 	sets.precast.WS = {
 		ammo="Knobkierrie",
 		head=gear.Empyrean.Head,
 		body="Nyame Mail",
-		hands="Nyame Gauntlets",
+		hands=gear.Relic.Hands,
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Rep. Plat. Medal",
+		neck="Dgn. Collar +2",
 		waist="Sailfi Belt +1",
 		left_ear="Moonshade Earring",
 		right_ear="Thrud Earring",
@@ -120,28 +116,26 @@ function init_gear_sets()
 	sets.precast.WS['Sonic Thrust'] = set_combine( sets.precast.WS, {
 	} )
 	sets.precast.WS["Camlann's Torment"] = set_combine( sets.precast.WS, {
-		neck="Dgn. Collar +2",
-		left_ring="Niqmaddu Ring",
+		right_ring="Niqmaddu Ring",
+		left_ring="Sroda Ring",
 		waist="Fotia Belt",
 	} )
+
 	sets.precast.WS['Impulse Drive'] = set_combine( sets.precast.WS, {
-		left_ear="Moonshade Earring",
-		neck="Dgn. Collar +2",
-		left_ring="Begrudging Ring",
+		body="Gleti's Cuirass",
+		left_ring="Sroda Ring",
 		right_ring="Niqmaddu Ring",
+		back=gear.capes.StrCrit,
 	} )
  
 	sets.precast.WS['Stardiver'] = {
 		ammo="Coiste Bodhar",
-		head="Blistering Sallet +1",
-		body="Hjarrandi Breast.",
-		hands="Gleti's Gauntlets",
-		legs=gear.Empyrean.Legs,
-		feet="Gleti's Boots",
+		head=gear.Relic.Head,
+		hands=gear.Empyrean.Hands,
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		right_ear="Sherida Earring",
-		left_ring="Begrudging Ring",
+		left_ring="Sroda Ring",
 		right_ring="Niqmaddu Ring",
 		back=gear.capes.StrCrit,
 	}
@@ -153,7 +147,6 @@ function init_gear_sets()
 		hands="Gleti's Gauntlets",
 		legs=gear.Empyrean.Legs,
 		feet="Gleti's Boots",
-		neck="Dgn. Collar +2",
 		right_ear="Sherida Earring",
 		left_ring="Begrudging Ring",
 		right_ring="Niqmaddu Ring",
@@ -177,12 +170,12 @@ function init_gear_sets()
 		legs="Carmine Cuisses +1",
 		feet="Gleti's Boots",
 		neck="Bathy Choker +1",
-		waist="Engraved Belt",
+		waist="Carrier's Sash",
 		left_ear="Eabani Earring",
 		right_ear="Infused Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
 	})
@@ -194,37 +187,27 @@ function init_gear_sets()
 	sets.engaged = {
 		ammo="Coiste Bodhar",
 		head="Hjarrandi Helm",
-		body=gear.Empyrean.Body,
-		hands=gear.Empyrean.Hands,
-		legs=gear.Empyrean.Legs,
-		feet=gear.Empyrean.Feet,
-		neck="Dgn. Collar +2",
+		body="Gleti's Cuirass",
+		hands="Gleti's Gauntlets",
+		legs=gear.Relic.Legs,
+		feet=gear.Flamma.Feet,
+		neck="Vim Torque +1",
 		waist="Ioskeha Belt +1",
 		left_ear="Sherida Earring",
-		right_ear="Telos Earring",
-		left_ring="Chirich Ring +1",
+		right_ear="Dedition Earring",
+		left_ring="Petrov Ring",
 		right_ring="Niqmaddu Ring",
-		back=gear.capes.DexTP,
+		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
-		head="Hjarrandi Helm",
-		body="Gleti's Cuirass",
-		hands="Gleti's Gauntlets",
+		hands=gear.Empyrean.Hands,
 		legs="Gleti's Breeches",
-		feet="Gleti's Boots",
-		left_ring="Defending Ring",
-		right_ring="Moonlight Ring",
+		left_ring=gear.rings['Moonlight L'],
+		back=gear.capes.DexTP,
 	})
 
-	sets.engaged.MDT = set_combine(sets.engaged, {
-		head="Gleti's Mask",
-		body="Gleti's Cuirass",
-		hands="Gleti's Gauntlets",
-		legs="Gleti's Breeches",
-		feet="Gleti's Boots",
-		left_ring="Defending Ring",
-		right_ring="Moonlight Ring",
+	sets.engaged.MDT = set_combine(sets.engaged.PDT, {
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {

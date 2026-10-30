@@ -1,7 +1,7 @@
 function user_job_setup()
 	state.IdleMode:options( 'Normal', 'Refresh', 'Zeni' )
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Savage', 'Carn', 'Carn2' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Evisceration', 'Savage Blade', 'Mordant Rime', }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Carn', 'Default',  }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Mordant Rime', 'Aeolian Edge', }
 	gear.weapons['Default'] = {
 		main="Daybreak",
 		sub="Ammurapi Shield",
@@ -23,7 +23,7 @@ function user_job_setup()
 	gear.Artifact.Head = "Brioso Roundlet +4"
 	gear.Artifact.Body = "Brioso Justau. +3"
 	gear.Artifact.Hands = "Brioso Cuffs +4"
-	gear.Artifact.Legs = "Brioso Cannions +3"
+	gear.Artifact.Legs = "Brios. Cann. +4"
 	gear.Artifact.Feet = "Brioso Slippers +4"
 
 	gear.Relic = {}
@@ -31,7 +31,7 @@ function user_job_setup()
 	gear.Relic.Body = "Bihu Just. +4"
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
-	gear.Relic.Feet = "Bihu Slippers +3"
+	gear.Relic.Feet = "Bihu Slippers +4"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Fili Calot +3"
@@ -53,6 +53,12 @@ end
 function init_gear_sets()
 	sets.AutoBuff.sleep = {
 		main="Mpu Gandring",
+	}
+
+	sets.TreasureHunter = {
+		body="Volte Jupon",
+		legs="Volte Hose",
+		waist="Chaac Belt",
 	}
 
 	sets.Empyrean = {
@@ -139,8 +145,9 @@ function init_gear_sets()
 
 	sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS,{
 		range=gear.Linos.DEXCrit,
-		head={ name="Blistering Sallet +1", augments={'Path: A',}},
-		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		body="Revelation Plate.",
+		legs="Revelation Brais",
+		feet="Revelation Sab.",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Mache Earring +1",
@@ -189,7 +196,7 @@ function init_gear_sets()
 		left_ring="Metamor. Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Hermetic Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 	}
 
 	-- Dummy Song Instruments --
@@ -233,7 +240,7 @@ function init_gear_sets()
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Gersemi Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
 	sets.midcast.Lullaby.AOE = set_combine(sets.midcast.Lullaby,{
@@ -334,7 +341,7 @@ function init_gear_sets()
 		neck="Null Loop",
 		waist="Siegel Sash",
 		left_ear="Vor Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -361,14 +368,14 @@ function init_gear_sets()
 
 	sets.idle = {
 		range=gear.Linos.Idle,
-		head=gear.Empyrean.Head,
+		head="Null Masque",
 		body="Nyame Mail",
 		hands=gear.Empyrean.Hands,
 		legs=gear.Empyrean.Legs,
 		feet=gear.Empyrean.Feet,
 		neck="Bathy Choker +1",
 		waist="Carrier's Sash",
-		left_ear="Etiolation Earring",
+		left_ear="Alabaster Earring",
 		right_ear="Eabani Earring",
 		left_ring="Murky Ring",
 		right_ring="Warp Ring",
@@ -381,6 +388,7 @@ function init_gear_sets()
 	sets.idle.Regen = set_combine(sets.idle, {
 	})
 	sets.idle.Refresh = set_combine(sets.idle, {
+		head="Null Masque",
 		body=gear.Inyanga.Body,
 		hands=gear.Inyanga.Hands,
 		legs=gear.Inyanga.Legs,
@@ -389,22 +397,22 @@ function init_gear_sets()
 	})
 	sets.idle.Zeni = set_combine(sets.idle, {
 		range="Soultrapper 2000",
-		ammo="Blank Soulplate",
+		ammo="H.S. Soul Plate",
 	})
 
 	sets.engaged = {
 		range=gear.Linos.TP,
-		head="Blistering Sallet +1",
-		body=gear.Ayanmo.Body,
-		hands="Gazu Bracelets +1",
-		legs=gear.Empyrean.Legs,
-		feet="Volte Spats",
+		head="Bunzi's Hat",
+		body="Revelation Plate.",
+		hands="Bunzi's Gloves",
+		legs="Revelation Brais",
+		feet="Revelation Sab.",
 		neck="Bard's Charm +2",
-		waist="Kentarch Belt +1",
-		left_ear="Mache Earring +1",
+		waist="Sailfi Belt +1",
+		left_ear="Alabaster Earring",
 		right_ear="Telos Earring",
-		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
+		left_ring="Moonlight Ring",
+		right_ring="Moonlight Ring",
 		back="Null Shawl",
 	}
 
@@ -418,9 +426,11 @@ function init_gear_sets()
 	})
 
 	sets.latent_refresh = {
-		body=gear.Inyanga.Body,
-		hands=gear.Inyanga.Hands,
+		head="Null Masque",
+		body="Egbesu Frock",
+		hands="Egbesu Mitts",
 		legs="Volte Brais",
+		feet="Egbesu Clogs",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	}

@@ -25,17 +25,17 @@ function job_setup()
 
 	gear.Relic = {}
 	gear.Relic.Head = "Ankusa Helm +3"
-	gear.Relic.Body = "An. Jackcoat +1"
-	gear.Relic.Hands = "Ankusa Gloves +1"
-	gear.Relic.Legs = "Ankusa Trousers +1"
-	gear.Relic.Feet = "Ankusa Gaiters +1"
+	gear.Relic.Body = "An. Jackcoat +3"
+	gear.Relic.Hands = "Ankusa Gloves +3"
+	gear.Relic.Legs = "Ankusa Trousers +3"
+	gear.Relic.Feet = "Ankusa Gaiters +3"
 
 	gear.Artifact = {}
-	gear.Artifact.Head = "Totemic Helm +1"
-	gear.Artifact.Body = "Tot. Jackcoat +1"
+	gear.Artifact.Head = "Totemic Helm +3"
+	gear.Artifact.Body = "Tot. Jackcoat +3"
 	gear.Artifact.Hands = "Totemic Gloves +3"
 	gear.Artifact.Legs = "Totemic Trousers +1"
-	gear.Artifact.Feet = "Totemic Gaiters +1"
+	gear.Artifact.Feet = "Totemic Gaiters +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Nuk. Cabasset +1"
@@ -70,13 +70,12 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS['Decimation'] = set_combine( sets.precast.WS,{
-		body="Gleti's Cuirass",
-		hands="Gleti's Gauntlets",
-		legs="Gleti's Breeches",
-		feet=gear.Empyrean.Feet,
+		body="Duty Cyclas",
+		hands="Nyame Gauntlets",
+		legs="Duty Flanchard",
+		feet="Duty Sollerets",
 		neck="Fotia Gorget",
-		left_ear="Sherida Earring",
-		right_ear="Nukumi Earring +1",
+		left_ear="Hoxne Earring",
 	})
 	sets.precast.WS['Mistral Axe'] = set_combine( sets.precast.WS,{
 		left_ring="Epaminondas's Ring",
@@ -102,19 +101,23 @@ function init_gear_sets()
 		right_ring="Beithir Ring",
 	})
 
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged, {})
+
 	sets.idle = {
         ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
+        head="Duty Crown",
+		body="Duty Cyclas",
+		hands="Duty Gauntlets",
+		legs="Duty Flanchard",
+		feet="Duty Sollerets",
         neck="Warder's Charm +1",
         waist="Engraved Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Warp Ring",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back="Null Shawl",
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
@@ -126,21 +129,24 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-		head="Malignance Chapeau",
-		body="Gleti's Cuirass",
-		hands="Malignance Gloves",
-		legs="Gleti's Breeches",
-		feet="Malignance Boots",
+		head="Duty Crown",
+		body="Duty Cyclas",
+		hands="Duty Gauntlets",
+		legs="Duty Flanchard",
+		feet="Duty Sollerets",
 		neck="Anu Torque",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Sailfi Belt +1",
 		left_ear="Sherida Earring",
 		right_ear="Dedition Earring",
 		left_ring="Gere Ring",
-		right_ring="Moonlight Ring",
+		right_ring="Epona's Ring",
 		back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
+		waist="Windbuffet Belt +1",
+		right_ear="Alabaster Earring",
+		right_ring="Murky Ring",
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {

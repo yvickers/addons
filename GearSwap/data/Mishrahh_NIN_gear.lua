@@ -7,7 +7,7 @@ function user_job_setup()
 		sub="Kunimitsu",
 	}
 	gear.weapons['Tanking'] = {
-		main="Heishi Shorinken",
+		main="Naegling",
 		sub="Yagyu Darkblade",
 	}
 	gear.weapons['Savage'] = {
@@ -27,7 +27,7 @@ function user_job_setup()
 		sub="Uzura +2",
 	}
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Ten', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ei', 'Aeolin Edge', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Blade: Ten', 'Savage Blade', 'Blade: Chi', 'Blade: Ku', 'Blade: Ei', 'Aeolian Edge', }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 	state.NINStance = M{['description'] = 'Ninja Stance',  'None', 'Yonin', 'Innin', }
@@ -63,7 +63,7 @@ function user_job_setup()
 	gear.capes.StrDA = { name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 	gear.capes.MagicWSD = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Weapon skill damage +10%',}}
     gear.capes.FC = { name="Andartia's Mantle", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}}
-    gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+4','"Mag.Atk.Bns."+10',}}
+    gear.capes.Ninjutsu = { name="Andartia's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 
 --[[
 ^   Ctrl
@@ -90,7 +90,7 @@ function init_gear_sets()
 	sets.Enmity = {
 		ammo="Sapience Orb",
 		body="Emet Harness +1",
-		hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
+		--hands={ name="Macabre Gaunt. +1", augments={'Path: A',}},
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
 		feet=gear.Relic.Feet,
 		neck="Moonlight Necklace",
@@ -109,9 +109,9 @@ function init_gear_sets()
 
 	 sets.precast.FC = {
 	 	ammo="Impatiens",
-		head="Herculean Head",
+		head="Herculean Helm",
 		neck="Baetyl Pendant",
-		ear1="Enchntr. Earring +1",
+		ear1="Etiolation Earring",
 		ear2="Loquac. Earring",
 		--body="Dread Jupon",
 		hands="Leyline Gloves",
@@ -123,7 +123,7 @@ function init_gear_sets()
 	}
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
-    	neck="Magoraga Beads",
+    	--neck="Magoraga Beads",
     	--body="Passion Jacket",
     	feet=gear.Empyrean.Feet,
     } )
@@ -243,7 +243,7 @@ function init_gear_sets()
 	}
 
 	sets.midcast.SpellInterrupt = {
-        ammo="Staunch Tathlum", --10
+        ammo="Staunch Tathlum +1", --11
         --body=gear.Taeon_Phalanx_body, --10
         hands="Rawhide Gloves", --15
         --legs=gear.Taeon_Phalanx_legs, --10
@@ -279,7 +279,7 @@ function init_gear_sets()
 		back=gear.capes.Ninjutsu,
 		waist="Eschan Stone",
 		left_ear="Hnoss Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	}
@@ -293,7 +293,7 @@ function init_gear_sets()
 		neck="Sibyl Scarf",
 		back=gear.capes.Ninjutsu,
 		waist="Orpheus's Sash",
-		left_ear="Heacate's Earring",
+		left_ear="Hecate's Earring",
 		right_ear="Friomisi Earring",
 		left_ring="Dingir Ring",
 		right_ring="Metamor. Ring +1",
@@ -311,7 +311,7 @@ function init_gear_sets()
         back="Null Shawl",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
 	}
 	sets.idle.PDT = set_combine(sets.idle, {
@@ -343,7 +343,6 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
 	})
 
 	sets.engaged.MDT = set_combine(sets.engaged, {
@@ -352,7 +351,6 @@ function init_gear_sets()
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        left_ring="Defending Ring",
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {

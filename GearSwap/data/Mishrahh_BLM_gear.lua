@@ -33,9 +33,9 @@ function user_job_setup()
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Wicce Petasos +1"
+	gear.Empyrean.Head = "Wicce Petasos +3"
 	gear.Empyrean.Body = "Wicce Coat +3"
-	gear.Empyrean.Hands = "Wicce Gloves +1"
+	gear.Empyrean.Hands = "Wicce Gloves +3"
 	gear.Empyrean.Legs = "Wicce Chausses +3"
 	gear.Empyrean.Feet = "Wicce Sabots +3"
 
@@ -46,7 +46,7 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-    sets.TreasureHunter = {}
+    sets.TreasureHunter = gear.TH.Herc
 
 	sets.precast.JA['Manafont'] = {
         body=gear.Relic.Body,
@@ -90,7 +90,7 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS = {
-        ammo="Crepuscular Pebble",
+        ammo="Oshasha's Treatise",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -109,6 +109,34 @@ function init_gear_sets()
     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
         waist="Fotia Belt",
     })
+
+    sets.precast.WS['Cataclysm'] = set_combine(sets.precast.WS, {
+       ammo="Sroda Tathlum",
+        head="Pixie Hairpin",
+        hands="Jhakri Cuffs +2",
+        neck="Baetyl Pendant",
+        left_ear="Moonshade Earring",
+        right_ear="Malignance Earring",
+        right_ring="Epaminondas's Ring",
+        left_ring="Archon Ring",
+        waist="Orpheus's Sash",
+        back=gear.capes.Nuke,
+    })
+
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+        ammo="Sroda Tathlum",
+        head="Agwu's Cap",
+        hands="Jhakri Cuffs +2",
+        neck="Baetyl Pendant",
+        left_ear="Moonshade Earring",
+        right_ear="Malignance Earring",
+        right_ring="Epaminondas's Ring",
+        left_ring="Medada's Ring",
+        waist="Orpheus's Sash",
+        back=gear.capes.Nuke,
+    })
+
+    sets.precast.WS['Cyclone'] = set_combine(sets.TreasureHunter,{})
 
     sets.midcast.FastRecast = {}
     sets.midcast.Cure = {
@@ -140,7 +168,7 @@ function init_gear_sets()
         feet=gear.Empyrean.Feet,
         neck="Src. Stole +2",
         waist="Acuity Belt +1",
-        left_ear="Crep. Earring",
+        left_ear="Alabaster Earring",
         right_ear="Malignance Earring",
         left_ring="Kishar Ring",
         right_ring="Metamor. Ring +1",
@@ -197,7 +225,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Erra Pendant",
         waist="Acuity Belt +1",
-        left_ear="Crep. Earring",
+        left_ear="Alabaster Earring",
         right_ear="Malignance Earring",
         left_ring="Evanescence Ring",
         right_ring="Archon Ring",
@@ -216,7 +244,7 @@ function init_gear_sets()
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         left_ring="Warp Ring",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back="Moonlight Cape",
     }
     sets.idle.Regen = set_combine(sets.idle,{})

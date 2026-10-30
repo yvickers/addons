@@ -1,18 +1,31 @@
 function define_global_sets()
     sets.craft = {}
     sets.craft.skill = {
-        main="Aern Dagger",
-        sub="Ossifier's Ecu",
-        head="Protective Specs.",
-        body="Boneworker's Apn.",
-        neck="Bone. Torque",
-        left_ring="Artificer's Ring",
-        right_ring="Craftmaster's Ring",
+        --main="Aern Dagger",
+        --sub="Ossifier's Ecu",
+        --head="Protective Specs.",
+        --body="Boneworker's Apn.",
+        --neck="Bone. Torque",
+        --left_ring="Artificer's Ring",
+        --right_ring="Craftmaster's Ring",
     }
 
     sets.craft.skillup = set_combine(sets.craft.skill,{
-        head="Midras's Helm +1",
+        --head="Midras's Helm +1",
     })
+    sets.craft.fishing = {
+        ammo="Meatball",
+        range="Ebisu F. Rod +1",
+        head="Tlahtlamah Glasses",
+        body="Fisherman's Smock",
+        hands="Fsh. Gloves",
+        legs="Fisherman's Hose",
+        feet="Waders",
+        neck="Fisher's Torque",
+        left_ring="Puffin Ring",
+        right_ring="Noddy Ring",
+    }
+
 
     gear.Reive = { neck="Adoulin's Refuge +1" }
 
@@ -33,13 +46,13 @@ function define_global_sets()
     gear.Hiza = {}
     gear.Hiza.Head = "Hiza. Somen +2"
     gear.Hiza.Body = "Hiza. Haramaki +2"
-    gear.Hiza.Hands = "Hizamaru Kote +1"
+    gear.Hiza.Hands = "Hizamaru Kote +2"
     gear.Hiza.Legs = "Hiza. Hizayoroi +2"
-    gear.Hiza.Feet = "Hiza. Sune-Ate +1"
+    gear.Hiza.Feet = "Hiza. Sune-Ate +2"
 
     gear.Sulevia = {}
-    gear.Sulevia.Head = "Sulevia's Mask +1"
-    gear.Sulevia.Body = "Sulevia's Plate. +1"
+    gear.Sulevia.Head = "Sulevia's Mask +2"
+    gear.Sulevia.Body = "Sulevia's Plate. +2"
     gear.Sulevia.Hands = "Sulev. Gauntlets +2"
     gear.Sulevia.Legs = "Sulev. Cuisses +2"
     gear.Sulevia.Feet = "Sulev. Leggings +2"
@@ -80,11 +93,11 @@ function define_global_sets()
     gear.Taliah.Feet = "Tali'ah Crackows +2"
 
     gear.Mallquis = {}
-    gear.Mallquis.Head = "Mallquis Chapeau +1"
+    gear.Mallquis.Head = "Mallquis Chapeau +2"
     gear.Mallquis.Body = "Mallquis Saio +2"
-    gear.Mallquis.Hands = "Mallquis Cuffs +1"
-    gear.Mallquis.Legs = "Mallquis Trews +1"
-    gear.Mallquis.Feet = "Mallquis Clogs +1"
+    gear.Mallquis.Hands = "Mallquis Cuffs +2"
+    gear.Mallquis.Legs = "Mallquis Trews +2"
+    gear.Mallquis.Feet = "Mallquis Clogs +2"
 
     gear.Adhemar = {}
     gear.Adhemar.Head = {}
@@ -187,6 +200,8 @@ function define_global_sets()
     gear.rings['Moonlight R'] = {name="Moonlight Ring", priority=110, bag="wardrobe8"}
     gear.rings['Chririch L'] = {name="Chirich Ring +1", bag="wardrobe7"}
     gear.rings['Chririch R'] = {name="Chirich Ring +1", bag="wardrobe8"}
+    gear.rings['Varar L'] = {name="Varar Ring +1", bag="wardrobe7"}
+    gear.rings['Varar R'] = {name="Varar Ring +1", bag="wardrobe8"}
 end
 
 function elemental_belt_check(spell)

@@ -18,32 +18,37 @@ function job_setup()
 		main="Maxentius",
 		sub="Daybreak",
 	}
+
+	gear.weapons['Omen'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
 	
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Myrkr', 'Black Halo' }
+	state.MainWS = M{['description'] = 'Main Weaponskill',  'Cyclone', 'Myrkr', 'Black Halo' }
 
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
     state.AutoFightMode = M( true, "Auto Pet Fight" )
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
+	gear.Artifact.Head = "Convoker's Horn +3"
 	gear.Artifact.Body = "Con. Doublet +3"
 	gear.Artifact.Hands = ""
 	gear.Artifact.Legs = ""
 	gear.Artifact.Feet = ""
 
 	gear.Relic = {}
-	gear.Relic.Head = "Glypich Horn +3"
+	gear.Relic.Head = "Glyphic Horn +3"
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = ""
 	gear.Relic.Feet = ""
 
 	gear.Empyrean = {}
-	gear.Empyrean.Head = "Beckoner's Horn +2"
-	gear.Empyrean.Body = "Beck. Doublet +1"
+	gear.Empyrean.Head = "Beckoner's Horn +3"
+	gear.Empyrean.Body = "Beck. Doublet +3"
 	gear.Empyrean.Hands = "Beck. Bracers +1"
-	gear.Empyrean.Legs = "Beck. Spats +1"
-	gear.Empyrean.Feet = "Beck. Pigaches +2"
+	gear.Empyrean.Legs = "Beck. Spats +3"
+	gear.Empyrean.Feet = "Beck. Pigaches +3"
 
 	gear.capes = {}
 	gear.capes.SMNSkill = "Conveyance Cape"
@@ -54,7 +59,8 @@ function job_setup()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {}
+	sets.TreasureHunter = set_combine( gear.TH.Herc, {
+    } )
 
 	sets.precast.JA['Astral Flow'] = {
 		head=gear.Relic.Head
@@ -171,10 +177,10 @@ function init_gear_sets()
         back="Solemnity Cape",
     }
 	sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {
-        neck="Debilis Medallion",
+        --neck="Debilis Medallion",
         --hands="Hieros Mittens",
 		back="Oretan. Cape +1",
-        right_ring="Haoma's Ring",
+        --right_ring="Haoma's Ring",
         left_ring="Menelaus's Ring",
     })
 
@@ -219,7 +225,7 @@ function init_gear_sets()
 	})
 
 	sets.midcast['Enhancing Magic'] = {
-		main={ name="Gada", augments={'Pet: Haste+2','Pet: Phys. dmg. taken -2%','"Fast Cast"+4','DMG:+5',}},
+		main="Gada",
 		sub="Ammurapi Shield",
 		ammo="Pemphredo Tathlum",
 		head={ name="Telchine Cap", augments={'"Conserve MP"+5','Enh. Mag. eff. dur. +10',}},
@@ -240,7 +246,7 @@ function init_gear_sets()
 		head="Amalric Coif +1"
 	})
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
-		main="Vadose Rod",
+		--main="Vadose Rod",
 		--sub="Genmei Shield",
 		head="Amalric Coif +1",
 		--hands="Regal Cuffs",
@@ -368,7 +374,8 @@ function init_gear_sets()
 	} )
 
 	sets.latent_refresh = {
-		head="Null Masque",
+		head=gear.Artifact.Head,
+		body="Volte Doublet",
 		left_ring=gear.rings['Stikini L'],
 		right_ring=gear.rings['Stikini R'],
 	}
@@ -384,7 +391,7 @@ function init_gear_sets()
 		waist="Carrier's Sash",
 		left_ear="Etiolation Earring",
 		right_ear="Eabani Earring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 		right_ring="Warp Ring",
 		back="Moonlight Cape",
 	}
@@ -418,15 +425,15 @@ function init_gear_sets()
 
 	sets.engaged = {
 		ammo="Oshasha's Treatise",
-        head=gear.Empyrean.Head,
+        head="Blistering Sallet +1",
         body={ name="Nyame Mail", augments={'Path: B',}},
-        hands="Bunzi's Gloves",
+        hands="Gazu Bracelets +1",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet=gear.Empyrean.Feet,
+        feet="Nyame Sollerets",
         neck="Null Loop",
         waist="Null Belt",
         left_ear="Telos Earring",
-        right_ear="Digni. Earring",
+        right_ear="Alabaster Earring",
         left_ring=gear.rings['Chririch L'],
         right_ring=gear.rings['Chririch R'],
         back="Null Shawl",

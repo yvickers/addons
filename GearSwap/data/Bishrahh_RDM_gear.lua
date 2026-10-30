@@ -73,7 +73,7 @@ function init_gear_sets()
 		hands=gear.Ayanmo.Hands,
 		legs="Psycloth Lappas",
 		feet=gear.Ayanmo.Feet,
-		neck="Voltsurge Torque",
+		neck="Orunmila's Torque",
 		waist="Embla Sash",
 		left_ear="Loquac. Earring",
 		right_ear="Leth. Earring +1",

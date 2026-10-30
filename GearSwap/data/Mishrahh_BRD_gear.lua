@@ -1,6 +1,6 @@
 function user_job_setup()
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Dagger', 'Sword', }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Energy Drain', 'Wasp Sting', 'Mordant Rime', 'Savage Blade', }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Dagger', 'Sword', 'Default', }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Mordant Rime', 'Savage Blade', }
 	gear.weapons['Default'] = {
 		main="Daybreak",
 		sub="Genmei Shield",
@@ -44,6 +44,7 @@ function user_job_setup()
 	gear.capes.Idle = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Enmity-10','Mag. Evasion+15',}}
 	gear.capes.IMBARD = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}}
 	gear.capes.STRWS = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.capes.CHRWS = { name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%',}}
 	gear.capes.DEXWSD = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
 	gear.Linos = {}
@@ -143,6 +144,18 @@ function init_gear_sets()
 		back=gear.capes.DEXWSD,
 	})
 
+	sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS,{
+		body="Nyame Mail",
+		neck="Baetyl Pendant",
+		waist="Orpheus's Sash",
+		back=gear.capes.DEXWSD,
+		right_ear="Friomisi Earring",
+		left_ring="Medada's Ring",
+	})
+
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+
 	sets.midcast.FastRecast = {}
 
 	-- General Song sets --
@@ -174,20 +187,20 @@ function init_gear_sets()
 		left_ring="Metamor. Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Digni. Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 	}
 
 	-- Dummy Song Instruments --
 	sets.midcast.DummySong = {
 		main="Kali",
 		sub="Ammurapi Shield",
-		range="Terpander",
+		range="Daurdabla",
 		--swap in items that don't extend duration to prevent overwriting with lag
-		head=gear.Ayanmo.Head,
-		body=gear.Ayanmo.Body,
-		hands=gear.Ayanmo.Hands,
-		legs=gear.Ayanmo.Legs,
-		feet=gear.Ayanmo.Feet,
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
 		neck="Null Loop",
 		back="Null Shawl",
 	}
@@ -219,11 +232,11 @@ function init_gear_sets()
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		left_ear="Digni. Earring",
-		right_ear="Crep. Earring",
+		right_ear="Alabaster Earring",
 	}
 	sets.midcast.Lullaby.Resistant = set_combine(sets.midcast.Lullaby,{})
 	sets.midcast.Lullaby.AOE = set_combine(sets.midcast.Lullaby,{
-		range="Terpander",
+		range="Daurdabla",
 		hands=gear.Inyanga.Hands,
 	})
 	sets.midcast['Horde Lullaby'] = set_combine(sets.midcast.Lullaby.AOE,{})
@@ -311,7 +324,7 @@ function init_gear_sets()
 		neck="Bard's Charm +2",
 		waist="Reiki Yotai",
 		left_ear="Telos Earring",
-		right_ear="Cessance Earring",
+		right_ear="Alabaster Earring",
 		left_ring=gear.rings['Moonlight L'],
 		right_ring=gear.rings['Moonlight R'],
 		back="Null Shawl",--gear.capes.TP,

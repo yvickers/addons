@@ -26,6 +26,10 @@ function job_setup()
 		main="Loxotic Mace +1",
 		sub="Blurred Shield +1",
 	}
+	gear.weapons['Omen'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
 	
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Catastrophe', 'Torcleaver', 'Savage Blade', 'Mace' }
 
@@ -34,22 +38,22 @@ function job_setup()
 	gear.Artifact = {}
 	gear.Artifact.Head = "Ig. Burgeonet +3"
 	gear.Artifact.Body = "Ignominy Cuirass +3"
-	gear.Artifact.Hands = ""
+	gear.Artifact.Hands = "Igno. Gauntlets +3"
 	gear.Artifact.Legs = "Ig. Flanchard +3"
-	gear.Artifact.Feet = ""
+	gear.Artifact.Feet = "Igno. Sollerets +3"
 
 	gear.Relic = {}
 	gear.Relic.Head = "Fall. Burgeonet +3"
-	gear.Relic.Body = ""
+	gear.Relic.Body = "Fall. Cuirass +3"
 	gear.Relic.Hands = "Fall. Fin. Gaunt. +3"
 	gear.Relic.Legs = "Fall. Flanchard +3"
-	gear.Relic.Feet = ""
+	gear.Relic.Feet = "Fall. Sollerets +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Heath. Bur. +3"
-	gear.Empyrean.Body = "Heath. Cuirass +1"
-	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = "Heath. Flanchard +1"
+	gear.Empyrean.Body = "Heath. Cuirass +3"
+	gear.Empyrean.Hands = "Heath. Gauntlets +3"
+	gear.Empyrean.Legs = "Heath. Flanchard +3"
 	gear.Empyrean.Feet = "Heath. Sollerets +3"
 
 	gear.capes = {}
@@ -150,12 +154,16 @@ function init_gear_sets()
 		back=gear.capes.VITWS,
 	})
 
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged, {})
+
 	sets.midcast['Dark Magic'] = {
 		ammo="Pemphredo Tathlum",
 		head=gear.Artifact.Head,
 		neck="Erra Pendant",
-		ear1="Mani Earring",
-		ear2="Dark Earring",
+		--ear1="Mani Earring",
+		--ear2="Dark Earring",
 		body="Carm. Sc. Mail +1",
 		hands=gear.Relic.Hands,
 		ring1="Stikini Ring +1",
@@ -203,16 +211,16 @@ function init_gear_sets()
 		feet="Rat. Sollerets +1"
 	})
 	sets.midcast.Absorb.Resistant = set_combine(sets.midcast['Dark Magic'], {
-		main="Liberator",
-		sub="Khonsu",
-		range="Ullr",
+		--main="Liberator",
+		--sub="Khonsu",
+		--range="Ullr",
 	})
            
 	sets.midcast.Stun = {}
                    
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {})
 	
-	sets.DrainWeapon = {main="Misanthropy",sub="Alber Strap"}
+	--sets.DrainWeapon = {main="Misanthropy",sub="Alber Strap"}
                    
 	sets.midcast.Aspir = sets.midcast.Drain
 	
@@ -229,7 +237,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
         back="Null Shawl",
 	}

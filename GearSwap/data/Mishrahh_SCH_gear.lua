@@ -25,17 +25,17 @@ function user_job_setup()
 
 	gear.Artifact = {}
 	gear.Artifact.Head = "Acad. Mortar. +3"
-	gear.Artifact.Body = "Acad. Gown +2"
-	gear.Artifact.Hands = "Acad. Bracers +2"
-	gear.Artifact.Legs = "Acad. Pants +2"
-	gear.Artifact.Feet = "Acad. Loafers +2"
+	gear.Artifact.Body = "Acad. Gown +3"
+	gear.Artifact.Hands = "Acad. Bracers +3"
+	gear.Artifact.Legs = "Acad. Pants +3"
+	gear.Artifact.Feet = "Acad. Loafers +3"
 
 	gear.Relic = {}
-	gear.Relic.Head = "Peda. M.Board +2"
+	gear.Relic.Head = "Peda. M.Board +3"
 	gear.Relic.Body = "Peda. Gown +3"
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Hands = "Peda. Bracers +3"
+	gear.Relic.Legs = "Peda. Pants +3"
+	gear.Relic.Feet = "Peda. Loafers +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Arbatel Bonnet +3"

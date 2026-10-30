@@ -29,15 +29,16 @@ htmb_map = T{
     [15] = {name = 'Moonlit Path phantom gem',     cost = 10},
     -- page 2
     [16] = {name = 'Waking the Beast phantom gem', cost = 10},
-    [17] = {name = 'Waking Dream phantom gem',     cost = 10},
+    [17] = {name = 'Waking Dreams phantom gem',     cost = 10},
     [18] = {name = 'Feared One phantom gem',       cost = 10},
     [19] = {name = 'Dawn phantom gem',             cost = 10},
     [20] = {name = 'Stygian Pact phantom gem',     cost = 10},
     [21] = {name = 'Champion phantom gem',         cost = 10},
     [22] = {name = 'Divine phantom gem',           cost = 10},
     [23] = {name = 'Maiden phantom gem',           cost = 10},
-    [24] = {name = 'Wyrm God phantom gem',         cost = 30},
+    [24] = {name = 'Wyrm God phantom gem',         cost = 10},
     [25] = {name = 'Orb of Radiance phantom gem',  cost = 30},
+    [26] = {name = 'Ode of Life Bestowing phantom gem', cost = 30},
 }
 
 htmb_npcs = {

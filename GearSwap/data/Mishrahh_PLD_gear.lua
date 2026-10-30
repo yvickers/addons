@@ -1,6 +1,6 @@
 function user_job_setup()
 	state.OffenseMode:options( 'Tank', 'Melee', 'NinetyNine' )
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Mace', 'Calad', 'Naegling' }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'Omen', 'Mace', 'Calad', 'Naegling' }
 	gear.weapons = {}
 	gear.weapons['Default'] = {
 		main="Sakpata's Sword",
@@ -21,8 +21,12 @@ function user_job_setup()
 		main="Caladbolg",
 		sub="Rigorous Grip +1",
 	}
+	gear.weapons['Omen'] = {
+        main="Aern Dagger",
+        sub="Aern Dagger II",
+    }
 
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Hexa Strike', 'Torcleaver', 'Chant du Cygne' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Cyclone', 'Savage Blade', 'Hexa Strike', 'Torcleaver', 'Chant du Cygne' }
 
 	gear.Artifact = {}
 	gear.Artifact.Head = ""
@@ -204,15 +208,20 @@ function init_gear_sets()
 		left_ring="Regal Ring",
 		right_ring="Begrudging Ring",
 	})
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged.Melee, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged.Melee, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged.Melee, {})
+	sets.precast.WS['Burning Blade'] = set_combine(sets.engaged.Melee, {})
+	sets.precast.WS['Flat Blade'] = set_combine(sets.engaged.Melee, {})
 
 	sets.midcast.SpellInterrupt = {
 		ammo={name="Staunch Tathlum +1",}, --11
 		head={name="Souv. Schaller +1",priority=280}, --20
+		body=gear.Empyrean.Body,--15
 		legs={name="Founder's Hose",priority=54}, --30
 		hands={name="Regal Gauntlets",priority=205}, --10
 		feet={name="Odyssean Greaves",priority=20}, --27
 		--only use these below if you need to shore up a difference
-		--body=gear.Empyrean.Body,--15
 		--neck={name="Moonlight Necklace",}, --15
 		--left_ear={ name="Nourish. Earring +1", augments={'Path: A',}, },
 		--right_ear={name="Halasz Earring",},
@@ -305,7 +314,7 @@ function init_gear_sets()
 		neck={name="Unmoving Collar +1", priority=200},
 		waist={name="Plat. Mog. Belt", priority=300},
 		left_ear={name="Tuisto Earring", priority=150},
-		right_ear={name="Eabani Earring", priority=45},
+		right_ear={name="Alabaster Earring", priority=100},
 		left_ring={name="Moonlight Ring",priority=110},
 		right_ring={name="Moonlight Ring",priority=110},
 		back=gear.capes.Block,
@@ -354,15 +363,6 @@ function init_gear_sets()
 	})
 
 	sets.engaged.Acc = set_combine(sets.engaged, {
-	})
-
-	sets.engaged.NinetyNine = set_combine(sets.engaged, {
-		head="Perle Salade",
-		body="Perle Salade",
-		hands="Perle Salade",
-		legs="Perle Salade",
-		feet="Perle Salade",
-		back="Solemnity Cape",
 	})
 	
 	sets.AutoBuff.Sleep = {}

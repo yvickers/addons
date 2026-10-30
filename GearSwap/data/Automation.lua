@@ -38,7 +38,7 @@ function register_ticks()
 	petWillAct = 0
 
 	spell_latency = nil
-	tickdelay = os.clock() + 1
+	tickdelay = os.clock() + 2
 	style_delay = os.clock() + 15
 	
 	if spell_latency == nil then

@@ -260,6 +260,9 @@ function init_gear_sets()
 	sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {
 		body=gear.Empyrean.Body
 	})
+	sets.precast.RA = {
+		range="Chakram",
+	}
 
 	sets.midcast.FastRecast = set_combine(sets.precast.FC, {
 		--ammo="Hasty Pinion +1",
@@ -325,7 +328,7 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		body=gear.Relic.Body,
 		neck="Mirage Stole +2",
-		left_ear="Digni. Earring",
+		left_ear="Alabaster Earring",
 		right_ear="Hashi. Earring +2",
 		left_ring="Stikini Ring +1",
 		right_ring="Medada's Ring",
@@ -343,7 +346,7 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		neck="Mirage Stole +2",
 		--ear1="Regal Earring",
-		ear2="Digni. Earring",
+		ear2="Alabaster Earring",
 		--hands="Regal Cuffs",
 		ring2="Stikini Ring +1",
 		--waist="Luminary Sash",
@@ -608,7 +611,7 @@ function init_gear_sets()
 	})
 	sets.idle.Zeni = set_combine(sets.idle, {
 		range="Soultrapper 2000",
-		ammo="Blank Soulplate",
+		ammo="H.S. Soul Plate",
 	})
 
 --ENGAGED SETS
@@ -802,7 +805,7 @@ end
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
     -- Check that ranged slot is locked, if necessary
-    check_range_lock()
+    --check_range_lock()
 end
 
 -- Custom spell mapping.

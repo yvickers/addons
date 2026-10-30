@@ -251,6 +251,12 @@ windower.register_event('addon command', function(...)
             local id = windower.ffxi.get_player().id
             windower.send_ipc_message('follow '..id)
         end
+    elseif mode == 'attack' then
+        local target = windower.ffxi.get_mob_by_target('t')
+        if target and target.spawn_type == 16 then
+            send_ipc_message_delay:schedule(1, 'attack on '..tostring(target.id))
+            log('Sending attack command on ' .. tostring(target.id))
+        end
     else
         -- error
         log(help_text)
@@ -269,17 +275,20 @@ windower.register_event('prerender', function()
         local target = windower.ffxi.get_mob_by_target('t')
 
         if player.status == player_status['Engaged'] then
-            if not player.target_locked then
-                windower.send_command('input /lockon')
-            end
             if not is_facing_target( player, target ) then
                 face_target( player, target )
             end
             --equates to 3.2 to 10 yalms, 3.2 should be max melee distance, but it is not exact
             if target.distance > (10.24 + target.model_size ) and target.distance < 100 then
+                if not player.target_locked then
+                    windower.send_command('input /lockon')
+                end
                 windower.ffxi.follow(player.target_index)
             elseif target.distance < (10.24 + target.model_size ) then
                 windower.ffxi.run(false)
+                if player.target_locked then
+                    windower.send_command('input /lockon')
+                end
             end       
         end
         return

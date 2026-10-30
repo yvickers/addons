@@ -57,7 +57,7 @@ do
         equip_delay=2, move_delay=0, cast_attempt_delay=3, cast_attempt_max=3,
         release_delay=3, catch_delay_min=3, catch_delay_override=0, recast_delay=3,
         fatigue_start=os.date('!%Y-%m-%d', os.time() + 9 * 60 * 60), fatigue_count=0,
-        no_hook_max=20, debug_messages=false, alert_command='',
+        no_hook_max=20, debug_messages=true, alert_command='',
     }
 
     local function load_settings(character)

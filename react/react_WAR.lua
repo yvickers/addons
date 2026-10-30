@@ -4,11 +4,19 @@ return {
             ["complete_reaction"]="facemob",
             ["ready_reaction"]="turnaround",
         },
+        ["Stone Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
         ["Petrifaction"]={
             ["complete_reaction"]="facemob",
             ["ready_reaction"]="turnaround",
         },
         ["Impaling Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
+        },
+        ["Imparing Disregard"]={
             ["complete_reaction"]="turnaround",
             ["ready_reaction"]="facemob",
         }
@@ -18,6 +26,10 @@ return {
             ["complete_reaction"]="facemob",
             ["ready_reaction"]="turnaround",
         },
+        ["Boulder Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
         ["Petrifaction"]={
             ["complete_reaction"]="facemob",
             ["ready_reaction"]="turnaround",
@@ -25,10 +37,18 @@ return {
         ["Impaling Disregard"]={
             ["complete_reaction"]="turnaround",
             ["ready_reaction"]="facemob",
+        },
+        ["Imparing Disregard"]={
+            ["complete_reaction"]="turnaround",
+            ["ready_reaction"]="facemob",
         }
     },
     ["Bozzetto Frigg"] = {
         ["Luxurious Dance"]={
+            ["complete_reaction"]="facemob",
+            ["ready_reaction"]="turnaround",
+        },
+        ["Raqs Baladi Dance"]={
             ["complete_reaction"]="facemob",
             ["ready_reaction"]="turnaround",
         },

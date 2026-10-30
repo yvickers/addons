@@ -4,8 +4,8 @@ function user_job_setup()
 	state.Bullet = M{['description']='Bullet', 'Living Bullet', 'Chrono Bullet', }
     state.QDBullet = M{['description']='Quick Draw Bullet', 'Hauksbok Bullet'}
 
-    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'AE Death Penalty', 'Fomalhaut', 'Tauret', 'Zeni', 'Onion', 'ACC' }
-	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Last Stand', 'Aeolian Edge', 'Hot Shot', 'Evisceration', 'Fast Blade II' }
+    state.Weapons = M{['description'] = 'Weapon Setup', 'Savage', 'Death Penalty', 'AE Death Penalty', 'Fomalhaut', 'Tauret', 'Zeni', 'Onion' }
+	state.MainWS = M{['description'] = 'Main Weaponskill', 'Savage Blade', 'Leaden Salute', 'Aeolian Edge', 'Last Stand', 'Evisceration', 'Fast Blade II' }
     state.CompensatorMode = M{['description'] = 'Compensator Mode', 'Always', 'Never','300','1000',}
 
 	gear.Artifact = {}
@@ -270,6 +270,8 @@ function init_gear_sets()
         waist="Elanid Belt",
     }
 
+    sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged.Melee, {})
+
     sets.midcast.CorsairShot = {
         head=gear.Empyrean.Head,
         body=gear.Relic.Body,
@@ -286,7 +288,7 @@ function init_gear_sets()
     }
 
     sets.midcast.CorsairShot['Light Shot'] = set_combine( sets.midcast.CorsairShot,{
-        body=gear.Empyrean.Body,
+        body=gear.Empyrean.Body,  
         hands=gear.Empyrean.Hands,
         --neck="Sanctity Necklace",
         --back=gear.capes.QDTPCape,
@@ -358,7 +360,7 @@ function init_gear_sets()
     }
     sets.idle.Zeni = set_combine(sets.idle, {
 		range="Soultrapper 2000",
-		ammo="Blank Soulplate",
+		ammo="H.S. Soul Plate",
 	})
     sets.idle.Regain = set_combine(sets.idle, {
         neck="Rep. Plat. Medal",

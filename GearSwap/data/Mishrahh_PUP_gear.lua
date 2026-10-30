@@ -28,55 +28,47 @@ function user_job_setup()
 	state.MainWS = M{['description'] = 'Main Weaponskill', 'Shijin Spiral', 'Victory Smite' }
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
-	gear.Artifact.Body = ""
+	gear.Artifact.Head = "Foire Taj +3"
+	gear.Artifact.Body = "Foire Tobe +3"
 	gear.Artifact.Hands = "Foire Dastanas +3"
-	gear.Artifact.Legs = ""
-	gear.Artifact.Feet = ""
+	gear.Artifact.Legs = "Foire Churidars +3"
+	gear.Artifact.Feet = "Foire Babouches +3"
 
 	gear.Relic = {}
-	gear.Relic.Head = ""
+	gear.Relic.Head = "Pitre Taj +3"
 	gear.Relic.Body = "Pitre Tobe +3"
-	gear.Relic.Hands = ""
-	gear.Relic.Legs = ""
-	gear.Relic.Feet = ""
+	gear.Relic.Hands = "Pitre Dastanas +3"
+	gear.Relic.Legs = "Pitre Churidars +3"
+	gear.Relic.Feet = "Pitre Babouches +3"
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = "Kara. Capello +3"
 	gear.Empyrean.Body = "Kara. Farsetto +3"
-	gear.Empyrean.Hands = ""
-	gear.Empyrean.Legs = ""
-	gear.Empyrean.Feet = ""
+	gear.Empyrean.Hands = "Karagoz Guanti +3"
+	gear.Empyrean.Legs = "Kara. Pantaloni +3"
+	gear.Empyrean.Feet = "Karagoz Scarpe +3"
 
 	gear.capes = {}
 	gear.capes.BothTP = { name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Accuracy+10','Pet: Haste+10','Pet: Damage taken -5%',}}
 	gear.capes.MasterTP = { name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-	gear.capes.MasterDexWS = { name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
+	gear.capes.MasterDexWS = gear.capes.MasterTP
 	gear.capes.MasterSTRWS = { name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10',}}
 	gear.capes.AutomatonTP = gear.capes.BothTP
 
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {
-		--ammo="Per. Lucky Egg",
-		--head='Volte Cap',
-		--hands=gear.Relic.Hands,
-		-- body=gear.Herc.Body.TH,
-		--waist="Chaac Belt",
-		--legs=gear.Herc.Legs.TH,
-		--feet=gear.Empyrean.Feet
-	}
+	sets.TreasureHunter = gear.TH.Herc
 
 	sets.precast.JA['Overdrive'] = {
 		body=gear.Relic.Body,
 	}
 	sets.precast.JA['Tactical Switch'] = {
-		--feet=gear.Empyrean.Feet,
+		feet=gear.Empyrean.Feet,
 	}
     sets.precast.JA['Repair'] = {
-		ammo="Automat. Oil +3"
-		--feet=gear.Artifact.Feet,
+		ammo="Automaton Oil",
+		feet=gear.Artifact.Feet,
 	}
 	sets.precast.JA['Maintenance'] = sets.precast.JA['Repair']
 	sets.precast.JA.Maneuver = {
@@ -86,7 +78,7 @@ function init_gear_sets()
 	}
 
 	sets.precast.FC = {
-		head={ name="Herculean Helm", augments={'"Fast Cast"+5','STR+1','Mag. Acc.+14',}},
+		head="Herculean Helm",
 		body={ name="Taeon Tabard", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Malignance Gloves",
 		legs={ name="Rawhide Trousers", augments={'MP+50','"Fast Cast"+5','"Refresh"+1',}},
@@ -137,14 +129,14 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Warp Ring",
         back=gear.capes.BothTP,
 	}
 
 	sets.idle.Pet = set_combine(sets.idle,{
 		waist="Isa Belt",
-		right_ear="Burana Earring",
+		right_ear="Kara. Earring +1",
 	})
 	
 	sets.idle.Pet.Engaged = {
@@ -157,8 +149,8 @@ function init_gear_sets()
 		waist="Incarnation Sash",
 		left_ear="Enmerkar Earring",
 		right_ear="Domes. Earring",
-		left_ring="Varar Ring +1",
-		right_ring="Tali'ah Ring",
+		left_ring=gear.rings['Varar L'],
+		right_ring=gear.rings['Varar R'],
 		back=gear.capes.AutomatonTP,
 	}
 	--'Overdrive', 'Ranger', 'BruiserTank', 'TurtleTank', 'HarlequinTank', 'SharpshotTank', 'BoneSlayer', 'WhiteMage', 'RedMage', 'BlackMage' }
@@ -181,25 +173,25 @@ function init_gear_sets()
 	sets.idle.Pet.Engaged.SharpshotTank = sets.idle.Pet.Engaged.BruiserTank
 
 	sets.engaged = {
-		head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
+		head="Duty Crown",
+		body="Duty Cyclas",
+        hands=gear.Empyrean.Hands,
         legs="Malignance Tights",
-        feet="Malignance Boots",
+        feet="Duty Sollerets",
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
-        left_ear="Mache Earring +1",
+        left_ear="Dedition Earring",
         right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back=gear.capes.MasterTP,
+        back="Null Shawl",
 	}
 
 	sets.engaged.PDT = set_combine(sets.engaged, {
 	})
 
 	sets.engaged.Pet = set_combine(sets.engaged, {
-		feet="Mpaca's Boots",
+		feet="Duty Sollerets",
 		back="Null Shawl",
 		right_ear="Kara. Earring +1",
 	})

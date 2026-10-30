@@ -959,27 +959,28 @@ function mobDisplay.Get()
             }
 
             if(resultsTable)then
-
+                --[[]
                 local resultString = table.concat(resultsTable)
-
+                
                 if(resultString ~= nil)then
-
+                
                     local t = string.match(resultString,'Item.sales = (.-);')
                     local sales = string.gmatch(t,"{(.-)}")
-
+                    
                     local priceTable = T{}
-
+                    
                     for word in sales do
-
+                        
                         priceTable:insert(string.match(word,'"price":(%d+),'))
-
+                        
                     end
-
+                    
                     local avgStackPrice = average(priceTable)
                     
                     self[name]["Pop Price"] = "("..playerServer..")".." "..insertCommas(tostring(round(avgStackPrice,0))).."g".."/12"
-
+                
                 end
+                ]]--
 
             end
 

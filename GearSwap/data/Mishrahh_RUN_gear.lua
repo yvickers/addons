@@ -5,7 +5,7 @@ function user_job_setup()
 	state.WeaponskillMode:options( 'Normal', 'Acc' )
 	state.IdleMode:options( 'Normal', 'PDT', 'MDT', 'Regen' )
 
-	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'MEVA', 'DD',  }
+	state.Weapons = M{['description'] = 'Weapon Setup', 'Default', 'MEVA', 'DD', }
 	gear.weapons = {}
 	gear.weapons['GAXE'] = {
 		main="Lycurgos",
@@ -41,7 +41,7 @@ function user_job_setup()
 	state.AutoBuffMode = M( true, "Automatic Buffs" )
 
 	gear.Artifact = {}
-	gear.Artifact.Head = ""
+	gear.Artifact.Head = {name="Rune. Bandeau +3",priority=109}
 	gear.Artifact.Body = {name="Runeist Coat +3",priority=218}
 	gear.Artifact.Hands = {name="Runeist Mitons +3",priority=85}
 	gear.Artifact.Legs = ""
@@ -52,12 +52,12 @@ function user_job_setup()
 	gear.Relic.Body = ""
 	gear.Relic.Hands = ""
 	gear.Relic.Legs = {name="Futhark Trousers +3",priority=107}
-	gear.Relic.Feet = {name="Futhark Boots +2",priority=13}
+	gear.Relic.Feet = {name="Futhark Boots +3",priority=13}
 
 	gear.Empyrean = {}
 	gear.Empyrean.Head = {name="Erilaz Galea +3",priority=91}
 	gear.Empyrean.Body = {name="Erilaz Surcoat +3",priority=123}
-	gear.Empyrean.Hands = ""
+	gear.Empyrean.Hands = {name="Erilaz Gauntlets +3",priority=59}
 	gear.Empyrean.Legs = {name="Eri. Leg Guards +3",priority=100}
 	gear.Empyrean.Feet = {name="Erilaz Greaves +3",priority=48}
 
@@ -65,8 +65,8 @@ function user_job_setup()
 	gear.capes.ParryTank = { name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Parrying rate+5%',},priority=60}
 	gear.capes.DexWS = { name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 	gear.capes.Utility = { name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',},priority=60}
-	gear.capes.VitWS = { name="Ogma's Cape", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}, priority=60}
-	gear.capes.STRDA = { name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','VIT+10','"Dbl.Atk."+10',}, priority=60}
+	--gear.capes.VitWS = { name="Ogma's Cape", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}, priority=60}
+	gear.capes.STRDA = { name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}, priority=60}
 
 --[[
 ^   Ctrl
@@ -82,7 +82,8 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-	sets.TreasureHunter = {}
+	sets.TreasureHunter = set_combine( gear.TH.Herc, {
+    } )
 	sets.SIRD = {
 		ammo="Staunch Tathlum +1", --11
 		head=gear.Empyrean.Head, --20
@@ -92,7 +93,7 @@ function init_gear_sets()
 		body={name="Nyame Mail",priority=91},
 		--hands={name="Rawhide Gloves",priority=75},--15
 		hands={name="Regal Gauntlets",priority=205},--10
-		left_ring={name="Defending Ring",priority=0},
+		left_ring={name="Murky Ring",priority=0}, --3
 		right_ring={name="Gelatinous Ring +1",priority=110},
 		back=gear.capes.Utility,--10
 		waist={name="Audumbla Sash",priority=0},--10
@@ -163,7 +164,7 @@ function init_gear_sets()
 
 	sets.precast.FC = {
 		ammo="Impatiens", --2
-		head={name="Carmine Mask +1", priority=38}, --14
+		head=gear.Artifact.Head, --14
 		neck="Baetyl Pendant", --4
 		left_ear={name="Etiolation Earring", priority=50}, --1
 		body=gear.Empyrean.Body,--10
@@ -191,7 +192,7 @@ function init_gear_sets()
         back=gear.capes.DexWS,
 	}
     sets.precast.WS['Dimidiation'] = set_combine(sets.precast.WS,{
-		ammo="Knobkierre",
+		ammo="Knobkierrie",
 		neck="Rep. Plat. Medal",
         waist="Kentarch Belt +1",
         left_ring="Regal Ring",
@@ -199,6 +200,8 @@ function init_gear_sets()
     })
 
 	sets.precast.WS['Decimation'] = set_combine(sets.precast.WS,{
+		back=gear.capes.STRDA,
+		left_ear="Odr Earring"
     })
 
 	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS,{
@@ -219,6 +222,12 @@ function init_gear_sets()
 		left_ring="Regal Ring",
 		back=gear.capes.VitWS,
     })
+
+	sets.precast.WS['Cyclone'] = set_combine(sets.engaged, sets.TreasureHunter,{})
+	sets.precast.WS['Wasp Sting'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Gust Slash'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Burning Blade'] = set_combine(sets.engaged, {})
+	sets.precast.WS['Flat Blade'] = set_combine(sets.engaged, {})
 
 	sets.midcast = {}
 	sets.midcast.FastRecast = sets.Enmity
@@ -262,14 +271,14 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head={ name="Nyame Helm", priority=91, augments={'Path: B',}},
 		body={ name="Nyame Mail", priority=138, augments={'Path: B',}},
-		hands={ name="Turms Mittens +1", priority=74},
+		hands=gear.Empyrean.Hands,--{ name="Turms Mittens +1", priority=74},
 		legs=gear.Empyrean.Legs,
 		feet={ name="Turms Leggings +1", priority=76},
 		neck={ name="Futhark Torque +2", priority=60, augments={'Path: A',}},
 		waist={ name="Plat. Mog. Belt", priority=100},
 		left_ear={ name="Etiolation Earring", priority=50},
-		right_ear={ name="Odnowa Earring +1", priority=100, augments={'Path: A',}},
-		left_ring={ name="Defending Ring", priority=0},
+		right_ear="Alabaster Earring",
+		left_ring={ name="Murky Ring", priority=0},
 		right_ring=gear.rings['Moonlight R'],
 		back=gear.capes.ParryTank,
 	}

@@ -228,7 +228,7 @@ skills.weapon_skills = {
     [228] = {en='Final Paradise',skillchain={'Light'}},
     [238] = {en='Uriel Blade',skillchain={'Light','Fragmentation'}},
     [239] = {en='Glory Slash',skillchain={'Light','Fusion'}},
-    [229] = {en='Fast Blade Ii',skillchain={'Fusion'}},
+    [229] = {en='Fast Blade II',skillchain={'Fusion'}},
     }
 
 skills.spells = {

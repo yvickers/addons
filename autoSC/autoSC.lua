@@ -820,6 +820,9 @@ windower.register_event('addon command', function(...)
 		if (ws_name == "Chant Du Cygne") then
 			ws_name = "Chant du Cygne"
 		end
+		if (ws_name == 'Fast Blade Ii') then
+			ws_name = 'Fast Blade II'
+		end
 		if (res.weapon_skills:with('name', ws_name) == nil) then
 			message("No weaponskill with name: "..ws_name.." found. SC opener not added.")
 			return
